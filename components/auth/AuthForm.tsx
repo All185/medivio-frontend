@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface AuthFormProps {
   mode: 'login' | 'register'
@@ -10,6 +11,7 @@ interface AuthFormProps {
 
 export default function AuthForm({ mode }: AuthFormProps) {
   const router = useRouter()
+  const { t } = useLanguage()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [form, setForm] = useState({
@@ -39,7 +41,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
       }
       router.push('/dashboard')
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Une erreur est survenue')
+      setError(err.response?.data?.detail || t('auth.error'))
     } finally {
       setLoading(false)
     }
@@ -49,7 +51,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-          {mode === 'login' ? 'Connexion' : 'Inscription'}
+          {mode === 'login' ? t('auth.login') : t('auth.register')}
         </h1>
 
         {error && (
@@ -63,7 +65,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
             <>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom complet
+                  {t('auth.fullName')}
                 </label>
                 <input
                   type="text"
@@ -77,15 +79,15 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Rôle
+                  {t('auth.role')}
                 </label>
                 <select
                   value={form.role}
                   onChange={(e) => setForm({ ...form, role: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  <option value="patient">Patient</option>
-                  <option value="doctor">Médecin</option>
+                  <option value="patient">{t('auth.patient')}</option>
+                  <option value="doctor">{t('auth.doctor')}</option>
                 </select>
               </div>
             </>
@@ -93,7 +95,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email
+              {t('auth.email')}
             </label>
             <input
               type="email"
@@ -107,7 +109,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Mot de passe
+              {t('auth.password')}
             </label>
             <input
               type="password"
@@ -124,18 +126,18 @@ export default function AuthForm({ mode }: AuthFormProps) {
             disabled={loading}
             className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50"
           >
-            {loading ? 'Chargement...' : mode === 'login' ? 'Se connecter' : "S'inscrire"}
+            {loading ? t('auth.loading') : mode === 'login' ? t('auth.loginButton') : t('auth.registerButton')}
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-500 mt-4">
           {mode === 'login' ? (
-            <>Pas encore de compte ?{' '}
-              <a href="/register" className="text-blue-600 hover:underline">S'inscrire</a>
+            <>{t('auth.noAccount')}{' '}
+              <a href="/register" className="text-blue-600 hover:underline">{t('auth.registerButton')}</a>
             </>
           ) : (
-            <>Déjà un compte ?{' '}
-              <a href="/login" className="text-blue-600 hover:underline">Se connecter</a>
+            <>{t('auth.hasAccount')}{' '}
+              <a href="/login" className="text-blue-600 hover:underline">{t('auth.loginButton')}</a>
             </>
           )}
         </p>
