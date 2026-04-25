@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface Appointment {
   id: string
@@ -14,6 +15,7 @@ interface Appointment {
 
 export default function PatientDashboard() {
   const router = useRouter()
+  const { t } = useLanguage()
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<any>(null)
@@ -51,46 +53,54 @@ export default function PatientDashboard() {
     }
   }
 
+  const statusLabel = (status: string) => {
+    switch (status) {
+      case 'confirmed': return t('status.confirmed')
+      case 'pending':   return t('status.pending')
+      case 'cancelled': return t('status.cancelled')
+      case 'completed': return t('status.completed')
+      default:          return status
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-600">Medivio</h1>
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">
-            Bonjour, {user?.full_name || 'Patient'}
+            {t('dashboard.hello')}, {user?.full_name || t('auth.patient')}
           </span>
           <button
             onClick={handleLogout}
             className="text-sm text-red-500 hover:underline"
           >
-            Déconnexion
+            {t('nav.logout')}
           </button>
         </div>
       </header>
 
-      {/* Contenu */}
       <main className="max-w-4xl mx-auto px-6 py-8">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Mes rendez-vous</h2>
+          <h2 className="text-2xl font-bold text-gray-800">{t('dashboard.appointments')}</h2>
           <button
             onClick={() => router.push('/appointments/new')}
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
           >
-            + Nouveau rendez-vous
+            {t('dashboard.newAppointment')}
           </button>
         </div>
 
         {loading ? (
-          <p className="text-gray-500">Chargement...</p>
+          <p className="text-gray-500">{t('auth.loading')}</p>
         ) : appointments.length === 0 ? (
           <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
-            <p className="text-gray-500 mb-4">Aucun rendez-vous pour l'instant.</p>
+            <p className="text-gray-500 mb-4">{t('dashboard.noAppointments')}</p>
             <button
               onClick={() => router.push('/appointments/new')}
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
             >
-              Prendre un rendez-vous
+              {t('dashboard.takeAppointment')}
             </button>
           </div>
         ) : (
@@ -99,18 +109,14 @@ export default function PatientDashboard() {
               <div key={apt.id} className="bg-white rounded-2xl p-6 shadow-sm flex justify-between items-center">
                 <div>
                   <p className="font-medium text-gray-800">
-                    {new Date(apt.scheduled_at).toLocaleDateString('fr-FR', {
-                      weekday: 'long', year: 'numeric',
-                      month: 'long', day: 'numeric',
-                      hour: '2-digit', minute: '2-digit'
-                    })}
+                    {new Date(apt.scheduled_at).toLocaleDateString()}
                   </p>
                   {apt.notes && (
                     <p className="text-sm text-gray-500 mt-1">{apt.notes}</p>
                   )}
                 </div>
                 <span className={`text-xs font-medium px-3 py-1 rounded-full ${statusColor(apt.status)}`}>
-                  {apt.status}
+                  {statusLabel(apt.status)}
                 </span>
               </div>
             ))}

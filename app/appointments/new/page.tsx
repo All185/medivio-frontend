@@ -3,9 +3,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function NewAppointmentPage() {
   const router = useRouter()
+  const { t } = useLanguage()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [form, setForm] = useState({
@@ -25,7 +27,7 @@ export default function NewAppointmentPage() {
       })
       router.push('/dashboard')
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Une erreur est survenue')
+      setError(err.response?.data?.detail || t('auth.error'))
     } finally {
       setLoading(false)
     }
@@ -39,13 +41,13 @@ export default function NewAppointmentPage() {
           onClick={() => router.push('/dashboard')}
           className="text-sm text-gray-500 hover:underline"
         >
-          ← Retour au tableau de bord
+          {t('appointments.back')}
         </button>
       </header>
 
       <main className="max-w-lg mx-auto px-6 py-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          Nouveau rendez-vous
+          {t('appointments.new')}
         </h2>
 
         {error && (
@@ -58,7 +60,7 @@ export default function NewAppointmentPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                ID du médecin
+                {t('appointments.doctorId')}
               </label>
               <input
                 type="text"
@@ -66,13 +68,16 @@ export default function NewAppointmentPage() {
                 value={form.doctor_id}
                 onChange={(e) => setForm({ ...form, doctor_id: e.target.value })}
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="UUID du médecin"
+                placeholder={t('appointments.doctorPlaceholder')}
               />
+              <p className="text-xs text-gray-400 mt-1">
+                {t('appointments.doctorHint')}
+              </p>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Date et heure
+                {t('appointments.dateTime')}
               </label>
               <input
                 type="datetime-local"
@@ -88,7 +93,7 @@ export default function NewAppointmentPage() {
               disabled={loading}
               className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50"
             >
-              {loading ? 'Création en cours...' : 'Confirmer le rendez-vous'}
+              {loading ? t('appointments.creating') : t('appointments.confirmButton')}
             </button>
           </form>
         </div>

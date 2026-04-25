@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface Record {
   id:             string
@@ -17,6 +18,7 @@ interface Record {
 
 export default function RecordsPage() {
   const router = useRouter()
+  const { t } = useLanguage()
   const [records, setRecords] = useState<Record[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -30,7 +32,7 @@ export default function RecordsPage() {
       const res = await api.get('/records/')
       setRecords(res.data)
     } catch (err: any) {
-      setError('Erreur lors du chargement des dossiers')
+      setError(t('auth.error'))
     } finally {
       setLoading(false)
     }
@@ -38,20 +40,19 @@ export default function RecordsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-600">Medivio</h1>
         <button
           onClick={() => router.push('/dashboard')}
           className="text-sm text-gray-500 hover:underline"
         >
-          ← Retour au tableau de bord
+          {t('appointments.back')}
         </button>
       </header>
 
       <main className="max-w-4xl mx-auto px-6 py-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          Dossiers médicaux
+          {t('records.title')}
         </h2>
 
         {error && (
@@ -61,10 +62,10 @@ export default function RecordsPage() {
         )}
 
         {loading ? (
-          <p className="text-gray-500">Chargement...</p>
+          <p className="text-gray-500">{t('auth.loading')}</p>
         ) : records.length === 0 ? (
           <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
-            <p className="text-gray-500">Aucun dossier médical pour l'instant.</p>
+            <p className="text-gray-500">{t('records.noRecords')}</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -77,17 +78,14 @@ export default function RecordsPage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="font-medium text-gray-800">
-                      {new Date(record.created_at).toLocaleDateString('fr-FR', {
-                        weekday: 'long', year: 'numeric',
-                        month: 'long', day: 'numeric'
-                      })}
+                      {new Date(record.created_at).toLocaleDateString()}
                     </p>
                     <p className="text-sm text-gray-600 mt-1">
                       {record.diagnosis.slice(0, 100)}
                       {record.diagnosis.length > 100 ? '...' : ''}
                     </p>
                   </div>
-                  <span className="text-blue-600 text-sm">Voir →</span>
+                  <span className="text-blue-600 text-sm">{t('records.see')}</span>
                 </div>
               </div>
             ))}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface Appointment {
   id: string
@@ -14,6 +15,7 @@ interface Appointment {
 
 export default function DoctorDashboard() {
   const router = useRouter()
+  const { t } = useLanguage()
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<any>(null)
@@ -60,35 +62,43 @@ export default function DoctorDashboard() {
     }
   }
 
+  const statusLabel = (status: string) => {
+    switch (status) {
+      case 'confirmed': return t('status.confirmed')
+      case 'pending':   return t('status.pending')
+      case 'cancelled': return t('status.cancelled')
+      case 'completed': return t('status.completed')
+      default:          return status
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-600">Medivio</h1>
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">
-            Dr. {user?.full_name || 'Médecin'}
+            Dr. {user?.full_name || t('auth.doctor')}
           </span>
           <button
             onClick={handleLogout}
             className="text-sm text-red-500 hover:underline"
           >
-            Déconnexion
+            {t('nav.logout')}
           </button>
         </div>
       </header>
 
-      {/* Contenu */}
       <main className="max-w-4xl mx-auto px-6 py-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          Consultations du jour
+          {t('dashboard.consultations')}
         </h2>
 
         {loading ? (
-          <p className="text-gray-500">Chargement...</p>
+          <p className="text-gray-500">{t('auth.loading')}</p>
         ) : appointments.length === 0 ? (
           <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
-            <p className="text-gray-500">Aucune consultation pour l'instant.</p>
+            <p className="text-gray-500">{t('dashboard.noConsultations')}</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -97,11 +107,7 @@ export default function DoctorDashboard() {
                 <div className="flex justify-between items-start">
                   <div>
                     <p className="font-medium text-gray-800">
-                      {new Date(apt.scheduled_at).toLocaleDateString('fr-FR', {
-                        weekday: 'long', year: 'numeric',
-                        month: 'long', day: 'numeric',
-                        hour: '2-digit', minute: '2-digit'
-                      })}
+                      {new Date(apt.scheduled_at).toLocaleDateString()}
                     </p>
                     <p className="text-sm text-gray-500 mt-1">
                       Patient ID : {apt.patient_id.slice(0, 8)}...
@@ -113,7 +119,7 @@ export default function DoctorDashboard() {
                     )}
                   </div>
                   <span className={`text-xs font-medium px-3 py-1 rounded-full ${statusColor(apt.status)}`}>
-                    {apt.status}
+                    {statusLabel(apt.status)}
                   </span>
                 </div>
 
@@ -123,13 +129,13 @@ export default function DoctorDashboard() {
                       onClick={() => handleConfirm(apt.id)}
                       className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition"
                     >
-                      Confirmer
+                      {t('dashboard.confirm')}
                     </button>
                     <button
                       onClick={() => router.push(`/video/${apt.id}`)}
                       className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
                     >
-                      Démarrer la consultation
+                      {t('dashboard.startConsultation')}
                     </button>
                   </div>
                 )}

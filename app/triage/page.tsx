@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 interface TriageResult {
   summary:         string
@@ -12,6 +13,7 @@ interface TriageResult {
 
 export default function TriagePage() {
   const router = useRouter()
+  const { t } = useLanguage()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [result, setResult] = useState<TriageResult | null>(null)
@@ -33,7 +35,7 @@ export default function TriagePage() {
       const res = await api.post('/triage/', form)
       setResult(res.data)
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Une erreur est survenue')
+      setError(err.response?.data?.detail || t('auth.error'))
     } finally {
       setLoading(false)
     }
@@ -50,32 +52,31 @@ export default function TriagePage() {
 
   const urgencyLabel = (level: string) => {
     switch (level) {
-      case 'high':   return '🔴 Urgence élevée'
-      case 'medium': return '🟡 Urgence modérée'
-      case 'low':    return '🟢 Urgence faible'
+      case 'high':   return `🔴 ${t('triage.urgencyHigh')}`
+      case 'medium': return `🟡 ${t('triage.urgencyMedium')}`
+      case 'low':    return `🟢 ${t('triage.urgencyLow')}`
       default:       return level
     }
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold text-blue-600">Medivio</h1>
+        <h1 className="text-xl font-bold text-blue-600">Medivio</h1>
         <button
           onClick={() => router.push('/dashboard')}
           className="text-sm text-gray-500 hover:underline"
         >
-          ← Retour au tableau de bord
+          {t('triage.back')}
         </button>
       </header>
 
       <main className="max-w-lg mx-auto px-6 py-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Triage IA
+          {t('triage.title')}
         </h2>
         <p className="text-gray-500 text-sm mb-6">
-          Décrivez vos symptômes avant la consultation. L'IA préparera un résumé pour votre médecin.
+          {t('triage.subtitle')}
         </p>
 
         {error && (
@@ -84,7 +85,6 @@ export default function TriagePage() {
           </div>
         )}
 
-        {/* Résultat IA */}
         {result && (
           <div className={`border rounded-2xl p-6 mb-6 ${urgencyColor(result.urgency_level)}`}>
             <h3 className="font-bold text-lg mb-3">
@@ -92,11 +92,11 @@ export default function TriagePage() {
             </h3>
             <div className="space-y-3">
               <div>
-                <p className="font-medium text-sm">Résumé clinique</p>
+                <p className="font-medium text-sm">{t('triage.summary')}</p>
                 <p className="text-sm mt-1">{result.summary}</p>
               </div>
               <div>
-                <p className="font-medium text-sm">Recommandations</p>
+                <p className="font-medium text-sm">{t('triage.recommendations')}</p>
                 <p className="text-sm mt-1">{result.recommendations}</p>
               </div>
             </div>
@@ -104,18 +104,17 @@ export default function TriagePage() {
               onClick={() => router.push('/dashboard')}
               className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition"
             >
-              Retour au tableau de bord
+              {t('video.backToDashboard')}
             </button>
           </div>
         )}
 
-        {/* Formulaire */}
         {!result && (
           <div className="bg-white rounded-2xl shadow-sm p-6">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  ID du rendez-vous
+                  {t('triage.appointmentId')}
                 </label>
                 <input
                   type="text"
@@ -123,13 +122,12 @@ export default function TriagePage() {
                   value={form.appointment_id}
                   onChange={(e) => setForm({ ...form, appointment_id: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="UUID du rendez-vous"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Décrivez vos symptômes
+                  {t('triage.symptoms')}
                 </label>
                 <textarea
                   required
@@ -137,13 +135,13 @@ export default function TriagePage() {
                   value={form.symptoms}
                   onChange={(e) => setForm({ ...form, symptoms: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Ex: Fièvre, maux de tête, fatigue..."
+                  placeholder={t('triage.symptomsPlaceholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Depuis combien de temps ?
+                  {t('triage.duration')}
                 </label>
                 <input
                   type="text"
@@ -151,13 +149,13 @@ export default function TriagePage() {
                   value={form.duration}
                   onChange={(e) => setForm({ ...form, duration: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Ex: 3 jours, 1 semaine..."
+                  placeholder={t('triage.durationPlaceholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Sévérité : {form.severity}/10
+                  {t('triage.severity')} : {form.severity}/10
                 </label>
                 <input
                   type="range"
@@ -168,21 +166,21 @@ export default function TriagePage() {
                   className="w-full"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
-                  <span>Légère</span>
-                  <span>Sévère</span>
+                  <span>{t('triage.mild')}</span>
+                  <span>{t('triage.severe')}</span>
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Antécédents médicaux (optionnel)
+                  {t('triage.history')}
                 </label>
                 <textarea
                   rows={2}
                   value={form.medical_history}
                   onChange={(e) => setForm({ ...form, medical_history: e.target.value })}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Ex: Diabète, hypertension..."
+                  placeholder={t('triage.historyPlaceholder')}
                 />
               </div>
 
@@ -191,7 +189,7 @@ export default function TriagePage() {
                 disabled={loading}
                 className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50"
               >
-                {loading ? 'Analyse en cours...' : 'Analyser mes symptômes'}
+                {loading ? t('triage.analyzing') : t('triage.analyzeButton')}
               </button>
             </form>
           </div>
