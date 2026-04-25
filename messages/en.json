@@ -84,4 +84,28 @@
       "cancelled": "Cancelled",
       "completed": "Completed"
     }
+    ,
+"forgotPassword": {
+  "title": "Forgot password",
+  "subtitle": "Enter your email to receive a reset link.",
+  "email": "Email",
+  "sendButton": "Send reset link",
+  "sending": "Sending...",
+  "successTitle": "Email sent!",
+  "successMessage": "Check your inbox and click the reset link.",
+  "backToLogin": "← Back to login",
+  "link": "Forgot password?"
+},
+"resetPassword": {
+  "title": "New password",
+  "subtitle": "Choose a new secure password.",
+  "password": "New password",
+  "confirmPassword": "Confirm password",
+  "saveButton": "Save",
+  "saving": "Saving...",
+  "successTitle": "Password updated!",
+  "successMessage": "Your password has been updated. You can now log in.",
+  "errorMatch": "Passwords do not match.",
+  "loginButton": "Log in"
+}
   }

@@ -84,4 +84,28 @@
       "cancelled": "Cancelado",
       "completed": "Concluído"
     }
+    ,
+"forgotPassword": {
+  "title": "Esqueceu a senha",
+  "subtitle": "Digite seu email para receber um link de redefinição.",
+  "email": "E-mail",
+  "sendButton": "Enviar link",
+  "sending": "Enviando...",
+  "successTitle": "Email enviado!",
+  "successMessage": "Verifique sua caixa de entrada e clique no link de redefinição.",
+  "backToLogin": "← Voltar ao login",
+  "link": "Esqueceu a senha?"
+},
+"resetPassword": {
+  "title": "Nova senha",
+  "subtitle": "Escolha uma nova senha segura.",
+  "password": "Nova senha",
+  "confirmPassword": "Confirmar senha",
+  "saveButton": "Salvar",
+  "saving": "Salvando...",
+  "successTitle": "Senha atualizada!",
+  "successMessage": "Sua senha foi atualizada. Agora você pode fazer login.",
+  "errorMatch": "As senhas não coincidem.",
+  "loginButton": "Entrar"
+}
   }

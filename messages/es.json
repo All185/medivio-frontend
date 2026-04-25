@@ -84,4 +84,28 @@
       "cancelled": "Cancelado",
       "completed": "Completado"
     }
+    ,
+"forgotPassword": {
+  "title": "Contraseña olvidada",
+  "subtitle": "Ingrese su email para recibir un enlace de restablecimiento.",
+  "email": "Correo electrónico",
+  "sendButton": "Enviar enlace",
+  "sending": "Enviando...",
+  "successTitle": "¡Email enviado!",
+  "successMessage": "Revise su bandeja de entrada y haga clic en el enlace de restablecimiento.",
+  "backToLogin": "← Volver al inicio de sesión",
+  "link": "¿Olvidó su contraseña?"
+},
+"resetPassword": {
+  "title": "Nueva contraseña",
+  "subtitle": "Elija una nueva contraseña segura.",
+  "password": "Nueva contraseña",
+  "confirmPassword": "Confirmar contraseña",
+  "saveButton": "Guardar",
+  "saving": "Guardando...",
+  "successTitle": "¡Contraseña actualizada!",
+  "successMessage": "Su contraseña ha sido actualizada. Ahora puede iniciar sesión.",
+  "errorMatch": "Las contraseñas no coinciden.",
+  "loginButton": "Iniciar sesión"
+}
   }

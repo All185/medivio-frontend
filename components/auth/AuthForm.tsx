@@ -130,12 +130,20 @@ export default function AuthForm({ mode }: AuthFormProps) {
           </button>
         </form>
 
-        <p className="text-center text-sm text-gray-500 mt-4">
-          {mode === 'login' ? (
-            <>{t('auth.noAccount')}{' '}
-              <a href="/register" className="text-blue-600 hover:underline">{t('auth.registerButton')}</a>
-            </>
-          ) : (
+        {mode === 'login' && (
+  <p className="text-center mt-3">
+    <a href="/forgot-password" className="text-sm text-blue-600 hover:underline">
+      {t('forgotPassword.link')}
+    </a>
+  </p>
+)}
+
+<p className="text-center text-sm text-gray-500 mt-4">
+  {mode === 'login' ? (
+    <>{t('auth.noAccount')}{' '}
+      <a href="/register" className="text-blue-600 hover:underline">{t('auth.registerButton')}</a>
+    </>
+  ) : (
             <>{t('auth.hasAccount')}{' '}
               <a href="/login" className="text-blue-600 hover:underline">{t('auth.loginButton')}</a>
             </>
