@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function NewAppointmentPage() {
   const router = useRouter()
@@ -34,32 +35,42 @@ export default function NewAppointmentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-blue-600">Medivio</h1>
-        <button
-          onClick={() => router.push('/dashboard')}
-          className="text-sm text-gray-500 hover:underline"
-        >
-          {t('appointments.back')}
-        </button>
+    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
+      {/* Header */}
+      <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="Medivio" style={{ width: 36, height: 36, objectFit: 'contain' }} />
+            <span className="text-xl font-extrabold text-[#0B1F4B]">Medivio</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <button
+              onClick={() => router.push('/dashboard')}
+              className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
+            >
+              {t('appointments.back')}
+            </button>
+          </div>
+        </div>
       </header>
 
       <main className="max-w-lg mx-auto px-6 py-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          {t('appointments.new')}
-        </h2>
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-900">{t('appointments.new')}</h2>
+          <p className="text-gray-500 text-sm mt-1">Remplissez les informations pour prendre votre rendez-vous</p>
+        </div>
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4 text-sm">
-            {error}
+          <div className="bg-red-50 border border-red-200 text-red-600 p-3 rounded-xl mb-5 text-sm flex items-center gap-2">
+            <span>⚠️</span> {error}
           </div>
         )}
 
-        <div className="bg-white rounded-2xl shadow-sm p-6">
+        <div className="card p-6">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 {t('appointments.doctorId')}
               </label>
               <input
@@ -67,7 +78,7 @@ export default function NewAppointmentPage() {
                 required
                 value={form.doctor_id}
                 onChange={(e) => setForm({ ...form, doctor_id: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="input-field"
                 placeholder={t('appointments.doctorPlaceholder')}
               />
               <p className="text-xs text-gray-400 mt-1">
@@ -76,7 +87,7 @@ export default function NewAppointmentPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 {t('appointments.dateTime')}
               </label>
               <input
@@ -84,14 +95,14 @@ export default function NewAppointmentPage() {
                 required
                 value={form.scheduled_at}
                 onChange={(e) => setForm({ ...form, scheduled_at: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="input-field"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition disabled:opacity-50"
+              className="btn-primary w-full py-3 text-base"
             >
               {loading ? t('appointments.creating') : t('appointments.confirmButton')}
             </button>
