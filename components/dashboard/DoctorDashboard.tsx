@@ -112,6 +112,16 @@ export default function DoctorDashboard() {
           <p className="text-indigo-100 text-sm">{t('dashboard.consultations')}</p>
         </div>
 
+{/* Bouton analytique */}
+<div className="flex justify-end mb-4">
+  <button
+    onClick={() => router.push('/analytics')}
+    className="btn-primary text-sm px-4 py-2 flex items-center gap-2"
+  >
+    📊 Tableau analytique
+  </button>
+</div>
+
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           {[
@@ -127,7 +137,15 @@ export default function DoctorDashboard() {
         </div>
 
         {/* Liste consultations */}
-        <h3 className="text-lg font-bold text-gray-900 mb-4">{t('dashboard.consultations')}</h3>
+        <div className="flex justify-between items-center mb-6">
+  <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
+  <button
+    onClick={() => router.push('/summary')}
+    className="btn-primary text-sm px-4 py-2 flex items-center gap-2"
+  >
+    🤖 Résumé IA
+  </button>
+</div>
 
         {loading ? (
           <div className="card p-8 text-center">
