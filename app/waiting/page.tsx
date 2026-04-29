@@ -1,12 +1,13 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
-export default function WaitingRoomPage() {
+function WaitingRoomContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { t } = useLanguage()
@@ -205,3 +206,10 @@ export default function WaitingRoomPage() {
     </div>
   )
 }
+export default function WaitingRoomPage() {
+    return (
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Chargement...</div>}>
+        <WaitingRoomContent />
+      </Suspense>
+    )
+  }
