@@ -144,4 +144,30 @@
   "newConsultation": "← Nouvelle consultation",
   "back": "← Retour au tableau de bord"
 }
+,
+"waiting": {
+  "title": "Salle d'attente virtuelle",
+  "subtitle": "Préparez votre consultation en remplissant ce formulaire",
+  "tips": "Conseils avant votre consultation",
+  "tip1": "Buvez suffisamment d'eau avant la consultation",
+  "tip2": "Préparez la liste de vos médicaments actuels",
+  "tip3": "Assurez-vous d'être dans un endroit calme et bien éclairé",
+  "tip4": "Notez vos symptômes et depuis combien de temps",
+  "tip5": "Préparez vos questions pour le médecin",
+  "form": "Informations pré-consultation",
+  "symptoms": "Symptômes actuels",
+  "symptomsPlaceholder": "Décrivez vos symptômes actuels...",
+  "temperature": "Température (°C)",
+  "bloodPressure": "Tension artérielle",
+  "notes": "Notes supplémentaires",
+  "notesPlaceholder": "Allergies, médicaments en cours, questions pour le médecin...",
+  "ready": "Je suis prêt(e) — Rejoindre la salle d'attente",
+  "doctorComing": "Votre médecin arrive bientôt",
+  "stayOnPage": "Restez sur cette page. La consultation démarrera automatiquement.",
+  "waitTime": "Temps d'attente",
+  "preSummary": "Votre fiche pré-consultation",
+  "joinVideo": "Rejoindre la consultation vidéo",
+  "back": "← Retour au tableau de bord",
+  "button": "Salle d'attente"
+}
   }

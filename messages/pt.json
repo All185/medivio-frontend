@@ -144,4 +144,30 @@
   "newConsultation": "← Nova consulta",
   "back": "← Voltar ao painel"
 }
+,
+"waiting": {
+  "title": "Sala de espera virtual",
+  "subtitle": "Prepare sua consulta preenchendo este formulário",
+  "tips": "Dicas antes da sua consulta",
+  "tip1": "Beba água suficiente antes da consulta",
+  "tip2": "Prepare a lista dos seus medicamentos atuais",
+  "tip3": "Certifique-se de estar em um lugar tranquilo e bem iluminado",
+  "tip4": "Anote seus sintomas e há quanto tempo os tem",
+  "tip5": "Prepare suas perguntas para o médico",
+  "form": "Informações pré-consulta",
+  "symptoms": "Sintomas atuais",
+  "symptomsPlaceholder": "Descreva seus sintomas atuais...",
+  "temperature": "Temperatura (°C)",
+  "bloodPressure": "Pressão arterial",
+  "notes": "Notas adicionais",
+  "notesPlaceholder": "Alergias, medicamentos atuais, perguntas para o médico...",
+  "ready": "Estou pronto(a) — Entrar na sala de espera",
+  "doctorComing": "Seu médico chegará em breve",
+  "stayOnPage": "Fique nesta página. A consulta começará automaticamente.",
+  "waitTime": "Tempo de espera",
+  "preSummary": "Sua ficha pré-consulta",
+  "joinVideo": "Entrar na consulta de vídeo",
+  "back": "← Voltar ao painel",
+  "button": "Sala de espera"
+}
   }

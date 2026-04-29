@@ -1,9 +1,7 @@
 'use client'
 
-import { Suspense } from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
@@ -23,11 +21,11 @@ function WaitingRoomContent() {
   })
 
   const healthTips = [
-    { icon: '💧', text: 'Buvez suffisamment d\'eau avant la consultation' },
-    { icon: '📋', text: 'Préparez la liste de vos médicaments actuels' },
-    { icon: '📱', text: 'Assurez-vous d\'être dans un endroit calme et bien éclairé' },
-    { icon: '🩺', text: 'Notez vos symptômes et depuis combien de temps' },
-    { icon: '📝', text: 'Préparez vos questions pour le médecin' },
+    { icon: '💧', text: t('waiting.tip1') },
+    { icon: '📋', text: t('waiting.tip2') },
+    { icon: '📱', text: t('waiting.tip3') },
+    { icon: '🩺', text: t('waiting.tip4') },
+    { icon: '📝', text: t('waiting.tip5') },
   ]
 
   useEffect(() => {
@@ -52,7 +50,6 @@ function WaitingRoomContent() {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      {/* Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -69,14 +66,17 @@ function WaitingRoomContent() {
         {step === 'form' ? (
           <div className="animate-fade-in">
             <div className="text-center mb-8">
-              <div className="text-6xl mb-4">🏥</div>
-              <h2 className="text-2xl font-bold text-gray-900">Salle d'attente virtuelle</h2>
-              <p className="text-gray-500 text-sm mt-2">Préparez votre consultation en remplissant ce formulaire</p>
+              <img
+                src="/logo.png"
+                alt="Medivio"
+                style={{ width: 80, height: 80, objectFit: 'contain', margin: '0 auto 16px' }}
+              />
+              <h2 className="text-2xl font-bold text-gray-900">{t('waiting.title')}</h2>
+              <p className="text-gray-500 text-sm mt-2">{t('waiting.subtitle')}</p>
             </div>
 
-            {/* Conseils santé */}
             <div className="card p-5 mb-6 bg-blue-50 border border-blue-100">
-              <h3 className="font-semibold text-blue-700 mb-3">💡 Conseils avant votre consultation</h3>
+              <h3 className="font-semibold text-blue-700 mb-3">💡 {t('waiting.tips')}</h3>
               <div className="space-y-2">
                 {healthTips.map((tip, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -87,27 +87,26 @@ function WaitingRoomContent() {
               </div>
             </div>
 
-            {/* Formulaire */}
             <div className="card p-6">
-              <h3 className="font-bold text-gray-900 mb-4">📋 Informations pré-consultation</h3>
+              <h3 className="font-bold text-gray-900 mb-4">📋 {t('waiting.form')}</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Symptômes actuels
+                    {t('waiting.symptoms')}
                   </label>
                   <textarea
                     rows={3}
                     value={form.current_symptoms}
                     onChange={(e) => setForm({ ...form, current_symptoms: e.target.value })}
                     className="input-field"
-                    placeholder="Décrivez vos symptômes actuels..."
+                    placeholder={t('waiting.symptomsPlaceholder')}
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      🌡️ Température (°C)
+                      🌡️ {t('waiting.temperature')}
                     </label>
                     <input
                       type="number"
@@ -120,7 +119,7 @@ function WaitingRoomContent() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      💓 Tension artérielle
+                      💓 {t('waiting.bloodPressure')}
                     </label>
                     <input
                       type="text"
@@ -134,19 +133,19 @@ function WaitingRoomContent() {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    📝 Notes supplémentaires
+                    📝 {t('waiting.notes')}
                   </label>
                   <textarea
                     rows={2}
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
                     className="input-field"
-                    placeholder="Allergies, médicaments en cours, questions pour le médecin..."
+                    placeholder={t('waiting.notesPlaceholder')}
                   />
                 </div>
 
                 <button type="submit" className="btn-primary w-full py-3 text-base">
-                  ✅ Je suis prêt(e) — Rejoindre la salle d'attente
+                  ✅ {t('waiting.ready')}
                 </button>
               </form>
             </div>
@@ -154,28 +153,30 @@ function WaitingRoomContent() {
         ) : (
           <div className="animate-fade-in text-center">
             <div className="card p-8 mb-6">
-              <div className="text-6xl mb-4">⏳</div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Votre médecin arrive bientôt</h2>
-              <p className="text-gray-500 text-sm mb-6">Restez sur cette page. La consultation démarrera automatiquement.</p>
+              <img
+                src="/logo.png"
+                alt="Medivio"
+                style={{ width: 80, height: 80, objectFit: 'contain', margin: '0 auto 16px' }}
+              />
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('waiting.doctorComing')}</h2>
+              <p className="text-gray-500 text-sm mb-6">{t('waiting.stayOnPage')}</p>
 
-              {/* Timer */}
               <div className="bg-blue-50 rounded-2xl p-6 mb-6">
-                <p className="text-sm text-blue-500 mb-1">Temps d'attente</p>
+                <p className="text-sm text-blue-500 mb-1">{t('waiting.waitTime')}</p>
                 <p className="text-4xl font-bold text-blue-600">{formatTime(waitTime)}</p>
               </div>
 
-              {/* Résumé du formulaire */}
               {form.current_symptoms && (
                 <div className="card p-4 text-left mb-4 bg-gray-50">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">📋 Votre fiche pré-consultation</p>
+                  <p className="text-sm font-semibold text-gray-700 mb-2">📋 {t('waiting.preSummary')}</p>
                   {form.current_symptoms && (
                     <p className="text-sm text-gray-600">🩺 {form.current_symptoms}</p>
                   )}
                   {form.temperature && (
-                    <p className="text-sm text-gray-600 mt-1">🌡️ Température : {form.temperature}°C</p>
+                    <p className="text-sm text-gray-600 mt-1">🌡️ {form.temperature}°C</p>
                   )}
                   {form.blood_pressure && (
-                    <p className="text-sm text-gray-600 mt-1">💓 Tension : {form.blood_pressure}</p>
+                    <p className="text-sm text-gray-600 mt-1">💓 {form.blood_pressure}</p>
                   )}
                   {form.notes && (
                     <p className="text-sm text-gray-600 mt-1">📝 {form.notes}</p>
@@ -183,13 +184,12 @@ function WaitingRoomContent() {
                 </div>
               )}
 
-              {/* Bouton rejoindre consultation */}
               {appointmentId && (
                 <button
                   onClick={() => router.push(`/video/${appointmentId}`)}
                   className="btn-primary w-full py-3 text-base"
                 >
-                  🎥 Rejoindre la consultation vidéo
+                  🎥 {t('waiting.joinVideo')}
                 </button>
               )}
 
@@ -197,7 +197,7 @@ function WaitingRoomContent() {
                 onClick={() => router.push('/dashboard')}
                 className="w-full mt-3 border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
               >
-                ← Retour au tableau de bord
+                {t('waiting.back')}
               </button>
             </div>
           </div>
@@ -206,10 +206,11 @@ function WaitingRoomContent() {
     </div>
   )
 }
+
 export default function WaitingRoomPage() {
-    return (
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Chargement...</div>}>
-        <WaitingRoomContent />
-      </Suspense>
-    )
-  }
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Chargement...</div>}>
+      <WaitingRoomContent />
+    </Suspense>
+  )
+}

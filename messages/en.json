@@ -144,4 +144,30 @@
   "newConsultation": "← New consultation",
   "back": "← Back to dashboard"
 }
+,
+"waiting": {
+  "title": "Virtual waiting room",
+  "subtitle": "Prepare your consultation by filling out this form",
+  "tips": "Tips before your consultation",
+  "tip1": "Drink enough water before the consultation",
+  "tip2": "Prepare the list of your current medications",
+  "tip3": "Make sure you are in a quiet and well-lit place",
+  "tip4": "Note your symptoms and how long you've had them",
+  "tip5": "Prepare your questions for the doctor",
+  "form": "Pre-consultation information",
+  "symptoms": "Current symptoms",
+  "symptomsPlaceholder": "Describe your current symptoms...",
+  "temperature": "Temperature (°C)",
+  "bloodPressure": "Blood pressure",
+  "notes": "Additional notes",
+  "notesPlaceholder": "Allergies, current medications, questions for the doctor...",
+  "ready": "I'm ready — Join the waiting room",
+  "doctorComing": "Your doctor is coming soon",
+  "stayOnPage": "Stay on this page. The consultation will start automatically.",
+  "waitTime": "Waiting time",
+  "preSummary": "Your pre-consultation form",
+  "joinVideo": "Join the video consultation",
+  "back": "← Back to dashboard",
+  "button": "Waiting room"
+}
   }
