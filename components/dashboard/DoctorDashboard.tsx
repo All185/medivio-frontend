@@ -117,8 +117,8 @@ export default function DoctorDashboard() {
   <button
     onClick={() => router.push('/analytics')}
     className="btn-primary text-sm px-4 py-2 flex items-center gap-2"
-  >
-    📊 Tableau analytique
+    >
+    📊 {t('analytics.title')}
   </button>
 </div>
 
@@ -143,7 +143,7 @@ export default function DoctorDashboard() {
     onClick={() => router.push('/summary')}
     className="btn-primary text-sm px-4 py-2 flex items-center gap-2"
   >
-    🤖 Résumé IA
+  🤖 {t('summary.title')}
   </button>
 </div>
 
