@@ -108,4 +108,40 @@
   "errorMatch": "كلمات المرور غير متطابقة.",
   "loginButton": "تسجيل الدخول"
 }
+,
+"analytics": {
+  "title": "لوحة التحليلات",
+  "subtitle": "نظرة عامة على نشاطك الطبي",
+  "total": "إجمالي الاستشارات",
+  "thisWeek": "هذا الأسبوع",
+  "thisMonth": "هذا الشهر",
+  "completed": "المكتملة",
+  "completionRate": "معدل الإكمال",
+  "cancellationRate": "معدل الإلغاء",
+  "byStatus": "التوزيع حسب الحالة",
+  "pending": "في الانتظار",
+  "confirmed": "مؤكدة",
+  "cancelled": "ملغاة",
+  "back": "العودة إلى لوحة التحكم",
+  "generateSummary": "إنشاء ملخص",
+  "viewConsultations": "عرض جميع الاستشارات"
+},
+"summary": {
+  "title": "ملخص الاستشارة بالذكاء الاصطناعي",
+  "subtitle": "إنشاء تقرير منظم تلقائياً لاستشارتك",
+  "notes": "ملاحظات الاستشارة",
+  "notesPlaceholder": "صف مجريات الاستشارة والملاحظات السريرية...",
+  "symptoms": "أعراض المريض",
+  "symptomsPlaceholder": "حمى، سعال، ألم في الصدر...",
+  "duration": "مدة الاستشارة",
+  "generateButton": "إنشاء الملخص",
+  "generating": "جار الإنشاء...",
+  "diagnosisSummary": "ملخص التشخيص",
+  "recommendations": "التوصيات",
+  "prescription": "الوصفة المقترحة",
+  "followUp": "المتابعة الموصى بها",
+  "fullSummary": "التقرير الكامل",
+  "newConsultation": "استشارة جديدة",
+  "back": "العودة إلى لوحة التحكم"
+}
   }

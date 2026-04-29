@@ -108,4 +108,40 @@
   "errorMatch": "Passwords do not match.",
   "loginButton": "Log in"
 }
+,
+"analytics": {
+  "title": "Analytics dashboard",
+  "subtitle": "Overview of your medical activity",
+  "total": "Total consultations",
+  "thisWeek": "This week",
+  "thisMonth": "This month",
+  "completed": "Completed",
+  "completionRate": "Completion rate",
+  "cancellationRate": "Cancellation rate",
+  "byStatus": "Status breakdown",
+  "pending": "Pending",
+  "confirmed": "Confirmed",
+  "cancelled": "Cancelled",
+  "back": "← Back to dashboard",
+  "generateSummary": "Generate summary",
+  "viewConsultations": "View all consultations"
+},
+"summary": {
+  "title": "AI consultation summary",
+  "subtitle": "Automatically generate a structured report of your consultation",
+  "notes": "Consultation notes",
+  "notesPlaceholder": "Describe the consultation, clinical observations, exchanges with the patient...",
+  "symptoms": "Patient symptoms",
+  "symptomsPlaceholder": "Fever, cough, chest pain...",
+  "duration": "Consultation duration",
+  "generateButton": "Generate summary",
+  "generating": "Generating...",
+  "diagnosisSummary": "Diagnosis summary",
+  "recommendations": "Recommendations",
+  "prescription": "Suggested prescription",
+  "followUp": "Recommended follow-up",
+  "fullSummary": "Full report",
+  "newConsultation": "← New consultation",
+  "back": "← Back to dashboard"
+}
   }

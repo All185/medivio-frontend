@@ -108,4 +108,40 @@
   "errorMatch": "Les mots de passe ne correspondent pas.",
   "loginButton": "Se connecter"
 }
+,
+"analytics": {
+  "title": "Tableau de bord analytique",
+  "subtitle": "Vue d'ensemble de votre activité médicale",
+  "total": "Total consultations",
+  "thisWeek": "Cette semaine",
+  "thisMonth": "Ce mois",
+  "completed": "Terminées",
+  "completionRate": "Taux de complétion",
+  "cancellationRate": "Taux d'annulation",
+  "byStatus": "Répartition par statut",
+  "pending": "En attente",
+  "confirmed": "Confirmées",
+  "cancelled": "Annulées",
+  "back": "← Retour au tableau de bord",
+  "generateSummary": "Générer un compte-rendu",
+  "viewConsultations": "Voir toutes les consultations"
+},
+"summary": {
+  "title": "Résumé IA de consultation",
+  "subtitle": "Générez automatiquement un compte-rendu structuré de votre consultation",
+  "notes": "Notes de consultation",
+  "notesPlaceholder": "Décrivez le déroulement de la consultation, les observations cliniques, les échanges avec le patient...",
+  "symptoms": "Symptômes du patient",
+  "symptomsPlaceholder": "Fièvre, toux, douleurs thoraciques...",
+  "duration": "Durée de la consultation",
+  "generateButton": "Générer le résumé",
+  "generating": "Génération en cours...",
+  "diagnosisSummary": "Résumé du diagnostic",
+  "recommendations": "Recommandations",
+  "prescription": "Prescription suggérée",
+  "followUp": "Suivi recommandé",
+  "fullSummary": "Compte-rendu complet",
+  "newConsultation": "← Nouvelle consultation",
+  "back": "← Retour au tableau de bord"
+}
   }

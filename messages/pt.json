@@ -108,4 +108,40 @@
   "errorMatch": "As senhas não coincidem.",
   "loginButton": "Entrar"
 }
+,
+"analytics": {
+  "title": "Painel analítico",
+  "subtitle": "Visão geral da sua atividade médica",
+  "total": "Total de consultas",
+  "thisWeek": "Esta semana",
+  "thisMonth": "Este mês",
+  "completed": "Concluídas",
+  "completionRate": "Taxa de conclusão",
+  "cancellationRate": "Taxa de cancelamento",
+  "byStatus": "Distribuição por status",
+  "pending": "Pendentes",
+  "confirmed": "Confirmadas",
+  "cancelled": "Canceladas",
+  "back": "← Voltar ao painel",
+  "generateSummary": "Gerar resumo",
+  "viewConsultations": "Ver todas as consultas"
+},
+"summary": {
+  "title": "Resumo IA de consulta",
+  "subtitle": "Gere automaticamente um relatório estruturado da sua consulta",
+  "notes": "Notas da consulta",
+  "notesPlaceholder": "Descreva o andamento da consulta, as observações clínicas...",
+  "symptoms": "Sintomas do paciente",
+  "symptomsPlaceholder": "Febre, tosse, dor no peito...",
+  "duration": "Duração da consulta",
+  "generateButton": "Gerar resumo",
+  "generating": "Gerando...",
+  "diagnosisSummary": "Resumo do diagnóstico",
+  "recommendations": "Recomendações",
+  "prescription": "Prescrição sugerida",
+  "followUp": "Acompanhamento recomendado",
+  "fullSummary": "Relatório completo",
+  "newConsultation": "← Nova consulta",
+  "back": "← Voltar ao painel"
+}
   }

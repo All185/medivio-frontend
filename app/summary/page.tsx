@@ -36,7 +36,7 @@ export default function SummaryPage() {
       const res = await api.post('/summary/generate', form)
       setResult(res.data)
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Une erreur est survenue')
+      setError(err.response?.data?.detail || t('auth.error'))
     } finally {
       setLoading(false)
     }
@@ -44,7 +44,6 @@ export default function SummaryPage() {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      {/* Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -57,7 +56,7 @@ export default function SummaryPage() {
               onClick={() => router.push('/dashboard')}
               className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
             >
-              ← Retour au tableau de bord
+              {t('summary.back')}
             </button>
           </div>
         </div>
@@ -65,10 +64,8 @@ export default function SummaryPage() {
 
       <main className="max-w-3xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">🤖 Résumé IA de consultation</h2>
-          <p className="text-gray-500 text-sm mt-1">
-            Générez automatiquement un compte-rendu structuré de votre consultation
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900">🤖 {t('summary.title')}</h2>
+          <p className="text-gray-500 text-sm mt-1">{t('summary.subtitle')}</p>
         </div>
 
         {error && (
@@ -82,7 +79,7 @@ export default function SummaryPage() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  📝 Notes de consultation
+                  📝 {t('summary.notes')}
                 </label>
                 <textarea
                   required
@@ -90,26 +87,26 @@ export default function SummaryPage() {
                   value={form.consultation_notes}
                   onChange={(e) => setForm({ ...form, consultation_notes: e.target.value })}
                   className="input-field"
-                  placeholder="Décrivez le déroulement de la consultation, les observations cliniques, les échanges avec le patient..."
+                  placeholder={t('summary.notesPlaceholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  🩺 Symptômes du patient
+                  🩺 {t('summary.symptoms')}
                 </label>
                 <textarea
                   rows={3}
                   value={form.patient_symptoms}
                   onChange={(e) => setForm({ ...form, patient_symptoms: e.target.value })}
                   className="input-field"
-                  placeholder="Fièvre, toux, douleurs thoraciques..."
+                  placeholder={t('summary.symptomsPlaceholder')}
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  ⏱️ Durée de la consultation : <span className="text-blue-600 font-bold">{form.consultation_duration} minutes</span>
+                  ⏱️ {t('summary.duration')} : <span className="text-blue-600 font-bold">{form.consultation_duration} min</span>
                 </label>
                 <input
                   type="range"
@@ -133,9 +130,9 @@ export default function SummaryPage() {
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
-                    <span className="animate-spin">⟳</span> Génération en cours...
+                    <span className="animate-spin">⟳</span> {t('summary.generating')}
                   </span>
-                ) : '🤖 Générer le résumé'}
+                ) : `🤖 ${t('summary.generateButton')}`}
               </button>
             </form>
           </div>
@@ -144,7 +141,7 @@ export default function SummaryPage() {
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">🔬</div>
-                <p className="font-semibold text-gray-700">Résumé du diagnostic</p>
+                <p className="font-semibold text-gray-700">{t('summary.diagnosisSummary')}</p>
               </div>
               <p className="text-gray-800 leading-relaxed">{result.diagnosis_summary}</p>
             </div>
@@ -152,7 +149,7 @@ export default function SummaryPage() {
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center">✅</div>
-                <p className="font-semibold text-gray-700">Recommandations</p>
+                <p className="font-semibold text-gray-700">{t('summary.recommendations')}</p>
               </div>
               <p className="text-gray-800 leading-relaxed">{result.recommendations}</p>
             </div>
@@ -160,7 +157,7 @@ export default function SummaryPage() {
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center">💊</div>
-                <p className="font-semibold text-gray-700">Prescription suggérée</p>
+                <p className="font-semibold text-gray-700">{t('summary.prescription')}</p>
               </div>
               <p className="text-gray-800 leading-relaxed">{result.suggested_prescription}</p>
             </div>
@@ -168,7 +165,7 @@ export default function SummaryPage() {
             <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center">📅</div>
-                <p className="font-semibold text-gray-700">Suivi recommandé</p>
+                <p className="font-semibold text-gray-700">{t('summary.followUp')}</p>
               </div>
               <p className="text-gray-800 leading-relaxed">{result.follow_up}</p>
             </div>
@@ -176,7 +173,7 @@ export default function SummaryPage() {
             <div className="card p-6 bg-gray-50">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">📄</div>
-                <p className="font-semibold text-gray-700">Compte-rendu complet</p>
+                <p className="font-semibold text-gray-700">{t('summary.fullSummary')}</p>
               </div>
               <p className="text-gray-800 leading-relaxed">{result.full_summary}</p>
             </div>
@@ -186,13 +183,13 @@ export default function SummaryPage() {
                 onClick={() => setResult(null)}
                 className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
               >
-                ← Nouvelle consultation
+                {t('summary.newConsultation')}
               </button>
               <button
                 onClick={() => router.push('/dashboard')}
                 className="flex-1 btn-primary py-3"
               >
-                Retour au tableau de bord
+                {t('analytics.back')}
               </button>
             </div>
           </div>
