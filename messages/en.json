@@ -170,4 +170,23 @@
   "back": "← Back to dashboard",
   "button": "Waiting room"
 }
+,
+"agenda": {
+  "title": "My schedule",
+  "subtitle": "Set your availability hours",
+  "saved": "Availability saved successfully!",
+  "saveButton": "Save my availability",
+  "saving": "Saving...",
+  "notAvailable": "Not available",
+  "button": "My schedule",
+  "days": {
+    "0": "Monday",
+    "1": "Tuesday",
+    "2": "Wednesday",
+    "3": "Thursday",
+    "4": "Friday",
+    "5": "Saturday",
+    "6": "Sunday"
+  }
+}
   }

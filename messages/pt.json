@@ -170,4 +170,23 @@
   "back": "← Voltar ao painel",
   "button": "Sala de espera"
 }
+,
+"agenda": {
+  "title": "Minha agenda",
+  "subtitle": "Defina seus horários de disponibilidade",
+  "saved": "Disponibilidade salva com sucesso!",
+  "saveButton": "Salvar minha disponibilidade",
+  "saving": "Salvando...",
+  "notAvailable": "Não disponível",
+  "button": "Minha agenda",
+  "days": {
+    "0": "Segunda-feira",
+    "1": "Terça-feira",
+    "2": "Quarta-feira",
+    "3": "Quinta-feira",
+    "4": "Sexta-feira",
+    "5": "Sábado",
+    "6": "Domingo"
+  }
+}
   }

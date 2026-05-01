@@ -6,8 +6,6 @@ import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
-const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-
 interface Slot {
   day_of_week: number
   start_time: string
@@ -18,6 +16,17 @@ interface Slot {
 export default function AgendaPage() {
   const router = useRouter()
   const { t } = useLanguage()
+
+  const DAYS = [
+    t('agenda.days.0'),
+    t('agenda.days.1'),
+    t('agenda.days.2'),
+    t('agenda.days.3'),
+    t('agenda.days.4'),
+    t('agenda.days.5'),
+    t('agenda.days.6'),
+  ]
+
   const [loading, setLoading] = useState(false)
   const [saved, setSaved] = useState(false)
   const [slots, setSlots] = useState<Slot[]>(
@@ -92,7 +101,7 @@ export default function AgendaPage() {
               onClick={() => router.push('/dashboard')}
               className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
             >
-              ← Retour au tableau de bord
+              ← {t('appointments.back')}
             </button>
           </div>
         </div>
@@ -100,20 +109,20 @@ export default function AgendaPage() {
 
       <main className="max-w-3xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">📅 Mon agenda</h2>
-          <p className="text-gray-500 text-sm mt-1">Définissez vos horaires de disponibilité</p>
+          <h2 className="text-2xl font-bold text-gray-900">📅 {t('agenda.title')}</h2>
+          <p className="text-gray-500 text-sm mt-1">{t('agenda.subtitle')}</p>
         </div>
 
         {saved && (
           <div className="bg-green-50 border border-green-200 text-green-600 p-3 rounded-xl mb-5 text-sm flex items-center gap-2">
-            ✅ Disponibilités sauvegardées avec succès !
+            ✅ {t('agenda.saved')}
           </div>
         )}
 
         <div className="card p-6 space-y-4">
           {DAYS.map((day, index) => (
             <div key={index} className={`flex items-center gap-4 p-4 rounded-xl transition ${slots[index].is_available ? 'bg-blue-50' : 'bg-gray-50'}`}>
-              <div className="w-24">
+              <div className="w-28">
                 <p className="font-semibold text-gray-800 text-sm">{day}</p>
               </div>
 
@@ -141,7 +150,7 @@ export default function AgendaPage() {
                   />
                 </div>
               ) : (
-                <p className="text-gray-400 text-sm flex-1">Non disponible</p>
+                <p className="text-gray-400 text-sm flex-1">{t('agenda.notAvailable')}</p>
               )}
             </div>
           ))}
@@ -152,7 +161,7 @@ export default function AgendaPage() {
           disabled={loading}
           className="btn-primary w-full py-3 text-base mt-6"
         >
-          {loading ? '⟳ Sauvegarde...' : '💾 Sauvegarder mes disponibilités'}
+          {loading ? `⟳ ${t('agenda.saving')}` : `💾 ${t('agenda.saveButton')}`}
         </button>
       </main>
     </div>

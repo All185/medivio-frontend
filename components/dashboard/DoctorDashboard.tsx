@@ -124,7 +124,7 @@ export default function DoctorDashboard() {
   onClick={() => router.push('/agenda')}
   className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
 >
-  📅 Mon agenda
+📅 {t('agenda.button')}
 </button>
 </div>
 

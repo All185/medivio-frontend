@@ -170,4 +170,23 @@
   "back": "← Retour au tableau de bord",
   "button": "Salle d'attente"
 }
+,
+"agenda": {
+  "title": "Mon agenda",
+  "subtitle": "Définissez vos horaires de disponibilité",
+  "saved": "Disponibilités sauvegardées avec succès !",
+  "saveButton": "Sauvegarder mes disponibilités",
+  "saving": "Sauvegarde...",
+  "notAvailable": "Non disponible",
+  "button": "Mon agenda",
+  "days": {
+    "0": "Lundi",
+    "1": "Mardi",
+    "2": "Mercredi",
+    "3": "Jeudi",
+    "4": "Vendredi",
+    "5": "Samedi",
+    "6": "Dimanche"
+  }
+}
   }
