@@ -126,6 +126,12 @@ export default function DoctorDashboard() {
 >
 📅 {t('agenda.button')}
 </button>
+<button
+  onClick={() => router.push('/emergency/list')}
+  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-red-600 hover:bg-red-700"
+>
+  🚨 {t('emergency.title')}
+</button>
 </div>
 
         {/* Stats */}
