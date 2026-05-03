@@ -37,6 +37,7 @@ export default function EmergencyPage() {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify({ symptoms, pain_level: pain, patient_id: user.id || 'unknown' }),
       });
+      if (!res.ok) throw new Error('API error');
       const data = await res.json();
       setResult(data);
     } finally {
