@@ -206,15 +206,14 @@
   "level_critical": "حرج",
   "level_urgent": "عاجل",
   "level_standard": "عادي",
-  "back": "العودة إلى لوحة التحكم"
-}
-,
-"list_title": "الحالات الطارئة المعلقة",
-"list_subtitle": "قائمة حالات الطوارئ غير المعالجة.",
-"list_empty": "لا توجد حالات طارئة معلقة.",
-"list_loading": "جار التحميل...",
-"list_mark_handled": "تحديد كمعالج",
-"list_pain": "الألم",
-"list_symptoms": "الأعراض",
-"list_recommendation": "التوصية"
+ "back": "العودة إلى لوحة التحكم",
+    "list_title": "الحالات الطارئة المعلقة",
+    "list_subtitle": "قائمة حالات الطوارئ غير المعالجة.",
+    "list_empty": "لا توجد حالات طارئة معلقة.",
+    "list_loading": "جار التحميل...",
+    "list_mark_handled": "تحديد كمعالج",
+    "list_pain": "الألم",
+    "list_symptoms": "الأعراض",
+    "list_recommendation": "التوصية"
   }
+}

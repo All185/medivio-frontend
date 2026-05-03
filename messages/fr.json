@@ -206,15 +206,15 @@
   "level_critical": "CRITIQUE",
   "level_urgent": "URGENT",
   "level_standard": "STANDARD",
-  "back": "Retour au tableau de bord"
-}
-,
-"list_title": "Urgences en attente",
-"list_subtitle": "Liste des urgences patients non traitees.",
-"list_empty": "Aucune urgence en attente.",
-"list_loading": "Chargement...",
-"list_mark_handled": "Marquer traite",
-"list_pain": "Douleur",
-"list_symptoms": "Symptomes",
-"list_recommendation": "Recommandation"
+  
+   "back": "Retour au tableau de bord",
+    "list_title": "Urgences en attente",
+    "list_subtitle": "Liste des urgences patients non traitees.",
+    "list_empty": "Aucune urgence en attente.",
+    "list_loading": "Chargement...",
+    "list_mark_handled": "Marquer traite",
+    "list_pain": "Douleur",
+    "list_symptoms": "Symptomes",
+    "list_recommendation": "Recommandation"
   }
+}
