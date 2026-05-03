@@ -189,4 +189,23 @@
     "6": "Sunday"
   }
 }
+,
+"emergency": {
+  "title": "Emergency Mode",
+  "subtitle": "Describe your symptoms to be directed quickly.",
+  "symptoms_label": "Describe your symptoms",
+  "symptoms_placeholder": "Ex: chest pain, shortness of breath, dizziness...",
+  "pain_label": "Pain level",
+  "pain_mild": "Mild",
+  "pain_severe": "Unbearable",
+  "submit": "Analyze my emergency",
+  "analyzing": "Analyzing...",
+  "disclaimer": "In case of immediate danger, call 911 directly",
+  "call_samu": "Call Emergency Services - 911",
+  "new_analysis": "New analysis",
+  "level_critical": "CRITICAL",
+  "level_urgent": "URGENT",
+  "level_standard": "STANDARD",
+  "back": "Back to dashboard"
+}
   }

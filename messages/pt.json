@@ -189,4 +189,23 @@
     "6": "Domingo"
   }
 }
+,
+"emergency": {
+  "title": "Modo Emergência",
+  "subtitle": "Descreva seus sintomas para ser orientado rapidamente.",
+  "symptoms_label": "Descreva seus sintomas",
+  "symptoms_placeholder": "Ex: dor no peito, falta de ar, tonturas...",
+  "pain_label": "Nível de dor",
+  "pain_mild": "Leve",
+  "pain_severe": "Insuportável",
+  "submit": "Analisar minha emergência",
+  "analyzing": "Analisando...",
+  "disclaimer": "Em caso de perigo imediato, ligue para o 112 diretamente",
+  "call_samu": "Ligar para o 112",
+  "new_analysis": "Nova análise",
+  "level_critical": "CRÍTICO",
+  "level_urgent": "URGENTE",
+  "level_standard": "PADRÃO",
+  "back": "Voltar ao painel"
+}
   }

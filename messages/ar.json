@@ -189,4 +189,23 @@
     "6": "الأحد"
   }
 }
+,
+"emergency": {
+  "title": "وضع الطوارئ",
+  "subtitle": "صف أعراضك للحصول على التوجيه السريع.",
+  "symptoms_label": "صف أعراضك",
+  "symptoms_placeholder": "مثال: ألم في الصدر، ضيق في التنفس، دوخة...",
+  "pain_label": "مستوى الألم",
+  "pain_mild": "خفيف",
+  "pain_severe": "لا يطاق",
+  "submit": "تحليل حالتي الطارئة",
+  "analyzing": "جارٍ التحليل...",
+  "disclaimer": "في حالة الخطر الفوري، اتصل بـ 15 مباشرة",
+  "call_samu": "الاتصال بالإسعاف - 15",
+  "new_analysis": "تحليل جديد",
+  "level_critical": "حرج",
+  "level_urgent": "عاجل",
+  "level_standard": "عادي",
+  "back": "العودة إلى لوحة التحكم"
+}
   }

@@ -189,4 +189,23 @@
     "6": "Dimanche"
   }
 }
+,
+"emergency": {
+  "title": "Mode Urgence",
+  "subtitle": "Décrivez vos symptômes pour être orienté rapidement.",
+  "symptoms_label": "Décrivez vos symptômes",
+  "symptoms_placeholder": "Ex: douleur thoracique, essoufflement, vertiges...",
+  "pain_label": "Niveau de douleur",
+  "pain_mild": "Léger",
+  "pain_severe": "Insupportable",
+  "submit": "Analyser mon urgence",
+  "analyzing": "Analyse en cours...",
+  "disclaimer": "En cas de danger immédiat, appelez directement le 15",
+  "call_samu": "Appeler le SAMU - 15",
+  "new_analysis": "Nouvelle analyse",
+  "level_critical": "CRITIQUE",
+  "level_urgent": "URGENT",
+  "level_standard": "STANDARD",
+  "back": "Retour au tableau de bord"
+}
   }
