@@ -208,4 +208,13 @@
   "level_standard": "PADRÃO",
   "back": "Voltar ao painel"
 }
+,
+"list_title": "Emergências pendentes",
+"list_subtitle": "Lista de emergências de pacientes não tratadas.",
+"list_empty": "Nenhuma emergência pendente.",
+"list_loading": "Carregando...",
+"list_mark_handled": "Marcar como tratado",
+"list_pain": "Dor",
+"list_symptoms": "Sintomas",
+"list_recommendation": "Recomendacao"
   }

@@ -16,13 +16,14 @@ interface Emergency {
 }
 
 export default function EmergencyListPage() {
+  const { t } = useLanguage();
   const [emergencies, setEmergencies] = useState<Emergency[]>([]);
   const [loading, setLoading] = useState(true);
 
   const levelConfig: Record<string, { color: string; bg: string; label: string }> = {
-    critical: { color: 'text-red-600', bg: 'bg-red-50 border-red-200', label: 'CRITIQUE' },
-    urgent: { color: 'text-orange-500', bg: 'bg-orange-50 border-orange-200', label: 'URGENT' },
-    standard: { color: 'text-green-600', bg: 'bg-green-50 border-green-200', label: 'STANDARD' },
+    critical: { color: 'text-red-600', bg: 'bg-red-50 border-red-200', label: t('emergency.level_critical') },
+    urgent: { color: 'text-orange-500', bg: 'bg-orange-50 border-orange-200', label: t('emergency.level_urgent') },
+    standard: { color: 'text-green-600', bg: 'bg-green-50 border-green-200', label: t('emergency.level_standard') },
   };
 
   useEffect(() => {
@@ -55,30 +56,28 @@ export default function EmergencyListPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-  <div className="flex items-center gap-2">
-    <Image src="/logo.png" alt="Medivio" width={36} height={36} />
-    <span className="font-bold text-gray-900 text-lg">Medivio</span>
-  </div>
-  <div className="flex items-center gap-4">
-    <LanguageSwitcher />
-    <Link href="/dashboard" className="text-sm text-gray-500 hover:text-gray-700">
-      Retour au tableau de bord
-    </Link>
-  </div>
-</header>
+        <div className="flex items-center gap-2">
+          <Image src="/logo.png" alt="Medivio" width={36} height={36} />
+          <span className="font-bold text-gray-900 text-lg">Medivio</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher />
+          <Link href="/dashboard" className="text-sm text-gray-500 hover:text-gray-700">{t('emergency.back')}</Link>
+        </div>
+      </header>
 
       <div className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Urgences en attente</h1>
-          <p className="text-gray-500 mt-1">Liste des urgences patients non traitees.</p>
+          <h1 className="text-3xl font-bold text-gray-900">{t('emergency.list_title')}</h1>
+          <p className="text-gray-500 mt-1">{t('emergency.list_subtitle')}</p>
         </div>
 
         {loading ? (
-          <p className="text-gray-400 text-center py-12">Chargement...</p>
+          <p className="text-gray-400 text-center py-12">{t('emergency.list_loading')}</p>
         ) : emergencies.length === 0 ? (
           <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center">
             <div className="text-5xl mb-4">✅</div>
-            <p className="text-gray-500">Aucune urgence en attente.</p>
+            <p className="text-gray-500">{t('emergency.list_empty')}</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -90,21 +89,14 @@ export default function EmergencyListPage() {
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${levelConfig[e.level]?.color || ''}`}>
                         {levelConfig[e.level]?.label || e.level}
                       </span>
-                      <span className="text-xs text-gray-400">
-                        Douleur : {e.pain_level}/10
-                      </span>
-                      <span className="text-xs text-gray-400">
-                        {new Date(e.created_at).toLocaleString('fr-FR')}
-                      </span>
+                      <span className="text-xs text-gray-400">{t('emergency.list_pain')} : {e.pain_level}/10</span>
+                      <span className="text-xs text-gray-400">{new Date(e.created_at).toLocaleString('fr-FR')}</span>
                     </div>
-                    <p className="text-sm text-gray-700 mb-1"><span className="font-medium">Symptomes :</span> {e.symptoms}</p>
-                    <p className="text-sm text-gray-600"><span className="font-medium">Recommandation :</span> {e.recommendation}</p>
+                    <p className="text-sm text-gray-700 mb-1"><span className="font-medium">{t('emergency.list_symptoms')} :</span> {e.symptoms}</p>
+                    <p className="text-sm text-gray-600"><span className="font-medium">{t('emergency.list_recommendation')} :</span> {e.recommendation}</p>
                   </div>
-                  <button
-                    onClick={() => handleMarkHandled(e.id)}
-                    className="text-xs bg-white border border-gray-300 px-3 py-1.5 rounded-lg hover:bg-gray-50 whitespace-nowrap"
-                  >
-                    Marquer traite
+                  <button onClick={() => handleMarkHandled(e.id)} className="text-xs bg-white border border-gray-300 px-3 py-1.5 rounded-lg hover:bg-gray-50 whitespace-nowrap">
+                    {t('emergency.list_mark_handled')}
                   </button>
                 </div>
               </div>

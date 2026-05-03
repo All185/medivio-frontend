@@ -208,4 +208,13 @@
   "level_standard": "STANDARD",
   "back": "Back to dashboard"
 }
+,
+"list_title": "Pending Emergencies",
+"list_subtitle": "List of untreated patient emergencies.",
+"list_empty": "No pending emergencies.",
+"list_loading": "Loading...",
+"list_mark_handled": "Mark as handled",
+"list_pain": "Pain",
+"list_symptoms": "Symptoms",
+"list_recommendation": "Recommendation"
   }

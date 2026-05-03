@@ -208,4 +208,13 @@
   "level_standard": "ESTÁNDAR",
   "back": "Volver al panel"
 }
+,
+"list_title": "Urgencias pendientes",
+"list_subtitle": "Lista de urgencias de pacientes no tratadas.",
+"list_empty": "No hay urgencias pendientes.",
+"list_loading": "Cargando...",
+"list_mark_handled": "Marcar como tratado",
+"list_pain": "Dolor",
+"list_symptoms": "Sintomas",
+"list_recommendation": "Recomendacion"
   }
