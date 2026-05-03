@@ -30,7 +30,7 @@ export default function EmergencyPage() {
     if (!symptoms.trim()) return;
     setLoading(true);
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('access_token');
       const user = JSON.parse(localStorage.getItem('user') || '{}');
       const res = await fetch('/api/emergency/analyze', {
         method: 'POST',
