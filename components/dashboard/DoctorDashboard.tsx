@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-
+import EmergencyBanner from '@/components/EmergencyBanner';
 interface Appointment {
   id: string
   patient_id: string
@@ -103,7 +103,7 @@ export default function DoctorDashboard() {
           </div>
         </div>
       </header>
-
+      <EmergencyBanner />
       <main className="max-w-5xl mx-auto px-6 py-8">
         {/* Hero */}
         <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-8 text-white">
