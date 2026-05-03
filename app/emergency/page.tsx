@@ -30,10 +30,12 @@ export default function EmergencyPage() {
     if (!symptoms.trim()) return;
     setLoading(true);
     try {
+      const token = localStorage.getItem('token');
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
       const res = await fetch('/api/emergency/analyze', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ symptoms, pain_level: pain, patient_id: 'current-user-id' }),
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify({ symptoms, pain_level: pain, patient_id: user.id || 'unknown' }),
       });
       const data = await res.json();
       setResult(data);
