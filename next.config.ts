@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
         destination: 'https://medivio-backend.onrender.com/api/v1/:path*',
       },
       { source: '/api/emergency/:path*', destination: 'https://medivio-backend.onrender.com/emergency/:path*' },
+      { source: '/api/loyalty/:path*', destination: 'https://medivio-backend.onrender.com/loyalty/:path*' },
     ]
   },
 }

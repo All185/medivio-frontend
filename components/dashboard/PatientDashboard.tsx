@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-
+import LoyaltyBadge from '@/components/LoyaltyBadge';
 interface Appointment {
   id: string
   doctor_id: string
@@ -75,6 +75,7 @@ export default function PatientDashboard() {
           </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
+            <LoyaltyBadge />
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                 <span className="text-blue-600 text-xs font-bold">
@@ -111,6 +112,7 @@ export default function PatientDashboard() {
             { icon: '📋', label: t('records.title'), action: () => router.push('/records'), color: 'bg-green-50 text-green-600' },
             { icon: '⏳', label: t('waiting.button'), action: () => router.push('/waiting'), color: 'bg-orange-50 text-orange-600' },
             { icon: '🚨', label: t('emergency.title'), action: () => router.push('/emergency'), color: 'bg-red-50 text-red-600' },
+            { icon: '🎁', label: t('loyalty.title'), action: () => router.push('/loyalty'), color: 'bg-purple-50 text-purple-600' },
           ].map((item, i) => (
             <button
               key={i}

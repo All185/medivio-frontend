@@ -217,4 +217,27 @@
     "list_symptoms": "Symptomes",
     "list_recommendation": "Recommandation"
   }
+  ,
+  "loyalty": {
+  "title": "Programme de fidelisation",
+  "subtitle": "Gagnez des points a chaque consultation et profitez d'avantages exclusifs.",
+  "back": "Retour au tableau de bord",
+  "loading": "Chargement...",
+  "error": "Impossible de charger vos donnees.",
+  "points": "points",
+  "discount": "sur vos consultations",
+  "points_to_next": "points pour atteindre le niveau",
+  "how_to_earn": "Comment gagner des points",
+  "history": "Historique des points",
+  "no_history": "Aucun point gagne pour l'instant.",
+  "level_bronze": "Bronze",
+  "level_argent": "Argent",
+  "level_or": "Or",
+  "level_platine": "Platine",
+  "action_consultation": "Consultation effectuee",
+  "action_profile_completed": "Profil complete",
+  "action_review_left": "Avis laisse",
+  "action_referral": "Parrainage",
+  "action_daily_login": "Connexion quotidienne"
+}
 }

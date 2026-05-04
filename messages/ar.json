@@ -216,4 +216,27 @@
     "list_symptoms": "الأعراض",
     "list_recommendation": "التوصية"
   }
+  ,
+  "loyalty": {
+  "title": "برنامج الولاء",
+  "subtitle": "اكسب نقاطا في كل استشارة واستمتع بمزايا حصرية.",
+  "back": "العودة إلى لوحة التحكم",
+  "loading": "جار التحميل...",
+  "error": "تعذر تحميل بياناتك.",
+  "points": "نقطة",
+  "discount": "على استشاراتك",
+  "points_to_next": "نقطة للوصول إلى مستوى",
+  "how_to_earn": "كيفية كسب النقاط",
+  "history": "سجل النقاط",
+  "no_history": "لا توجد نقاط مكتسبة بعد.",
+  "level_bronze": "برونز",
+  "level_argent": "فضة",
+  "level_or": "ذهب",
+  "level_platine": "بلاتين",
+  "action_consultation": "استشارة مكتملة",
+  "action_profile_completed": "الملف الشخصي مكتمل",
+  "action_review_left": "تقييم متروك",
+  "action_referral": "إحالة",
+  "action_daily_login": "تسجيل دخول يومي"
+}
 }
