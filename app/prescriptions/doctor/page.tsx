@@ -97,7 +97,7 @@ export default function DoctorPrescriptionsPage() {
                         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${statusConfig[p.status]?.color}`}>
                           {statusConfig[p.status]?.label}
                         </span>
-                        <span className="text-xs text-gray-400">{new Date(p.created_at).toLocaleDateString('fr-FR')}</span>
+                        <span className="text-xs text-gray-400">{new Date(p.created_at).toLocaleDateString()}</span>
                       </div>
                       <p className="text-sm font-medium text-gray-700">{p.prescription_items.length} {t('prescription.medications_count')}</p>
                     </div>
@@ -122,7 +122,7 @@ export default function DoctorPrescriptionsPage() {
                     )}
                     <div className="flex items-center justify-between text-xs text-gray-400">
                       <span>{t('prescription.token')} : {p.token.substring(0, 12)}...</span>
-                      <span>{t('prescription.expires')} : {new Date(p.expires_at).toLocaleDateString('fr-FR')}</span>
+                      <span>{t('prescription.expires')} : {new Date(p.expires_at).toLocaleDateString()}</span>
                     </div>
                   </div>
                 )}
