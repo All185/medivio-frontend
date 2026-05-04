@@ -26,7 +26,15 @@ interface Prescription {
 }
 
 export default function PatientPrescriptionsPage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+const localeMap: Record<string, string> = {
+  fr: 'fr-FR',
+  en: 'en-US',
+  es: 'es-ES',
+  pt: 'pt-BR',
+  ar: 'ar-SA',
+};
+const dateLocale = localeMap[locale] || 'fr-FR';
   const [prescriptions, setPrescriptions] = useState<Prescription[]>([]);
   const [loading, setLoading] = useState(true);
   const [qrCodes, setQrCodes] = useState<Record<string, string>>({});
@@ -102,7 +110,7 @@ export default function PatientPrescriptionsPage() {
                         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${statusConfig[p.status]?.color}`}>
                           {statusConfig[p.status]?.label}
                         </span>
-                        <span className="text-xs text-gray-400">{new Date(p.created_at).toLocaleDateString()}</span>
+                        <span className="text-xs text-gray-400">{new Date(p.created_at).toLocaleDateString(dateLocale)}</span>
                       </div>
                       <p className="text-sm font-medium text-gray-700">{p.prescription_items.length} {t('prescription.medications_count')}</p>
                     </div>
@@ -134,7 +142,7 @@ export default function PatientPrescriptionsPage() {
                         <p className="text-sm text-blue-700">{p.notes}</p>
                       </div>
                     )}
-                    <p className="text-xs text-gray-400 text-center">{t('prescription.expires')} : {new Date(p.expires_at).toLocaleDateString()}</p>
+                    <p className="text-xs text-gray-400 text-center">{t('prescription.expires')} : {new Date(p.expires_at).toLocaleDateString(dateLocale)}</p>
                   </div>
                 )}
               </div>
