@@ -276,4 +276,33 @@
   "status_dispensed": "تم الصرف",
   "status_expired": "منتهية"
 }
+,
+"billing": {
+  "back": "العودة إلى لوحة التحكم",
+  "loading": "جار التحميل...",
+  "my_invoices": "فواتيري",
+  "my_invoices_subtitle": "عرض ودفع فواتيرك عبر الانترنت.",
+  "doctor_title": "الفوترة",
+  "doctor_subtitle": "ادارة فواتير مرضاك.",
+  "new_invoice": "فاتورة جديدة",
+  "create": "انشاء الفاتورة",
+  "creating": "جار الانشاء...",
+  "no_invoices": "لا توجد فواتير حتى الان.",
+  "amount": "المبلغ",
+  "discount": "خصم الولاء",
+  "total": "الاجمالي",
+  "download": "تحميل",
+  "pay": "ادفع الان",
+  "cancel": "الغاء",
+  "status_pending": "قيد الانتظار",
+  "status_paid": "مدفوعة",
+  "status_cancelled": "ملغاة",
+  "total_revenue": "اجمالي الايرادات",
+  "monthly_revenue": "ايرادات الشهر",
+  "pending_amount": "المبلغ المعلق",
+  "total_invoices": "الفواتير المدفوعة",
+  "patient_id_placeholder": "UUID المريض",
+  "amount_placeholder": "المبلغ بالاورو",
+  "description_placeholder": "وصف الاستشارة"
+}
 }

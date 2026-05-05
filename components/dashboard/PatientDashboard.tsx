@@ -114,6 +114,7 @@ export default function PatientDashboard() {
             { icon: '🚨', label: t('emergency.title'), action: () => router.push('/emergency'), color: 'bg-red-50 text-red-600' },
             { icon: '🎁', label: t('loyalty.title'), action: () => router.push('/loyalty'), color: 'bg-purple-50 text-purple-600' },
             { icon: '📋', label: t('prescription.my_prescriptions'), action: () => router.push('/prescriptions'), color: 'bg-green-50 text-green-600' },
+            { icon: '🧾', label: t('billing.my_invoices'), action: () => router.push('/billing'), color: 'bg-yellow-50 text-yellow-600' },
           ].map((item, i) => (
             <button
               key={i}

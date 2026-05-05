@@ -276,4 +276,33 @@
   "status_dispensed": "Dispensed",
   "status_expired": "Expired"
 }
+,
+"billing": {
+  "back": "Back to dashboard",
+  "loading": "Loading...",
+  "my_invoices": "My invoices",
+  "my_invoices_subtitle": "View and pay your invoices online.",
+  "doctor_title": "Billing",
+  "doctor_subtitle": "Manage your patients invoices.",
+  "new_invoice": "New invoice",
+  "create": "Create invoice",
+  "creating": "Creating...",
+  "no_invoices": "No invoices yet.",
+  "amount": "Amount",
+  "discount": "Loyalty discount",
+  "total": "Total",
+  "download": "Download",
+  "pay": "Pay now",
+  "cancel": "Cancel",
+  "status_pending": "Pending",
+  "status_paid": "Paid",
+  "status_cancelled": "Cancelled",
+  "total_revenue": "Total revenue",
+  "monthly_revenue": "Monthly revenue",
+  "pending_amount": "Pending amount",
+  "total_invoices": "Paid invoices",
+  "patient_id_placeholder": "Patient UUID",
+  "amount_placeholder": "Amount in EUR",
+  "description_placeholder": "Consultation description"
+}
 }

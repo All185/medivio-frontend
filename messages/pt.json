@@ -276,4 +276,33 @@
   "status_dispensed": "Dispensada",
   "status_expired": "Expirada"
 }
+,
+"billing": {
+  "back": "Voltar ao painel",
+  "loading": "Carregando...",
+  "my_invoices": "Minhas faturas",
+  "my_invoices_subtitle": "Consulte e pague suas faturas online.",
+  "doctor_title": "Faturamento",
+  "doctor_subtitle": "Gerencie as faturas dos seus pacientes.",
+  "new_invoice": "Nova fatura",
+  "create": "Criar fatura",
+  "creating": "Criando...",
+  "no_invoices": "Nenhuma fatura por enquanto.",
+  "amount": "Valor",
+  "discount": "Desconto fidelidade",
+  "total": "Total",
+  "download": "Baixar",
+  "pay": "Pagar agora",
+  "cancel": "Cancelar",
+  "status_pending": "Pendente",
+  "status_paid": "Paga",
+  "status_cancelled": "Cancelada",
+  "total_revenue": "Receita total",
+  "monthly_revenue": "Receita do mes",
+  "pending_amount": "Valor pendente",
+  "total_invoices": "Faturas pagas",
+  "patient_id_placeholder": "UUID do paciente",
+  "amount_placeholder": "Valor em EUR",
+  "description_placeholder": "Descricao da consulta"
+}
 }

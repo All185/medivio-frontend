@@ -277,4 +277,33 @@
   "status_dispensed": "Dispensee",
   "status_expired": "Expiree"
 }
+,
+"billing": {
+  "back": "Retour au tableau de bord",
+  "loading": "Chargement...",
+  "my_invoices": "Mes factures",
+  "my_invoices_subtitle": "Consultez et payez vos factures en ligne.",
+  "doctor_title": "Facturation",
+  "doctor_subtitle": "Gerez les factures de vos patients.",
+  "new_invoice": "Nouvelle facture",
+  "create": "Creer la facture",
+  "creating": "Creation en cours...",
+  "no_invoices": "Aucune facture pour l'instant.",
+  "amount": "Montant HT",
+  "discount": "Remise fidelite",
+  "total": "Total TTC",
+  "download": "Telecharger",
+  "pay": "Payer maintenant",
+  "cancel": "Annuler",
+  "status_pending": "En attente",
+  "status_paid": "Payee",
+  "status_cancelled": "Annulee",
+  "total_revenue": "Revenus totaux",
+  "monthly_revenue": "Revenus du mois",
+  "pending_amount": "En attente",
+  "total_invoices": "Factures payees",
+  "patient_id_placeholder": "UUID du patient",
+  "amount_placeholder": "Montant en EUR",
+  "description_placeholder": "Description de la consultation"
+}
 }

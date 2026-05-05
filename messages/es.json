@@ -276,4 +276,33 @@
   "status_dispensed": "Dispensada",
   "status_expired": "Expirada"
 }
+,
+"billing": {
+  "back": "Volver al panel",
+  "loading": "Cargando...",
+  "my_invoices": "Mis facturas",
+  "my_invoices_subtitle": "Consulte y pague sus facturas en linea.",
+  "doctor_title": "Facturacion",
+  "doctor_subtitle": "Gestione las facturas de sus pacientes.",
+  "new_invoice": "Nueva factura",
+  "create": "Crear factura",
+  "creating": "Creando...",
+  "no_invoices": "No hay facturas por el momento.",
+  "amount": "Importe",
+  "discount": "Descuento fidelidad",
+  "total": "Total",
+  "download": "Descargar",
+  "pay": "Pagar ahora",
+  "cancel": "Cancelar",
+  "status_pending": "Pendiente",
+  "status_paid": "Pagada",
+  "status_cancelled": "Cancelada",
+  "total_revenue": "Ingresos totales",
+  "monthly_revenue": "Ingresos del mes",
+  "pending_amount": "Pendiente de cobro",
+  "total_invoices": "Facturas pagadas",
+  "patient_id_placeholder": "UUID del paciente",
+  "amount_placeholder": "Importe en EUR",
+  "description_placeholder": "Descripcion de la consulta"
+}
 }

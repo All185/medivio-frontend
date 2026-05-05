@@ -138,6 +138,12 @@ export default function DoctorDashboard() {
 >
   📋 {t('prescription.doctor_title')}
 </button>
+<button
+  onClick={() => router.push('/billing/doctor')}
+  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600"
+>
+  🧾 {t('billing.doctor_title')}
+</button>
 </div>
 
         {/* Stats */}
