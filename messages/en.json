@@ -303,7 +303,12 @@
   "total_invoices": "Paid invoices",
   "patient_id_placeholder": "Patient UUID",
   "amount_placeholder": "Amount in EUR",
-  "description_placeholder": "Consultation description"
+  "description_placeholder": "Consultation description",
+  "reimbursement_estimate": "Reimbursement estimate",
+  "am_reimbursement": "Health Insurance coverage",
+  "patient_share": "Estimated out-of-pocket",
+  "estimate_disclaimer": "Indicative estimate. Actual amount depends on your coverage.",
+  "redirecting": "Redirecting..."
 }
 ,
 "senior": {

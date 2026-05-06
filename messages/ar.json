@@ -303,7 +303,12 @@
   "total_invoices": "الفواتير المدفوعة",
   "patient_id_placeholder": "UUID المريض",
   "amount_placeholder": "المبلغ بالاورو",
-  "description_placeholder": "وصف الاستشارة"
+  "description_placeholder": "وصف الاستشارة",
+  "reimbursement_estimate": "تقدير التعويض",
+  "am_reimbursement": "تغطية التامين الصحي",
+  "patient_share": "الجزء المقدر على المريض",
+  "estimate_disclaimer": "تقدير استرشادي. المبلغ الفعلي يعتمد على تغطيتك.",
+  "redirecting": "جار التحويل..."
 }
 ,
 "senior": {

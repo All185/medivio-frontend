@@ -303,7 +303,12 @@
   "total_invoices": "Faturas pagas",
   "patient_id_placeholder": "UUID do paciente",
   "amount_placeholder": "Valor em EUR",
-  "description_placeholder": "Descricao da consulta"
+  "description_placeholder": "Descricao da consulta",
+  "reimbursement_estimate": "Estimativa de reembolso",
+  "am_reimbursement": "Cobertura do seguro",
+  "patient_share": "Gasto estimado do paciente",
+  "estimate_disclaimer": "Estimativa indicativa. O valor real depende da sua cobertura.",
+  "redirecting": "Redirecionando..."
 }
 ,
 "senior": {
