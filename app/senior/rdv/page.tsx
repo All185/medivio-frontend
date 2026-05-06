@@ -9,7 +9,6 @@ export default function SeniorRdvPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
   const [type, setType] = useState('');
-  const [confirmed, setConfirmed] = useState(false);
 
   function speak(text: string) {
     if ('speechSynthesis' in window) {
@@ -24,18 +23,28 @@ export default function SeniorRdvPage() {
   useEffect(() => {
     if (step === 1) speak(t('senior.rdv_step1_voice'));
     if (step === 2) speak(t('senior.rdv_step2_voice'));
-    if (step === 3) speak(t('senior.rdv_step3_voice'));
+    if (step === 3) speak(t('senior.rdv_confirmed_voice'));
   }, [step]);
+
+  async function logInteraction(action: string) {
+    try {
+      const token = localStorage.getItem('access_token');
+      await fetch('/api/senior/interaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify({ action, success: true }),
+      });
+    } catch {}
+  }
 
   function handleType(selected: string) {
     setType(selected);
     setStep(2);
   }
 
-  function handleConfirm() {
+  async function handleConfirm() {
+    await logInteraction('rdv_booked');
     setStep(3);
-    speak(t('senior.rdv_confirmed_voice'));
-    setTimeout(() => router.push('/appointments/new'), 3000);
   }
 
   return (
@@ -45,13 +54,13 @@ export default function SeniorRdvPage() {
           <Image src="/logo.png" alt="Medivio" width={40} height={40} />
           <span className="font-bold text-gray-900 text-xl">Medivio</span>
         </div>
-        <button onClick={() => router.push('/senior')} className="text-gray-500 text-lg">
+        <button onClick={() => router.push('/senior')} className="text-gray-500 text-lg font-medium">
           {t('senior.back')}
         </button>
       </header>
 
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-8">
-        {/* Indicateur d'etapes */}
+        {/* Indicateur etapes */}
         <div className="flex items-center gap-4 mb-12">
           {[1, 2, 3].map(s => (
             <div key={s} className="flex items-center gap-4">
@@ -83,9 +92,9 @@ export default function SeniorRdvPage() {
         {step === 2 && (
           <div className="text-center space-y-8 w-full max-w-lg">
             <h1 className="text-4xl font-bold text-gray-900">{t('senior.rdv_step2_title')}</h1>
-            <div className="bg-white rounded-3xl p-8 shadow-lg space-y-4 text-left">
+            <div className="bg-white rounded-3xl p-8 shadow-lg text-left">
               <div className="flex items-center gap-4">
-                <span className="text-4xl">{type === 'urgent' ? '🚨' : '📅'}</span>
+                <span className="text-5xl">{type === 'urgent' ? '🚨' : '📅'}</span>
                 <div>
                   <p className="text-2xl font-bold text-gray-900">{type === 'urgent' ? t('senior.rdv_urgent') : t('senior.rdv_normal')}</p>
                   <p className="text-lg text-gray-500">{t('senior.rdv_type_label')}</p>
@@ -109,6 +118,9 @@ export default function SeniorRdvPage() {
             <div className="text-9xl animate-bounce">✅</div>
             <h1 className="text-4xl font-bold text-green-700">{t('senior.rdv_confirmed_title')}</h1>
             <p className="text-2xl text-gray-600">{t('senior.rdv_confirmed_subtitle')}</p>
+            <button onClick={() => router.push('/senior')} className="bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-3xl text-2xl font-bold shadow-lg mt-4">
+              {t('senior.back')}
+            </button>
           </div>
         )}
       </div>
