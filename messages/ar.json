@@ -359,4 +359,10 @@
   "family_can_view": "يمكنه الاطلاع",
   "family_remove": "ازالة"
 }
+,
+"reimbursement_estimate": "تقدير التعويض",
+"am_reimbursement": "تغطية التامين الصحي",
+"patient_share": "الجزء المقدر على المريض",
+"estimate_disclaimer": "تقدير استرشادي. المبلغ الفعلي يعتمد على تغطيتك.",
+"redirecting": "جار التحويل..."
 }

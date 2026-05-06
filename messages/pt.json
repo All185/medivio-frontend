@@ -359,4 +359,10 @@
   "family_can_view": "Pode consultar",
   "family_remove": "Remover"
 }
+,
+"reimbursement_estimate": "Estimativa de reembolso",
+"am_reimbursement": "Cobertura do seguro",
+"patient_share": "Gasto estimado do paciente",
+"estimate_disclaimer": "Estimativa indicativa. O valor real depende da sua cobertura.",
+"redirecting": "Redirecionando..."
 }

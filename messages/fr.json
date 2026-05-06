@@ -360,4 +360,10 @@
   "family_can_view": "Peut consulter",
   "family_remove": "Retirer"
 }
+,
+"reimbursement_estimate": "Estimation remboursement",
+"am_reimbursement": "Part Assurance Maladie",
+"patient_share": "Reste a charge estimé",
+"estimate_disclaimer": "Estimation indicative. Montant réel selon votre couverture.",
+"redirecting": "Redirection..."
 }

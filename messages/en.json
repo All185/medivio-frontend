@@ -359,4 +359,10 @@
   "family_can_view": "Can view",
   "family_remove": "Remove"
 }
+,
+"reimbursement_estimate": "Reimbursement estimate",
+"am_reimbursement": "Health Insurance coverage",
+"patient_share": "Estimated out-of-pocket",
+"estimate_disclaimer": "Indicative estimate. Actual amount depends on your coverage.",
+"redirecting": "Redirecting..."
 }
