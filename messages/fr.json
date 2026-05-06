@@ -346,7 +346,7 @@
   "rdv_confirm": "Oui, confirmer",
   "rdv_modify": "Non, modifier",
   "rdv_confirmed_title": "Rendez-vous confirme !",
-  "rdv_confirmed_subtitle": "Vous allez etre redirige...",
+  "rdv_confirmed_subtitle": "Appuyez sur Retour pour revenir a l'accueil.",
   "rdv_confirmed_voice": "Parfait ! Je vous redirige vers la prise de rendez-vous.",
   "family_title": "Ma famille",
   "family_subtitle": "Gerez les proches qui peuvent vous aider.",
