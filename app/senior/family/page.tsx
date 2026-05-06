@@ -77,7 +77,7 @@ export default function SeniorFamilyPage() {
         </div>
         <div className="flex items-center gap-4">
           <LanguageSwitcher />
-          <button onClick={() => router.push('/senior')} className="text-sm text-gray-500 hover:text-gray-700">
+          <button onClick={() => router.push('/dashboard')} className="text-sm text-gray-500 hover:text-gray-700">
             {t('senior.back')}
           </button>
         </div>
