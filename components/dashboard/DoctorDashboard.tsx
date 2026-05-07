@@ -144,6 +144,12 @@ export default function DoctorDashboard() {
 >
   🧾 {t('billing.doctor_title')}
 </button>
+<button
+  onClick={() => router.push('/marketplace')}
+  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
+>
+  🏥 {t('marketplace.title')}
+</button>
 </div>
 
         {/* Stats */}

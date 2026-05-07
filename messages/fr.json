@@ -275,10 +275,8 @@
   "token": "Token",
   "status_active": "Active",
   "status_dispensed": "Dispensee",
-  "status_expired": "Expiree"
-}
-,
-"billing": {
+  "status_expired": "Expiree",
+  "billing": {
   "back": "Retour au tableau de bord",
   "loading": "Chargement...",
   "my_invoices": "Mes factures",
@@ -366,9 +364,50 @@
   "family_remove": "Retirer"
 }
 ,
-"reimbursement_estimate": "Estimation remboursement",
-"am_reimbursement": "Part Assurance Maladie",
-"patient_share": "Reste a charge estimé",
-"estimate_disclaimer": "Estimation indicative. Montant réel selon votre couverture.",
-"redirecting": "Redirection..."
+    "reimbursement_estimate": "Estimation remboursement",
+    "am_reimbursement": "Part Assurance Maladie",
+    "patient_share": "Reste a charge estimé",
+    "estimate_disclaimer": "Estimation indicative. Montant réel selon votre couverture.",
+    "redirecting": "Redirection..."
+  },
+  "marketplace": {
+    "title": "Marketplace de specialistes",
+  "subtitle": "Trouvez le meilleur specialiste pour votre besoin.",
+  "back": "Retour au tableau de bord",
+  "back_list": "Retour a la liste",
+  "loading": "Chargement...",
+  "not_found": "Specialiste introuvable.",
+  "all_specialties": "Toutes les specialites",
+  "city_placeholder": "Ville...",
+  "no_specialists": "Aucun specialiste trouve.",
+  "try_ai_match": "Essayer le matching IA",
+  "ai_match": "Trouver mon specialiste avec l'IA",
+  "verified": "Verifie",
+  "years_exp": "ans d'experience",
+  "consultation": "consultation",
+  "about": "A propos",
+  "book_appointment": "Prendre rendez-vous",
+  "patient_reviews": "Avis patients",
+  "no_reviews": "Aucun avis pour l'instant.",
+  "leave_review": "Laisser un avis",
+  "review_placeholder": "Decrivez votre experience...",
+  "submitting": "Envoi en cours...",
+  "submit_review": "Publier mon avis",
+  "review_submitted": "Avis publie avec succes !",
+  "reviews": "avis",
+  "match_title": "Matching IA",
+  "match_subtitle": "Decrivez vos symptomes, l'IA trouve le bon specialiste.",
+  "symptoms_label": "Decrivez vos symptomes",
+  "symptoms_placeholder": "Ex: douleurs thoraciques, fatigue, palpitations...",
+  "analyzing": "Analyse en cours...",
+  "find_specialist": "Trouver mon specialiste",
+  "recommended_specialty": "Specialite recommandee",
+  "urgency_low": "Non urgent",
+  "urgency_medium": "Urgent",
+  "urgency_high": "Tres urgent",
+  "go_emergency": "Aller au mode urgence",
+  "available_specialists": "Specialistes disponibles",
+  "no_specialists_match": "Aucun specialiste disponible pour cette specialite.",
+  "new_search": "Nouvelle recherche"
+}
 }
