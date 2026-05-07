@@ -11,7 +11,11 @@ interface Profile {
 }
 
 export default function SeniorPage() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+const langMap: Record<string, string> = {
+  fr: 'fr-FR', en: 'en-US', es: 'es-ES', pt: 'pt-BR', ar: 'ar-SA',
+};
+const speechLang = langMap[locale] || 'fr-FR';
   const router = useRouter();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -50,7 +54,7 @@ export default function SeniorPage() {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'fr-FR';
+      utterance.lang = speechLang;
       utterance.rate = 0.85;
       utterance.pitch = 1;
       utterance.onstart = () => setSpeaking(true);
@@ -66,7 +70,7 @@ export default function SeniorPage() {
       return;
     }
     const recognition = new SpeechRecognition();
-    recognition.lang = 'fr-FR';
+    recognition.lang = speechLang;
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.onstart = () => setListening(true);
