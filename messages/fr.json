@@ -485,5 +485,31 @@
     "family_can_book": "Peut reserver",
     "family_can_view": "Peut consulter",
     "family_remove": "Retirer"
+  },
+  "chronic": {
+    "title": "Suivi de sante",
+    "subtitle": "Enregistrez et suivez vos constantes vitales.",
+    "back": "Retour au tableau de bord",
+    "loading": "Chargement...",
+    "add_record": "Ajouter une mesure",
+    "new_record": "Nouvelle mesure",
+    "save_record": "Enregistrer",
+    "saving": "Enregistrement...",
+    "no_records": "Aucune mesure enregistree pour l'instant.",
+    "no_records_yet": "Aucune mesure enregistree.",
+    "blood_pressure": "Tension arterielle",
+    "bp_systolic": "Systolique (mmHg)",
+    "bp_diastolic": "Diastolique (mmHg)",
+    "heart_rate": "Frequence cardiaque",
+    "oxygen_saturation": "Saturation O2",
+    "blood_glucose": "Glycemie (mg/dL)",
+    "weight": "Poids (kg)",
+    "temperature": "Temperature (C)",
+    "notes_placeholder": "Notes ou symptomes...",
+    "doctor_title": "Suivi patients chroniques",
+    "doctor_subtitle": "Vue synthetique des constantes vitales de vos patients.",
+    "no_patients": "Aucun patient avec des mesures enregistrees.",
+    "patient": "Patient",
+    "unread_alerts": "alerte(s) non lue(s)"
   }
 }

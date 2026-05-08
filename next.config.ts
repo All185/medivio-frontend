@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       { source: '/api/billing/:path*', destination: 'https://medivio-backend.onrender.com/billing/:path*' },
       { source: '/api/senior/:path*', destination: 'https://medivio-backend.onrender.com/senior/:path*' },
       { source: '/api/marketplace/:path*', destination: 'https://medivio-backend.onrender.com/marketplace/:path*' },
+      { source: '/api/chronic/:path*', destination: 'https://medivio-backend.onrender.com/chronic/:path*' },
     ]
   },
 }

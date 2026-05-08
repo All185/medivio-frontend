@@ -150,6 +150,12 @@ export default function DoctorDashboard() {
 >
   🏥 {t('marketplace.title')}
 </button>
+<button
+  onClick={() => router.push('/chronic/doctor')}
+  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-red-600 hover:bg-red-700"
+>
+  ❤️ {t('chronic.doctor_title')}
+</button>
 </div>
 
         {/* Stats */}

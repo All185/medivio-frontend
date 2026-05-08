@@ -118,6 +118,7 @@ export default function PatientDashboard() {
             { icon: '👴', label: t('senior.dashboard'), action: () => router.push('/senior'), color: 'bg-blue-50 text-blue-800' },
             { icon: '👨‍👩‍👧', label: t('senior.family_title'), action: () => router.push('/senior/family'), color: 'bg-purple-50 text-purple-600' },
             { icon: '🏥', label: t('marketplace.title'), action: () => router.push('/marketplace'), color: 'bg-indigo-50 text-indigo-600' },
+            { icon: '❤️', label: t('chronic.title'), action: () => router.push('/chronic'), color: 'bg-red-50 text-red-600' },
           ].map((item, i) => (
             <button
               key={i}
