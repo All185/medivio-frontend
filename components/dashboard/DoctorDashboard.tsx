@@ -156,6 +156,12 @@ export default function DoctorDashboard() {
 >
   ❤️ {t('chronic.doctor_title')}
 </button>
+<button
+  onClick={() => router.push('/async-care/doctor')}
+  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-teal-600 hover:bg-teal-700"
+>
+  📋 {t('async.doctor_title')}
+</button>
 </div>
 
         {/* Stats */}
