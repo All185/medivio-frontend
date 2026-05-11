@@ -143,44 +143,44 @@ export default function DoctorDashboard() {
   {/* Grille modules — Actions rapides */}
   <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
         <div className="grid grid-cols-4 gap-3 mb-4">
-          {[
-            {
-              icon: '🚨',
-              title: t('emergency.title'),
-              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
-              badgeColor: 'bg-red-50 text-red-700',
-              border: 'border-red-200',
-              bg: 'bg-red-50',
-              route: '/emergency/list',
-            },
-            {
-              icon: '⏳',
-              title: "File d'attente",
-              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
-              badgeColor: 'bg-amber-50 text-amber-700',
-              border: '',
-              bg: 'bg-amber-50',
-              route: '/async-care/doctor',
-            },
-            {
-              icon: '🤖',
-              title: t('summary.title'),
-              badge: 'IA',
-              badgeColor: 'bg-blue-50 text-blue-700',
-              border: '',
-              bg: 'bg-blue-50',
-              route: '/summary',
-            },
-            {
-              icon: '📋',
-              title: t('async.doctor_title'),
-              badge: null,
-              badgeColor: '',
-              border: '',
-              bg: 'bg-teal-50',
-              route: '/async-care/doctor',
-            },
-          ].map((item, i) => (
+        {[
+  {
+    icon: '🚨',
+    title: t('emergency.title'),
+    badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
+    badgeColor: 'bg-red-50 text-red-700',
+    border: 'border-red-200',
+    bg: 'bg-red-50',
+    route: '/emergency/list',
+  },
+  {
+    icon: '⏳',
+    title: "File d'attente",
+    badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
+    badgeColor: 'bg-amber-50 text-amber-700',
+    border: '',
+    bg: 'bg-amber-50',
+    route: '/async-care/doctor',
+  },
+  {
+    icon: '🤖',
+    title: t('summary.title'),
+    badge: 'IA',
+    badgeColor: 'bg-blue-50 text-blue-700',
+    border: '',
+    bg: 'bg-blue-50',
+    route: '/summary',
+  },
+  {
+    icon: '💬',
+    title: t('async.doctor_title'),
+    badge: null,
+    badgeColor: '',
+    border: '',
+    bg: 'bg-teal-50',
+    route: '/async-care/doctor',
+  },
+].map((item, i) => (
             <button
               key={i}
               onClick={() => router.push(item.route)}
