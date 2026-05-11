@@ -211,28 +211,6 @@
     "list_symptoms": "Sintomas",
     "list_recommendation": "Recomendacion"
   },
-  "loyalty": {
-    "title": "Programa de fidelizacion",
-    "subtitle": "Gana puntos en cada consulta y disfruta de ventajas exclusivas.",
-    "back": "Volver al panel",
-    "loading": "Cargando...",
-    "error": "No se pueden cargar sus datos.",
-    "points": "puntos",
-    "discount": "en sus consultas",
-    "points_to_next": "puntos para alcanzar el nivel",
-    "how_to_earn": "Como ganar puntos",
-    "history": "Historial de puntos",
-    "no_history": "Aun no hay puntos ganados.",
-    "level_bronze": "Bronce",
-    "level_argent": "Plata",
-    "level_or": "Oro",
-    "level_platine": "Platino",
-    "action_consultation": "Consulta realizada",
-    "action_profile_completed": "Perfil completado",
-    "action_review_left": "Resena dejada",
-    "action_referral": "Referido",
-    "action_daily_login": "Inicio de sesion diario"
-  },
   "prescription": {
     "back": "Volver al panel",
     "loading": "Cargando...",

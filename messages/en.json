@@ -211,28 +211,6 @@
     "list_symptoms": "Symptoms",
     "list_recommendation": "Recommendation"
   },
-  "loyalty": {
-    "title": "Loyalty Program",
-    "subtitle": "Earn points at every consultation and enjoy exclusive benefits.",
-    "back": "Back to dashboard",
-    "loading": "Loading...",
-    "error": "Unable to load your data.",
-    "points": "points",
-    "discount": "on your consultations",
-    "points_to_next": "points to reach level",
-    "how_to_earn": "How to earn points",
-    "history": "Points history",
-    "no_history": "No points earned yet.",
-    "level_bronze": "Bronze",
-    "level_argent": "Silver",
-    "level_or": "Gold",
-    "level_platine": "Platinum",
-    "action_consultation": "Consultation completed",
-    "action_profile_completed": "Profile completed",
-    "action_review_left": "Review left",
-    "action_referral": "Referral",
-    "action_daily_login": "Daily login"
-  },
   "prescription": {
     "back": "Back to dashboard",
     "loading": "Loading...",
