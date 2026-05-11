@@ -105,89 +105,145 @@ export default function DoctorDashboard() {
       </header>
       <EmergencyBanner />
       <main className="max-w-5xl mx-auto px-6 py-8">
-        {/* Hero */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-6 mb-8 text-white">
-          <p className="text-indigo-100 text-sm mb-1">{t('dashboard.hello')} 👨‍⚕️</p>
-          <h2 className="text-2xl font-bold mb-1">Dr. {user?.full_name || t('auth.doctor')}</h2>
-          <p className="text-indigo-100 text-sm">{t('dashboard.consultations')}</p>
-        </div>
-
-{/* Bouton analytique */}
-<div className="flex justify-end mb-4">
-  <button
-    onClick={() => router.push('/analytics')}
-    className="btn-primary text-sm px-4 py-2 flex items-center gap-2"
-    >
-    📊 {t('analytics.title')}
-  </button>
-  <button
-  onClick={() => router.push('/agenda')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
->
-📅 {t('agenda.button')}
-</button>
-<button
-  onClick={() => router.push('/emergency/list')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-red-600 hover:bg-red-700"
->
-  🚨 {t('emergency.title')}
-</button>
-<button
-  onClick={() => router.push('/prescriptions/doctor')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-green-600 hover:bg-green-700"
->
-  📋 {t('prescription.doctor_title')}
-</button>
-<button
-  onClick={() => router.push('/billing/doctor')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600"
->
-  🧾 {t('billing.doctor_title')}
-</button>
-<button
-  onClick={() => router.push('/marketplace')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
->
-  🏥 {t('marketplace.title')}
-</button>
-<button
-  onClick={() => router.push('/chronic/doctor')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-red-600 hover:bg-red-700"
->
-  ❤️ {t('chronic.doctor_title')}
-</button>
-<button
-  onClick={() => router.push('/async-care/doctor')}
-  className="btn-primary text-sm px-4 py-2 flex items-center gap-2 bg-teal-600 hover:bg-teal-700"
->
-  📋 {t('async.doctor_title')}
-</button>
+       {/* Hero */}
+<div className="rounded-2xl p-6 mb-6 flex items-center justify-between"
+  style={{ background: 'var(--color-bg-card, #F8F9FB)', border: '1px solid #E5E7EB' }}>
+  <div>
+    <p className="text-sm text-gray-400 mb-1">
+      {new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+    </p>
+    <h2 className="text-2xl font-bold text-gray-900 mb-1">
+      Dr. {user?.full_name || t('auth.doctor')}
+    </h2>
+    <p className="text-sm text-gray-400">{t('dashboard.consultations')}</p>
+  </div>
+  <div className="flex items-center gap-8">
+    <div className="text-center">
+      <p className="text-2xl font-bold text-gray-900">{appointments.length}</p>
+      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">Aujourd'hui</p>
+      <div className="w-2 h-2 rounded-full bg-blue-500 mx-auto mt-1.5" />
+    </div>
+    <div className="text-center">
+      <p className="text-2xl font-bold text-gray-900">
+        {appointments.filter(a => a.status === 'pending').length}
+      </p>
+      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">En attente</p>
+      <div className="w-2 h-2 rounded-full bg-amber-400 mx-auto mt-1.5" />
+    </div>
+    <div className="text-center">
+      <p className="text-2xl font-bold text-gray-900">
+        {appointments.filter(a => a.status === 'confirmed').length}
+      </p>
+      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">Confirmés</p>
+      <div className="w-2 h-2 rounded-full bg-green-500 mx-auto mt-1.5" />
+    </div>
+  </div>
 </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
+  {/* Grille modules — Actions rapides */}
+  <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
+        <div className="grid grid-cols-4 gap-3 mb-4">
           {[
-            { label: 'Total', value: appointments.length, color: 'text-blue-600', bg: 'bg-blue-50' },
-            { label: t('status.pending'), value: appointments.filter(a => a.status === 'pending').length, color: 'text-yellow-600', bg: 'bg-yellow-50' },
-            { label: t('status.confirmed'), value: appointments.filter(a => a.status === 'confirmed').length, color: 'text-green-600', bg: 'bg-green-50' },
-          ].map((stat, i) => (
-            <div key={i} className={`card p-4 text-center ${stat.bg}`}>
-              <p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
-              <p className="text-xs text-gray-500 mt-1">{stat.label}</p>
-            </div>
+            {
+              icon: '🚨',
+              title: t('emergency.title'),
+              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
+              badgeColor: 'bg-red-50 text-red-700',
+              border: 'border-red-200',
+              bg: 'bg-red-50',
+              route: '/emergency/list',
+            },
+            {
+              icon: '⏳',
+              title: "File d'attente",
+              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
+              badgeColor: 'bg-amber-50 text-amber-700',
+              border: '',
+              bg: 'bg-amber-50',
+              route: '/async-care/doctor',
+            },
+            {
+              icon: '🤖',
+              title: t('summary.title'),
+              badge: 'IA',
+              badgeColor: 'bg-blue-50 text-blue-700',
+              border: '',
+              bg: 'bg-blue-50',
+              route: '/summary',
+            },
+            {
+              icon: '📋',
+              title: t('async.doctor_title'),
+              badge: null,
+              badgeColor: '',
+              border: '',
+              bg: 'bg-teal-50',
+              route: '/async-care/doctor',
+            },
+          ].map((item, i) => (
+            <button
+              key={i}
+              onClick={() => router.push(item.route)}
+              className={`card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow ${item.border ? `border ${item.border}` : ''}`}
+            >
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+                {item.icon}
+              </div>
+              <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
+              {item.badge && (
+                <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full w-fit ${item.badgeColor}`}>
+                  {item.badge}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* Grille modules — Outils médecin */}
+        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
+        <div className="grid grid-cols-4 gap-3 mb-4">
+          {[
+            { icon: '📅', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
+            { icon: '📋', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
+            { icon: '🧾', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
+            { icon: '📊', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
+          ].map((item, i) => (
+            <button
+              key={i}
+              onClick={() => router.push(item.route)}
+              className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
+            >
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+                {item.icon}
+              </div>
+              <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-3 gap-3 mb-8">
+          {[
+            { icon: '🏥', title: t('marketplace.title'),      bg: 'bg-teal-50',  route: '/marketplace' },
+            { icon: '❤️', title: t('chronic.doctor_title'),   bg: 'bg-red-50',   route: '/chronic/doctor' },
+            { icon: '👴', title: t('senior.title'),           bg: 'bg-indigo-50', route: '/senior' },
+          ].map((item, i) => (
+            <button
+              key={i}
+              onClick={() => router.push(item.route)}
+              className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
+            >
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+                {item.icon}
+              </div>
+              <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
+            </button>
           ))}
         </div>
 
         {/* Liste consultations */}
-        <div className="flex justify-between items-center mb-6">
-  <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
-  <button
-    onClick={() => router.push('/summary')}
-    className="btn-primary text-sm px-4 py-2 flex items-center gap-2"
-  >
-  🤖 {t('summary.title')}
-  </button>
-</div>
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
+        </div>
 
         {loading ? (
           <div className="card p-8 text-center">
