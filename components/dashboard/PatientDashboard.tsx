@@ -167,7 +167,7 @@ export default function PatientDashboard() {
             onClick={() => router.push('/appointments/new')}
             className="btn-primary text-sm px-4 py-2"
           >
-            {t('dashboard.newAppointment')}
+            + {t('dashboard.newAppointment')}
           </button>
         </div>
 
@@ -188,29 +188,61 @@ export default function PatientDashboard() {
           </div>
         ) : (
           <div className="space-y-3 animate-fade-in">
-            {appointments.map((apt) => (
-              <div key={apt.id} className="card p-5 flex justify-between items-center">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600">
-                    📅
+            {appointments.map((apt) => {
+              const date = new Date(apt.scheduled_at)
+              const avatarColors: Record<string, string> = {
+                confirmed: 'bg-blue-100 text-blue-600',
+                pending:   'bg-amber-100 text-amber-600',
+                cancelled: 'bg-red-100 text-red-600',
+                completed: 'bg-green-100 text-green-600',
+              }
+              return (
+                <div key={apt.id} className="card p-4 flex items-center gap-4">
+                  {/* Heure */}
+                  <div className="text-center min-w-[48px]">
+                    <p className="text-sm font-semibold text-gray-900">
+                      {date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                    </p>
+                    <p className="text-[10px] text-gray-400">
+                      {date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })}
+                    </p>
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">
-                      {new Date(apt.scheduled_at).toLocaleDateString('fr-FR', {
-                        weekday: 'long', year: 'numeric',
-                        month: 'long', day: 'numeric',
-                      })}
+
+                  {/* Séparateur vertical */}
+                  <div className="w-px h-10 bg-gray-100" />
+
+                  {/* Avatar */}
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${avatarColors[apt.status] || 'bg-gray-100 text-gray-600'}`}>
+                    Dr
+                  </div>
+
+                  {/* Infos */}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-gray-800">
+                      Médecin #{apt.doctor_id.slice(0, 8)}
                     </p>
                     {apt.notes && (
-                      <p className="text-sm text-gray-400 mt-0.5">{apt.notes.slice(0, 60)}...</p>
+                      <p className="text-xs text-gray-400 truncate mt-0.5">{apt.notes}</p>
+                    )}
+                  </div>
+
+                  {/* Statut + Action */}
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <span className={statusBadge(apt.status)}>
+                      {statusLabel(apt.status)}
+                    </span>
+                    {apt.status === 'confirmed' && (
+                      <button
+                        onClick={() => router.push(`/video/${apt.id}`)}
+                        className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-blue-700 transition flex items-center gap-1"
+                      >
+                        🎥 {t('dashboard.startConsultation')}
+                      </button>
                     )}
                   </div>
                 </div>
-                <span className={statusBadge(apt.status)}>
-                  {statusLabel(apt.status)}
-                </span>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </main>
