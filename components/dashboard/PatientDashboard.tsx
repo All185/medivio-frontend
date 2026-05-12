@@ -110,21 +110,21 @@ export default function PatientDashboard() {
           <div className="flex items-center gap-8">
             <div className="text-center">
               <p className="text-2xl font-bold text-white">{appointments.length}</p>
-              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">Total</p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">{t('analytics.total')}</p>
               <div className="w-2 h-2 rounded-full bg-white mx-auto mt-1.5" />
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-white">
                 {appointments.filter(a => a.status === 'confirmed').length}
               </p>
-              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">Confirmés</p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">{t('status.confirmed')}</p>
               <div className="w-2 h-2 rounded-full bg-green-300 mx-auto mt-1.5" />
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-white">
                 {appointments.filter(a => a.status === 'pending').length}
               </p>
-              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">En attente</p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">{t('status.pending')}</p>
               <div className="w-2 h-2 rounded-full bg-amber-300 mx-auto mt-1.5" />
             </div>
           </div>

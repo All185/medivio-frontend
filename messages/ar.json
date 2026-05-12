@@ -19,6 +19,7 @@
     "error": "حدث خطأ"
   },
   "dashboard": {
+    "today": "اليوم",
     "appointments": "مواعيدي",
     "newAppointment": "+ موعد جديد",
     "noAppointments": "لا توجد مواعيد حالياً.",

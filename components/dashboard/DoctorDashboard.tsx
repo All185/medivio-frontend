@@ -120,21 +120,21 @@ export default function DoctorDashboard() {
   <div className="flex items-center gap-8">
     <div className="text-center">
       <p className="text-2xl font-bold text-gray-900">{appointments.length}</p>
-      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">Aujourd'hui</p>
+      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t('dashboard.today')}</p>
       <div className="w-2 h-2 rounded-full bg-blue-500 mx-auto mt-1.5" />
     </div>
     <div className="text-center">
       <p className="text-2xl font-bold text-gray-900">
         {appointments.filter(a => a.status === 'pending').length}
       </p>
-      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">En attente</p>
+      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t('status.pending')}</p>
       <div className="w-2 h-2 rounded-full bg-amber-400 mx-auto mt-1.5" />
     </div>
     <div className="text-center">
       <p className="text-2xl font-bold text-gray-900">
         {appointments.filter(a => a.status === 'confirmed').length}
       </p>
-      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">Confirmés</p>
+      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t('status.confirmed')}</p>
       <div className="w-2 h-2 rounded-full bg-green-500 mx-auto mt-1.5" />
     </div>
   </div>

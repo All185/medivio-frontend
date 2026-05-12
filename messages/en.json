@@ -19,6 +19,7 @@
     "error": "An error occurred"
   },
   "dashboard": {
+    "today": "Today",
     "appointments": "My appointments",
     "newAppointment": "+ New appointment",
     "noAppointments": "No appointments yet.",

@@ -19,6 +19,7 @@
     "error": "Une erreur est survenue"
   },
   "dashboard": {
+    "today": "Aujourd'hui",
     "appointments": "Mes rendez-vous",
     "newAppointment": "+ Nouveau rendez-vous",
     "noAppointments": "Aucun rendez-vous pour l'instant.",

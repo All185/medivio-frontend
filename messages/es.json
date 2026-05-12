@@ -19,6 +19,7 @@
     "error": "Ha ocurrido un error"
   },
   "dashboard": {
+    "today": "Hoy",
     "appointments": "Mis citas",
     "newAppointment": "+ Nueva cita",
     "noAppointments": "No hay citas por el momento.",

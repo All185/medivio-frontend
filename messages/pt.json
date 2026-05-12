@@ -19,6 +19,7 @@
     "error": "Ocorreu um erro"
   },
   "dashboard": {
+    "today": "Hoje",
     "appointments": "Minhas consultas",
     "newAppointment": "+ Nova consulta",
     "noAppointments": "Nenhuma consulta por enquanto.",
