@@ -96,10 +96,38 @@ export default function PatientDashboard() {
 
       <main className="max-w-5xl mx-auto px-6 py-8">
         {/* Hero section */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-6 mb-8 text-white">
-          <p className="text-blue-100 text-sm mb-1">{t('dashboard.hello')} 👋</p>
-          <h2 className="text-2xl font-bold mb-1">{user?.full_name || t('auth.patient')}</h2>
-          <p className="text-blue-100 text-sm">{t('dashboard.appointments')}</p>
+        <div className="rounded-2xl p-6 mb-6 flex items-center justify-between"
+          style={{ background: 'linear-gradient(135deg, #1d4ed8 0%, #4f46e5 100%)' }}>
+          <div>
+            <p className="text-sm text-blue-200 mb-1">
+              {new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+            </p>
+            <h2 className="text-2xl font-bold text-white mb-1">
+              {user?.full_name || t('auth.patient')}
+            </h2>
+            <p className="text-sm text-blue-200">{t('dashboard.appointments')}</p>
+          </div>
+          <div className="flex items-center gap-8">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{appointments.length}</p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">Total</p>
+              <div className="w-2 h-2 rounded-full bg-white mx-auto mt-1.5" />
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">
+                {appointments.filter(a => a.status === 'confirmed').length}
+              </p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">Confirmés</p>
+              <div className="w-2 h-2 rounded-full bg-green-300 mx-auto mt-1.5" />
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">
+                {appointments.filter(a => a.status === 'pending').length}
+              </p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">En attente</p>
+              <div className="w-2 h-2 rounded-full bg-amber-300 mx-auto mt-1.5" />
+            </div>
+          </div>
         </div>
 
         {/* Actions rapides */}
