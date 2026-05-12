@@ -167,7 +167,7 @@ export default function PatientDashboard() {
             onClick={() => router.push('/appointments/new')}
             className="btn-primary text-sm px-4 py-2"
           >
-            + {t('dashboard.newAppointment')}
+            {t('dashboard.newAppointment')}
           </button>
         </div>
 
