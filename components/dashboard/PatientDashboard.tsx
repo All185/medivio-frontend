@@ -15,7 +15,7 @@ interface Appointment {
 
 export default function PatientDashboard() {
   const router = useRouter()
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<any>(null)
@@ -63,6 +63,11 @@ export default function PatientDashboard() {
     return labels[status] || status
   }
 
+  const localeMap: Record<string, string> = {
+    fr: 'fr-FR', en: 'en-GB', es: 'es-ES', pt: 'pt-PT', ar: 'ar-SA',
+  }
+  const dateLocale = localeMap[locale] || 'fr-FR'
+
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       {/* Header */}
@@ -100,7 +105,7 @@ export default function PatientDashboard() {
           style={{ background: 'linear-gradient(135deg, #1d4ed8 0%, #4f46e5 100%)' }}>
           <div>
             <p className="text-sm text-blue-200 mb-1">
-              {new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+              {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
             </p>
             <h2 className="text-2xl font-bold text-white mb-1">
               {user?.full_name || t('auth.patient')}
@@ -201,10 +206,10 @@ export default function PatientDashboard() {
                   {/* Heure */}
                   <div className="text-center min-w-[48px]">
                     <p className="text-sm font-semibold text-gray-900">
-                      {date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                      {date.toLocaleTimeString(dateLocale, { hour: '2-digit', minute: '2-digit' })}
                     </p>
                     <p className="text-[10px] text-gray-400">
-                      {date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })}
+                      {date.toLocaleDateString(dateLocale, { day: '2-digit', month: 'short' })}
                     </p>
                   </div>
 

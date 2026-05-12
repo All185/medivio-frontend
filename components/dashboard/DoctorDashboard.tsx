@@ -16,7 +16,7 @@ interface Appointment {
 
 export default function DoctorDashboard() {
   const router = useRouter()
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<any>(null)
@@ -73,6 +73,11 @@ export default function DoctorDashboard() {
     return labels[status] || status
   }
 
+  const localeMap: Record<string, string> = {
+    fr: 'fr-FR', en: 'en-GB', es: 'es-ES', pt: 'pt-PT', ar: 'ar-SA',
+  }
+  const dateLocale = localeMap[locale] || 'fr-FR'
+
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       {/* Header */}
@@ -110,7 +115,7 @@ export default function DoctorDashboard() {
   style={{ background: 'var(--color-bg-card, #F8F9FB)', border: '1px solid #E5E7EB' }}>
   <div>
     <p className="text-sm text-gray-400 mb-1">
-      {new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+      {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
     </p>
     <h2 className="text-2xl font-bold text-gray-900 mb-1">
       Dr. {user?.full_name || t('auth.doctor')}
@@ -270,10 +275,10 @@ export default function DoctorDashboard() {
                   {/* Heure */}
                   <div className="text-center min-w-[48px]">
                     <p className="text-sm font-semibold text-gray-900">
-                      {date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}
+                      {date.toLocaleTimeString(dateLocale, { hour: '2-digit', minute: '2-digit' })}
                     </p>
                     <p className="text-[10px] text-gray-400">
-                      {date.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' })}
+                      {date.toLocaleDateString(dateLocale, { day: '2-digit', month: 'short' })}
                     </p>
                   </div>
 
