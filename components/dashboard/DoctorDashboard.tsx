@@ -155,7 +155,7 @@ export default function DoctorDashboard() {
   },
   {
     icon: '⏳',
-    title: "File d'attente",
+    title: t('waiting.button'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
     badgeColor: 'bg-amber-50 text-amber-700',
     border: '',
