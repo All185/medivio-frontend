@@ -223,7 +223,7 @@ export default function DoctorDashboard() {
 
         <div className="grid grid-cols-2 gap-3 mb-8">
           {[
-            { icon: '��', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
+            { icon: '🏪', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
             { icon: '❤️', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
           ].map((item, i) => (
             <button
