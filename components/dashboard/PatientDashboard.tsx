@@ -131,28 +131,31 @@ export default function PatientDashboard() {
         </div>
 
         {/* Actions rapides */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Mes services</p>
+        <div className="grid grid-cols-4 gap-3 mb-8">
           {[
-            { icon: '📅', label: t('dashboard.newAppointment'), action: () => router.push('/appointments/new'), color: 'bg-blue-50 text-blue-600' },
-            { icon: '🤖', label: t('triage.title'), action: () => router.push('/triage'), color: 'bg-purple-50 text-purple-600' },
-            { icon: '📋', label: t('records.title'), action: () => router.push('/records'), color: 'bg-green-50 text-green-600' },
-            { icon: '⏳', label: t('waiting.button'), action: () => router.push('/waiting'), color: 'bg-orange-50 text-orange-600' },
-            { icon: '🚨', label: t('emergency.title'), action: () => router.push('/emergency'), color: 'bg-red-50 text-red-600' },
-            { icon: '📋', label: t('prescription.my_prescriptions'), action: () => router.push('/prescriptions'), color: 'bg-green-50 text-green-600' },
-            { icon: '🧾', label: t('billing.my_invoices'), action: () => router.push('/billing'), color: 'bg-yellow-50 text-yellow-600' },
-            { icon: '👴', label: t('senior.dashboard'), action: () => router.push('/senior'), color: 'bg-blue-50 text-blue-800' },
-            { icon: '👨‍👩‍👧', label: t('senior.family_title'), action: () => router.push('/senior/family'), color: 'bg-purple-50 text-purple-600' },
-            { icon: '🏥', label: t('marketplace.title'), action: () => router.push('/marketplace'), color: 'bg-indigo-50 text-indigo-600' },
-            { icon: '❤️', label: t('chronic.title'), action: () => router.push('/chronic'), color: 'bg-red-50 text-red-600' },
-            { icon: '📋', label: t('async.title'), action: () => router.push('/async-care'), color: 'bg-teal-50 text-teal-600' },
+            { icon: '📅', label: t('dashboard.newAppointment'), bg: 'bg-blue-50',   route: '/appointments/new' },
+            { icon: '🤖', label: t('triage.title'),             bg: 'bg-purple-50', route: '/triage' },
+            { icon: '📁', label: t('records.title'),            bg: 'bg-green-50',  route: '/records' },
+            { icon: '⏳', label: t('waiting.button'),           bg: 'bg-amber-50',  route: '/waiting' },
+            { icon: '🚨', label: t('emergency.title'),          bg: 'bg-red-50',    route: '/emergency' },
+            { icon: '💊', label: t('prescription.my_prescriptions'), bg: 'bg-green-50', route: '/prescriptions' },
+            { icon: '🧾', label: t('billing.my_invoices'),      bg: 'bg-amber-50',  route: '/billing' },
+            { icon: '👴', label: t('senior.dashboard'),         bg: 'bg-blue-50',   route: '/senior' },
+            { icon: '👨‍👩‍👧', label: t('senior.family_title'),   bg: 'bg-purple-50', route: '/senior/family' },
+            { icon: '🏪', label: t('marketplace.title'),        bg: 'bg-teal-50',   route: '/marketplace' },
+            { icon: '❤️', label: t('chronic.title'),            bg: 'bg-red-50',    route: '/chronic' },
+            { icon: '💬', label: t('async.title'),              bg: 'bg-teal-50',   route: '/async-care' },
           ].map((item, i) => (
             <button
               key={i}
-              onClick={item.action}
-              className={`card p-4 text-center cursor-pointer hover:scale-105 transition-transform ${item.color}`}
+              onClick={() => router.push(item.route)}
+              className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
             >
-              <div className="text-2xl mb-2">{item.icon}</div>
-              <p className="text-xs font-semibold">{item.label}</p>
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+                {item.icon}
+              </div>
+              <p className="text-sm font-medium text-gray-800 leading-tight">{item.label}</p>
             </button>
           ))}
         </div>
