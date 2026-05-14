@@ -99,7 +99,7 @@ export default function PatientDashboard() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-8">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Hero section */}
         <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
           style={{ background: 'linear-gradient(135deg, #00E5C3 0%, #2B5EF8 100%)' }}>
@@ -166,7 +166,7 @@ export default function PatientDashboard() {
         </div>
 
         {/* Liste des rendez-vous */}
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="text-lg font-bold text-gray-900">{t('dashboard.appointments')}</h3>
           <button
             onClick={() => router.push('/appointments/new')}

@@ -67,7 +67,7 @@ export default function TriagePage() {
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="Medivio" style={{ width: 36, height: 36, objectFit: 'contain' }} />
-            <span className="text-xl font-extrabold text-[#0B1F4B]">Medivio</span>
+            <span className="text-lg font-extrabold text-[#0B1F4B] hidden sm:block">Medivio</span>
           </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />

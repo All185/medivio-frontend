@@ -109,7 +109,7 @@ export default function DoctorDashboard() {
         </div>
       </header>
       <EmergencyBanner />
-      <main className="max-w-5xl mx-auto px-6 py-8">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
        {/* Hero */}
 <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
   style={{ background: 'linear-gradient(135deg, #00C4A7 0%, #1E4ED8 100%)' }}>
@@ -245,7 +245,7 @@ export default function DoctorDashboard() {
         </div>
 
         {/* Liste consultations */}
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
           <span className="text-xs text-gray-400">{appointments.length} rendez-vous</span>
         </div>
