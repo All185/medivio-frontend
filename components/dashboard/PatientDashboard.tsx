@@ -73,9 +73,9 @@ export default function PatientDashboard() {
       {/* Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Medivio" style={{ width: 36, height: 36, objectFit: 'contain' }} />
-            <span className="text-xl font-extrabold text-[#0B1F4B]">Medivio</span>
+          <div className="flex items-center gap-2">
+            <img src="/logo.png" alt="Medivio" style={{ width: 32, height: 32, objectFit: 'contain' }} />
+            <span className="text-lg font-extrabold text-[#0B1F4B] hidden sm:block">Medivio</span>
           </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
@@ -101,7 +101,7 @@ export default function PatientDashboard() {
 
       <main className="max-w-5xl mx-auto px-6 py-8">
         {/* Hero section */}
-        <div className="rounded-2xl p-6 mb-6 flex items-center justify-between"
+        <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
           style={{ background: 'linear-gradient(135deg, #00E5C3 0%, #2B5EF8 100%)' }}>
           <div>
             <p className="text-sm text-blue-200 mb-1">
@@ -112,7 +112,7 @@ export default function PatientDashboard() {
             </h2>
             <p className="text-sm text-blue-200">{t('dashboard.appointments')}</p>
           </div>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6 sm:gap-8">
             <div className="text-center">
               <p className="text-2xl font-bold text-white">{appointments.length}</p>
               <p className="text-[11px] uppercase tracking-widest text-blue-200 mt-1">{t('analytics.total')}</p>
@@ -137,7 +137,7 @@ export default function PatientDashboard() {
 
         {/* Actions rapides */}
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Mes services</p>
-        <div className="grid grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
           {[
             { icon: '📅', label: t('dashboard.newAppointment'), bg: 'bg-blue-50',   route: '/appointments/new' },
             { icon: '🤖', label: t('triage.title'),             bg: 'bg-purple-50', route: '/triage' },
