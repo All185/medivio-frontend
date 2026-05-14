@@ -129,14 +129,14 @@ export default function DoctorDashboard() {
       <div className="w-2 h-2 rounded-full bg-blue-500 mx-auto mt-1.5" />
     </div>
     <div className="text-center">
-      <p className="text-2xl font-bold text-gray-900">
+      <p className="text-2xl font-bold text-white">
         {appointments.filter(a => a.status === 'pending').length}
       </p>
       <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.pending')}</p>
       <div className="w-2 h-2 rounded-full bg-amber-400 mx-auto mt-1.5" />
     </div>
     <div className="text-center">
-      <p className="text-2xl font-bold text-gray-900">
+      <p className="text-2xl font-bold text-white">
         {appointments.filter(a => a.status === 'confirmed').length}
       </p>
       <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.confirmed')}</p>
