@@ -112,34 +112,34 @@ export default function DoctorDashboard() {
       <main className="max-w-5xl mx-auto px-6 py-8">
        {/* Hero */}
 <div className="rounded-2xl p-6 mb-6 flex items-center justify-between"
-  style={{ background: 'var(--color-bg-card, #F8F9FB)', border: '1px solid #E5E7EB' }}>
+  style={{ background: 'linear-gradient(135deg, #00C4A7 0%, #1E4ED8 100%)' }}>
   <div>
-    <p className="text-sm text-gray-400 mb-1">
+    <p className="text-sm text-blue-100 mb-1">
       {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
     </p>
-    <h2 className="text-2xl font-bold text-gray-900 mb-1">
+    <h2 className="text-2xl font-bold text-white mb-1">
       Dr. {user?.full_name || t('auth.doctor')}
     </h2>
-    <p className="text-sm text-gray-400">{t('dashboard.consultations')}</p>
+    <p className="text-sm text-blue-100">{t('dashboard.consultations')}</p>
   </div>
   <div className="flex items-center gap-8">
     <div className="text-center">
-      <p className="text-2xl font-bold text-gray-900">{appointments.length}</p>
-      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t('dashboard.today')}</p>
+      <p className="text-2xl font-bold text-white">{appointments.length}</p>
+      <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('dashboard.today')}</p>
       <div className="w-2 h-2 rounded-full bg-blue-500 mx-auto mt-1.5" />
     </div>
     <div className="text-center">
       <p className="text-2xl font-bold text-gray-900">
         {appointments.filter(a => a.status === 'pending').length}
       </p>
-      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t('status.pending')}</p>
+      <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.pending')}</p>
       <div className="w-2 h-2 rounded-full bg-amber-400 mx-auto mt-1.5" />
     </div>
     <div className="text-center">
       <p className="text-2xl font-bold text-gray-900">
         {appointments.filter(a => a.status === 'confirmed').length}
       </p>
-      <p className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t('status.confirmed')}</p>
+      <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.confirmed')}</p>
       <div className="w-2 h-2 rounded-full bg-green-500 mx-auto mt-1.5" />
     </div>
   </div>

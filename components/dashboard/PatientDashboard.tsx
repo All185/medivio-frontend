@@ -102,7 +102,7 @@ export default function PatientDashboard() {
       <main className="max-w-5xl mx-auto px-6 py-8">
         {/* Hero section */}
         <div className="rounded-2xl p-6 mb-6 flex items-center justify-between"
-          style={{ background: 'linear-gradient(135deg, #1d4ed8 0%, #4f46e5 100%)' }}>
+          style={{ background: 'linear-gradient(135deg, #00E5C3 0%, #2B5EF8 100%)' }}>
           <div>
             <p className="text-sm text-blue-200 mb-1">
               {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
