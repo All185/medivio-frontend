@@ -114,13 +114,13 @@ export default function DoctorDashboard() {
 <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
   style={{ background: 'linear-gradient(135deg, #00C4A7 0%, #1E4ED8 100%)' }}>
   <div>
-    <p className="text-sm text-blue-100 mb-1">
+    <p className="text-sm mb-1" style={{ color: "rgba(255,255,255,0.80)" }}">
       {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
     </p>
     <h2 className="text-2xl font-bold text-white mb-1">
       Dr. {user?.full_name || t('auth.doctor')}
     </h2>
-    <p className="text-sm text-blue-100">{t('dashboard.consultations')}</p>
+    <p className="text-sm" style={{ color: "rgba(255,255,255,0.70)" }}>{t('dashboard.consultations')}</p>
   </div>
   <div className="flex items-center gap-6 sm:gap-8">
     <div className="text-center">
