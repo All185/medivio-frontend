@@ -80,7 +80,7 @@ const dateLocale = localeMap[locale] || 'fr-FR';
             <h1 className="text-3xl font-bold text-gray-900">{t('prescription.doctor_title')}</h1>
             <p className="text-gray-500 mt-1">{t('prescription.doctor_subtitle')}</p>
           </div>
-          <button onClick={() => router.push('/prescriptions/new')} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
+          <button onClick={() => router.push('/prescriptions/new')} className="bg-[#008A76] hover:bg-[#007A6A] text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
             + {t('prescription.new')}
           </button>
         </div>
@@ -90,7 +90,7 @@ const dateLocale = localeMap[locale] || 'fr-FR';
           <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center">
             <div className="text-5xl mb-4">📋</div>
             <p className="text-gray-500">{t('prescription.no_prescriptions')}</p>
-            <button onClick={() => router.push('/prescriptions/new')} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-xl text-sm transition-colors">
+            <button onClick={() => router.push('/prescriptions/new')} className="mt-4 bg-[#008A76] hover:bg-[#007A6A] text-white font-semibold px-6 py-2 rounded-xl text-sm transition-colors">
               {t('prescription.create_first')}
             </button>
           </div>

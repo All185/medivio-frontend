@@ -79,7 +79,7 @@ export default function MarketplacePage() {
         </div>
 
         {/* Bouton matching IA */}
-        <button onClick={() => router.push('/marketplace/match')} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-2xl mb-8 flex items-center justify-center gap-3 transition-colors">
+        <button onClick={() => router.push('/marketplace/match')} className="w-full bg-[#009E88] hover:bg-[#008A76] text-white font-semibold py-4 rounded-2xl mb-8 flex items-center justify-center gap-3 transition-colors">
           <span className="text-2xl">🤖</span>
           <span className="text-lg">{t('marketplace.ai_match')}</span>
         </button>
@@ -99,7 +99,7 @@ export default function MarketplacePage() {
           <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center">
             <div className="text-5xl mb-4">👨‍⚕️</div>
             <p className="text-gray-500">{t('marketplace.no_specialists')}</p>
-            <button onClick={() => router.push('/marketplace/match')} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-xl text-sm transition-colors">
+            <button onClick={() => router.push('/marketplace/match')} className="mt-4 bg-[#009E88] hover:bg-[#008A76] text-white font-semibold px-6 py-2 rounded-xl text-sm transition-colors">
               {t('marketplace.try_ai_match')}
             </button>
           </div>

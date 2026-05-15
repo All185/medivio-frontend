@@ -239,7 +239,7 @@ export default function PatientDashboard() {
                     {apt.status === 'confirmed' && (
                       <button
                         onClick={() => router.push(`/video/${apt.id}`)}
-                        className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded-lg font-medium hover:bg-blue-700 transition flex items-center gap-1"
+                        className="text-xs bg-[#009E88] text-white px-3 py-1.5 rounded-lg font-medium hover:bg-blue-700 transition flex items-center gap-1"
                       >
                         🎥 {t('dashboard.startConsultation')}
                       </button>

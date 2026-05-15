@@ -89,7 +89,7 @@ export default function SeniorFamilyPage() {
             <h1 className="text-3xl font-bold text-gray-900">{t('senior.family_title')}</h1>
             <p className="text-gray-500 mt-1">{t('senior.family_subtitle')}</p>
           </div>
-          <button onClick={() => setShowForm(!showForm)} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
+          <button onClick={() => setShowForm(!showForm)} className="bg-[#009E88] hover:bg-[#008A76] text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
             + {t('senior.family_add')}
           </button>
         </div>
@@ -100,7 +100,7 @@ export default function SeniorFamilyPage() {
             <div className="space-y-3">
               <input className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('senior.family_name_placeholder')} value={name} onChange={e => setName(e.target.value)} />
               <input className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('senior.family_email_placeholder')} type="email" value={email} onChange={e => setEmail(e.target.value)} />
-              <button onClick={handleAdd} disabled={adding || !name || !email} className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+              <button onClick={handleAdd} disabled={adding || !name || !email} className="w-full bg-[#009E88] hover:bg-[#008A76] disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
                 {adding ? t('senior.family_adding') : t('senior.family_add_confirm')}
               </button>
             </div>

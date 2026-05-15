@@ -75,7 +75,7 @@ export default function AsyncCarePage() {
             <h1 className="text-3xl font-bold text-gray-900">{t('async.title')}</h1>
             <p className="text-gray-500 mt-1">{t('async.subtitle')}</p>
           </div>
-          <button onClick={() => router.push('/async-care/new')} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
+          <button onClick={() => router.push('/async-care/new')} className="bg-[#009E88] hover:bg-[#008A76] text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
             + {t('async.new_case')}
           </button>
         </div>
@@ -86,7 +86,7 @@ export default function AsyncCarePage() {
           <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center">
             <div className="text-5xl mb-4">📋</div>
             <p className="text-gray-500">{t('async.no_cases')}</p>
-            <button onClick={() => router.push('/async-care/new')} className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-xl text-sm transition-colors">
+            <button onClick={() => router.push('/async-care/new')} className="mt-4 bg-[#009E88] hover:bg-[#008A76] text-white font-semibold px-6 py-2 rounded-xl text-sm transition-colors">
               {t('async.start_case')}
             </button>
           </div>

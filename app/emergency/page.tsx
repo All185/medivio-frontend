@@ -78,7 +78,7 @@ export default function EmergencyPage() {
                     <span>{t('emergency.pain_severe')}</span>
                   </div>
                 </div>
-                <button onClick={handleSubmit} disabled={loading || !symptoms.trim()} className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+                <button onClick={handleSubmit} disabled={loading || !symptoms.trim()} className="w-full bg-[#009E88] hover:bg-[#008A76] disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
                   {loading ? t('emergency.analyzing') : t('emergency.submit')}
                 </button>
                 <p className="text-xs text-center text-gray-400">{t('emergency.disclaimer')}</p>

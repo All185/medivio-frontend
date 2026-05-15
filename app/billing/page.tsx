@@ -215,7 +215,7 @@ Ce recu peut etre transmis a votre mutuelle pour remboursement complementaire.
                     {t('billing.download')}
                   </button>
                   {invoice.status === 'pending' && (
-                    <button onClick={() => handlePay(invoice.id)} disabled={paying === invoice.id} className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white py-2 rounded-xl text-sm font-semibold transition-colors">
+                    <button onClick={() => handlePay(invoice.id)} disabled={paying === invoice.id} className="flex-1 bg-[#009E88] hover:bg-[#008A76] disabled:opacity-50 text-white py-2 rounded-xl text-sm font-semibold transition-colors">
                       {paying === invoice.id ? t('billing.redirecting') : t('billing.pay')}
                     </button>
                   )}

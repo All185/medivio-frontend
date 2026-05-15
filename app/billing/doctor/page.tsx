@@ -117,7 +117,7 @@ export default function DoctorBillingPage() {
             <h1 className="text-3xl font-bold text-gray-900">{t('billing.doctor_title')}</h1>
             <p className="text-gray-500 mt-1">{t('billing.doctor_subtitle')}</p>
           </div>
-          <button onClick={() => setShowForm(!showForm)} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
+          <button onClick={() => setShowForm(!showForm)} className="bg-[#008A76] hover:bg-[#007A6A] text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
             + {t('billing.new_invoice')}
           </button>
         </div>
@@ -147,7 +147,7 @@ export default function DoctorBillingPage() {
               <input className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('billing.patient_id_placeholder')} value={patientId} onChange={e => setPatientId(e.target.value)} />
               <input type="number" className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('billing.amount_placeholder')} value={amount} onChange={e => setAmount(e.target.value)} />
               <input className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('billing.description_placeholder')} value={description} onChange={e => setDescription(e.target.value)} />
-              <button onClick={handleCreate} disabled={creating || !patientId || !amount || !description} className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+              <button onClick={handleCreate} disabled={creating || !patientId || !amount || !description} className="w-full bg-[#008A76] hover:bg-[#007A6A] disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
                 {creating ? t('billing.creating') : t('billing.create')}
               </button>
             </div>
