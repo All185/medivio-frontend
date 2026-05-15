@@ -58,6 +58,12 @@ function WaitingRoomContent() {
           </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
+            <button
+              onClick={() => router.push('/dashboard')}
+              className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
+            >
+              Retour au tableau de bord
+            </button>
           </div>
         </div>
       </header>

@@ -108,7 +108,7 @@ TOTAL TTC : ${invoice.total.toFixed(2)} ${invoice.currency}
 
 --- ESTIMATION REMBOURSEMENT ---
 Assurance Maladie (${estimate?.am_rate || 70}%) : ${estimate?.am_reimbursement?.toFixed(2) || '0.00'} ${invoice.currency}
-Reste a charge estimé : ${estimate?.patient_share?.toFixed(2) || invoice.total.toFixed(2)} ${invoice.currency}
+Reste à charge estimé : ${estimate?.patient_share?.toFixed(2) || invoice.total.toFixed(2)} ${invoice.currency}
 
 Statut : ${statusConfig[invoice.status]?.label}
 ${invoice.paid_at ? `Paye le : ${new Date(invoice.paid_at).toLocaleDateString(dateLocale)}` : ''}

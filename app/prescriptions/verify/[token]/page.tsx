@@ -66,7 +66,7 @@ export default function VerifyPrescriptionPage() {
 
   const statusConfig: Record<string, { color: string; label: string; bg: string }> = {
     active: { color: 'text-green-700', label: 'Active', bg: 'bg-green-50 border-green-200' },
-    dispensed: { color: 'text-blue-700', label: 'Dispensee', bg: 'bg-blue-50 border-blue-200' },
+    dispensed: { color: 'text-blue-700', label: 'Dispensée', bg: 'bg-blue-50 border-blue-200' },
     expired: { color: 'text-gray-500', label: 'Expiree', bg: 'bg-gray-50 border-gray-200' },
   };
 
