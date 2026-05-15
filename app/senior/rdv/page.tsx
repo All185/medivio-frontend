@@ -52,7 +52,7 @@ export default function SeniorRdvPage() {
       <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Medivio" width={40} height={40} />
-          <span className="font-bold text-gray-900 text-xl">Medivio</span>
+          <span className="font-bold text-gray-900 text-xl hidden sm:block">Medivio</span>
         </div>
         <button onClick={() => router.push('/senior')} className="text-gray-500 text-lg font-medium">
           {t('senior.back')}
