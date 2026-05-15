@@ -176,6 +176,12 @@ const speechLang = langMap[locale] || 'fr-FR';
           <span className="font-bold text-gray-900 text-xl hidden sm:block">Medivio</span>
         </div>
         <div className="flex items-center gap-3">
+          <button
+            onClick={() => router.push('/dashboard')}
+            className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
+          >
+            ← Retour
+          </button>
           <span className="text-sm text-gray-500">{t('senior.level')} {level}/3</span>
           <div className="flex gap-1">
             {[1,2,3].map(l => (

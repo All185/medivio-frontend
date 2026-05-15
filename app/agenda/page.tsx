@@ -101,7 +101,7 @@ export default function AgendaPage() {
               onClick={() => router.push('/dashboard')}
               className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
             >
-              ← {t('appointments.back')}
+              {t('appointments.back')}
             </button>
           </div>
         </div>
