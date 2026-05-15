@@ -104,13 +104,13 @@ export default function PatientDashboard() {
         <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
           style={{ background: 'linear-gradient(135deg, #00E5C3 0%, #2B5EF8 100%)' }}>
           <div>
-            <p className="text-sm text-blue-200 mb-1">
+            <p className="text-sm mb-1 text-white/80">
               {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
             </p>
             <h2 className="text-2xl font-bold text-white mb-1">
               {user?.full_name || t('auth.patient')}
             </h2>
-            <p className="text-sm text-blue-200">{t('dashboard.appointments')}</p>
+            <p className="text-sm text-white/70">{t('dashboard.appointments')}</p>
           </div>
           <div className="flex items-center gap-6 sm:gap-8">
             <div className="text-center">
