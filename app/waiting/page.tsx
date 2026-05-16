@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
@@ -16,6 +16,7 @@ function WaitingRoomContent() {
   const [waitTime, setWaitTime] = useState(0)
   const [entryId, setEntryId] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const isInWaitingRoom = useRef(false)
   const [form, setForm] = useState({
     current_symptoms: '',
     temperature: '',
@@ -75,6 +76,7 @@ function WaitingRoomContent() {
         medications: form.notes,
       })
       setEntryId(res.data.id)
+      isInWaitingRoom.current = true
       setStep('waiting')
     } catch (err) {
       console.error(err)
@@ -85,7 +87,8 @@ function WaitingRoomContent() {
   }
 
   const handleLeave = async () => {
-    if (step === 'waiting') {
+    if (isInWaitingRoom.current) {
+      isInWaitingRoom.current = false
       try {
         await api.delete('/waiting/leave')
       } catch (err) {
