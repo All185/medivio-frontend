@@ -45,10 +45,10 @@ export default function DoctorWaitingRoom() {
     setAccepting(entry.id)
     try {
       await api.patch(`/waiting/${entry.id}/status`, { status: 'in_consultation' })
-      if (entry.appointment_id) {
-        router.push(`/video/${entry.appointment_id}`)
+      const appointmentId = res.data?.appointment_id || entry.appointment_id
+      if (appointmentId) {
+        router.push(`/video/${appointmentId}`)
       } else {
-        alert('Patient accepté. Créez un rendez-vous vidéo pour lancer la consultation.')
         fetchWaiting()
       }
     } catch (err) {
