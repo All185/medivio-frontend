@@ -168,12 +168,6 @@ export default function PatientDashboard() {
         {/* Liste des rendez-vous */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="text-lg font-bold text-gray-900">{t('dashboard.appointments')}</h3>
-          <button
-            onClick={() => router.push('/appointments/new')}
-            className="btn-primary text-sm px-4 py-2"
-          >
-            {t('dashboard.newAppointment')}
-          </button>
         </div>
 
         {loading ? (
