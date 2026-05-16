@@ -87,14 +87,14 @@ function WaitingRoomContent() {
   }
 
   const handleLeave = async () => {
-    console.log('handleLeave appelé, isInWaitingRoom:', isInWaitingRoom.current, 'step:', step)
-    if (isInWaitingRoom.current) {
-      isInWaitingRoom.current = false
-      try {
-        await api.delete('/waiting/leave')
-      } catch (err) {
-        console.error(err)
-      }
+    router.push('/dashboard')
+  }
+
+  const handleExplicitLeave = async () => {
+    try {
+      await api.delete('/waiting/leave')
+    } catch (err) {
+      console.error(err)
     }
     router.push('/dashboard')
   }
@@ -246,7 +246,7 @@ function WaitingRoomContent() {
               </p>
 
               <button
-                onClick={handleLeave}
+                onClick={handleExplicitLeave}
                 className="w-full mt-3 border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
               >
                 {t('waiting.back')}
