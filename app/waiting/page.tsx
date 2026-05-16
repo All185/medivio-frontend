@@ -4,6 +4,7 @@ import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import api from '@/lib/api'
 
 function WaitingRoomContent() {
   const router = useRouter()
@@ -13,6 +14,8 @@ function WaitingRoomContent() {
 
   const [step, setStep] = useState<'form' | 'waiting'>('form')
   const [waitTime, setWaitTime] = useState(0)
+  const [entryId, setEntryId] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
     current_symptoms: '',
     temperature: '',
@@ -37,6 +40,24 @@ function WaitingRoomContent() {
     }
   }, [step])
 
+  // Vérifie si le médecin a accepté
+  useEffect(() => {
+    if (step !== 'waiting' || !entryId || !appointmentId) return
+    const interval = setInterval(async () => {
+      try {
+        const res = await api.get('/waiting/list')
+        const entry = res.data.find((e: any) => e.id === entryId)
+        if (entry?.status === 'in_consultation') {
+          clearInterval(interval)
+          router.push(`/video/${appointmentId}`)
+        }
+      } catch (err) {
+        console.error(err)
+      }
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [step, entryId, appointmentId])
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
     const secs = seconds % 60
@@ -45,13 +66,37 @@ function WaitingRoomContent() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setStep('waiting')
+    setLoading(true)
+    try {
+      const res = await api.post('/waiting/join', {
+        appointment_id: appointmentId ? parseInt(appointmentId) : null,
+        symptoms: form.current_symptoms,
+        pain_level: 5,
+        medications: form.notes,
+      })
+      setEntryId(res.data.id)
+      setStep('waiting')
+    } catch (err) {
+      console.error(err)
+      setStep('waiting')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleLeave = async () => {
+    try {
+      await api.delete('/waiting/leave')
+    } catch (err) {
+      console.error(err)
+    }
+    router.push('/dashboard')
   }
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src="/logo.png" alt="Medivio" style={{ width: 36, height: 36, objectFit: 'contain' }} />
             <span className="text-lg font-extrabold text-[#0B1F4B] hidden sm:block">Medivio</span>
@@ -59,7 +104,7 @@ function WaitingRoomContent() {
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
             <button
-              onClick={() => router.push('/dashboard')}
+              onClick={handleLeave}
               className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
             >
               Retour au tableau de bord
@@ -68,7 +113,7 @@ function WaitingRoomContent() {
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-6 py-8">
+      <main className="max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {step === 'form' ? (
           <div className="animate-fade-in">
             <div className="text-center mb-8">
@@ -150,8 +195,8 @@ function WaitingRoomContent() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary w-full py-3 text-base">
-                  ✅ {t('waiting.ready')}
+                <button type="submit" disabled={loading} className="btn-primary w-full py-3 text-base">
+                  {loading ? '⏳ Connexion...' : `✅ ${t('waiting.ready')}`}
                 </button>
               </form>
             </div>
@@ -190,17 +235,12 @@ function WaitingRoomContent() {
                 </div>
               )}
 
-              {appointmentId && (
-                <button
-                  onClick={() => router.push(`/video/${appointmentId}`)}
-                  className="btn-primary w-full py-3 text-base"
-                >
-                  🎥 {t('waiting.joinVideo')}
-                </button>
-              )}
+              <p className="text-xs text-gray-400 mb-4">
+                🔄 Le médecin vous rejoindra automatiquement...
+              </p>
 
               <button
-                onClick={() => router.push('/dashboard')}
+                onClick={handleLeave}
                 className="w-full mt-3 border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
               >
                 {t('waiting.back')}

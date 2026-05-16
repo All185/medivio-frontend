@@ -165,7 +165,7 @@ export default function DoctorDashboard() {
     badgeColor: 'bg-amber-50 text-amber-700',
     border: '',
     bg: 'bg-amber-50',
-    route: '/waiting',
+    route: '/waiting/doctor',
   },
   {
     icon: '🤖',
