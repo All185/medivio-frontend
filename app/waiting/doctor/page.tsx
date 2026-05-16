@@ -44,7 +44,7 @@ export default function DoctorWaitingRoom() {
   const handleAccept = async (entry: WaitingEntry) => {
     setAccepting(entry.id)
     try {
-      await api.patch(`/waiting/${entry.id}/status`, { status: 'in_consultation' })
+      const res = await api.patch(`/waiting/${entry.id}/status`, { status: 'in_consultation' })
       const appointmentId = res.data?.appointment_id || entry.appointment_id
       if (appointmentId) {
         router.push(`/video/${appointmentId}`)
