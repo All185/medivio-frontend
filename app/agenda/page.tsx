@@ -159,7 +159,7 @@ export default function AgendaPage() {
         <button
           onClick={handleSave}
           disabled={loading}
-          className="btn-primary w-full py-3 text-base mt-6"
+          className="btn-primary-doctor w-full py-3 text-base mt-6"
         >
           {loading ? `⟳ ${t('agenda.saving')}` : `💾 ${t('agenda.saveButton')}`}
         </button>

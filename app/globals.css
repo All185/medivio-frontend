@@ -153,3 +153,24 @@ input::placeholder, textarea::placeholder {
   background: #DBEAFE;
   color: #1E40AF;
 }
+.btn-primary-doctor {
+  background: linear-gradient(135deg, #008A76 0%, #1E4ED8 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary-doctor:hover {
+  background: linear-gradient(135deg, #007A6A 0%, #1D4ED8 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,138,118,0.3);
+}
+.btn-primary-doctor:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}

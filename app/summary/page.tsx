@@ -126,7 +126,7 @@ export default function SummaryPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="btn-primary w-full py-3 text-base"
+                className="btn-primary-doctor w-full py-3 text-base"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -187,7 +187,7 @@ export default function SummaryPage() {
               </button>
               <button
                 onClick={() => router.push('/dashboard')}
-                className="flex-1 btn-primary py-3"
+                className="flex-1 btn-primary-doctor py-3"
               >
                 {t('analytics.back')}
               </button>
