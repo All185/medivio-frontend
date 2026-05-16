@@ -87,6 +87,7 @@ function WaitingRoomContent() {
   }
 
   const handleLeave = async () => {
+    console.log('handleLeave appelé, isInWaitingRoom:', isInWaitingRoom.current, 'step:', step)
     if (isInWaitingRoom.current) {
       isInWaitingRoom.current = false
       try {
