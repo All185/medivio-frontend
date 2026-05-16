@@ -85,10 +85,12 @@ function WaitingRoomContent() {
   }
 
   const handleLeave = async () => {
-    try {
-      await api.delete('/waiting/leave')
-    } catch (err) {
-      console.error(err)
+    if (step === 'waiting') {
+      try {
+        await api.delete('/waiting/leave')
+      } catch (err) {
+        console.error(err)
+      }
     }
     router.push('/dashboard')
   }
