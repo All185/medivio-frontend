@@ -125,7 +125,7 @@ export default function ChronicPage() {
             <h1 className="text-3xl font-bold text-gray-900">{t('chronic.title')}</h1>
             <p className="text-gray-500 mt-1">{t('chronic.subtitle')}</p>
           </div>
-          <button onClick={() => setShowForm(!showForm)} className="bg-[#009E88] hover:bg-[#008A76] text-white font-semibold px-4 py-2 rounded-xl text-sm transition-colors">
+          <button onClick={() => setShowForm(!showForm)} className="btn-primary px-4 py-2 text-sm">
             + {t('chronic.add_record')}
           </button>
         </div>
@@ -194,7 +194,7 @@ export default function ChronicPage() {
               </div>
             </div>
             <textarea className="w-full border border-gray-300 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none mb-3" placeholder={t('chronic.notes_placeholder')} value={form.notes} onChange={e => setForm({...form, notes: e.target.value})} rows={2} />
-            <button onClick={handleSubmit} disabled={submitting} className="w-full bg-[#009E88] hover:bg-[#008A76] disabled:opacity-50 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+            <button onClick={handleSubmit} disabled={submitting} className="btn-primary w-full py-3 text-sm">
               {submitting ? t('chronic.saving') : t('chronic.save_record')}
             </button>
           </div>
