@@ -48,6 +48,7 @@ export default function DoctorWaitingRoom() {
       if (entry.appointment_id) {
         router.push(`/video/${entry.appointment_id}`)
       } else {
+        alert('Patient accepté. Créez un rendez-vous vidéo pour lancer la consultation.')
         fetchWaiting()
       }
     } catch (err) {
