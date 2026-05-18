@@ -46,8 +46,8 @@ function WaitingRoomContent() {
     if (step !== 'waiting' || !entryId || !appointmentId) return
     const interval = setInterval(async () => {
       try {
-        const res = await api.get('/waiting/list')
-        const entry = res.data.find((e: any) => e.id === entryId)
+        const res = await api.get('/waiting/my-status')
+        const entry = res.data
         if (entry?.status === 'in_consultation') {
           clearInterval(interval)
           router.push(`/video/${appointmentId}`)
