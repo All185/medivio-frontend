@@ -43,7 +43,7 @@ function WaitingRoomContent() {
 
   // Vérifie si le médecin a accepté
   useEffect(() => {
-    if (step !== 'waiting' || !entryId || !appointmentId) return
+    if (step !== 'waiting' || !entryId) return
     const interval = setInterval(async () => {
       try {
         const res = await api.get('/waiting/my-status')
