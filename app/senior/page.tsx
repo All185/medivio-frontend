@@ -193,7 +193,7 @@ const speechLang = langMap[locale] || 'fr-FR';
 
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-8">
         {speaking && (
-          <div className="mb-6 bg-blue-100 border border-blue-300 rounded-2xl px-6 py-3 flex items-center gap-3">
+          <div className="mb-6 rounded-2xl px-6 py-3 flex items-center gap-3 text-white" style="background: linear-gradient(135deg, #009E88 0%, #2B5EF8 100%)">
             <span className="text-2xl animate-pulse">🔊</span>
             <span className="text-blue-700 font-medium">{t('senior.speaking')}</span>
           </div>
@@ -222,7 +222,7 @@ const speechLang = langMap[locale] || 'fr-FR';
         <button
           onClick={startListening}
           disabled={listening || speaking}
-          className="bg-white border-4 border-blue-600 text-blue-600 font-bold text-xl px-10 py-5 rounded-full shadow-lg hover:bg-blue-50 disabled:opacity-50 transition-all flex items-center gap-3"
+          className="btn-primary font-bold text-xl px-10 py-5 rounded-full shadow-lg disabled:opacity-50 transition-all flex items-center gap-3"
         >
           <span className="text-3xl">{listening ? '🎤' : '🎙️'}</span>
           {listening ? t('senior.listening') : t('senior.speak_to_me')}
