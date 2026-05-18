@@ -193,7 +193,7 @@ const speechLang = langMap[locale] || 'fr-FR';
 
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-8">
         {speaking && (
-          <div className="mb-6 rounded-2xl px-6 py-3 flex items-center gap-3 text-white" style="background: linear-gradient(135deg, #009E88 0%, #2B5EF8 100%)">
+          <div className="mb-6 rounded-2xl px-6 py-3 flex items-center gap-3 text-white" style={{ background: 'linear-gradient(135deg, #009E88 0%, #2B5EF8 100%)' }}>
             <span className="text-2xl animate-pulse">🔊</span>
             <span className="text-blue-700 font-medium">{t('senior.speaking')}</span>
           </div>
