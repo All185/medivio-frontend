@@ -105,7 +105,7 @@ export default function DoctorWaitingRoom() {
           </div>
         ) : entries.length === 0 ? (
           <div className="card p-10 text-center">
-            <div className="text-5xl mb-4">✅</div>
+            <img src="/icons/hourglass_full.jpg" className="w-16 h-16 object-contain mx-auto mb-4" style={{mixBlendMode:"multiply"}}/>
             <p className="text-gray-500">Aucun patient en attente pour l'instant.</p>
             <p className="text-xs text-gray-400 mt-2">Actualisation automatique toutes les 10 secondes</p>
           </div>

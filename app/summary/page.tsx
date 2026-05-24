@@ -64,7 +64,7 @@ export default function SummaryPage() {
 
       <main className="max-w-3xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">🤖 {t('summary.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3"><img src="/icons/robot_full.jpg" className="w-8 h-8 object-contain" style={{mixBlendMode:"multiply"}}/> {t('summary.title')}</h2>
           <p className="text-gray-500 text-sm mt-1">{t('summary.subtitle')}</p>
         </div>
 
@@ -132,7 +132,7 @@ export default function SummaryPage() {
                   <span className="flex items-center justify-center gap-2">
                     <span className="animate-spin">⟳</span> {t('summary.generating')}
                   </span>
-                ) : `🤖 ${t('summary.generateButton')}`}
+                ) : `${t('summary.generateButton')}`}
               </button>
             </form>
           </div>

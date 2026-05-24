@@ -62,7 +62,7 @@ export default function AnalyticsPage() {
 
       <main className="max-w-5xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">📊 {t('analytics.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3"><img src="/icons/stats_full.jpg" className="w-8 h-8 object-contain" style={{mixBlendMode:"multiply"}}/> {t('analytics.title')}</h2>
           <p className="text-gray-500 text-sm mt-1">{t('analytics.subtitle')}</p>
         </div>
 
@@ -143,7 +143,7 @@ export default function AnalyticsPage() {
                 onClick={() => router.push('/summary')}
                 className="card p-5 text-left hover:scale-[1.02] transition-transform bg-purple-50 border border-purple-100"
               >
-                <div className="text-2xl mb-2">🤖</div>
+                <img src="/icons/robot_full.jpg" className="w-8 h-8 object-contain mx-auto mb-2" style={{mixBlendMode:"multiply"}}/>
                 <p className="font-semibold text-purple-700">{t('summary.title')}</p>
                 <p className="text-xs text-purple-500 mt-1">{t('analytics.generateSummary')}</p>
               </button>
@@ -151,7 +151,7 @@ export default function AnalyticsPage() {
                 onClick={() => router.push('/dashboard')}
                 className="card p-5 text-left hover:scale-[1.02] transition-transform bg-blue-50 border border-blue-100"
               >
-                <div className="text-2xl mb-2">📅</div>
+                <img src="/icons/calendar_full.jpg" className="w-8 h-8 object-contain mx-auto mb-2" style={{mixBlendMode:"multiply"}}/>
                 <p className="font-semibold text-blue-700">{t('dashboard.consultations')}</p>
                 <p className="text-xs text-blue-500 mt-1">{t('analytics.viewConsultations')}</p>
               </button>
