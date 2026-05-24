@@ -62,7 +62,7 @@ export default function AnalyticsPage() {
 
       <main className="max-w-5xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3"><img src="/icons/stats_full.jpg" className="w-8 h-8 object-contain" style={{mixBlendMode:"multiply"}}/> {t('analytics.title')}</h2>
+          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3"><img src="/icons/stats_full.png" className="w-10 h-10 object-contain"/> {t('analytics.title')}</h2>
           <p className="text-gray-500 text-sm mt-1">{t('analytics.subtitle')}</p>
         </div>
 
@@ -80,13 +80,19 @@ export default function AnalyticsPage() {
           <div className="animate-fade-in space-y-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: t('analytics.total'), value: stats.total, icon: '📅', color: 'bg-blue-50 text-blue-600', border: 'border-blue-100' },
-                { label: t('analytics.thisWeek'), value: stats.this_week, icon: '📆', color: 'bg-purple-50 text-purple-600', border: 'border-purple-100' },
-                { label: t('analytics.thisMonth'), value: stats.this_month, icon: '🗓️', color: 'bg-indigo-50 text-indigo-600', border: 'border-indigo-100' },
-                { label: t('analytics.completed'), value: stats.completed, icon: '✅', color: 'bg-green-50 text-green-600', border: 'border-green-100' },
+                { label: t('analytics.total'), value: stats.total, icon: 'calendar', color: 'bg-blue-50 text-blue-600', border: 'border-blue-100' },
+                { label: t('analytics.thisWeek'), value: stats.this_week, icon: 'calendar', color: 'bg-purple-50 text-purple-600', border: 'border-purple-100' },
+                { label: t('analytics.thisMonth'), value: stats.this_month, icon: 'calendar', color: 'bg-indigo-50 text-indigo-600', border: 'border-indigo-100' },
+                { label: t('analytics.completed'), value: stats.completed, icon: 'stats', color: 'bg-green-50 text-green-600', border: 'border-green-100' },
               ].map((stat, i) => (
                 <div key={i} className={`card p-5 ${stat.color} border ${stat.border}`}>
-                  <div className="text-3xl mb-2">{stat.icon}</div>
+                  {stat.icon === 'calendar' ? (
+                    <img src="/icons/calendar_full.jpg" className="w-10 h-10 object-contain mb-2" style={{mixBlendMode:"multiply"}}/>
+                  ) : stat.icon === 'stats' ? (
+                    <img src="/icons/stats_full.png" className="w-10 h-10 object-contain mb-2"/>
+                  ) : (
+                    <div className="text-3xl mb-2">{stat.icon}</div>
+                  )}
                   <p className="text-3xl font-bold">{stat.value}</p>
                   <p className="text-xs font-medium mt-1 opacity-70">{stat.label}</p>
                 </div>
