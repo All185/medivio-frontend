@@ -6,6 +6,7 @@ import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import EmergencyBanner from '@/components/EmergencyBanner';
+import { IconAlert, IconHourglass, IconRobot, IconChat, IconCalendar, IconClipboard, IconReceipt, IconStats, IconHospital, IconHeart, IconMailbox } from '@/components/icons/MedivioIcons';
 interface Appointment {
   id: string
   patient_id: string
@@ -150,7 +151,7 @@ export default function DoctorDashboard() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {[
   {
-    icon: '/icons/alert_full_v2.jpg',
+    icon: 'alert',
     title: t('emergency.title'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
     badgeColor: 'bg-red-50 text-red-700',
@@ -159,7 +160,7 @@ export default function DoctorDashboard() {
     route: '/emergency/list',
   },
   {
-    icon: '/icons/hourglass_full_v2.jpg',
+    icon: 'hourglass',
     title: t('waiting.button'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
     badgeColor: 'bg-amber-50 text-amber-700',
@@ -168,7 +169,7 @@ export default function DoctorDashboard() {
     route: '/waiting/doctor',
   },
   {
-    icon: '/icons/robot_full_v2.jpg',
+    icon: 'robot',
     title: t('summary.title'),
     badge: 'IA',
     badgeColor: 'bg-blue-50 text-blue-700',
@@ -177,7 +178,7 @@ export default function DoctorDashboard() {
     route: '/summary',
   },
   {
-    icon: '/icons/chat_full_v2.jpg',
+    icon: 'chat',
     title: t('async.doctor_title'),
     badge: null,
     badgeColor: '',
@@ -192,11 +193,17 @@ export default function DoctorDashboard() {
               className={`card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow ${item.border ? `border ${item.border}` : ''}`}
             >
               <div className="w-9 h-9 flex items-center justify-center">
-                {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-20 h-20 object-contain" />
-                ) : (
-                  <span>{item.icon}</span>
-                )}
+                {item.icon === 'alert' ? <IconAlert size={36}/> :
+                 item.icon === 'hourglass' ? <IconHourglass size={36}/> :
+                 item.icon === 'robot' ? <IconRobot size={36}/> :
+                 item.icon === 'chat' ? <IconChat size={36}/> :
+                 item.icon === 'calendar' ? <IconCalendar size={36}/> :
+                 item.icon === 'clipboard' ? <IconClipboard size={36}/> :
+                 item.icon === 'receipt' ? <IconReceipt size={36}/> :
+                 item.icon === 'stats' ? <IconStats size={36}/> :
+                 item.icon === 'hospital' ? <IconHospital size={36}/> :
+                 item.icon === 'heart' ? <IconHeart size={36}/> :
+                 <span>{item.icon}</span>}
               </div>
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
               {item.badge && (
@@ -212,10 +219,10 @@ export default function DoctorDashboard() {
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {[
-            { icon: '/icons/calendar_full_v2.jpg', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
-            { icon: '/icons/clipboard_full_v2.jpg', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
-            { icon: '/icons/receipt_full_v2.jpg', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
-            { icon: '/icons/stats_full_v2.jpg', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
+            { icon: 'calendar', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
+            { icon: 'clipboard', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
+            { icon: 'receipt', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
+            { icon: 'stats', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
           ].map((item, i) => (
             <button
               key={i}
@@ -223,11 +230,17 @@ export default function DoctorDashboard() {
               className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
             >
               <div className="w-9 h-9 flex items-center justify-center">
-                {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-20 h-20 object-contain" />
-                ) : (
-                  <span>{item.icon}</span>
-                )}
+                {item.icon === 'alert' ? <IconAlert size={36}/> :
+                 item.icon === 'hourglass' ? <IconHourglass size={36}/> :
+                 item.icon === 'robot' ? <IconRobot size={36}/> :
+                 item.icon === 'chat' ? <IconChat size={36}/> :
+                 item.icon === 'calendar' ? <IconCalendar size={36}/> :
+                 item.icon === 'clipboard' ? <IconClipboard size={36}/> :
+                 item.icon === 'receipt' ? <IconReceipt size={36}/> :
+                 item.icon === 'stats' ? <IconStats size={36}/> :
+                 item.icon === 'hospital' ? <IconHospital size={36}/> :
+                 item.icon === 'heart' ? <IconHeart size={36}/> :
+                 <span>{item.icon}</span>}
               </div>
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
             </button>
@@ -236,8 +249,8 @@ export default function DoctorDashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
           {[
-            { icon: '/icons/hospital24_full_v2.jpg', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
-            { icon: '/icons/heart_full_v2.jpg', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
+            { icon: 'hospital', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
+            { icon: 'heart', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
           ].map((item, i) => (
             <button
               key={i}
@@ -245,11 +258,17 @@ export default function DoctorDashboard() {
               className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
             >
               <div className="w-9 h-9 flex items-center justify-center">
-                {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-20 h-20 object-contain" />
-                ) : (
-                  <span>{item.icon}</span>
-                )}
+                {item.icon === 'alert' ? <IconAlert size={36}/> :
+                 item.icon === 'hourglass' ? <IconHourglass size={36}/> :
+                 item.icon === 'robot' ? <IconRobot size={36}/> :
+                 item.icon === 'chat' ? <IconChat size={36}/> :
+                 item.icon === 'calendar' ? <IconCalendar size={36}/> :
+                 item.icon === 'clipboard' ? <IconClipboard size={36}/> :
+                 item.icon === 'receipt' ? <IconReceipt size={36}/> :
+                 item.icon === 'stats' ? <IconStats size={36}/> :
+                 item.icon === 'hospital' ? <IconHospital size={36}/> :
+                 item.icon === 'heart' ? <IconHeart size={36}/> :
+                 <span>{item.icon}</span>}
               </div>
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
             </button>
@@ -268,7 +287,7 @@ export default function DoctorDashboard() {
           </div>
         ) : appointments.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <img src="/icons/mailbox_full_v2.jpg" alt="" className="w-16 h-16 object-contain mx-auto mb-4" />
+            <IconMailbox size={56} />
             <p className="text-gray-500">{t('dashboard.noConsultations')}</p>
           </div>
         ) : (
