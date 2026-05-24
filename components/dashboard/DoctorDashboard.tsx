@@ -191,9 +191,9 @@ export default function DoctorDashboard() {
               onClick={() => router.push(item.route)}
               className={`card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow ${item.border ? `border ${item.border}` : ''}`}
             >
-              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+              <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-7 h-7 object-contain" />
+                  <img src={item.icon} alt="" className="w-9 h-9 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -222,9 +222,9 @@ export default function DoctorDashboard() {
               onClick={() => router.push(item.route)}
               className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
             >
-              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+              <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-7 h-7 object-contain" />
+                  <img src={item.icon} alt="" className="w-9 h-9 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -244,9 +244,9 @@ export default function DoctorDashboard() {
               onClick={() => router.push(item.route)}
               className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
             >
-              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
+              <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-7 h-7 object-contain" />
+                  <img src={item.icon} alt="" className="w-9 h-9 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
