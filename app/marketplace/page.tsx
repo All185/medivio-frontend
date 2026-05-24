@@ -80,7 +80,7 @@ export default function MarketplacePage() {
 
         {/* Bouton matching IA */}
         <button onClick={() => router.push('/marketplace/match')} className="btn-primary w-full py-4 rounded-2xl mb-8 flex items-center justify-center gap-3">
-          <span className="text-2xl">🤖</span>
+          <span className="text-2xl"></span>
           <span className="text-lg">{t('marketplace.ai_match')}</span>
         </button>
 
