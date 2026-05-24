@@ -193,7 +193,7 @@ export default function DoctorDashboard() {
             >
               <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-10 h-10 object-contain" />
+                  <img src={item.icon} alt="" className="w-16 h-16 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -224,7 +224,7 @@ export default function DoctorDashboard() {
             >
               <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-10 h-10 object-contain" />
+                  <img src={item.icon} alt="" className="w-16 h-16 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -246,7 +246,7 @@ export default function DoctorDashboard() {
             >
               <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-10 h-10 object-contain" />
+                  <img src={item.icon} alt="" className="w-16 h-16 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -268,7 +268,7 @@ export default function DoctorDashboard() {
           </div>
         ) : appointments.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <img src="/icons/mailbox_full.jpg" alt="" className="w-20 h-20 object-contain mx-auto mb-4" />
+            <img src="/icons/mailbox_full.jpg" alt="" className="w-16 h-16 object-contain mx-auto mb-4" />
             <p className="text-gray-500">{t('dashboard.noConsultations')}</p>
           </div>
         ) : (
