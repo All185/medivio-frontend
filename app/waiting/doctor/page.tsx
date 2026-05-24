@@ -88,7 +88,7 @@ export default function DoctorWaitingRoom() {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">🏥 Salle d'attente</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Salle d'attente</h2>
             <p className="text-sm text-gray-400 mt-1">Patients en attente de consultation vidéo</p>
           </div>
           <button
@@ -105,7 +105,7 @@ export default function DoctorWaitingRoom() {
           </div>
         ) : entries.length === 0 ? (
           <div className="card p-10 text-center">
-            <img src="/icons/hourglass_full.jpg" className="w-16 h-16 object-contain mx-auto mb-4" style={{mixBlendMode:"multiply"}}/>
+            <img src="/icons/mailbox_full.jpg" className="w-16 h-16 object-contain mx-auto mb-4" style={{mixBlendMode:"multiply"}}/>
             <p className="text-gray-500">Aucun patient en attente pour l'instant.</p>
             <p className="text-xs text-gray-400 mt-2">Actualisation automatique toutes les 10 secondes</p>
           </div>
