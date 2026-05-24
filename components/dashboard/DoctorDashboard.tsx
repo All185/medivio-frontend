@@ -150,7 +150,7 @@ export default function DoctorDashboard() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {[
   {
-    icon: '/icons/alert_full.jpg',
+    icon: '/icons/alert_full_v2.jpg',
     title: t('emergency.title'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
     badgeColor: 'bg-red-50 text-red-700',
@@ -159,7 +159,7 @@ export default function DoctorDashboard() {
     route: '/emergency/list',
   },
   {
-    icon: '/icons/hourglass_full.jpg',
+    icon: '/icons/hourglass_full_v2.jpg',
     title: t('waiting.button'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
     badgeColor: 'bg-amber-50 text-amber-700',
@@ -168,7 +168,7 @@ export default function DoctorDashboard() {
     route: '/waiting/doctor',
   },
   {
-    icon: '/icons/robot_full.jpg',
+    icon: '/icons/robot_full_v2.jpg',
     title: t('summary.title'),
     badge: 'IA',
     badgeColor: 'bg-blue-50 text-blue-700',
@@ -177,7 +177,7 @@ export default function DoctorDashboard() {
     route: '/summary',
   },
   {
-    icon: '/icons/chat_full.jpg',
+    icon: '/icons/chat_full_v2.jpg',
     title: t('async.doctor_title'),
     badge: null,
     badgeColor: '',
@@ -212,10 +212,10 @@ export default function DoctorDashboard() {
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {[
-            { icon: '/icons/calendar_full.jpg', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
-            { icon: '/icons/clipboard_full.jpg', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
-            { icon: '/icons/receipt_full.jpg', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
-            { icon: '/icons/stats_full.jpg', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
+            { icon: '/icons/calendar_full_v2.jpg', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
+            { icon: '/icons/clipboard_full_v2.jpg', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
+            { icon: '/icons/receipt_full_v2.jpg', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
+            { icon: '/icons/stats_full_v2.jpg', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
           ].map((item, i) => (
             <button
               key={i}
@@ -236,8 +236,8 @@ export default function DoctorDashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
           {[
-            { icon: '/icons/hospital24_full.jpg', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
-            { icon: '/icons/heart_full.jpg', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
+            { icon: '/icons/hospital24_full_v2.jpg', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
+            { icon: '/icons/heart_full_v2.jpg', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
           ].map((item, i) => (
             <button
               key={i}
@@ -268,7 +268,7 @@ export default function DoctorDashboard() {
           </div>
         ) : appointments.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <img src="/icons/mailbox_full.jpg" alt="" className="w-16 h-16 object-contain mx-auto mb-4" />
+            <img src="/icons/mailbox_full_v2.jpg" alt="" className="w-16 h-16 object-contain mx-auto mb-4" />
             <p className="text-gray-500">{t('dashboard.noConsultations')}</p>
           </div>
         ) : (
