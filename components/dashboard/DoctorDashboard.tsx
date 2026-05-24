@@ -193,7 +193,7 @@ export default function DoctorDashboard() {
             >
               <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-9 h-9 object-contain" />
+                  <img src={item.icon} alt="" className="w-14 h-14 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -224,7 +224,7 @@ export default function DoctorDashboard() {
             >
               <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-9 h-9 object-contain" />
+                  <img src={item.icon} alt="" className="w-14 h-14 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
@@ -246,7 +246,7 @@ export default function DoctorDashboard() {
             >
               <div className="w-9 h-9 flex items-center justify-center">
                 {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-9 h-9 object-contain" />
+                  <img src={item.icon} alt="" className="w-14 h-14 object-contain" />
                 ) : (
                   <span>{item.icon}</span>
                 )}
