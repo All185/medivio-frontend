@@ -151,7 +151,7 @@ export default function DoctorDashboard() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
         {[
   {
-    icon: '/icons/alert_full.jpg',
+    icon: '/icons/alert_full.png',
     title: t('emergency.title'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
     badgeColor: 'bg-red-50 text-red-700',
@@ -178,7 +178,7 @@ export default function DoctorDashboard() {
     route: '/summary',
   },
   {
-    icon: '/icons/chat_full.jpg',
+    icon: '/icons/chat_full.png',
     title: t('async.doctor_title'),
     badge: null,
     badgeColor: '',
@@ -216,7 +216,7 @@ export default function DoctorDashboard() {
             { icon: '/icons/calendar_full.jpg', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
             { icon: '/icons/clipboard_full.jpg', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
             { icon: '/icons/receipt_full.jpg', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
-            { icon: '/icons/stats_full.jpg', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
+            { icon: '/icons/stats_full.png', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
           ].map((item, i) => (
             <button
               key={i}
