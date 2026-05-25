@@ -6,7 +6,7 @@ import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import EmergencyBanner from '@/components/EmergencyBanner';
-import { IconAlert, IconHourglass, IconRobot, IconChat, IconCalendar, IconClipboard, IconReceipt, IconStats, IconHospital, IconHeart, IconMailbox } from '@/components/icons/MedivioIcons';
+
 interface Appointment {
   id: string
   patient_id: string
@@ -79,6 +79,15 @@ export default function DoctorDashboard() {
   }
   const dateLocale = localeMap[locale] || 'fr-FR'
 
+  const NO_REMOVEBG = ['/icons/alert_full.png', '/icons/chat_full.png', '/icons/stats_full.png', '/icons/clipboard_full.jpg']
+
+  const iconStyle = (src: string): React.CSSProperties => ({
+    width: 48,
+    height: 48,
+    objectFit: 'contain',
+    mixBlendMode: NO_REMOVEBG.includes(src) ? 'multiply' : undefined,
+  })
+
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       {/* Header */}
@@ -110,95 +119,82 @@ export default function DoctorDashboard() {
         </div>
       </header>
       <EmergencyBanner />
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-       {/* Hero */}
-<div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
-  style={{ background: 'linear-gradient(135deg, #008A76 0%, #1E4ED8 100%)' }}>
-  <div>
-    <p className="text-sm mb-1 text-white/80">
-      {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
-    </p>
-    <h2 className="text-2xl font-bold text-white mb-1">
-      Dr. {user?.full_name || t('auth.doctor')}
-    </h2>
-    <p className="text-sm text-white/70">{t('dashboard.consultations')}</p>
-  </div>
-  <div className="flex items-center gap-6 sm:gap-8">
-    <div className="text-center">
-      <p className="text-2xl font-bold text-white">{appointments.length}</p>
-      <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('dashboard.today')}</p>
-      <div className="w-2 h-2 rounded-full bg-blue-500 mx-auto mt-1.5" />
-    </div>
-    <div className="text-center">
-      <p className="text-2xl font-bold text-white">
-        {appointments.filter(a => a.status === 'pending').length}
-      </p>
-      <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.pending')}</p>
-      <div className="w-2 h-2 rounded-full bg-amber-400 mx-auto mt-1.5" />
-    </div>
-    <div className="text-center">
-      <p className="text-2xl font-bold text-white">
-        {appointments.filter(a => a.status === 'confirmed').length}
-      </p>
-      <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.confirmed')}</p>
-      <div className="w-2 h-2 rounded-full bg-green-500 mx-auto mt-1.5" />
-    </div>
-  </div>
-</div>
 
-  {/* Grille modules — Actions rapides */}
-  <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-        {[
-  {
-    icon: '/icons/alert_full.png',
-    title: t('emergency.title'),
-    badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
-    badgeColor: 'bg-red-50 text-red-700',
-    border: 'border-red-200',
-    bg: 'bg-red-50',
-    route: '/emergency/list',
-  },
-  {
-    icon: '/icons/hourglass_full-removebg-preview.png',
-    title: t('waiting.button'),
-    badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
-    badgeColor: 'bg-amber-50 text-amber-700',
-    border: '',
-    bg: 'bg-amber-50',
-    route: '/waiting/doctor',
-  },
-  {
-    icon: '/icons/robot_full-removebg-preview.png',
-    title: t('summary.title'),
-    badge: 'IA',
-    badgeColor: 'bg-blue-50 text-blue-700',
-    border: '',
-    bg: 'bg-blue-50',
-    route: '/summary',
-  },
-  {
-    icon: '/icons/chat_full.png',
-    title: t('async.doctor_title'),
-    badge: null,
-    badgeColor: '',
-    border: '',
-    bg: 'bg-teal-50',
-    route: '/async-care/doctor',
-  },
-].map((item, i) => (
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        {/* Hero */}
+        <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+          style={{ background: 'linear-gradient(135deg, #008A76 0%, #1E4ED8 100%)' }}>
+          <div>
+            <p className="text-sm mb-1 text-white/80">
+              {new Date().toLocaleDateString(dateLocale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+            </p>
+            <h2 className="text-2xl font-bold text-white mb-1">
+              Dr. {user?.full_name || t('auth.doctor')}
+            </h2>
+            <p className="text-sm text-white/70">{t('dashboard.consultations')}</p>
+          </div>
+          <div className="flex items-center gap-6 sm:gap-8">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{appointments.length}</p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('dashboard.today')}</p>
+              <div className="w-2 h-2 rounded-full bg-blue-500 mx-auto mt-1.5" />
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">
+                {appointments.filter(a => a.status === 'pending').length}
+              </p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.pending')}</p>
+              <div className="w-2 h-2 rounded-full bg-amber-400 mx-auto mt-1.5" />
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">
+                {appointments.filter(a => a.status === 'confirmed').length}
+              </p>
+              <p className="text-[11px] uppercase tracking-widest text-blue-100 mt-1">{t('status.confirmed')}</p>
+              <div className="w-2 h-2 rounded-full bg-green-500 mx-auto mt-1.5" />
+            </div>
+          </div>
+        </div>
+
+        {/* Actions rapides */}
+        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          {[
+            {
+              icon: '/icons/alert_full.png',
+              title: t('emergency.title'),
+              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
+              badgeColor: 'bg-red-50 text-red-700',
+              route: '/emergency/list',
+            },
+            {
+              icon: '/icons/hourglass_full-removebg-preview.png',
+              title: t('waiting.button'),
+              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
+              badgeColor: 'bg-amber-50 text-amber-700',
+              route: '/waiting/doctor',
+            },
+            {
+              icon: '/icons/robot_full-removebg-preview.png',
+              title: t('summary.title'),
+              badge: 'IA',
+              badgeColor: 'bg-blue-50 text-blue-700',
+              route: '/summary',
+            },
+            {
+              icon: '/icons/chat_full.png',
+              title: t('async.doctor_title'),
+              badge: null,
+              badgeColor: '',
+              route: '/async-care/doctor',
+            },
+          ].map((item, i) => (
             <button
               key={i}
               onClick={() => router.push(item.route)}
-              className={`card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow ${item.border ? `border ${item.border}` : ''}`}
+              className="card p-5 text-left flex flex-col gap-3 hover:shadow-md transition-shadow"
             >
-              <div className="w-9 h-9 flex items-center justify-center">
-                {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-16 h-16 object-contain" style={{ mixBlendMode: "multiply" }} />
-                ) : (
-                  <span>{item.icon}</span>
-                )}
-              </div>
+              <img src={item.icon} alt={item.title} style={iconStyle(item.icon)} />
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
               {item.badge && (
                 <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full w-fit ${item.badgeColor}`}>
@@ -209,27 +205,21 @@ export default function DoctorDashboard() {
           ))}
         </div>
 
-        {/* Grille modules — Outils médecin */}
+        {/* Outils médecin */}
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {[
-            { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
-            { icon: '/icons/clipboard_full.jpg', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
-            { icon: '/icons/receipt_full-removebg-preview.png', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
-            { icon: '/icons/stats_full.png', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
+            { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),           route: '/agenda' },
+            { icon: '/icons/clipboard_full.jpg',                 title: t('prescription.doctor_title'), route: '/prescriptions/doctor' },
+            { icon: '/icons/receipt_full-removebg-preview.png', title: t('billing.doctor_title'),    route: '/billing/doctor' },
+            { icon: '/icons/stats_full.png',                    title: t('analytics.title'),         route: '/analytics' },
           ].map((item, i) => (
             <button
               key={i}
               onClick={() => router.push(item.route)}
-              className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
+              className="card p-5 text-left flex flex-col gap-3 hover:shadow-md transition-shadow"
             >
-              <div className="w-9 h-9 flex items-center justify-center">
-                {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-16 h-16 object-contain" style={{ mixBlendMode: "multiply" }} />
-                ) : (
-                  <span>{item.icon}</span>
-                )}
-              </div>
+              <img src={item.icon} alt={item.title} style={iconStyle(item.icon)} />
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
             </button>
           ))}
@@ -237,21 +227,15 @@ export default function DoctorDashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
           {[
-            { icon: '/icons/hospital24_full-removebg-preview.png', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
-            { icon: '/icons/heart_full-removebg-preview.png', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
+            { icon: '/icons/hospital24_full-removebg-preview.png', title: t('marketplace.title'),      route: '/marketplace' },
+            { icon: '/icons/heart_full-removebg-preview.png',      title: t('chronic.doctor_title'),   route: '/chronic/doctor' },
           ].map((item, i) => (
             <button
               key={i}
               onClick={() => router.push(item.route)}
-              className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
+              className="card p-5 text-left flex flex-col gap-3 hover:shadow-md transition-shadow"
             >
-              <div className="w-9 h-9 flex items-center justify-center">
-                {item.icon.startsWith('/') ? (
-                  <img src={item.icon} alt="" className="w-16 h-16 object-contain" style={{ mixBlendMode: "multiply" }} />
-                ) : (
-                  <span>{item.icon}</span>
-                )}
-              </div>
+              <img src={item.icon} alt={item.title} style={iconStyle(item.icon)} />
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.title}</p>
             </button>
           ))}
@@ -269,7 +253,7 @@ export default function DoctorDashboard() {
           </div>
         ) : appointments.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <img src="/icons/mailbox_full-removebg-preview.png" alt="" className="w-20 h-20 object-contain mx-auto mb-4" />
+            <img src="/icons/mailbox_full-removebg-preview.png" alt="" style={{ width: 64, height: 64, objectFit: 'contain', margin: '0 auto 16px' }} />
             <p className="text-gray-500">{t('dashboard.noConsultations')}</p>
           </div>
         ) : (
@@ -285,7 +269,6 @@ export default function DoctorDashboard() {
               }
               return (
                 <div key={apt.id} className="card p-4 flex items-center gap-4">
-                  {/* Heure */}
                   <div className="text-center min-w-[48px]">
                     <p className="text-sm font-semibold text-gray-900">
                       {date.toLocaleTimeString(dateLocale, { hour: '2-digit', minute: '2-digit' })}
@@ -294,16 +277,10 @@ export default function DoctorDashboard() {
                       {date.toLocaleDateString(dateLocale, { day: '2-digit', month: 'short' })}
                     </p>
                   </div>
-
-                  {/* Séparateur vertical */}
                   <div className="w-px h-10 bg-gray-100" />
-
-                  {/* Avatar */}
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${avatarColors[apt.status] || 'bg-gray-100 text-gray-600'}`}>
                     {initials}
                   </div>
-
-                  {/* Infos */}
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-gray-800">
                       Patient #{apt.patient_id.slice(0, 8)}
@@ -312,8 +289,6 @@ export default function DoctorDashboard() {
                       <p className="text-xs text-gray-400 truncate mt-0.5">{apt.notes}</p>
                     )}
                   </div>
-
-                  {/* Statut + Actions */}
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <span className={statusBadge(apt.status)}>
                       {statusLabel(apt.status)}
@@ -337,8 +312,8 @@ export default function DoctorDashboard() {
               )
             })}
           </div>
-        )}      </main>
+        )}
+      </main>
     </div>
   )
 }
-// force redeploy Sat May 23 20:38:39 AST 2026
