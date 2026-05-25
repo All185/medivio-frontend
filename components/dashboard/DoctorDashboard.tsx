@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-import EmergencyBanner from '@/components/EmergencyBanner';
+import EmergencyBanner from '@/components/EmergencyBanner'
 
 interface Appointment {
   id: string
@@ -90,7 +90,6 @@ export default function DoctorDashboard() {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
-      {/* Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -121,7 +120,6 @@ export default function DoctorDashboard() {
       <EmergencyBanner />
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        {/* Hero */}
         <div className="rounded-2xl p-6 mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
           style={{ background: 'linear-gradient(135deg, #008A76 0%, #1E4ED8 100%)' }}>
           <div>
@@ -156,7 +154,6 @@ export default function DoctorDashboard() {
           </div>
         </div>
 
-        {/* Actions rapides */}
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
           {[
@@ -205,14 +202,13 @@ export default function DoctorDashboard() {
           ))}
         </div>
 
-        {/* Outils médecin */}
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {[
-            { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),           route: '/agenda' },
+            { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),            route: '/agenda' },
             { icon: '/icons/clipboard_full.jpg',                 title: t('prescription.doctor_title'), route: '/prescriptions/doctor' },
-            { icon: '/icons/receipt_full-removebg-preview.png', title: t('billing.doctor_title'),    route: '/billing/doctor' },
-            { icon: '/icons/stats_full.png',                    title: t('analytics.title'),         route: '/analytics' },
+            { icon: '/icons/receipt_full-removebg-preview.png',  title: t('billing.doctor_title'),     route: '/billing/doctor' },
+            { icon: '/icons/stats_full.png',                     title: t('analytics.title'),          route: '/analytics' },
           ].map((item, i) => (
             <button
               key={i}
@@ -227,8 +223,8 @@ export default function DoctorDashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
           {[
-            { icon: '/icons/hospital24_full-removebg-preview.png', title: t('marketplace.title'),      route: '/marketplace' },
-            { icon: '/icons/heart_full-removebg-preview.png',      title: t('chronic.doctor_title'),   route: '/chronic/doctor' },
+            { icon: '/icons/hospital24_full-removebg-preview.png', title: t('marketplace.title'),    route: '/marketplace' },
+            { icon: '/icons/heart_full-removebg-preview.png',      title: t('chronic.doctor_title'), route: '/chronic/doctor' },
           ].map((item, i) => (
             <button
               key={i}
@@ -241,7 +237,6 @@ export default function DoctorDashboard() {
           ))}
         </div>
 
-        {/* Liste consultations */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
           <span className="text-xs text-gray-400">{appointments.length} rendez-vous</span>
