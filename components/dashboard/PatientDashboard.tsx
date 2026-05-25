@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+
 interface Appointment {
   id: string
   doctor_id: string
@@ -69,6 +70,21 @@ export default function PatientDashboard() {
   const dateLocale = localeMap[locale] || 'fr-FR'
 
   const NO_REMOVEBG = ['/icons/alert_full.png', '/icons/chat_full.png']
+
+  const services = [
+    { icon: '/icons/calendar_full-removebg-preview.png',  label: t('dashboard.newAppointment'),        route: '/appointments/new' },
+    { icon: '/icons/robot_full-removebg-preview.png',     label: t('triage.title'),                    route: '/triage' },
+    { icon: '/icons/filles_full-removebg-preview.png',    label: t('records.title'),                   route: '/records' },
+    { icon: '/icons/hourglass_full-removebg-preview.png', label: t('waiting.button'),                  route: '/waiting' },
+    { icon: '/icons/alert_full.png',                      label: t('emergency.title'),                 route: '/emergency' },
+    { icon: '/icons/medocs_full-removebg-preview.png',    label: t('prescription.my_prescriptions'),   route: '/prescriptions' },
+    { icon: '/icons/receipt_full-removebg-preview.png',   label: t('billing.my_invoices'),             route: '/billing' },
+    { icon: '/icons/senior_full-removebg-preview.png',    label: t('senior.dashboard'),                route: '/senior' },
+    { icon: '/icons/family_full-removebg-preview.png',    label: t('senior.family_title'),             route: '/senior/family' },
+    { icon: '/icons/hospital24_full-removebg-preview.png',label: t('marketplace.title'),               route: '/marketplace' },
+    { icon: '/icons/heart_full-removebg-preview.png',     label: t('chronic.title'),                   route: '/chronic' },
+    { icon: '/icons/chat_full.png',                       label: t('async.title'),                     route: '/async-care' },
+  ]
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
@@ -137,40 +153,25 @@ export default function PatientDashboard() {
           </div>
         </div>
 
-        {/* Actions rapides */}
+        {/* Services */}
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Mes services</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-          {[
-            { icon: '/icons/calendar_full-removebg-preview.png',  label: t('dashboard.newAppointment'),       bg: 'bg-blue-50',   route: '/appointments/new' },
-            { icon: '/icons/robot_full-removebg-preview.png',     label: t('triage.title'),                   bg: 'bg-purple-50', route: '/triage' },
-            { icon: '/icons/filles_full-removebg-preview.png',    label: t('records.title'),                  bg: 'bg-green-50',  route: '/records' },
-            { icon: '/icons/hourglass_full-removebg-preview.png', label: t('waiting.button'),                 bg: 'bg-amber-50',  route: '/waiting' },
-            { icon: '/icons/alert_full.png',                      label: t('emergency.title'),                bg: 'bg-red-50',    route: '/emergency' },
-            { icon: '/icons/medocs_full-removebg-preview.png',    label: t('prescription.my_prescriptions'), bg: 'bg-green-50',  route: '/prescriptions' },
-            { icon: '/icons/receipt_full-removebg-preview.png',   label: t('billing.my_invoices'),            bg: 'bg-amber-50',  route: '/billing' },
-            { icon: '/icons/senior_full-removebg-preview.png',    label: t('senior.dashboard'),               bg: 'bg-blue-50',   route: '/senior' },
-            { icon: '/icons/family_full-removebg-preview.png',    label: t('senior.family_title'),            bg: 'bg-purple-50', route: '/senior/family' },
-            { icon: '/icons/hospital24_full-removebg-preview.png',label: t('marketplace.title'),              bg: 'bg-teal-50',   route: '/marketplace' },
-            { icon: '/icons/heart_full-removebg-preview.png',     label: t('chronic.title'),                  bg: 'bg-red-50',    route: '/chronic' },
-            { icon: '/icons/chat_full.png',                       label: t('async.title'),                    bg: 'bg-teal-50',   route: '/async-care' },
-          ].map((item, i) => (
+          {services.map((item, i) => (
             <button
               key={i}
               onClick={() => router.push(item.route)}
-              className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
+              className="card p-5 text-left flex flex-col gap-3 hover:shadow-md transition-shadow"
             >
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${item.bg}`}>
-                <img
-                  src={item.icon}
-                  alt={item.label}
-                  style={{
-                    width: 48,
-                    height: 48,
-                    objectFit: 'contain',
-                    mixBlendMode: NO_REMOVEBG.includes(item.icon) ? 'multiply' : undefined,
-                  }}
-                />
-              </div>
+              <img
+                src={item.icon}
+                alt={item.label}
+                style={{
+                  width: 48,
+                  height: 48,
+                  objectFit: 'contain',
+                  mixBlendMode: NO_REMOVEBG.includes(item.icon) ? 'multiply' : undefined,
+                }}
+              />
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.label}</p>
             </button>
           ))}
@@ -212,7 +213,6 @@ export default function PatientDashboard() {
               }
               return (
                 <div key={apt.id} className="card p-4 flex items-center gap-4">
-                  {/* Heure */}
                   <div className="text-center min-w-[48px]">
                     <p className="text-sm font-semibold text-gray-900">
                       {date.toLocaleTimeString(dateLocale, { hour: '2-digit', minute: '2-digit' })}
@@ -221,16 +221,10 @@ export default function PatientDashboard() {
                       {date.toLocaleDateString(dateLocale, { day: '2-digit', month: 'short' })}
                     </p>
                   </div>
-
-                  {/* Séparateur vertical */}
                   <div className="w-px h-10 bg-gray-100" />
-
-                  {/* Avatar */}
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${avatarColors[apt.status] || 'bg-gray-100 text-gray-600'}`}>
                     Dr
                   </div>
-
-                  {/* Infos */}
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-gray-800">
                       Médecin #{apt.doctor_id.slice(0, 8)}
@@ -239,8 +233,6 @@ export default function PatientDashboard() {
                       <p className="text-xs text-gray-400 truncate mt-0.5">{apt.notes}</p>
                     )}
                   </div>
-
-                  {/* Statut + Action */}
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <span className={statusBadge(apt.status)}>
                       {statusLabel(apt.status)}
