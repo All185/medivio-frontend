@@ -68,6 +68,8 @@ export default function PatientDashboard() {
   }
   const dateLocale = localeMap[locale] || 'fr-FR'
 
+  const NO_REMOVEBG = ['/icons/alert_full.png', '/icons/chat_full.png']
+
   return (
     <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       {/* Header */}
@@ -139,26 +141,35 @@ export default function PatientDashboard() {
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Mes services</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
           {[
-            { icon: '📅', label: t('dashboard.newAppointment'), bg: 'bg-blue-50',   route: '/appointments/new' },
-            { icon: '🤖', label: t('triage.title'),             bg: 'bg-purple-50', route: '/triage' },
-            { icon: '📁', label: t('records.title'),            bg: 'bg-green-50',  route: '/records' },
-            { icon: '⏳', label: t('waiting.button'),           bg: 'bg-amber-50',  route: '/waiting' },
-            { icon: '🚨', label: t('emergency.title'),          bg: 'bg-red-50',    route: '/emergency' },
-            { icon: '💊', label: t('prescription.my_prescriptions'), bg: 'bg-green-50', route: '/prescriptions' },
-            { icon: '🧾', label: t('billing.my_invoices'),      bg: 'bg-amber-50',  route: '/billing' },
-            { icon: '👴', label: t('senior.dashboard'),         bg: 'bg-blue-50',   route: '/senior' },
-            { icon: '👨‍👩‍👧', label: t('senior.family_title'),   bg: 'bg-purple-50', route: '/senior/family' },
-            { icon: '🏪', label: t('marketplace.title'),        bg: 'bg-teal-50',   route: '/marketplace' },
-            { icon: '❤️', label: t('chronic.title'),            bg: 'bg-red-50',    route: '/chronic' },
-            { icon: '💬', label: t('async.title'),              bg: 'bg-teal-50',   route: '/async-care' },
+            { icon: '/icons/calendar_full-removebg-preview.png',  label: t('dashboard.newAppointment'),       bg: 'bg-blue-50',   route: '/appointments/new' },
+            { icon: '/icons/robot_full-removebg-preview.png',     label: t('triage.title'),                   bg: 'bg-purple-50', route: '/triage' },
+            { icon: '/icons/filles_full-removebg-preview.png',    label: t('records.title'),                  bg: 'bg-green-50',  route: '/records' },
+            { icon: '/icons/hourglass_full-removebg-preview.png', label: t('waiting.button'),                 bg: 'bg-amber-50',  route: '/waiting' },
+            { icon: '/icons/alert_full.png',                      label: t('emergency.title'),                bg: 'bg-red-50',    route: '/emergency' },
+            { icon: '/icons/medocs_full-removebg-preview.png',    label: t('prescription.my_prescriptions'), bg: 'bg-green-50',  route: '/prescriptions' },
+            { icon: '/icons/receipt_full-removebg-preview.png',   label: t('billing.my_invoices'),            bg: 'bg-amber-50',  route: '/billing' },
+            { icon: '/icons/senior_full-removebg-preview.png',    label: t('senior.dashboard'),               bg: 'bg-blue-50',   route: '/senior' },
+            { icon: '/icons/family_full-removebg-preview.png',    label: t('senior.family_title'),            bg: 'bg-purple-50', route: '/senior/family' },
+            { icon: '/icons/hospital24_full-removebg-preview.png',label: t('marketplace.title'),              bg: 'bg-teal-50',   route: '/marketplace' },
+            { icon: '/icons/heart_full-removebg-preview.png',     label: t('chronic.title'),                  bg: 'bg-red-50',    route: '/chronic' },
+            { icon: '/icons/chat_full.png',                       label: t('async.title'),                    bg: 'bg-teal-50',   route: '/async-care' },
           ].map((item, i) => (
             <button
               key={i}
               onClick={() => router.push(item.route)}
               className="card p-4 text-left flex flex-col gap-2 hover:shadow-md transition-shadow"
             >
-              <div className={`w-9 h-9 rounded-xl flex items-center justify-center text-lg ${item.bg}`}>
-                {item.icon}
+              <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${item.bg}`}>
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  style={{
+                    width: 48,
+                    height: 48,
+                    objectFit: 'contain',
+                    mixBlendMode: NO_REMOVEBG.includes(item.icon) ? 'multiply' : undefined,
+                  }}
+                />
               </div>
               <p className="text-sm font-medium text-gray-800 leading-tight">{item.label}</p>
             </button>
@@ -176,7 +187,11 @@ export default function PatientDashboard() {
           </div>
         ) : appointments.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <div className="text-5xl mb-4">📭</div>
+            <img
+              src="/icons/mailbox_full-removebg-preview.png"
+              alt="Aucun rendez-vous"
+              style={{ width: 64, height: 64, objectFit: 'contain', margin: '0 auto 16px' }}
+            />
             <p className="text-gray-500 mb-4">{t('dashboard.noAppointments')}</p>
             <button
               onClick={() => router.push('/appointments/new')}
