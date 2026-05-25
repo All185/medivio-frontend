@@ -160,7 +160,7 @@ export default function DoctorDashboard() {
     route: '/emergency/list',
   },
   {
-    icon: '/icons/hourglass_full.jpg',
+    icon: '/icons/hourglass_full-removebg-preview.png',
     title: t('waiting.button'),
     badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
     badgeColor: 'bg-amber-50 text-amber-700',
@@ -169,7 +169,7 @@ export default function DoctorDashboard() {
     route: '/waiting/doctor',
   },
   {
-    icon: '/icons/robot_full.jpg',
+    icon: '/icons/robot_full-removebg-preview.png',
     title: t('summary.title'),
     badge: 'IA',
     badgeColor: 'bg-blue-50 text-blue-700',
@@ -213,9 +213,9 @@ export default function DoctorDashboard() {
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {[
-            { icon: '/icons/calendar_full.jpg', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
+            { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),           bg: 'bg-blue-50',   route: '/agenda' },
             { icon: '/icons/clipboard_full.jpg', title: t('prescription.doctor_title'), bg: 'bg-green-50',  route: '/prescriptions/doctor' },
-            { icon: '/icons/receipt_full.jpg', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
+            { icon: '/icons/receipt_full-removebg-preview.png', title: t('billing.doctor_title'),    bg: 'bg-amber-50',  route: '/billing/doctor' },
             { icon: '/icons/stats_full.png', title: t('analytics.title'),         bg: 'bg-purple-50', route: '/analytics' },
           ].map((item, i) => (
             <button
@@ -237,8 +237,8 @@ export default function DoctorDashboard() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
           {[
-            { icon: '/icons/hospital24_full.jpg', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
-            { icon: '/icons/heart_full.jpg', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
+            { icon: '/icons/hospital24_full-removebg-preview.png', title: t('marketplace.title'), bg: 'bg-teal-50', route: '/marketplace' },
+            { icon: '/icons/heart_full-removebg-preview.png', title: t('chronic.doctor_title'), bg: 'bg-red-50', route: '/chronic/doctor' },
           ].map((item, i) => (
             <button
               key={i}
