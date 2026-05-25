@@ -269,7 +269,7 @@ export default function DoctorDashboard() {
           </div>
         ) : appointments.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <img src="/icons/mailbox_full.jpg" alt="" className="w-20 h-20 object-contain mx-auto mb-4" />
+            <img src="/icons/mailbox_full-removebg-preview.png" alt="" className="w-20 h-20 object-contain mx-auto mb-4" />
             <p className="text-gray-500">{t('dashboard.noConsultations')}</p>
           </div>
         ) : (
