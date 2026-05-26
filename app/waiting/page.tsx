@@ -122,13 +122,11 @@ function WaitingRoomContent() {
       <main className="max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {step === 'form' ? (
           <div className="animate-fade-in">
-            <div className="text-center mb-8">
-              <img
-                src="/logo.png"
-                alt="Medivio"
-                style={{ width: 80, height: 80, objectFit: 'contain', margin: '0 auto 16px' }}
-              />
-              <h2 className="text-2xl font-bold text-gray-900">{t('waiting.title')}</h2>
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/hourglass_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+                <h2 className="text-2xl font-bold text-gray-900">{t('waiting.title')}</h2>
+              </div>
               <p className="text-gray-500 text-sm mt-2">{t('waiting.subtitle')}</p>
             </div>
 

@@ -86,7 +86,10 @@ export default function SeniorFamilyPage() {
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">{t('senior.family_title')}</h1>
+            <div className="flex items-center gap-3 mb-1">
+              <img src="/icons/family_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+              <h1 className="text-3xl font-bold text-gray-900">{t('senior.family_title')}</h1>
+            </div>
             <p className="text-gray-500 mt-1">{t('senior.family_subtitle')}</p>
           </div>
           <button onClick={() => setShowForm(!showForm)} className="btn-primary px-4 py-2 text-sm">

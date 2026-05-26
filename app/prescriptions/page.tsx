@@ -89,7 +89,10 @@ const dateLocale = localeMap[locale] || 'fr-FR';
       </header>
       <div className="max-w-2xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">{t('prescription.my_prescriptions')}</h1>
+          <div className="flex items-center gap-3 mb-1">
+            <img src="/icons/medocs_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <h1 className="text-3xl font-bold text-gray-900">{t('prescription.my_prescriptions')}</h1>
+          </div>
           <p className="text-gray-500 mt-1">{t('prescription.my_prescriptions_subtitle')}</p>
         </div>
         {loading ? (

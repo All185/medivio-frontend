@@ -151,7 +151,10 @@ Ce recu peut etre transmis a votre mutuelle pour remboursement complementaire.
         )}
 
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">{t('billing.my_invoices')}</h1>
+          <div className="flex items-center gap-3 mb-1">
+            <img src="/icons/receipt_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <h1 className="text-3xl font-bold text-gray-900">{t('billing.my_invoices')}</h1>
+          </div>
           <p className="text-gray-500 mt-1">{t('billing.my_invoices_subtitle')}</p>
         </div>
 

@@ -57,7 +57,10 @@ export default function NewAppointmentPage() {
 
       <main className="max-w-lg mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">{t('appointments.new')}</h2>
+          <div className="flex items-center gap-3 mb-1">
+            <img src="/icons/calendar_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <h2 className="text-2xl font-bold text-gray-900">{t('appointments.new')}</h2>
+          </div>
           <p className="text-gray-500 text-sm mt-1">Remplissez les informations pour prendre votre rendez-vous</p>
         </div>
 

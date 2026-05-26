@@ -83,7 +83,10 @@ export default function TriagePage() {
 
       <main className="max-w-lg mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900">{t('triage.title')}</h2>
+          <div className="flex items-center gap-3 mb-1">
+            <img src="/icons/robot_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <h2 className="text-2xl font-bold text-gray-900">{t('triage.title')}</h2>
+          </div>
           <p className="text-gray-500 text-sm mt-1">{t('triage.subtitle')}</p>
         </div>
 
