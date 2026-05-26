@@ -71,7 +71,10 @@ export default function ChronicDoctorPage() {
 
       <div className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">{t('chronic.doctor_title')}</h1>
+          <div className="flex items-center gap-3 mb-1">
+            <img src="/icons/heart_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <h1 className="text-3xl font-bold text-gray-900">{t('chronic.doctor_title')}</h1>
+          </div>
           <p className="text-gray-500 mt-1">{t('chronic.doctor_subtitle')}</p>
         </div>
 

@@ -60,7 +60,10 @@ export default function EmergencyPage() {
       <div className="flex flex-col items-center px-4 py-12">
         <div className="w-full max-w-lg">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">{t('emergency.title')}</h1>
+            <div className="flex items-center gap-3 mb-1">
+              <img src="/icons/alert_full.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain', mixBlendMode: 'multiply' }} />
+              <h1 className="text-3xl font-bold text-gray-900">{t('emergency.title')}</h1>
+            </div>
             <p className="text-gray-500 mt-1">{t('emergency.subtitle')}</p>
           </div>
           <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">

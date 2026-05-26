@@ -88,7 +88,10 @@ export default function DoctorWaitingRoom() {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Salle d'attente</h2>
+            <div className="flex items-center gap-3 mb-1">
+              <img src="/icons/hourglass_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+              <h2 className="text-2xl font-bold text-gray-900">Salle d'attente</h2>
+            </div>
             <p className="text-sm text-gray-400 mt-1">Patients en attente de consultation vidéo</p>
           </div>
           <button

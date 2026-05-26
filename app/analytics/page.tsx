@@ -62,7 +62,10 @@ export default function AnalyticsPage() {
 
       <main className="max-w-5xl mx-auto px-6 py-8">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3"><img src="/icons/stats_full.png" className="w-10 h-10 object-contain"/> {t('analytics.title')}</h2>
+          <div className="flex items-center gap-3 mb-1">
+            <img src="/icons/stats_full.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+            <h2 className="text-2xl font-bold text-gray-900">{t('analytics.title')}</h2>
+          </div>
           <p className="text-gray-500 text-sm mt-1">{t('analytics.subtitle')}</p>
         </div>
 
