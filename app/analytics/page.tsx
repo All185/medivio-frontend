@@ -90,7 +90,7 @@ export default function AnalyticsPage() {
               ].map((stat, i) => (
                 <div key={i} className={`card p-5 ${stat.color} border ${stat.border}`}>
                   {stat.icon === 'calendar' ? (
-                    <img src="/icons/calendar_full.jpg" className="w-10 h-10 object-contain mb-2" style={{mixBlendMode:"multiply"}}/>
+                    <img src="/icons/calendar_full-removebg-preview.png" style={{width:40,height:40,objectFit:'contain'}}/>
                   ) : stat.icon === 'stats' ? (
                     <img src="/icons/stats_full.png" className="w-10 h-10 object-contain mb-2"/>
                   ) : (
@@ -152,7 +152,7 @@ export default function AnalyticsPage() {
                 onClick={() => router.push('/summary')}
                 className="card p-5 text-left hover:scale-[1.02] transition-transform bg-purple-50 border border-purple-100"
               >
-                <img src="/icons/robot_full.jpg" className="w-8 h-8 object-contain mx-auto mb-2" style={{mixBlendMode:"multiply"}}/>
+                <img src="/icons/robot_full-removebg-preview.png" style={{width:32,height:32,objectFit:'contain',margin:'0 auto 8px'}}/>
                 <p className="font-semibold text-purple-700">{t('summary.title')}</p>
                 <p className="text-xs text-purple-500 mt-1">{t('analytics.generateSummary')}</p>
               </button>
@@ -160,7 +160,7 @@ export default function AnalyticsPage() {
                 onClick={() => router.push('/dashboard')}
                 className="card p-5 text-left hover:scale-[1.02] transition-transform bg-blue-50 border border-blue-100"
               >
-                <img src="/icons/calendar_full.jpg" className="w-8 h-8 object-contain mx-auto mb-2" style={{mixBlendMode:"multiply"}}/>
+                <img src="/icons/calendar_full-removebg-preview.png" style={{width:32,height:32,objectFit:'contain',margin:'0 auto 8px'}}/>
                 <p className="font-semibold text-blue-700">{t('dashboard.consultations')}</p>
                 <p className="text-xs text-blue-500 mt-1">{t('analytics.viewConsultations')}</p>
               </button>

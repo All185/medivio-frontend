@@ -104,7 +104,7 @@ export default function AsyncCareDoctorPage() {
           <p className="text-gray-400 text-center py-12">{t('async.loading')}</p>
         ) : cases.length === 0 ? (
           <div className="bg-white rounded-2xl border border-gray-200 p-12 text-center">
-            <img src="/icons/mailbox_full.jpg" className="w-16 h-16 object-contain mx-auto mb-4" style={{mixBlendMode:"multiply"}}/>
+            <img src="/icons/mailbox_full-removebg-preview.png" style={{width:64,height:64,objectFit:'contain',margin:'0 auto 16px'}}/>
             <p className="text-gray-500">{t('async.no_pending_cases')}</p>
           </div>
         ) : (
