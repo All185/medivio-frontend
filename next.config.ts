@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
       { source: '/api/marketplace/:path*', destination: 'https://medivio-backend.onrender.com/marketplace/:path*' },
       { source: '/api/chronic/:path*', destination: 'https://medivio-backend.onrender.com/chronic/:path*' },
       { source: '/api/async-care/:path*', destination: 'https://medivio-backend.onrender.com/async-care/:path*' },
-      { source: '/api/auth/:path*', destination: 'https://medivio-backend.onrender.com/auth/:path*' },
+      { source: '/api/auth/:path*', destination: 'https://medivio-backend.onrender.com/api/v1/:path*' },
       
     ]
   },

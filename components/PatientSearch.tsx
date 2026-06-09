@@ -31,7 +31,7 @@ export default function PatientSearch({ onSelect, placeholder = "Rechercher un p
       setLoading(true);
       try {
         const token = localStorage.getItem('access_token');
-        const res = await fetch(`/api/auth/patients/search?q=${encodeURIComponent(query)}`, {
+        const res = await fetch(`/api/v1/patients/search?q=${encodeURIComponent(query)}`, {
           headers: { 'Authorization': `Bearer ${token}` },
         });
         if (res.ok) {
