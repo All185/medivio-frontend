@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import PatientSearch from '@/components/PatientSearch';
 
 interface PrescriptionItem {
   medication: string;
@@ -18,6 +19,7 @@ export default function NewPrescriptionPage() {
   const { t } = useLanguage();
   const router = useRouter();
   const [patientId, setPatientId] = useState('');
+  const [patientName, setPatientName] = useState('');
   const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState<PrescriptionItem[]>([
@@ -76,17 +78,20 @@ export default function NewPrescriptionPage() {
         </div>
 
         <div className="space-y-6">
-          {/* Patient ID */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">{t('prescription.patient_id')}</label>
-            <input
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder={t('prescription.patient_id_placeholder')}
-              value={patientId}
-              onChange={e => setPatientId(e.target.value)}
-            />
-          </div>
-
+         {/* Patient Search */}
+<div className="bg-white rounded-2xl border border-gray-200 p-6">
+  <label className="block text-sm font-medium text-gray-700 mb-2">{t('prescription.patient_id')}</label>
+  <PatientSearch
+    placeholder={t('prescription.patient_id_placeholder')}
+    onSelect={(patient) => {
+      setPatientId(patient.id);
+      setPatientName(patient.full_name || patient.email);
+    }}
+  />
+  {patientName && (
+    <p className="text-xs text-green-600 mt-2">✓ {patientName} sélectionné</p>
+  )}
+</div>
           {/* Médicaments */}
           <div className="bg-white rounded-2xl border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-4">

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import PatientSearch from '@/components/PatientSearch';
 
 interface Invoice {
   id: string;
@@ -34,6 +35,7 @@ export default function DoctorBillingPage() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
   const [patientId, setPatientId] = useState('');
+  const [patientName, setPatientName] = useState('');
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [creating, setCreating] = useState(false);
@@ -80,6 +82,7 @@ export default function DoctorBillingPage() {
       if (res.ok) {
         setShowForm(false);
         setPatientId('');
+        setPatientName('');
         setAmount('');
         setDescription('');
         fetchData();
@@ -147,7 +150,16 @@ export default function DoctorBillingPage() {
           <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6">
             <h2 className="font-bold text-gray-900 mb-4">{t('billing.new_invoice')}</h2>
             <div className="space-y-3">
-              <input className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('billing.patient_id_placeholder')} value={patientId} onChange={e => setPatientId(e.target.value)} />
+            <PatientSearch
+  placeholder={t('billing.patient_id_placeholder')}
+  onSelect={(patient) => {
+    setPatientId(patient.id);
+    setPatientName(patient.full_name || patient.email);
+  }}
+/>
+{patientName && (
+  <p className="text-xs text-green-600 mt-1">✓ {patientName} sélectionné</p>
+)}
               <input type="number" className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('billing.amount_placeholder')} value={amount} onChange={e => setAmount(e.target.value)} />
               <input className="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder={t('billing.description_placeholder')} value={description} onChange={e => setDescription(e.target.value)} />
               <button onClick={handleCreate} disabled={creating || !patientId || !amount || !description} className="btn-primary-doctor w-full py-3 text-sm">
