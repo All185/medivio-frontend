@@ -26,7 +26,7 @@ export default function PatientSearch({ onSelect, placeholder = "Rechercher un p
       setShowResults(false);
       return;
     }
-    clearTimeout(debounceRef.current);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(async () => {
       setLoading(true);
       try {
