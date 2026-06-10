@@ -13,6 +13,7 @@ export default function HomePage() {
     { icon: '⭐', title: 'Triage IA', desc: 'Notre IA analyse vos symptomes et oriente vers le bon specialiste.' },
     { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiee avec reconnaissance vocale pour les seniors.' },
   ];
+  console.log('features:', features);
 
   const stats = [
     { value: '15+', label: 'Modules médicaux' },
