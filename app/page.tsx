@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-export default function LandingPage() {
+export default function HomePage() {
   const router = useRouter();
 
   const features = [
