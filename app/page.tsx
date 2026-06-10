@@ -10,7 +10,7 @@ export default function LandingPage() {
     { icon: '📋', title: 'Consultation différée', desc: 'Envoyez votre dossier médical et recevez une réponse sous 24h.' },
     { icon: '💊', title: 'Ordonnance numérique', desc: 'Recevez vos ordonnances en ligne avec QR code scannable en pharmacie.' },
     { icon: '❤️', title: 'Suivi chronique', desc: 'Suivez vos constantes vitales et recevez des alertes cliniques automatiques.' },
-    { icon: '🤖', title: 'Triage IA', description: 'Notre IA analyse vos symptômes et vous oriente vers le bon spécialiste.' },
+    { icon: '🤖', title: 'Triage IA', desc: 'Notre IA analyse vos symptômes et vous oriente vers le bon spécialiste.' },
     { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiée avec reconnaissance vocale pour les personnes âgées.' },
   ];
 
