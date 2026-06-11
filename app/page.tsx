@@ -47,13 +47,13 @@ export default function RootPage() {
       <section className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-3xl mx-auto">
           <div className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
-            La telemedecine augmentee par l'IA
+            La télémédecine augmentée par l'IA
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Votre sante, <span className="text-blue-600">reinventee</span>
+            Votre santé, <span className="text-blue-600">réinventée</span>
           </h1>
           <p className="text-xl text-gray-500 mb-10 leading-relaxed">
-            Medivio connecte patients et medecins grace a l'intelligence artificielle. Consultez, suivez vos constantes et recevez vos ordonnances depuis n'importe ou.
+            Medivio connecte patients et médecins grâce à l'intelligence artificielle. Consultez, suivez vos constantes et recevez vos ordonnances depuis n'importe où.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <button onClick={() => router.push('/register')} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors shadow-lg shadow-blue-200">
@@ -81,7 +81,7 @@ export default function RootPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Tout ce dont vous avez besoin</h2>
-            <p className="text-gray-500 text-lg">Une plateforme complete pour patients et medecins</p>
+            <p className="text-gray-500 text-lg">Une plateforme complete pour patients et médecins</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
