@@ -3,11 +3,11 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const FEATURES = [
+  { icon: '🧬', title: 'Triage IA', desc: 'Notre IA analyse vos symptomes et oriente vers le bon specialiste.' },
   { icon: '🎥', title: 'Teleconsultation video', desc: 'Consultez votre medecin en video depuis chez vous.' },
   { icon: '📋', title: 'Consultation differee', desc: 'Envoyez votre dossier et recevez une reponse sous 24h.' },
   { icon: '💊', title: 'Ordonnance numerique', desc: 'Recevez vos ordonnances avec QR code scannable en pharmacie.' },
   { icon: '❤️', title: 'Suivi chronique', desc: 'Suivez vos constantes vitales avec alertes automatiques.' },
-  { icon: '🧬', title: 'Triage IA', desc: 'Notre IA analyse vos symptomes et oriente vers le bon specialiste.' },
   { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiee avec reconnaissance vocale pour les seniors.' },
 ];
 
