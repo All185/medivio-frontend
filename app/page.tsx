@@ -10,7 +10,7 @@ export default function HomePage() {
     { icon: '📋', title: 'Consultation differee', desc: 'Envoyez votre dossier medical et recevez une reponse sous 24h.' },
     { icon: '💊', title: 'Ordonnance numerique', desc: 'Recevez vos ordonnances en ligne avec QR code scannable en pharmacie.' },
     { icon: '❤️', title: 'Suivi chronique', desc: 'Suivez vos constantes vitales et recevez des alertes cliniques.' },
-    { icon: '⭐', title: 'Triage IA', desc: 'Notre IA analyse vos symptomes et oriente vers le bon specialiste.' },
+    { icon: 'IA', title: 'Triage IA', desc: 'Notre IA analyse vos symptomes et oriente vers le bon specialiste.' },
     { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiee avec reconnaissance vocale pour les seniors.' },
   ];
   console.log('features:', features);
