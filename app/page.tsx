@@ -125,7 +125,7 @@ export default function RootPage() {
 
       <footer className="py-8 px-6 bg-gray-900 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <img src="/logo.png" alt="Medivio" style={{ width: 28, height: 28, objectFit: "contain" }} />
+          <img src="/logo.png" alt="Medivio" style={{ width: 28, height: 28, objectFit: "contain", background: "transparent" }} />
           <span className="font-bold text-white">Medivio</span>
         </div>
         <p className="text-gray-400 text-sm">2026 Medivio. Tous droits reserves.</p>
