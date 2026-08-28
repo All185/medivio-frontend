@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 const FEATURES = [
   { icon: '🧬', title: 'Triage IA', desc: 'Analyse IA des symptômes' },
-  { icon: '🎥', title: 'Teleconsultation video', desc: 'Consultez votre médecin en vidéo depuis chez vous.' },
+  { icon: '🎥', title: 'Téléconsultation vidéo', desc: 'Consultez votre médecin en vidéo depuis chez vous.' },
   { icon: '📋', title: 'Consultation différée', desc: 'Envoyez votre dossier et recevez une réponse sous 24h.' },
   { icon: '💊', title: 'Ordonnance numérique', desc: 'Recevez vos ordonnances avec QR code scannable en pharmacie.' },
   { icon: '❤️', title: 'Suivi chronique', desc: 'Suivez vos constantes vitales avec alertes automatiques.' },
-  { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiee avec reconnaissance vocale pour les seniors.' },
+  { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiée avec reconnaissance vocale pour les seniors.' },
 ];
 
 const STATS = [
@@ -19,9 +19,9 @@ const STATS = [
 ];
 
 const WHY = [
-  { icon: '🧠', title: 'IA medicale integree', desc: 'Triage automatique, resume clinique, matching specialiste.' },
-  { icon: '👴', title: 'Mode senior unique', desc: 'Interface simplifiee avec reconnaissance vocale. Aucun concurrent ne le propose.' },
-  { icon: '🌍', title: 'Multilingue', desc: 'Francais, anglais, espagnol, portugais, arabe.' },
+  { icon: '🧠', title: 'IA médicale intégrée', desc: 'Triage automatique, résumé clinique, matching spécialiste.' },
+  { icon: '👴', title: 'Mode senior unique', desc: 'Interface simplifiée avec reconnaissance vocale. Aucun concurrent ne le propose.' },
+  { icon: '🌍', title: 'Multilingue', desc: 'Français, anglais, espagnol, portugais, arabe.' },
 ];
 
 export default function RootPage() {
@@ -116,7 +116,7 @@ export default function RootPage() {
       <section className="py-20 px-6 bg-blue-600">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Vous êtes médecin ?</h2>
-          <p className="text-blue-100 text-lg mb-8">Rejoignez Medivio et gerez vos consultations, prescriptions et patients depuis une seule plateforme.</p>
+          <p className="text-blue-100 text-lg mb-8">Rejoignez Medivio et gérez vos consultations, prescriptions et patients depuis une seule plateforme.</p>
           <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors">
             Rejoindre Medivio
           </button>
