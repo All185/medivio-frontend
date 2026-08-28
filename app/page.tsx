@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
 
 const FEATURES = [
