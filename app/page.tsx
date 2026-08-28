@@ -2,31 +2,33 @@
 import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
-
-const FEATURES = [
-  { icon: '🧬', title: 'Triage IA', desc: 'Analyse IA des symptômes' },
-  { icon: '🎥', title: 'Téléconsultation vidéo', desc: 'Consultez votre médecin en vidéo depuis chez vous.' },
-  { icon: '📋', title: 'Consultation différée', desc: 'Envoyez votre dossier et recevez une réponse sous 24h.' },
-  { icon: '💊', title: 'Ordonnance numérique', desc: 'Recevez vos ordonnances avec QR code scannable en pharmacie.' },
-  { icon: '❤️', title: 'Suivi chronique', desc: 'Suivez vos constantes vitales avec alertes automatiques.' },
-  { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiée avec reconnaissance vocale pour les seniors.' },
-];
-
-const STATS = [
-  { value: '15+', label: 'Modules medicaux' },
-  { value: '5', label: 'Langues disponibles' },
-  { value: '24/7', label: 'Disponibilite' },
-  { value: '100%', label: 'Securise' },
-];
-
-const WHY = [
-  { icon: '🧠', title: 'IA médicale intégrée', desc: 'Triage automatique, résumé clinique, matching spécialiste.' },
-  { icon: '👴', title: 'Mode senior unique', desc: 'Interface simplifiée avec reconnaissance vocale. Aucun concurrent ne le propose.' },
-  { icon: '🌍', title: 'Multilingue', desc: 'Français, anglais, espagnol, portugais, arabe.' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function RootPage() {
   const router = useRouter();
+  const { t } = useLanguage();
+
+  const FEATURES = [
+    { icon: '🧬', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
+    { icon: '🎥', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
+    { icon: '📋', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
+    { icon: '💊', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
+    { icon: '❤️', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
+    { icon: '👴', title: t('landing.feature_senior_title'), desc: t('landing.feature_senior_desc') },
+  ];
+
+  const STATS = [
+    { value: '15+', label: t('landing.stats_modules') },
+    { value: '5', label: t('landing.stats_languages') },
+    { value: '24/7', label: t('landing.stats_availability') },
+    { value: '100%', label: t('landing.stats_secure') },
+  ];
+
+  const WHY = [
+    { icon: '🧠', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
+    { icon: '👴', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
+    { icon: '🌍', title: t('landing.why_multilingual_title'), desc: t('landing.why_multilingual_desc') },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -35,27 +37,26 @@ export default function RootPage() {
           <Image src="/logo.png" alt="Medivio" width={36} height={36} />
           <span className="font-bold text-gray-900 text-lg">Medivio</span>
         </div>
-
         <LanguageSwitcher />
       </header>
 
       <section className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-3xl mx-auto">
           <div className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
-            La télémédecine augmentée par l'IA
+            {t('landing.badge')}
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Votre santé, <span className="text-blue-600">réinventée</span>
+            {t('landing.hero_title')} <span className="text-blue-600">{t('landing.hero_highlight')}</span>
           </h1>
           <p className="text-xl text-gray-500 mb-10 leading-relaxed">
-            Medivio connecte patients et médecins grâce à l'intelligence artificielle. Consultez, suivez vos constantes et recevez vos ordonnances depuis n'importe où.
+            {t('landing.hero_desc')}
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <button onClick={() => router.push('/register')} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors shadow-lg shadow-blue-200">
-              Commencer gratuitement
+              {t('landing.start_free')}
             </button>
             <button onClick={() => router.push('/login')} className="border-2 border-gray-200 hover:border-blue-300 text-gray-700 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors">
-              Se connecter
+              {t('landing.login')}
             </button>
           </div>
         </div>
@@ -75,8 +76,8 @@ export default function RootPage() {
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tout ce dont vous avez besoin</h2>
-            <p className="text-gray-500 text-lg">Une plateforme complète pour patients et médecins</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('landing.features_title')}</h2>
+            <p className="text-gray-500 text-lg">{t('landing.features_subtitle')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
@@ -93,8 +94,8 @@ export default function RootPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Pourquoi choisir Medivio ?</h2>
-            <p className="text-gray-500 text-lg">Ce que nos concurrents ne font pas</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('landing.why_title')}</h2>
+            <p className="text-gray-500 text-lg">{t('landing.why_subtitle')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {WHY.map((item, i) => (
@@ -110,10 +111,10 @@ export default function RootPage() {
 
       <section className="py-20 px-6 bg-blue-600">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Vous êtes médecin ?</h2>
-          <p className="text-blue-100 text-lg mb-8">Rejoignez Medivio et gérez vos consultations, prescriptions et patients depuis une seule plateforme.</p>
+          <h2 className="text-3xl font-bold text-white mb-4">{t('landing.doctor_title')}</h2>
+          <p className="text-blue-100 text-lg mb-8">{t('landing.doctor_desc')}</p>
           <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors">
-            Rejoindre Medivio
+            {t('landing.doctor_cta')}
           </button>
         </div>
       </section>
@@ -123,11 +124,11 @@ export default function RootPage() {
           <img src="/logo.png" alt="Medivio" style={{ width: 28, height: 28, objectFit: "contain" }} />
           <span className="font-bold text-white">Medivio</span>
         </div>
-        <p className="text-gray-400 text-sm">2026 Medivio. Tous droits reserves.</p>
+        <p className="text-gray-400 text-sm">{t('landing.footer_rights')}</p>
         <div className="flex items-center justify-center gap-6 mt-4">
-          <button onClick={() => router.push('/legal')} className="text-gray-400 hover:text-white text-xs transition-colors">Mentions legales</button>
-          <button onClick={() => router.push('/privacy')} className="text-gray-400 hover:text-white text-xs transition-colors">Confidentialite</button>
-          <button onClick={() => router.push('/pricing')} className="text-gray-400 hover:text-white text-xs transition-colors">Tarifs</button>
+          <button onClick={() => router.push('/legal')} className="text-gray-400 hover:text-white text-xs transition-colors">{t('landing.footer_legal')}</button>
+          <button onClick={() => router.push('/privacy')} className="text-gray-400 hover:text-white text-xs transition-colors">{t('landing.footer_privacy')}</button>
+          <button onClick={() => router.push('/pricing')} className="text-gray-400 hover:text-white text-xs transition-colors">{t('landing.footer_pricing')}</button>
         </div>
       </footer>
     </div>
