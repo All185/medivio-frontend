@@ -115,7 +115,7 @@ export default function RootPage() {
 
       <section className="py-20 px-6 bg-blue-600">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Vous etes medecin ?</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Vous êtes médecin ?</h2>
           <p className="text-blue-100 text-lg mb-8">Rejoignez Medivio et gerez vos consultations, prescriptions et patients depuis une seule plateforme.</p>
           <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors">
             Rejoindre Medivio
