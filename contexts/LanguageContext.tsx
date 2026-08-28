@@ -33,9 +33,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale)
     localStorage.setItem('medivio_locale', newLocale)
     document.documentElement.dir = newLocale === 'ar' ? 'rtl' : 'ltr'
+    setLocaleState(newLocale)
   }
 
   const t = (key: string): string => {
