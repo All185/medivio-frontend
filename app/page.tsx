@@ -36,6 +36,7 @@ export default function RootPage() {
           <span className="font-bold text-gray-900 text-lg">Medivio</span>
         </div>
 
+        <LanguageSwitcher />
       </header>
 
       <section className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-blue-50 to-white">
