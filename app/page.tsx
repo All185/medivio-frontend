@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function RootPage() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   const FEATURES = [
     { icon: '🧬', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
