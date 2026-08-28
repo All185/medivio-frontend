@@ -3,10 +3,10 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 const FEATURES = [
-  { icon: '🧬', title: 'Triage IA', desc: 'Analyse IA des symptomes' },
+  { icon: '🧬', title: 'Triage IA', desc: 'Analyse IA des symptômes' },
   { icon: '🎥', title: 'Teleconsultation video', desc: 'Consultez votre médecin en vidéo depuis chez vous.' },
-  { icon: '📋', title: 'Consultation differee', desc: 'Envoyez votre dossier et recevez une reponse sous 24h.' },
-  { icon: '💊', title: 'Ordonnance numerique', desc: 'Recevez vos ordonnances avec QR code scannable en pharmacie.' },
+  { icon: '📋', title: 'Consultation différée', desc: 'Envoyez votre dossier et recevez une réponse sous 24h.' },
+  { icon: '💊', title: 'Ordonnance numérique', desc: 'Recevez vos ordonnances avec QR code scannable en pharmacie.' },
   { icon: '❤️', title: 'Suivi chronique', desc: 'Suivez vos constantes vitales avec alertes automatiques.' },
   { icon: '👴', title: 'Mode senior', desc: 'Interface simplifiee avec reconnaissance vocale pour les seniors.' },
 ];
@@ -81,7 +81,7 @@ export default function RootPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Tout ce dont vous avez besoin</h2>
-            <p className="text-gray-500 text-lg">Une plateforme complete pour patients et médecins</p>
+            <p className="text-gray-500 text-lg">Une plateforme complète pour patients et médecins</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
