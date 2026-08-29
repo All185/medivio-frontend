@@ -55,7 +55,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center mb-4">
+          <div className="inline-flex items-center justify-center mb-4 cursor-pointer" onClick={() => router.back()}>
             <MedivioLogo size={72} />
           </div>
           <h1 className="text-3xl font-extrabold text-[#0B1F4B] tracking-tight">Medivio</h1>
