@@ -64,14 +64,7 @@ export default function PricingPage() {
           <Image src="/logo.png" alt="Medivio" width={36} height={36} />
           <span className="font-bold text-gray-900 text-lg">Medivio</span>
         </div>
-        <div className="flex items-center gap-3">
-          <button onClick={() => router.push('/login')} className="text-sm text-gray-600 hover:text-gray-900 font-medium px-4 py-2 rounded-xl hover:bg-gray-50 transition-colors">
-            Se connecter
-          </button>
-          <button onClick={() => router.push('/register')} className="text-sm bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-xl transition-colors">
-            Commencer gratuitement
-          </button>
-        </div>
+
       </header>
 
       <div className="pt-32 pb-20 px-6">
