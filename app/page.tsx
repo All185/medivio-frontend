@@ -3,35 +3,36 @@ import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useMemo } from 'react';
 
 export default function RootPage() {
   const router = useRouter();
   const { t, locale } = useLanguage();
 
-  const FEATURES = [
+  const FEATURES = useMemo(() => [
     { icon: '🧬', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
     { icon: '🎥', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
     { icon: '📋', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
     { icon: '💊', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
     { icon: '❤️', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
     { icon: '👴', title: t('landing.feature_senior_title'), desc: t('landing.feature_senior_desc') },
-  ];
+  ], [locale]);
 
-  const STATS = [
+  const STATS = useMemo(() => [
     { value: '15+', label: t('landing.stats_modules') },
     { value: '5', label: t('landing.stats_languages') },
     { value: '24/7', label: t('landing.stats_availability') },
     { value: '100%', label: t('landing.stats_secure') },
-  ];
+  ], [locale]);
 
-  const WHY = [
+  const WHY = useMemo(() => [
     { icon: '🧠', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
     { icon: '👴', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
-    { icon: '🌍', title: t('landing.why_multilingual_title'), desc: t('landing.why_multilingual_desc') },
-  ];
+    { icon: '��', title: t('landing.why_multilingual_title'), desc: t('landing.why_multilingual_desc') },
+  ], [locale]);
 
   return (
-    <div key={locale} className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Medivio" width={36} height={36} />
@@ -81,7 +82,7 @@ export default function RootPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
+              <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
                 <div className="text-3xl mb-3">{f.icon}</div>
                 <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500">{f.desc}</p>
@@ -99,7 +100,7 @@ export default function RootPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {WHY.map((item, i) => (
-              <div key={i} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
+              <div key={`${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
                 <div className="text-4xl mb-4">{item.icon}</div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-500">{item.desc}</p>
