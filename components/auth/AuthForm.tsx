@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import MedivioLogo from '@/components/MedivioLogo'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import Image from 'next/image'
 
 interface AuthFormProps {
   mode: 'login' | 'register'
@@ -51,11 +53,18 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 px-4">
-      <div className="w-full max-w-md animate-fade-in">
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-gray-100 flex justify-between items-center px-6 py-4 z-50">
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.back()}>
+          <Image src="/logo.png" alt="Medivio" width={32} height={32} style={{ objectFit: 'contain' }} />
+          <span className="font-bold text-gray-900">Medivio</span>
+        </div>
+        <LanguageSwitcher />
+      </div>
+      <div className="w-full max-w-md animate-fade-in mt-16">
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center mb-4">
+          <div className="inline-flex items-center justify-center mb-4 cursor-pointer" onClick={() => router.back()}>
             <MedivioLogo size={72} />
           </div>
           <h1 className="text-3xl font-extrabold text-[#0B1F4B] tracking-tight">Medivio</h1>
