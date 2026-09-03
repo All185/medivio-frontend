@@ -10,12 +10,12 @@ export default function RootPage() {
   const { t, locale } = useLanguage();
 
   const FEATURES = useMemo(() => [
-    { icon: '🧬', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
-    { icon: '🎥', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
-    { icon: '📋', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
-    { icon: '💊', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
-    { icon: '❤️', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
-    { icon: '👴', title: t('landing.feature_senior_title'), desc: t('landing.feature_senior_desc') },
+    { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
+    { icon: '/icons/chat_full.png', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
+    { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
+    { icon: '/icons/medocs_full-removebg-preview.png', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
+    { icon: '/icons/heart_full-removebg-preview.png', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
+    { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.feature_senior_title'), desc: t('landing.feature_senior_desc') },
   ], [locale]);
 
   const STATS = useMemo(() => [
@@ -83,7 +83,13 @@ export default function RootPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
               <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
-                <div className="text-3xl mb-3">{f.icon}</div>
+                <div className="mb-3 flex items-center justify-center" style={{height: 48}}>
+                  {f.icon.startsWith('/') ? (
+                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain', mixBlendMode: f.icon.includes('chat') ? 'multiply' : undefined}} />
+                  ) : (
+                    <span className="text-3xl">{f.icon}</span>
+                  )}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500">{f.desc}</p>
               </div>
@@ -101,7 +107,13 @@ export default function RootPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {WHY.map((item, i) => (
               <div key={`${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="mb-4 flex items-center justify-center" style={{height: 48}}>
+                  {item.icon.startsWith('/') ? (
+                    <img src={item.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                  ) : (
+                    <span className="text-4xl">{item.icon}</span>
+                  )}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-500">{item.desc}</p>
               </div>
