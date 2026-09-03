@@ -12,10 +12,9 @@ export default function RootPage() {
   const FEATURES = useMemo(() => [
     { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
     { icon: '/icons/chat_full.png', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
-    { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
     { icon: '/icons/medocs_full-removebg-preview.png', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
     { icon: '/icons/heart_full-removebg-preview.png', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
-    { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.feature_senior_title'), desc: t('landing.feature_senior_desc') },
+    { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
   ], [locale]);
 
   const STATS = useMemo(() => [
@@ -25,10 +24,18 @@ export default function RootPage() {
     { value: '100%', label: t('landing.stats_secure') },
   ], [locale]);
 
-  const WHY = useMemo(() => [
+  const WHY_DOCTORS = useMemo(() => [
     { icon: '/icons/brain_full-removebg.png', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
+    { icon: '💳', title: t('landing.why_commission_title'), desc: t('landing.why_commission_desc') },
+    { icon: '⚡', title: t('landing.why_allinone_title'), desc: t('landing.why_allinone_desc') },
+    { icon: '🔒', title: t('landing.why_doctor_data_title'), desc: t('landing.why_doctor_data_desc') },
+  ], [locale]);
+
+  const WHY_PATIENTS = useMemo(() => [
+    { icon: '🔒', title: t('landing.why_patient_data_title'), desc: t('landing.why_patient_data_desc') },
+    { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.why_triage_title'), desc: t('landing.why_triage_desc') },
+    { icon: '🏠', title: t('landing.why_home_title'), desc: t('landing.why_home_desc') },
     { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
-    { icon: '/icons/globe_full-removebg.png', title: t('landing.why_multilingual_title'), desc: t('landing.why_multilingual_desc') },
   ], [locale]);
 
   return (
@@ -104,20 +111,45 @@ export default function RootPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('landing.why_title')}</h2>
             <p className="text-gray-500 text-lg">{t('landing.why_subtitle')}</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {WHY.map((item, i) => (
-              <div key={`${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
-                <div className="mb-4 flex items-center justify-center" style={{height: 48}}>
-                  {item.icon.startsWith('/') ? (
-                    <img src={item.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
-                  ) : (
-                    <span className="text-4xl">{item.icon}</span>
-                  )}
+
+          {/* Pour les médecins */}
+          <div className="mb-10">
+            <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">{t('landing.why_doctors_title')}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {WHY_DOCTORS.map((item, i) => (
+                <div key={`doc-${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
+                  <div className="mb-4 flex items-center justify-center" style={{height: 48}}>
+                    {item.icon.startsWith('/') ? (
+                      <img src={item.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                    ) : (
+                      <span className="text-4xl">{item.icon}</span>
+                    )}
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Pour les patients */}
+          <div>
+            <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">{t('landing.why_patients_title')}</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {WHY_PATIENTS.map((item, i) => (
+                <div key={`pat-${locale}-${i}`} className="bg-gradient-to-b from-green-50 to-white rounded-2xl border border-green-100 p-6 text-center">
+                  <div className="mb-4 flex items-center justify-center" style={{height: 48}}>
+                    {item.icon.startsWith('/') ? (
+                      <img src={item.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                    ) : (
+                      <span className="text-4xl">{item.icon}</span>
+                    )}
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
