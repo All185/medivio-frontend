@@ -26,9 +26,9 @@ export default function RootPage() {
   ], [locale]);
 
   const WHY = useMemo(() => [
-    { icon: '🧠', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
-    { icon: '👴', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
-    { icon: '��', title: t('landing.why_multilingual_title'), desc: t('landing.why_multilingual_desc') },
+    { icon: '/icons/brain_full-removebg.png', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
+    { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
+    { icon: '/icons/globe_full-removebg.png', title: t('landing.why_multilingual_title'), desc: t('landing.why_multilingual_desc') },
   ], [locale]);
 
   return (
