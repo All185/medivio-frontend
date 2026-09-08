@@ -93,7 +93,7 @@ export default function RootPage() {
               <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
                 <div className="mb-3 flex items-center justify-center" style={{height: 48}}>
                   {f.icon.startsWith('/') ? (
-                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain', mixBlendMode: f.icon.includes('chat') ? 'multiply' : undefined}} />
+                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
                   ) : (
                     <span className="text-3xl">{f.icon}</span>
                   )}
@@ -109,7 +109,7 @@ export default function RootPage() {
               <div key={`${locale}-bottom-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
                 <div className="mb-3 flex items-center justify-center" style={{height: 48}}>
                   {f.icon.startsWith('/') ? (
-                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain', mixBlendMode: f.icon.includes('chat') ? 'multiply' : undefined}} />
+                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
                   ) : (
                     <span className="text-3xl">{f.icon}</span>
                   )}
