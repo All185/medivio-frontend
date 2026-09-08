@@ -26,15 +26,15 @@ export default function RootPage() {
 
   const WHY_DOCTORS = useMemo(() => [
     { icon: '/icons/brain_full-removebg.png', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
-    { icon: '💳', title: t('landing.why_commission_title'), desc: t('landing.why_commission_desc') },
-    { icon: '⚡', title: t('landing.why_allinone_title'), desc: t('landing.why_allinone_desc') },
-    { icon: '🔒', title: t('landing.why_doctor_data_title'), desc: t('landing.why_doctor_data_desc') },
+    { icon: '/icons/card_full-removebg.png', title: t('landing.why_commission_title'), desc: t('landing.why_commission_desc') },
+    { icon: '/icons/smartphone_full-removebg.png', title: t('landing.why_allinone_title'), desc: t('landing.why_allinone_desc') },
+    { icon: '/icons/lock_full-removebg.png', title: t('landing.why_doctor_data_title'), desc: t('landing.why_doctor_data_desc') },
   ], [locale]);
 
   const WHY_PATIENTS = useMemo(() => [
-    { icon: '🔒', title: t('landing.why_patient_data_title'), desc: t('landing.why_patient_data_desc') },
+    { icon: '/icons/lock_full-removebg.png', title: t('landing.why_patient_data_title'), desc: t('landing.why_patient_data_desc') },
     { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.why_triage_title'), desc: t('landing.why_triage_desc') },
-    { icon: '🏠', title: t('landing.why_home_title'), desc: t('landing.why_home_desc') },
+    { icon: '/icons/house_full-removebg.png', title: t('landing.why_home_title'), desc: t('landing.why_home_desc') },
     { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
   ], [locale]);
 
