@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react'
 
 type Locale = 'fr' | 'en' | 'es' | 'pt' | 'ar'
 
@@ -38,14 +38,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLocaleState(newLocale)
   }
 
-  const t = (key: string): string => {
+  const t = useCallback((key: string): string => {
     const keys = key.split('.')
     let value: any = translations[locale]
     for (const k of keys) {
       value = value?.[k]
     }
     return value || key
-  }
+  }, [locale])
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale, t }}>

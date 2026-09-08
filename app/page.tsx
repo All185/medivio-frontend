@@ -15,28 +15,28 @@ export default function RootPage() {
     { icon: '/icons/medocs_full-removebg-preview.png', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
     { icon: '/icons/heart_full-removebg-preview.png', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
     { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
-  ], [locale]);
+  ], [locale, t]);
 
   const STATS = useMemo(() => [
     { value: '15+', label: t('landing.stats_modules') },
     { value: '5', label: t('landing.stats_languages') },
     { value: '24/7', label: t('landing.stats_availability') },
     { value: '100%', label: t('landing.stats_secure') },
-  ], [locale]);
+  ], [locale, t]);
 
   const WHY_DOCTORS = useMemo(() => [
     { icon: '/icons/brain_full-removebg.png', title: t('landing.why_ai_title'), desc: t('landing.why_ai_desc') },
     { icon: '/icons/card_full-removebg.png', title: t('landing.why_commission_title'), desc: t('landing.why_commission_desc') },
     { icon: '/icons/smartphone_full-removebg.png', title: t('landing.why_allinone_title'), desc: t('landing.why_allinone_desc') },
     { icon: '/icons/lock_full-removebg.png', title: t('landing.why_doctor_data_title'), desc: t('landing.why_doctor_data_desc') },
-  ], [locale]);
+  ], [locale, t]);
 
   const WHY_PATIENTS = useMemo(() => [
     { icon: '/icons/lock_full-removebg.png', title: t('landing.why_patient_data_title'), desc: t('landing.why_patient_data_desc') },
     { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.why_triage_title'), desc: t('landing.why_triage_desc') },
     { icon: '/icons/house_full-removebg.png', title: t('landing.why_home_title'), desc: t('landing.why_home_desc') },
     { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
-  ], [locale]);
+  ], [locale, t]);
 
   return (
     <div className="min-h-screen bg-white">
