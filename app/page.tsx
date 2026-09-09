@@ -135,9 +135,9 @@ export default function RootPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {WHY_DOCTORS.map((item, i) => (
                 <div key={`doc-${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
-                  <div className="mb-4 flex items-center justify-center" style={{height: 48}}>
+                  <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                     {item.icon.startsWith('/') ? (
-                      <img src={item.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                      <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
                     ) : (
                       <span className="text-4xl">{item.icon}</span>
                     )}
@@ -155,9 +155,9 @@ export default function RootPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {WHY_PATIENTS.map((item, i) => (
                 <div key={`pat-${locale}-${i}`} className="bg-gradient-to-b from-green-50 to-white rounded-2xl border border-green-100 p-6 text-center">
-                  <div className="mb-4 flex items-center justify-center" style={{height: 48}}>
+                  <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                     {item.icon.startsWith('/') ? (
-                      <img src={item.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                      <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
                     ) : (
                       <span className="text-4xl">{item.icon}</span>
                     )}
