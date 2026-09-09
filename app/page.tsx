@@ -53,22 +53,25 @@ export default function RootPage() {
         <LanguageSwitcher />
       </header>
 
-      <section className="pt-28 pb-12 px-6 text-center bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
+      <section className="pt-28 pb-12 px-6 text-center relative overflow-hidden" style={{background: 'linear-gradient(160deg, #EEF2FF 0%, #F0FAFA 50%, #ffffff 100%)'}}>
+        {/* Cercles décoratifs */}
+        <div className="absolute top-10 left-10 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}} />
+        <div className="absolute bottom-0 right-10 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{background: 'linear-gradient(135deg, #2B5EF8, #009E88)'}} />
+        <div className="max-w-3xl mx-auto relative z-10">
+          <div className="inline-block text-white text-xs font-bold px-4 py-2 rounded-full mb-6" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
             {t('landing.badge')}
           </div>
-          <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            {t('landing.hero_title')} <span className="text-blue-600">{t('landing.hero_highlight')}</span>
+          <h1 className="text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+            {t('landing.hero_title')} <span style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{t('landing.hero_highlight')}</span>
           </h1>
-          <p className="text-xl text-gray-500 mb-10 leading-relaxed">
+          <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
             {t('landing.hero_desc')}
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            <button onClick={() => router.push('/register')} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors shadow-lg shadow-blue-200">
+            <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
               {t('landing.start_free')}
             </button>
-            <button onClick={() => router.push('/login')} className="border-2 border-gray-200 hover:border-blue-300 text-gray-700 font-semibold px-8 py-4 rounded-2xl text-lg transition-colors">
+            <button onClick={() => router.push('/login')} className="border-2 border-blue-300 hover:border-blue-500 text-blue-600 font-semibold px-8 py-4 rounded-2xl text-lg transition-all hover:bg-blue-50">
               {t('landing.login')}
             </button>
           </div>
