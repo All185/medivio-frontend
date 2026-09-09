@@ -61,7 +61,7 @@ export default function RootPage() {
           <div className="inline-block text-white text-xs font-bold px-4 py-2 rounded-full mb-6" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
             {t('landing.badge')}
           </div>
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
             {t('landing.hero_title')} <span style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{t('landing.hero_highlight')}</span>
           </h1>
           <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -144,7 +144,7 @@ export default function RootPage() {
               {WHY_DOCTORS.map((item, i) => (
                 <div key={`doc-${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
                   <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
-                    {item.icon.startsWith('/') ? (
+                 {item.icon.startsWith('/') ? (
                       <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
                     ) : (
                       <span className="text-4xl">{item.icon}</span>
