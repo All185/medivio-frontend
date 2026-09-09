@@ -33,7 +33,7 @@ export default function RootPage() {
 
   const WHY_PATIENTS = [
     { icon: '/icons/lock_full-removebg.png', title: t('landing.why_patient_data_title'), desc: t('landing.why_patient_data_desc') },
-    { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.why_triage_title'), desc: t('landing.why_triage_desc') },
+    { icon: '/icons/notes_full-removebg.png', title: t('landing.why_triage_title'), desc: t('landing.why_triage_desc') },
     { icon: '/icons/house_full-removebg.png', title: t('landing.why_home_title'), desc: t('landing.why_home_desc') },
     { icon: '/icons/senior_full-removebg-preview.png', title: t('landing.why_senior_title'), desc: t('landing.why_senior_desc') },
   ];
