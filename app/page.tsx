@@ -84,13 +84,13 @@ export default function RootPage() {
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('landing.features_title')}</h2>
-            <p className="text-gray-500 text-lg">{t('landing.features_subtitle')}</p>
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">{t('landing.features_title')}</h2>
+            <p className="text-gray-500 text-xl">{t('landing.features_subtitle')}</p>
           </div>
           {/* Première rangée - 3 modules */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {FEATURES.slice(0, 3).map((f, i) => (
-              <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
+              <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
                     <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
@@ -106,7 +106,7 @@ export default function RootPage() {
           {/* Deuxième rangée - 2 modules centrés */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {FEATURES.slice(3).map((f, i) => (
-              <div key={`${locale}-bottom-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
+              <div key={`${locale}-bottom-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
                     <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
@@ -125,8 +125,8 @@ export default function RootPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('landing.why_title')}</h2>
-            <p className="text-gray-500 text-lg">{t('landing.why_subtitle')}</p>
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">{t('landing.why_title')}</h2>
+            <p className="text-gray-500 text-xl">{t('landing.why_subtitle')}</p>
           </div>
 
           {/* Pour les médecins */}
