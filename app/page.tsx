@@ -11,7 +11,7 @@ export default function RootPage() {
 
   const FEATURES = [
     { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
-    { icon: '/icons/chat_full.png', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
+    { icon: '/icons/video_full-removebg.png', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
     { icon: '/icons/medocs_full-removebg-preview.png', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
     { icon: '/icons/heart_full-removebg-preview.png', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
     { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
