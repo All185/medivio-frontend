@@ -3,11 +3,16 @@ import { useRouter } from 'next/navigation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 
 export default function RootPage() {
   const router = useRouter();
   const { t, locale } = useLanguage();
+  const statsAnim = useScrollAnimation();
+  const featuresAnim = useScrollAnimation();
+  const whyAnim = useScrollAnimation();
+  const ctaAnim = useScrollAnimation();
 
   const FEATURES = [
     { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
@@ -71,7 +76,7 @@ export default function RootPage() {
       </section>
 
       <section className="py-8 px-6 bg-white border-y border-gray-100">
-        <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div ref={statsAnim.ref} className={`max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center animate-on-scroll ${statsAnim.isVisible ? 'visible' : ''}`}>
           {STATS.map((stat, i) => (
             <div key={i}>
               <p className="text-4xl font-bold text-blue-600 mb-1">{stat.value}</p>
@@ -82,7 +87,7 @@ export default function RootPage() {
       </section>
 
       <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
+        <div ref={featuresAnim.ref} className={`max-w-4xl mx-auto animate-on-scroll ${featuresAnim.isVisible ? 'visible' : ''}`}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-4">{t('landing.features_title')}</h2>
             <p className="text-gray-500 text-xl">{t('landing.features_subtitle')}</p>
@@ -123,7 +128,7 @@ export default function RootPage() {
       </section>
 
       <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div ref={whyAnim.ref} className={`max-w-4xl mx-auto animate-on-scroll ${whyAnim.isVisible ? 'visible' : ''}`}>
           <div className="text-center mb-12">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-4">{t('landing.why_title')}</h2>
             <p className="text-gray-500 text-xl">{t('landing.why_subtitle')}</p>
@@ -172,7 +177,7 @@ export default function RootPage() {
       </section>
 
       <section className="py-20 px-6 bg-blue-600">
-        <div className="max-w-2xl mx-auto text-center">
+        <div ref={ctaAnim.ref} className={`max-w-2xl mx-auto text-center animate-on-scroll ${ctaAnim.isVisible ? 'visible' : ''}`}>
           <h2 className="text-3xl font-bold text-white mb-4">{t('landing.doctor_title')}</h2>
           <p className="text-blue-100 text-lg mb-8">{t('landing.doctor_desc')}</p>
           <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors">
