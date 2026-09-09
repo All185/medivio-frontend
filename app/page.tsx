@@ -48,7 +48,7 @@ export default function RootPage() {
         <LanguageSwitcher />
       </header>
 
-      <section className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-blue-50 to-white">
+      <section className="pt-28 pb-12 px-6 text-center bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-3xl mx-auto">
           <div className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold px-4 py-2 rounded-full mb-6">
             {t('landing.badge')}
@@ -70,7 +70,7 @@ export default function RootPage() {
         </div>
       </section>
 
-      <section className="py-12 px-6 bg-white border-y border-gray-100">
+      <section className="py-8 px-6 bg-white border-y border-gray-100">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {STATS.map((stat, i) => (
             <div key={i}>
@@ -91,15 +91,15 @@ export default function RootPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {FEATURES.slice(0, 3).map((f, i) => (
               <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
-                <div className="mb-3 flex items-center justify-center" style={{height: 48}}>
+                <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
-                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                    <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
                   ) : (
-                    <span className="text-3xl">{f.icon}</span>
+                    <span className="text-4xl">{f.icon}</span>
                   )}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-500">{f.desc}</p>
+                <h3 className="font-bold text-gray-900 mb-2 text-center">{f.title}</h3>
+                <p className="text-sm text-gray-500 text-center">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -107,15 +107,15 @@ export default function RootPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {FEATURES.slice(3).map((f, i) => (
               <div key={`${locale}-bottom-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-md transition-all">
-                <div className="mb-3 flex items-center justify-center" style={{height: 48}}>
+                <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
-                    <img src={f.icon} alt="" style={{width: 48, height: 48, objectFit: 'contain'}} />
+                    <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
                   ) : (
-                    <span className="text-3xl">{f.icon}</span>
+                    <span className="text-4xl">{f.icon}</span>
                   )}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-500">{f.desc}</p>
+                <h3 className="font-bold text-gray-900 mb-2 text-center">{f.title}</h3>
+                <p className="text-sm text-gray-500 text-center">{f.desc}</p>
               </div>
             ))}
           </div>
