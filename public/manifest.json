@@ -1,27 +1,24 @@
 {
-  "name": "Medivio",
+  "name": "Medivio — Télémédecine IA",
   "short_name": "Medivio",
-  "description": "Plateforme de télémédecine — consultez un médecin où que vous soyez.",
-  "start_url": "/dashboard",
+  "description": "Plateforme de télémédecine augmentée par l'intelligence artificielle",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1d4ed8",
+  "theme_color": "#2563EB",
   "orientation": "portrait-primary",
-  "lang": "fr",
   "icons": [
     {
-      "src": "/icons/icon-192.png",
+      "src": "/logo.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ],
-  "screenshots": [],
-  "categories": ["medical", "health"]
+  "categories": ["health", "medical"],
+  "lang": "fr"
 }
