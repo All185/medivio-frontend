@@ -65,7 +65,7 @@ export default function TriageFeaturePage() {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="bg-orange-100 text-orange-600 text-xs font-bold px-3 py-1 rounded-full">Niveau Urgent</span>
                 </div>
-                <p className="text-gray-700 text-sm">Je vous recommande une consultation médicale dans les 24h. Voici les spécialistes disponibles...</p>
+                <p className="text-gray-700 text-sm">D'après votre évaluation clinique, une prise en charge médicale rapide est recommandée. Souhaitez-vous être mis en relation avec un médecin disponible ?</p>
               </div>
             </div>
           </div>
