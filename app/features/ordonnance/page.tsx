@@ -26,7 +26,7 @@ export default function OrdonnanceFeaturePage() {
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}} />
         <div className="absolute bottom-0 right-10 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{background: 'linear-gradient(135deg, #2B5EF8, #009E88)'}} />
         <div className="max-w-3xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 text-white text-xs font-bold px-4 py-2 rounded-full mb-6" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+          <div className="inline-flex items-center gap-2 text-blue-700 text-xs font-bold px-4 py-2 rounded-full mb-6 bg-blue-50 border border-blue-100">
             <img src="/icons/medocs_full-removebg-preview.png" alt="" style={{width: 20, height: 20, objectFit: 'contain'}} />
             Ordonnance numérique
           </div>
@@ -36,7 +36,7 @@ export default function OrdonnanceFeaturePage() {
           <p className="text-lg sm:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
             Recevez vos ordonnances numériques instantanément après votre consultation et présentez-les en pharmacie via un QR code sécurisé.
           </p>
-          <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
+          <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: '#2B5EF8', boxShadow: '0 4px 16px rgba(43,94,248,0.2)'}}>
             Accéder à mes ordonnances
           </button>
         </div>
@@ -98,7 +98,7 @@ export default function OrdonnanceFeaturePage() {
                   { num: '03', title: 'Présentez-la en pharmacie', desc: 'Montrez simplement le QR code au pharmacien. Il vérifie l\'authenticité en un scan et délivre vos médicaments.' },
                 ].map((step, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-sm flex-shrink-0 bg-blue-600">
                       {step.num}
                     </div>
                     <div>
@@ -112,7 +112,7 @@ export default function OrdonnanceFeaturePage() {
             <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl p-8 border border-blue-100">
               <div className="space-y-4">
                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
                     <span className="text-white text-lg">✍️</span>
                   </div>
                   <div>
@@ -122,7 +122,7 @@ export default function OrdonnanceFeaturePage() {
                   <span className="ml-auto text-green-500 text-lg">✓</span>
                 </div>
                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
                     <span className="text-white text-lg">🔒</span>
                   </div>
                   <div>
@@ -132,7 +132,7 @@ export default function OrdonnanceFeaturePage() {
                   <span className="ml-auto text-green-500 text-lg">✓</span>
                 </div>
                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
                     <span className="text-white text-lg">🏪</span>
                   </div>
                   <div>
@@ -186,7 +186,7 @@ export default function OrdonnanceFeaturePage() {
                   'Compatible avec toutes les pharmacies françaises disposant d\'un lecteur QR code',
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-600">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed">{point}</p>
@@ -201,7 +201,7 @@ export default function OrdonnanceFeaturePage() {
                 { value: '∞', label: 'Stockage illimité' },
                 { value: '24/7', label: 'Accessible' },
               ].map((stat, i) => (
-                <div key={i} className="rounded-2xl p-6 text-center text-white" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
                   <p className="text-3xl font-extrabold mb-1">{stat.value}</p>
                   <p className="text-xs opacity-80">{stat.label}</p>
                 </div>
@@ -212,7 +212,7 @@ export default function OrdonnanceFeaturePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 px-6" style={{background: 'linear-gradient(135deg, #009E88 0%, #2B5EF8 100%)'}}>
+      <section className="py-16 px-6 bg-blue-600">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4">Gérez vos ordonnances simplement</h2>
           <p className="text-blue-100 text-lg mb-8">Créez votre espace patient gratuitement et accédez à vos ordonnances numériques à tout moment.</p>

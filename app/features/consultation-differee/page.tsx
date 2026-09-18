@@ -26,7 +26,7 @@ export default function ConsultationDiffereeFeaturePage() {
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}} />
         <div className="absolute bottom-0 right-10 w-96 h-96 rounded-full opacity-10 blur-3xl" style={{background: 'linear-gradient(135deg, #2B5EF8, #009E88)'}} />
         <div className="max-w-3xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 text-white text-xs font-bold px-4 py-2 rounded-full mb-6" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+          <div className="inline-flex items-center gap-2 text-blue-700 text-xs font-bold px-4 py-2 rounded-full mb-6 bg-blue-50 border border-blue-100">
             <img src="/icons/chat_full.png" alt="" style={{width: 20, height: 20, objectFit: 'contain', mixBlendMode: 'multiply'}} />
             Consultation différée
           </div>
@@ -36,7 +36,7 @@ export default function ConsultationDiffereeFeaturePage() {
           <p className="text-lg sm:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
             Transmettez vos symptômes et documents médicaux. Un médecin qualifié examine votre dossier et vous répond dans les meilleurs délais.
           </p>
-          <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
+          <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: '#2B5EF8', boxShadow: '0 4px 16px rgba(43,94,248,0.2)'}}>
             Soumettre mon dossier
           </button>
         </div>
@@ -98,7 +98,7 @@ export default function ConsultationDiffereeFeaturePage() {
                   { num: '03', title: 'Recevez votre réponse médicale', desc: 'Un médecin qualifié examine votre dossier clinique et vous adresse un compte-rendu détaillé accompagné, si nécessaire, d\'une ordonnance.' },
                 ].map((step, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-sm flex-shrink-0" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-sm flex-shrink-0 bg-blue-600">
                       {step.num}
                     </div>
                     <div>
@@ -167,7 +167,7 @@ export default function ConsultationDiffereeFeaturePage() {
                   { value: '24/7', label: 'Soumission dossier' },
                   { value: 'RGPD', label: 'Données protégées' },
                 ].map((stat, i) => (
-                  <div key={i} className="rounded-2xl p-6 text-center text-white" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
                     <p className="text-2xl font-extrabold mb-1">{stat.value}</p>
                     <p className="text-xs opacity-80">{stat.label}</p>
                   </div>
@@ -185,7 +185,7 @@ export default function ConsultationDiffereeFeaturePage() {
                   'Toutes vos données médicales sont chiffrées et hébergées sur des serveurs certifiés HDS (Hébergeur de Données de Santé)',
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-600">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed">{point}</p>
@@ -198,7 +198,7 @@ export default function ConsultationDiffereeFeaturePage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 px-6" style={{background: 'linear-gradient(135deg, #009E88 0%, #2B5EF8 100%)'}}>
+      <section className="py-16 px-6 bg-blue-600">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4">Consultez sans attendre, sans vous déplacer</h2>
           <p className="text-blue-100 text-lg mb-8">Soumettez votre dossier médical et recevez une réponse qualifiée sous 24h.</p>
