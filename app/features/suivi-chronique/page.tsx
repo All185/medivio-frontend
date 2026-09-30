@@ -50,14 +50,18 @@ export default function SuiviChroniqueFeaturePage() {
             </div>
             <div className="grid grid-cols-2 gap-4 mb-6">
               {[
-                { label: 'Tension artérielle', value: '120/80', unit: 'mmHg', status: 'normal', icon: '❤️' },
-                { label: 'Fréquence cardiaque', value: '72', unit: 'bpm', status: 'normal', icon: '💓' },
-                { label: 'Glycémie', value: '1.1', unit: 'g/L', status: 'normal', icon: '🩸' },
-                { label: 'Température', value: '37.2', unit: '°C', status: 'normal', icon: '🌡️' },
+                { label: 'Tension artérielle', value: '120/80', unit: 'mmHg', status: 'normal', icon: '/icons/heart_remove_feature.png' },
+                { label: 'Fréquence cardiaque', value: '72', unit: 'bpm', status: 'normal', icon: '/icons/pinkheart_feature.png' },
+                { label: 'Glycémie', value: '1.1', unit: 'g/L', status: 'normal', icon: '/icons/blood_feature.png' },
+                { label: 'Température', value: '37.2', unit: '°C', status: 'normal', icon: '/icons/temperature_feature.png' },
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 rounded-2xl p-4">
                   <div className="flex items-center gap-2 mb-2">
-                    <span>{item.icon}</span>
+                    {item.icon.startsWith('/') ? (
+                      <img src={item.icon} alt="" style={{width:24,height:24,objectFit:"contain"}} />
+                    ) : (
+                      <span>{item.icon}</span>
+                    )}
                     <p className="text-xs text-gray-500">{item.label}</p>
                   </div>
                   <p className="text-2xl font-extrabold text-gray-900">{item.value} <span className="text-xs font-normal text-gray-400">{item.unit}</span></p>
@@ -85,15 +89,19 @@ export default function SuiviChroniqueFeaturePage() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">Surveillez vos paramètres vitaux</h2>
               <div className="space-y-4">
                 {[
-                  { icon: '❤️', label: 'Tension artérielle', desc: 'Systolique et diastolique — surveillance des risques cardiovasculaires' },
-                  { icon: '💓', label: 'Fréquence cardiaque', desc: 'Rythme cardiaque au repos et en activité' },
-                  { icon: '🩸', label: 'Glycémie', desc: 'Taux de glucose sanguin — essentiel pour les patients diabétiques' },
-                  { icon: '⚖️', label: 'Poids corporel', desc: 'Suivi de l\'indice de masse corporelle et de l\'évolution pondérale' },
-                  { icon: '🌡️', label: 'Température', desc: 'Détection précoce des syndromes infectieux ou inflammatoires' },
-                  { icon: '🫁', label: 'Saturation en oxygène', desc: 'SpO2 — surveillance de la fonction respiratoire' },
+                  { icon: '/icons/heart_remove_feature.png', label: 'Tension artérielle', desc: 'Systolique et diastolique — surveillance des risques cardiovasculaires' },
+                  { icon: '/icons/pinkheart_feature.png', label: 'Fréquence cardiaque', desc: 'Rythme cardiaque au repos et en activité' },
+                  { icon: '/icons/blood_feature.png', label: 'Glycémie', desc: 'Taux de glucose sanguin — essentiel pour les patients diabétiques' },
+                  { icon: '/icons/balance_feature.png', label: 'Poids corporel', desc: 'Suivi de l\'indice de masse corporelle et de l\'évolution pondérale' },
+                  { icon: '/icons/temperature_feature.png', label: 'Température', desc: 'Détection précoce des syndromes infectieux ou inflammatoires' },
+                  { icon: '/icons/breath_feature.png', label: 'Saturation en oxygène', desc: 'SpO2 — surveillance de la fonction respiratoire' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 bg-gray-50 rounded-2xl p-4">
+                    {item.icon.startsWith('/') ? (
+                    <img src={item.icon} alt="" style={{width:32,height:32,objectFit:"contain"}} />
+                  ) : (
                     <span className="text-2xl">{item.icon}</span>
+                  )}
                     <div>
                       <p className="font-semibold text-gray-800 text-sm">{item.label}</p>
                       <p className="text-xs text-gray-500">{item.desc}</p>
