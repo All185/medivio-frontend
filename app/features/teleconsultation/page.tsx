@@ -145,8 +145,8 @@ export default function TeleconsultationFeaturePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { icon: '/icons/house_feature.png', title: 'Depuis votre domicile', desc: "Plus besoin de vous déplacer. Consultez confortablement depuis chez vous, sans contrainte géographique." },
-              { icon: '/icons/smartphone_feature.png', title: 'À l\'heure qui vous convient', desc: "Des créneaux disponibles tôt le matin, en soirée et le week-end pour s'adapter à votre emploi du temps." },
-              { icon: '📱', title: 'Sur tous vos appareils', desc: "Compatible smartphone, tablette et ordinateur. Aucune installation requise, accès direct depuis votre navigateur." },
+              { icon: '/icons/alarm_feature.png', title: 'À l\'heure qui vous convient', desc: "Des créneaux disponibles tôt le matin, en soirée et le week-end pour s'adapter à votre emploi du temps." },
+              { icon: '/icons/smartphone_feature.png', title: 'Sur tous vos appareils', desc: "Compatible smartphone, tablette et ordinateur. Aucune installation requise, accès direct depuis votre navigateur." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
                 <div className="mb-4 flex items-center justify-center" style={{height:64}}>
