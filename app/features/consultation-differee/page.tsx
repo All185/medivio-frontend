@@ -120,7 +120,11 @@ export default function ConsultationDiffereeFeaturePage() {
                   { icon: '/icons/medocs_consult_feature.png', label: 'Listes de traitements en cours' },
                 ].map((item, i) => (
                   <div key={i} className="bg-white rounded-2xl p-4 flex items-center gap-3 shadow-sm">
-                    <span className="text-2xl">{item.icon}</span>
+                    {item.icon.startsWith('/') ? (
+                      <img src={item.icon} alt="" style={{width:32,height:32,objectFit:"contain"}} />
+                    ) : (
+                      <span className="text-2xl">{item.icon}</span>
+                    )}
                     <span className="text-sm text-gray-700 font-medium">{item.label}</span>
                     <span className="ml-auto text-green-500">✓</span>
                   </div>
