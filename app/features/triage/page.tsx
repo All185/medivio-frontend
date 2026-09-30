@@ -131,12 +131,18 @@ export default function TriageFeaturePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: '🎯', title: "Niveau d'urgence", desc: "Évaluation précise du degré d'urgence de votre situation médicale : standard, urgent ou critique." },
-              { icon: '💊', title: 'Recommandations', desc: 'Des recommandations médicales personnalisées adaptées à votre état de santé et à vos antécédents.' },
-              { icon: '🏥', title: 'Orientation médicale', desc: 'Orientation vers le spécialiste ou le recours médical le plus adapté à votre situation clinique.' },
+              { icon: '/icons/alert_feature.png', title: "Niveau d'urgence", desc: "Évaluation précise du degré d'urgence de votre situation médicale : standard, urgent ou critique." },
+              { icon: '/icons/medocs_feature.png', title: 'Recommandations', desc: 'Des recommandations médicales personnalisées adaptées à votre état de santé et à vos antécédents.' },
+              { icon: '/icons/hospital24_feature.png', title: 'Orientation médicale', desc: 'Orientation vers le spécialiste ou le recours médical le plus adapté à votre situation clinique.' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
+                  {item.icon.startsWith('/') ? (
+                    <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
+                  ) : (
+                    <span className="text-4xl">{item.icon}</span>
+                  )}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
