@@ -15,11 +15,11 @@ export default function RootPage() {
   const ctaAnim = useScrollAnimation();
 
   const FEATURES = [
-    { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc') },
-    { icon: '/icons/video_full-removebg.png', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc') },
-    { icon: '/icons/medocs_full-removebg-preview.png', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc') },
-    { icon: '/icons/heart_full-removebg-preview.png', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc') },
-    { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc') },
+    { icon: '/icons/robot_full-removebg-preview.png', title: t('landing.feature_triage_title'), desc: t('landing.feature_triage_desc'), route: '/features/triage' },
+    { icon: '/icons/video_full-removebg.png', title: t('landing.feature_video_title'), desc: t('landing.feature_video_desc'), route: '/features/teleconsultation' },
+    { icon: '/icons/medocs_full-removebg-preview.png', title: t('landing.feature_prescription_title'), desc: t('landing.feature_prescription_desc'), route: '/features/ordonnance' },
+    { icon: '/icons/heart_full-removebg-preview.png', title: t('landing.feature_chronic_title'), desc: t('landing.feature_chronic_desc'), route: '/features/suivi-chronique' },
+    { icon: '/icons/chat_full.png', title: t('landing.feature_async_title'), desc: t('landing.feature_async_desc'), route: '/features/consultation-differee' },
   ];
 
   const STATS = [
@@ -98,7 +98,7 @@ export default function RootPage() {
           {/* Première rangée - 3 modules */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             {FEATURES.slice(0, 3).map((f, i) => (
-              <div key={`${locale}-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
+              <button key={`${locale}-${i}`} onClick={() => router.push(f.route)} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm text-center w-full cursor-pointer">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
                     <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
@@ -106,15 +106,15 @@ export default function RootPage() {
                     <span className="text-4xl">{f.icon}</span>
                   )}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-center">{f.title}</h3>
-                <p className="text-sm text-gray-500 text-center">{f.desc}</p>
-              </div>
+                <h3 className="font-bold text-gray-900 text-center">{f.title}</h3>
+                <p className="text-xs text-blue-500 mt-2 text-center">En savoir plus →</p>
+              </button>
             ))}
           </div>
           {/* Deuxième rangée - 2 modules centrés */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {FEATURES.slice(3).map((f, i) => (
-              <div key={`${locale}-bottom-${i}`} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
+              <button key={`${locale}-bottom-${i}`} onClick={() => router.push(f.route)} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm text-center w-full cursor-pointer">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
                     <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
@@ -122,9 +122,9 @@ export default function RootPage() {
                     <span className="text-4xl">{f.icon}</span>
                   )}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2 text-center">{f.title}</h3>
-                <p className="text-sm text-gray-500 text-center">{f.desc}</p>
-              </div>
+                <h3 className="font-bold text-gray-900 text-center">{f.title}</h3>
+                <p className="text-xs text-blue-500 mt-2 text-center">En savoir plus →</p>
+              </button>
             ))}
           </div>
         </div>
