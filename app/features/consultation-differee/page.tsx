@@ -113,11 +113,11 @@ export default function ConsultationDiffereeFeaturePage() {
               <h3 className="font-bold text-gray-900 mb-4">Documents acceptés</h3>
               <div className="space-y-3">
                 {[
-                  { icon: '🔬', label: 'Résultats d\'analyses biologiques' },
-                  { icon: '🩻', label: 'Comptes-rendus d\'imagerie médicale' },
-                  { icon: '📋', label: 'Ordonnances et prescriptions antérieures' },
-                  { icon: '📝', label: 'Comptes-rendus de consultation' },
-                  { icon: '💊', label: 'Listes de traitements en cours' },
+                  { icon: '/icons/telescope_feature.png', label: 'Résultats d\'analyses biologiques' },
+                  { icon: '/icons/radio_feature.png', label: 'Comptes-rendus d\'imagerie médicale' },
+                  { icon: '/icons/clipboard_feature.png', label: 'Ordonnances et prescriptions antérieures' },
+                  { icon: '/icons/notes_consult_feature.png', label: 'Comptes-rendus de consultation' },
+                  { icon: '/icons/medocs_consult_feature.png', label: 'Listes de traitements en cours' },
                 ].map((item, i) => (
                   <div key={i} className="bg-white rounded-2xl p-4 flex items-center gap-3 shadow-sm">
                     <span className="text-2xl">{item.icon}</span>
@@ -141,12 +141,18 @@ export default function ConsultationDiffereeFeaturePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: '🩺', title: 'Demande d\'avis médical', desc: 'Obtenez un second avis médical qualifié sur un diagnostic ou un traitement prescrit par un autre praticien.' },
-              { icon: '🔄', title: 'Renouvellement d\'ordonnance', desc: 'Renouvelez vos ordonnances de traitements chroniques sans vous déplacer, sous réserve de l\'accord du médecin.' },
-              { icon: '📊', title: 'Interprétation de résultats', desc: 'Faites interpréter vos analyses biologiques ou vos examens d\'imagerie par un médecin spécialiste.' },
+              { icon: '/icons/stetoscope_feature.png', title: 'Demande d\'avis médical', desc: 'Obtenez un second avis médical qualifié sur un diagnostic ou un traitement prescrit par un autre praticien.' },
+              { icon: '/icons/renew_feature.png', title: 'Renouvellement d\'ordonnance', desc: 'Renouvelez vos ordonnances de traitements chroniques sans vous déplacer, sous réserve de l\'accord du médecin.' },
+              { icon: '/icons/stats_feature.png', title: 'Interprétation de résultats', desc: 'Faites interpréter vos analyses biologiques ou vos examens d\'imagerie par un médecin spécialiste.' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="mb-4 flex items-center justify-center" style={{height:64}}>
+                  {item.icon.startsWith('/') ? (
+                    <img src={item.icon} alt="" style={{width:56,height:56,objectFit:"contain"}} />
+                  ) : (
+                    <span className="text-4xl">{item.icon}</span>
+                  )}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
