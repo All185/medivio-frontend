@@ -74,9 +74,9 @@ export default function TeleconsultationFeaturePage() {
               </div>
             </div>
             <div className="px-4 pb-4 flex items-center justify-center gap-4">
-              <button className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white">🎤</button>
-              <button className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white">📵</button>
-              <button className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white">📹</button>
+              <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md"><img src="/icons/mic_feature.png" alt="" style={{width:28,height:28,objectFit:"contain"}} /></button>
+              <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md"><img src="/icons/nophone_feature.png" alt="" style={{width:28,height:28,objectFit:"contain"}} /></button>
+              <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md"><img src="/icons/cam_feature.png" alt="" style={{width:28,height:28,objectFit:"contain"}} /></button>
             </div>
           </div>
         </div>
@@ -145,7 +145,7 @@ export default function TeleconsultationFeaturePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { icon: '/icons/house_feature.png', title: 'Depuis votre domicile', desc: "Plus besoin de vous déplacer. Consultez confortablement depuis chez vous, sans contrainte géographique." },
-              { icon: '⏰', title: 'À l\'heure qui vous convient', desc: "Des créneaux disponibles tôt le matin, en soirée et le week-end pour s'adapter à votre emploi du temps." },
+              { icon: '/icons/smartphone_feature.png', title: 'À l\'heure qui vous convient', desc: "Des créneaux disponibles tôt le matin, en soirée et le week-end pour s'adapter à votre emploi du temps." },
               { icon: '📱', title: 'Sur tous vos appareils', desc: "Compatible smartphone, tablette et ordinateur. Aucune installation requise, accès direct depuis votre navigateur." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
