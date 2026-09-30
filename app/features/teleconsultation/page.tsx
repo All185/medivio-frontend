@@ -91,13 +91,17 @@ export default function TeleconsultationFeaturePage() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">Une consultation équivalente à celle en cabinet</h2>
               <div className="space-y-6">
                 {[
-                  { icon: '🎥', title: 'Vidéo haute définition', desc: "Échange clinique en vidéo HD pour une consultation de qualité équivalente à celle en présentiel." },
-                  { icon: '📋', title: 'Ordonnance délivrée', desc: "À l'issue de la consultation, le praticien peut délivrer une ordonnance numérique directement sur votre espace patient." },
-                  { icon: '📁', title: 'Dossier médical intégré', desc: "Le médecin accède à votre historique médical pendant la consultation pour une prise en charge optimale." },
+                  { icon: '/icons/teleconsultation_feature.png', title: 'Vidéo haute définition', desc: "Échange clinique en vidéo HD pour une consultation de qualité équivalente à celle en présentiel." },
+                  { icon: '/icons/notes_feature.png', title: 'Ordonnance délivrée', desc: "À l'issue de la consultation, le praticien peut délivrer une ordonnance numérique directement sur votre espace patient." },
+                  { icon: '/icons/files_feature.png', title: 'Dossier médical intégré', desc: "Le médecin accède à votre historique médical pendant la consultation pour une prise en charge optimale." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 bg-blue-50">
-                      {item.icon}
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-blue-50">
+                      {item.icon.startsWith('/') ? (
+                        <img src={item.icon} alt="" style={{width:28,height:28,objectFit:"contain"}} />
+                      ) : (
+                        <span className="text-xl">{item.icon}</span>
+                      )}
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
@@ -140,12 +144,18 @@ export default function TeleconsultationFeaturePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: '🏠', title: 'Depuis votre domicile', desc: "Plus besoin de vous déplacer. Consultez confortablement depuis chez vous, sans contrainte géographique." },
+              { icon: '/icons/house_feature.png', title: 'Depuis votre domicile', desc: "Plus besoin de vous déplacer. Consultez confortablement depuis chez vous, sans contrainte géographique." },
               { icon: '⏰', title: 'À l\'heure qui vous convient', desc: "Des créneaux disponibles tôt le matin, en soirée et le week-end pour s'adapter à votre emploi du temps." },
               { icon: '📱', title: 'Sur tous vos appareils', desc: "Compatible smartphone, tablette et ordinateur. Aucune installation requise, accès direct depuis votre navigateur." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="mb-4 flex items-center justify-center" style={{height:64}}>
+                  {item.icon.startsWith('/') ? (
+                    <img src={item.icon} alt="" style={{width:56,height:56,objectFit:"contain"}} />
+                  ) : (
+                    <span className="text-4xl">{item.icon}</span>
+                  )}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
