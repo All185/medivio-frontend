@@ -112,8 +112,8 @@ export default function OrdonnanceFeaturePage() {
             <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl p-8 border border-blue-100">
               <div className="space-y-4">
                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
-                    <span className="text-white text-lg">✍️</span>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white shadow-sm">
+                    <img src="/icons/handnotes_feature.png" alt="" style={{width:28,height:28,objectFit:"contain"}} />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">Signature électronique</p>
@@ -122,8 +122,8 @@ export default function OrdonnanceFeaturePage() {
                   <span className="ml-auto text-green-500 text-lg">✓</span>
                 </div>
                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
-                    <span className="text-white text-lg">🔒</span>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white shadow-sm">
+                    <img src="/icons/lock_feature.png" alt="" style={{width:28,height:28,objectFit:"contain"}} />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">QR code sécurisé</p>
@@ -132,8 +132,8 @@ export default function OrdonnanceFeaturePage() {
                   <span className="ml-auto text-green-500 text-lg">✓</span>
                 </div>
                 <div className="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-blue-600">
-                    <span className="text-white text-lg">🏪</span>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white shadow-sm">
+                    <img src="/icons/hospital24_ord_feature.png" alt="" style={{width:28,height:28,objectFit:"contain"}} />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">Accepté en pharmacie</p>
@@ -157,12 +157,18 @@ export default function OrdonnanceFeaturePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: '📂', title: 'Historique complet', desc: 'Retrouvez toutes vos ordonnances passées classées par date, praticien ou médicament prescrit.' },
-              { icon: '📥', title: 'Téléchargement PDF', desc: 'Téléchargez vos ordonnances au format PDF pour les conserver ou les transmettre à un autre professionnel de santé.' },
-              { icon: '🔔', title: 'Alertes d\'expiration', desc: 'Recevez une notification avant l\'expiration de vos ordonnances pour ne jamais manquer un renouvellement.' },
+              { icon: '/icons/files_ord_feature.png', title: 'Historique complet', desc: 'Retrouvez toutes vos ordonnances passées classées par date, praticien ou médicament prescrit.' },
+              { icon: '/icons/downloads_feature.png', title: 'Téléchargement PDF', desc: 'Téléchargez vos ordonnances au format PDF pour les conserver ou les transmettre à un autre professionnel de santé.' },
+              { icon: '/icons/ring_feature.png', title: 'Alertes d\'expiration', desc: 'Recevez une notification avant l\'expiration de vos ordonnances pour ne jamais manquer un renouvellement.' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
-                <div className="text-4xl mb-4">{item.icon}</div>
+                <div className="mb-4 flex items-center justify-center" style={{height:64}}>
+                  {item.icon.startsWith('/') ? (
+                    <img src={item.icon} alt="" style={{width:56,height:56,objectFit:"contain"}} />
+                  ) : (
+                    <span className="text-4xl">{item.icon}</span>
+                  )}
+                </div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
