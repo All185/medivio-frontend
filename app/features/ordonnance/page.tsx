@@ -42,7 +42,7 @@ export default function OrdonnanceFeaturePage() {
         </div>
 
         {/* Illustration hero - ordonnance avec QR code */}
-        <div className="max-w-md mx-auto mt-16 relative z-10">
+        <div className="max-w-md mx-auto mt-8 relative z-10">
           <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <div>
@@ -161,7 +161,7 @@ export default function OrdonnanceFeaturePage() {
               { icon: '/icons/downloads_feature.png', title: 'Téléchargement PDF', desc: 'Téléchargez vos ordonnances au format PDF pour les conserver ou les transmettre à un autre professionnel de santé.' },
               { icon: '/icons/ring_feature.png', title: 'Alertes d\'expiration', desc: 'Recevez une notification avant l\'expiration de vos ordonnances pour ne jamais manquer un renouvellement.' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
                 <div className="mb-4 flex items-center justify-center" style={{height:64}}>
                   {item.icon.startsWith('/') ? (
                     <img src={item.icon} alt="" style={{width:56,height:56,objectFit:"contain"}} />
@@ -207,7 +207,7 @@ export default function OrdonnanceFeaturePage() {
                 { value: '∞', label: 'Stockage illimité' },
                 { value: '24/7', label: 'Accessible' },
               ].map((stat, i) => (
-                <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
+                <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-200 shadow-md">
                   <p className="text-3xl font-extrabold mb-1">{stat.value}</p>
                   <p className="text-xs opacity-80">{stat.label}</p>
                 </div>
