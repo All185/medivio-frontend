@@ -42,7 +42,7 @@ export default function ConsultationDiffereeFeaturePage() {
         </div>
 
         {/* Illustration hero - interface de dossier */}
-        <div className="max-w-2xl mx-auto mt-16 relative z-10">
+        <div className="max-w-2xl mx-auto mt-8 relative z-10">
           <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
@@ -149,7 +149,7 @@ export default function ConsultationDiffereeFeaturePage() {
               { icon: '/icons/renew_feature.png', title: 'Renouvellement d\'ordonnance', desc: 'Renouvelez vos ordonnances de traitements chroniques sans vous déplacer, sous réserve de l\'accord du médecin.' },
               { icon: '/icons/stats_feature.png', title: 'Interprétation de résultats', desc: 'Faites interpréter vos analyses biologiques ou vos examens d\'imagerie par un médecin spécialiste.' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
                 <div className="mb-4 flex items-center justify-center" style={{height:64}}>
                   {item.icon.startsWith('/') ? (
                     <img src={item.icon} alt="" style={{width:56,height:56,objectFit:"contain"}} />
@@ -177,7 +177,7 @@ export default function ConsultationDiffereeFeaturePage() {
                   { value: '24/7', label: 'Soumission dossier' },
                   { value: 'RGPD', label: 'Données protégées' },
                 ].map((stat, i) => (
-                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
+                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-200 shadow-md">
                     <p className="text-2xl font-extrabold mb-1">{stat.value}</p>
                     <p className="text-xs opacity-80">{stat.label}</p>
                   </div>
