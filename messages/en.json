@@ -650,6 +650,11 @@
     "stat4_label": "Accessible",
     "cta_title": "Manage your prescriptions simply",
     "cta_desc": "Create your patient space for free and access your digital prescriptions at any time.",
-    "cta_button": "Create my patient space"
+    "cta_button": "Create my patient space",
+    "specialty": "General practitioner",
+    "med1": "Amoxicillin 500mg",
+    "med1_dose": "1 tab × 3/day — 7 days",
+    "med2": "Paracetamol 1g",
+    "med2_dose": "1 tab × 3/day if pain"
   }
 }

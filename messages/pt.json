@@ -650,6 +650,11 @@
     "stat4_label": "Acessível",
     "cta_title": "Gerencie suas receitas facilmente",
     "cta_desc": "Crie seu espaço de paciente gratuitamente e acesse suas receitas digitais a qualquer momento.",
-    "cta_button": "Criar meu espaço de paciente"
+    "cta_button": "Criar meu espaço de paciente",
+    "specialty": "Médico generalista",
+    "med1": "Amoxicilina 500mg",
+    "med1_dose": "1 comp × 3/dia — 7 dias",
+    "med2": "Paracetamol 1g",
+    "med2_dose": "1 comp × 3/dia se dor"
   }
 }

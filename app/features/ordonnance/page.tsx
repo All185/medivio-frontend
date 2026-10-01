@@ -47,7 +47,7 @@ export default function OrdonnanceFeaturePage() {
               <div>
                 <p className="text-xs text-gray-400 uppercase tracking-widest mb-1">{t('ordonnance_page.doctor_label')}</p>
                 <p className="font-bold text-gray-900">Dr. Sophie Martin</p>
-                <p className="text-xs text-gray-500">Médecin généraliste</p>
+                <p className="text-xs text-gray-500">{t('ordonnance_page.specialty')}</p>
               </div>
               <div className="text-right">
                 <p className="text-xs text-gray-400">{t('ordonnance_page.date_label')}</p>

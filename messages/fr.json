@@ -736,6 +736,11 @@
     "stat4_label": "Accessible",
     "cta_title": "Gérez vos ordonnances simplement",
     "cta_desc": "Créez votre espace patient gratuitement et accédez à vos ordonnances numériques à tout moment.",
-    "cta_button": "Créer mon espace patient"
+    "cta_button": "Créer mon espace patient",
+    "specialty": "Médecin généraliste",
+    "med1": "Amoxicilline 500mg",
+    "med1_dose": "1 cp × 3/jour — 7 jours",
+    "med2": "Paracétamol 1g",
+    "med2_dose": "1 cp × 3/jour si douleur"
   }
 }
