@@ -10,16 +10,6 @@ export default function TriageFeaturePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <style dangerouslySetInnerHTML={{__html: `
-        .section-1 { animation: fadeUp 0.5s ease forwards; }
-        .section-2 { animation: fadeUp 0.5s ease 0.2s forwards; opacity: 0; }
-        .section-3 { animation: fadeUp 0.5s ease 0.4s forwards; opacity: 0; }
-        .section-4 { animation: fadeUp 0.5s ease 0.6s forwards; opacity: 0; }
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(16px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}} />
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/')}>
           <Image src="/logo.png" alt="Medivio" width={32} height={32} style={{ objectFit: 'contain' }} />
@@ -82,7 +72,7 @@ export default function TriageFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-white section-1">
+      <section className="py-16 sm:py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -132,7 +122,7 @@ export default function TriageFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-gray-50 section-2">
+      <section className="py-16 sm:py-24 px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">Résultats</span>
@@ -161,4 +151,60 @@ export default function TriageFeaturePage() {
         </div>
       </section>
 
-      
+      <section className="py-16 sm:py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: '< 30s', label: "Temps d'analyse" },
+                  { value: '94%', label: 'Précision clinique' },
+                  { value: '24/7', label: 'Disponibilité' },
+                  { value: '100%', label: 'Confidentiel' },
+                ].map((stat, i) => (
+                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
+                    <p className="text-3xl font-extrabold mb-1" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{stat.value}</p>
+                    <p className="text-xs text-gray-500">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">Bénéfices</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">Pourquoi le Triage IA est essentiel ?</h2>
+              <div className="space-y-4">
+                {[
+                  "Évitez les erreurs d'orientation médicale coûteuses en temps et en santé",
+                  'Consultez au bon moment, avec le bon praticien, pour une prise en charge optimale',
+                  "Accédez à une première évaluation clinique à tout moment, même en dehors des heures d'ouverture",
+                  "Réduisez l'anxiété liée à l'incertitude grâce à une analyse médicale objective et immédiate",
+                ].map((point, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-600">
+                      <span className="text-white text-xs">✓</span>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-6 bg-blue-600">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-extrabold text-white mb-4">Prêt à prendre soin de votre santé ?</h2>
+          <p className="text-blue-100 text-lg mb-8">Accédez au Triage IA gratuitement et obtenez une évaluation clinique en quelques secondes.</p>
+          <button onClick={() => router.push('/register')} className="bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 hover:shadow-xl">
+            Commencer gratuitement
+          </button>
+        </div>
+      </section>
+
+      <footer className="py-6 px-6 bg-gray-900 text-center">
+        <p className="text-gray-400 text-sm">© 2026 Medivio. Tous droits réservés.</p>
+      </footer>
+    </div>
+  );
+}
