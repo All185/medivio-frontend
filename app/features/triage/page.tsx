@@ -10,7 +10,7 @@ export default function TriageFeaturePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <style>{"""
+      <style dangerouslySetInnerHTML={{__html: `
         .section-1 { animation: fadeUp 0.5s ease forwards; }
         .section-2 { animation: fadeUp 0.5s ease 0.2s forwards; opacity: 0; }
         .section-3 { animation: fadeUp 0.5s ease 0.4s forwards; opacity: 0; }
@@ -19,7 +19,7 @@ export default function TriageFeaturePage() {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: translateY(0); }
         }
-      """}</style>
+      `}} />
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/')}>
           <Image src="/logo.png" alt="Medivio" width={32} height={32} style={{ objectFit: 'contain' }} />
