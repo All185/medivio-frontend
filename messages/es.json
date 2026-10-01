@@ -508,7 +508,8 @@
     "why_triage_title": "Sepa cuándo consultar",
     "why_triage_desc": "La IA evalúa sus síntomas y le dice exactamente cuándo y cómo ver a un médico.",
     "why_home_title": "Consulte desde casa",
-    "why_home_desc": "No necesita desplazarse. Acceda a un médico por vídeo donde sea, cuando lo necesite."
+    "why_home_desc": "No necesita desplazarse. Acceda a un médico por vídeo donde sea, cuando lo necesite.",
+    "learn_more": "Saber más →"
   },
   "triage_page": {
     "badge": "Triaje IA",

@@ -107,7 +107,7 @@ export default function RootPage() {
                   )}
                 </div>
                 <h3 className="font-bold text-gray-900 text-center">{f.title}</h3>
-                <p className="text-xs text-blue-500 mt-2 text-center">En savoir plus →</p>
+                <p className="text-xs text-blue-500 mt-2 text-center">{t('landing.learn_more')}</p>
               </button>
             ))}
           </div>
@@ -123,7 +123,7 @@ export default function RootPage() {
                   )}
                 </div>
                 <h3 className="font-bold text-gray-900 text-center">{f.title}</h3>
-                <p className="text-xs text-blue-500 mt-2 text-center">En savoir plus →</p>
+                <p className="text-xs text-blue-500 mt-2 text-center">{t('landing.learn_more')}</p>
               </button>
             ))}
           </div>
