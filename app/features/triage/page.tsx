@@ -41,7 +41,7 @@ export default function TriageFeaturePage() {
             Essayer gratuitement
           </button>
         </div>
-        <div className="max-w-2xl mx-auto mt-16 relative z-10">
+        <div className="max-w-2xl mx-auto mt-8 relative z-10">
           <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-blue-600">
@@ -135,7 +135,7 @@ export default function TriageFeaturePage() {
               { icon: '/icons/medocs_feature.png', title: 'Recommandations', desc: 'Des recommandations médicales personnalisées adaptées à votre état de santé et à vos antécédents.' },
               { icon: '/icons/hospital24_feature.png', title: 'Orientation médicale', desc: 'Orientation vers le spécialiste ou le recours médical le plus adapté à votre situation clinique.' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {item.icon.startsWith('/') ? (
                     <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
@@ -162,7 +162,7 @@ export default function TriageFeaturePage() {
                   { value: '24/7', label: 'Disponibilité' },
                   { value: '100%', label: 'Confidentiel' },
                 ].map((stat, i) => (
-                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
+                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-200 shadow-md">
                     <p className="text-3xl font-extrabold mb-1" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{stat.value}</p>
                     <p className="text-xs text-gray-500">{stat.label}</p>
                   </div>
