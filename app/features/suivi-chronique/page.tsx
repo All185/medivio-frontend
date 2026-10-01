@@ -42,7 +42,7 @@ export default function SuiviChroniqueFeaturePage() {
         </div>
 
         {/* Illustration hero - tableau de bord de suivi */}
-        <div className="max-w-2xl mx-auto mt-16 relative z-10">
+        <div className="max-w-2xl mx-auto mt-8 relative z-10">
           <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-bold text-gray-900">Mes constantes du jour</h3>
@@ -176,7 +176,7 @@ export default function SuiviChroniqueFeaturePage() {
                   { value: '24/7', label: 'Surveillance' },
                   { value: '100%', label: 'Confidentiel' },
                 ].map((stat, i) => (
-                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
+                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-200 shadow-md">
                     <p className="text-2xl font-extrabold mb-1">{stat.value}</p>
                     <p className="text-xs opacity-80">{stat.label}</p>
                   </div>
