@@ -41,7 +41,7 @@ export default function TeleconsultationFeaturePage() {
           </button>
         </div>
         {/* Illustration hero - interface vidéo */}
-        <div className="max-w-2xl mx-auto mt-16 relative z-10">
+        <div className="max-w-2xl mx-auto mt-8 relative z-10">
           <div className="bg-gray-900 rounded-3xl shadow-2xl overflow-hidden">
             <div className="bg-gray-800 px-6 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -148,7 +148,7 @@ export default function TeleconsultationFeaturePage() {
               { icon: '/icons/alarm_feature.png', title: 'À l\'heure qui vous convient', desc: "Des créneaux disponibles tôt le matin, en soirée et le week-end pour s'adapter à votre emploi du temps." },
               { icon: '/icons/smartphone_feature.png', title: 'Sur tous vos appareils', desc: "Compatible smartphone, tablette et ordinateur. Aucune installation requise, accès direct depuis votre navigateur." },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+              <div key={i} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
                 <div className="mb-4 flex items-center justify-center" style={{height:64}}>
                   {item.icon.startsWith('/') ? (
                     <img src={item.icon} alt="" style={{width:56,height:56,objectFit:"contain"}} />
@@ -176,7 +176,7 @@ export default function TeleconsultationFeaturePage() {
                   { value: '< 5min', label: 'Attente moyenne' },
                   { value: 'RGPD', label: 'Conformité' },
                 ].map((stat, i) => (
-                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-100 shadow-sm">
+                  <div key={i} className="rounded-2xl p-6 text-center bg-white border-2 border-blue-200 shadow-md">
                     <p className="text-3xl font-extrabold mb-1" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{stat.value}</p>
                     <p className="text-xs text-gray-500">{stat.label}</p>
                   </div>
