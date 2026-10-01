@@ -10,6 +10,16 @@ export default function TriageFeaturePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <style>{"""
+        .section-1 { animation: fadeUp 0.5s ease forwards; }
+        .section-2 { animation: fadeUp 0.5s ease 0.2s forwards; opacity: 0; }
+        .section-3 { animation: fadeUp 0.5s ease 0.4s forwards; opacity: 0; }
+        .section-4 { animation: fadeUp 0.5s ease 0.6s forwards; opacity: 0; }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      """}</style>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/')}>
           <Image src="/logo.png" alt="Medivio" width={32} height={32} style={{ objectFit: 'contain' }} />
@@ -72,7 +82,7 @@ export default function TriageFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-white">
+      <section className="py-16 sm:py-24 px-6 bg-white section-1">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -122,7 +132,7 @@ export default function TriageFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-gray-50">
+      <section className="py-16 sm:py-24 px-6 bg-gray-50 section-2">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">Résultats</span>
