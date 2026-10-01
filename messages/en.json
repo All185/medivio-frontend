@@ -551,6 +551,13 @@
     "stat4_label": "Confidential",
     "cta_title": "Ready to take care of your health?",
     "cta_desc": "Access AI Triage for free and get a clinical evaluation in seconds.",
-    "cta_button": "Get started for free"
+    "cta_button": "Get started for free",
+    "symptom1": "Fever",
+    "symptom2": "Headaches",
+    "symptom3": "Fatigue",
+    "symptom4": "Duration",
+    "symptom2_val": "Intense",
+    "symptom3_val": "Moderate",
+    "symptom4_val": "2 days"
   }
 }

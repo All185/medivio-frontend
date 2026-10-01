@@ -99,10 +99,10 @@ export default function TriageFeaturePage() {
             <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl p-8 border border-blue-100">
               <div className="space-y-4">
                 {[
-                  { label: 'Fièvre', value: '38.5°C', color: 'bg-orange-100 text-orange-600' },
-                  { label: 'Maux de tête', value: 'Intense', color: 'bg-red-100 text-red-600' },
-                  { label: 'Fatigue', value: 'Modérée', color: 'bg-yellow-100 text-yellow-600' },
-                  { label: 'Durée', value: '2 jours', color: 'bg-blue-100 text-blue-600' },
+                  { label: t('triage_page.symptom1'), value: '38.5°C', color: 'bg-orange-100 text-orange-600' },
+                  { label: t('triage_page.symptom2'), value: t('triage_page.symptom2_val'), color: 'bg-red-100 text-red-600' },
+                  { label: t('triage_page.symptom3'), value: t('triage_page.symptom3_val'), color: 'bg-yellow-100 text-yellow-600' },
+                  { label: t('triage_page.symptom4'), value: t('triage_page.symptom4_val'), color: 'bg-blue-100 text-blue-600' },
                 ].map((item, i) => (
                   <div key={i} className="bg-white rounded-2xl p-4 flex items-center justify-between shadow-sm">
                     <span className="text-gray-700 font-medium text-sm">{item.label}</span>

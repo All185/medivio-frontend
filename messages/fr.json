@@ -637,6 +637,13 @@
     "stat4_label": "Confidentiel",
     "cta_title": "Prêt à prendre soin de votre santé ?",
     "cta_desc": "Accédez au Triage IA gratuitement et obtenez une évaluation clinique en quelques secondes.",
-    "cta_button": "Commencer gratuitement"
+    "cta_button": "Commencer gratuitement",
+    "symptom1": "Fièvre",
+    "symptom2": "Maux de tête",
+    "symptom3": "Fatigue",
+    "symptom4": "Durée",
+    "symptom2_val": "Intense",
+    "symptom3_val": "Modérée",
+    "symptom4_val": "2 jours"
   }
 }
