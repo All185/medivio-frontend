@@ -81,7 +81,7 @@ export default function RecordsPage() {
           </div>
         ) : records.length === 0 ? (
           <div className="card p-10 text-center animate-fade-in">
-            <div className="text-5xl mb-4">📂</div>
+            <img src="/icons/filles_full-removebg-preview.png" alt="" style={{width:64,height:64,objectFit:"contain",margin:"0 auto 16px"}} />
             <p className="text-gray-500">{t('records.noRecords')}</p>
           </div>
         ) : (
