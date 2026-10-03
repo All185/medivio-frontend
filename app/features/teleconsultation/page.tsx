@@ -88,9 +88,9 @@ export default function TeleconsultationFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-white">
+      <section className="py-10 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">{t('teleconsult_page.section1_label')}</span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">{t('teleconsult_page.section1_title')}</h2>
@@ -139,7 +139,7 @@ export default function TeleconsultationFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-gray-50">
+      <section className="py-10 sm:py-24 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">{t('teleconsult_page.section2_label')}</span>
@@ -168,9 +168,9 @@ export default function TeleconsultationFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-6 bg-white">
+      <section className="py-10 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
             <div className="order-2 md:order-1">
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -209,9 +209,9 @@ export default function TeleconsultationFeaturePage() {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-blue-600">
+      <section className="py-10 px-4 sm:px-6 bg-blue-600">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">{t('teleconsult_page.cta_title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">{t('teleconsult_page.cta_title')}</h2>
           <p className="text-blue-100 text-lg mb-8">{t('teleconsult_page.cta_desc')}</p>
           <button onClick={() => router.push('/register')} className="bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 hover:shadow-xl">
             {t('teleconsult_page.cta_button')}
