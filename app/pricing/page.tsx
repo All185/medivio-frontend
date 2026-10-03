@@ -76,14 +76,12 @@ export default function PricingPage() {
           <p className="text-gray-500 text-lg mb-8">À l'issue des 3 mois gratuits, des offres adaptées à votre pratique seront proposées. Les tarifs seront définis en collaboration avec les médecins pilotes.</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {[
-              { label: 'Médecin solo', price: 'À partir de 49€', desc: '/mois' },
-              { label: 'Cabinet de groupe', price: 'À partir de 99€', desc: '/mois' },
-              { label: 'Clinique / Établissement', price: 'Sur devis', desc: 'personnalisé' },
+              'Médecin solo',
+              'Cabinet de groupe',
+              'Clinique / Établissement',
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border-2 border-blue-100 shadow-sm text-center">
-                <p className="text-sm font-semibold text-gray-500 mb-2">{item.label}</p>
-                <p className="text-2xl font-extrabold mb-1" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{item.price}</p>
-                <p className="text-xs text-gray-400">{item.desc}</p>
+                <p className="text-sm font-semibold text-gray-700">{item}</p>
               </div>
             ))}
           </div>
