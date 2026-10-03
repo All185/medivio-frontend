@@ -1,152 +1,131 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
-
-const PLANS = [
-  {
-    name: 'Starter',
-    price: '49',
-    desc: 'Idéal pour démarrer en télémédecine',
-    color: 'border-gray-200',
-    badge: null,
-    features: [
-      'Téléconsultation vidéo illimitée',
-      'Agenda médecin',
-      'Ordonnances numériques avec QR code',
-      'Rappels email patients',
-      'Salle d\'attente virtuelle',
-      'Support par email',
-    ],
-  },
-  {
-    name: 'Pro',
-    price: '99',
-    desc: 'Pour les médecins qui veulent aller plus loin',
-    color: 'border-blue-500',
-    badge: 'Recommandé',
-    features: [
-      'Tout le plan Starter',
-      'Tableau de bord analytique',
-      'Téléconsultation différée avec triage IA',
-      'Marketplace de spécialistes',
-      'Résumé IA des consultations',
-      'Mode urgence avec analyse IA',
-      'Facturation automatisée Stripe',
-      'Support prioritaire',
-    ],
-  },
-  {
-    name: 'Clinique',
-    price: '299',
-    desc: 'Pour les cabinets et cliniques multi-praticiens',
-    color: 'border-gray-200',
-    badge: null,
-    features: [
-      'Tout le plan Pro',
-      'Multi-praticiens illimités',
-      'Suivi maladies chroniques',
-      'Mode senior avec reconnaissance vocale',
-      'Tiers payant simplifié',
-      'White-label disponible',
-      'Account manager dédié',
-      'Support 24/7',
-    ],
-  },
-];
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function PricingPage() {
   const router = useRouter();
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/')}>
-          <Image src="/logo.png" alt="Medivio" width={36} height={36} />
-          <span className="font-bold text-gray-900 text-lg">Medivio</span>
+          <Image src="/logo.png" alt="Medivio" width={32} height={32} style={{ objectFit: 'contain' }} />
+          <span className="font-bold text-gray-900 text-lg hidden sm:block">Medivio</span>
         </div>
-
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          <button onClick={() => router.push('/register')} className="hidden sm:block text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
+            Commencer gratuitement
+          </button>
+        </div>
       </header>
 
-      <div className="pt-32 pb-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Tarifs simples et transparents</h1>
-            <p className="text-xl text-gray-500">Sans commission sur vos consultations. Sans frais cachés.</p>
-            <div className="inline-block bg-green-50 text-green-700 text-sm font-semibold px-4 py-2 rounded-full mt-4">
-              ✅ 3 mois gratuits pour les médecins pilotes
-            </div>
+      <section className="pt-28 pb-16 px-4 sm:px-6 text-center relative overflow-hidden" style={{background: 'linear-gradient(160deg, #EEF2FF 0%, #F0FAFA 50%, #ffffff 100%)'}}>
+        <div className="absolute top-10 left-10 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}} />
+        <div className="max-w-3xl mx-auto relative z-10">
+          <div className="inline-flex items-center gap-2 text-blue-700 text-xs font-bold px-4 py-2 rounded-full mb-6 bg-blue-50 border border-blue-100">
+            Offre de lancement
           </div>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Rejoignez Medivio<br />
+            <span style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>en tant que médecin pilote</span>
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-500 mb-8 leading-relaxed max-w-2xl mx-auto">
+            Medivio est en phase de lancement. Les premiers médecins pilotes bénéficient de <strong className="text-gray-800">3 mois d'accès gratuit</strong> à toutes les fonctionnalités de la plateforme, sans engagement.
+          </p>
+          <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105 bg-blue-600">
+            Rejoindre le programme pilote
+          </button>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {PLANS.map((plan, i) => (
-              <div key={i} className={`relative rounded-2xl border-2 ${plan.color} p-8 ${plan.badge ? 'shadow-xl shadow-blue-100' : ''}`}>
-                {plan.badge && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">{plan.badge}</span>
-                  </div>
-                )}
-                <div className="mb-6">
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">{plan.name}</h2>
-                  <p className="text-sm text-gray-500 mb-4">{plan.desc}</p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-5xl font-bold text-gray-900">{plan.price}€</span>
-                    <span className="text-gray-400 mb-2">/mois</span>
-                  </div>
+      <section className="py-10 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Tout est inclus, sans surprise</h2>
+            <p className="text-gray-500 text-lg">Les médecins pilotes accèdent à l'intégralité de la plateforme Medivio pendant 3 mois.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: 'Triage IA', desc: 'Analyse automatique des symptômes de vos patients avant la consultation' },
+              { title: 'Téléconsultation vidéo', desc: 'Consultations en vidéo HD, sécurisées et chiffrées de bout en bout' },
+              { title: 'Ordonnance numérique', desc: 'Générez et signez vos ordonnances numériques avec QR code pharmacie' },
+              { title: 'Suivi chronique', desc: 'Accédez aux données de suivi clinique de vos patients en temps réel' },
+              { title: 'Consultation différée', desc: 'Répondez aux dossiers médicaux de vos patients sous 24h' },
+              { title: 'Tableau de bord', desc: 'Gérez votre agenda, vos consultations et votre facturation' },
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-2xl p-5">
+                <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-600">
+                  <span className="text-white text-xs">✓</span>
                 </div>
-                <button onClick={() => router.push('/register')} className={`w-full py-3 rounded-xl font-semibold text-sm mb-6 transition-colors ${plan.badge ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'border-2 border-gray-200 hover:border-blue-300 text-gray-700'}`}>
-                  Commencer gratuitement
-                </button>
-                <ul className="space-y-3">
-                  {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <p className="font-bold text-gray-900 mb-1">{item.title}</p>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* FAQ */}
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Questions fréquentes</h2>
-            <div className="space-y-4">
+      <section className="py-10 sm:py-20 px-4 sm:px-6 bg-gray-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Après la période pilote</h2>
+          <p className="text-gray-500 text-lg mb-8">À l'issue des 3 mois gratuits, des offres adaptées à votre pratique seront proposées. Les tarifs seront définis en collaboration avec les médecins pilotes.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            {[
+              { label: 'Médecin solo', price: 'À partir de 49€', desc: '/mois' },
+              { label: 'Cabinet de groupe', price: 'À partir de 99€', desc: '/mois' },
+              { label: 'Clinique / Établissement', price: 'Sur devis', desc: 'personnalisé' },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border-2 border-blue-100 shadow-sm text-center">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{item.label}</p>
+                <p className="text-2xl font-extrabold mb-1" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{item.price}</p>
+                <p className="text-xs text-gray-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-gray-400">* Les tarifs définitifs seront communiqués à l'issue de la phase pilote. Aucun engagement pendant les 3 mois gratuits.</p>
+        </div>
+      </section>
+
+      <section className="py-10 sm:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl p-8 border border-blue-100 text-center">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4">Vous êtes une mutuelle, une entreprise ou une collectivité ?</h2>
+            <p className="text-gray-500 mb-8">Medivio propose des offres sur mesure pour les organisations souhaitant intégrer la télémédecine dans leurs services. Contactez-nous pour discuter de votre projet.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               {[
-                { q: 'Y a-t-il une commission sur mes consultations ?', r: 'Non. Medivio ne prend aucune commission sur vos honoraires. Vous gardez 100% de vos revenus.' },
-                { q: 'Puis-je changer de plan à tout moment ?', r: 'Oui, vous pouvez upgrader ou downgrader votre plan à tout moment sans frais.' },
-                { q: 'Les patients paient-ils un abonnement ?', r: 'Non. L\'accès à Medivio est entièrement gratuit pour les patients.' },
-                { q: 'Comment fonctionne la période gratuite ?', r: 'Les 3 premiers mois sont offerts aux médecins pilotes. Aucune carte bancaire requise au départ.' },
-              ].map((faq, i) => (
-                <div key={i} className="bg-gray-50 rounded-2xl p-6">
-                  <p className="font-semibold text-gray-900 mb-2">{faq.q}</p>
-                  <p className="text-sm text-gray-500">{faq.r}</p>
+                'Mutuelles & assurances',
+                'Établissements de santé',
+                'Collectivités territoriales',
+              ].map((item, i) => (
+                <div key={i} className="bg-white rounded-xl p-4 shadow-sm text-center">
+                  <span className="text-sm font-semibold text-gray-700">{item}</span>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* CTA final */}
-          <div className="text-center mt-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Prêt à rejoindre Medivio ?</h2>
-            <p className="text-gray-500 mb-6">Rejoignez les premiers médecins pilotes et bénéficiez de 3 mois gratuits.</p>
-            <button onClick={() => router.push('/register')} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors">
-              Commencer gratuitement
+            <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 bg-blue-600">
+              Nous contacter
             </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <footer className="py-8 px-6 bg-gray-900 text-center">
-        <div className="flex items-center justify-center gap-2 mb-4 cursor-pointer" onClick={() => router.push('/')}>
-          <Image src="/logo.png" alt="Medivio" width={28} height={28} />
-          <span className="font-bold text-white">Medivio</span>
+      <section className="py-10 sm:py-16 px-4 sm:px-6 bg-blue-600">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">Rejoignez les médecins pilotes Medivio</h2>
+          <p className="text-blue-100 text-lg mb-8">3 mois gratuits, accès complet, sans engagement. Faites partie des premiers à transformer votre pratique médicale.</p>
+          <button onClick={() => router.push('/register')} className="bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 hover:shadow-xl">
+            Rejoindre le programme pilote
+          </button>
         </div>
-        <p className="text-gray-400 text-sm">2026 Medivio. Tous droits réservés.</p>
-        <div className="flex items-center justify-center gap-6 mt-4">
-          <button onClick={() => router.push('/legal')} className="text-gray-400 hover:text-white text-xs transition-colors">Mentions légales</button>
-          <button onClick={() => router.push('/privacy')} className="text-gray-400 hover:text-white text-xs transition-colors">Confidentialité</button>
-        </div>
+      </section>
+
+      <footer className="py-6 px-6 bg-gray-900 text-center">
+        <p className="text-gray-400 text-sm">© 2026 Medivio. Tous droits réservés.</p>
       </footer>
     </div>
   );
