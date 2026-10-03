@@ -10,14 +10,14 @@ export default function OrdonnanceFeaturePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2 cursor-pointer" onClick={() => router.push('/')}>
           <Image src="/logo.png" alt="Medivio" width={32} height={32} style={{ objectFit: 'contain' }} />
-          <span className="font-bold text-gray-900 text-lg">Medivio</span>
+          <span className="font-bold text-gray-900 text-lg hidden sm:block">Medivio</span>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <button onClick={() => router.push('/register')} className="text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
+          <button onClick={() => router.push('/register')} className="hidden sm:block text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
             {t('ordonnance_page.cta_primary')}
           </button>
         </div>
