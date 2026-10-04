@@ -891,5 +891,28 @@
     "cta_title": "Rejoignez les médecins pilotes Medivio",
     "cta_desc": "3 mois gratuits, accès complet, sans engagement. Faites partie des premiers à transformer votre pratique médicale.",
     "cta_button": "Rejoindre le programme pilote"
+  },
+  "contact_page": {
+    "badge": "Contact",
+    "title": "Parlons de",
+    "highlight": "votre projet",
+    "desc": "Vous êtes une mutuelle, un établissement de santé ou une collectivité ? Décrivez votre projet et nous vous répondrons dans les plus brefs délais.",
+    "name": "Nom complet",
+    "email": "Adresse email",
+    "org": "Organisation",
+    "org_optional": "(facultatif)",
+    "message": "Message",
+    "placeholder_name": "Jean Martin",
+    "placeholder_email": "jean@organisation.fr",
+    "placeholder_org": "Harmonie Mutuelle, ARS Martinique...",
+    "placeholder_message": "Décrivez votre projet, vos besoins ou vos questions...",
+    "submit": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "success_title": "Message envoyé !",
+    "success_desc": "Nous vous répondrons dans les plus brefs délais à l'adresse indiquée.",
+    "send_another": "Envoyer un autre message",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "privacy": "politique de confidentialité",
+    "privacy_text": "Vos données sont traitées conformément à notre"
   }
 }

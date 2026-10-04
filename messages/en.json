@@ -805,5 +805,28 @@
     "cta_title": "Join Medivio pilot doctors",
     "cta_desc": "3 months free, full access, no commitment. Be among the first to transform your medical practice.",
     "cta_button": "Join the pilot program"
+  },
+  "contact_page": {
+    "badge": "Contact",
+    "title": "Let's talk about",
+    "highlight": "your project",
+    "desc": "Are you a mutual, a healthcare institution or a local authority? Describe your project and we will get back to you as soon as possible.",
+    "name": "Full name",
+    "email": "Email address",
+    "org": "Organization",
+    "org_optional": "(optional)",
+    "message": "Message",
+    "placeholder_name": "John Smith",
+    "placeholder_email": "john@organization.com",
+    "placeholder_org": "Harmonie Mutuelle, ARS Martinique...",
+    "placeholder_message": "Describe your project, needs or questions...",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success_title": "Message sent!",
+    "success_desc": "We will get back to you as soon as possible at the address provided.",
+    "send_another": "Send another message",
+    "error": "An error occurred. Please try again.",
+    "privacy": "privacy policy",
+    "privacy_text": "Your data is processed in accordance with our"
   }
 }

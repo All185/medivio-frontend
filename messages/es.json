@@ -805,5 +805,28 @@
     "cta_title": "Únase a los médicos piloto de Medivio",
     "cta_desc": "3 meses gratis, acceso completo, sin compromiso. Sea de los primeros en transformar su práctica médica.",
     "cta_button": "Unirse al programa piloto"
+  },
+  "contact_page": {
+    "badge": "Contacto",
+    "title": "Hablemos de",
+    "highlight": "su proyecto",
+    "desc": "¿Es usted una mutua, un centro sanitario o una entidad pública? Describa su proyecto y le responderemos a la mayor brevedad posible.",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "org": "Organización",
+    "org_optional": "(opcional)",
+    "message": "Mensaje",
+    "placeholder_name": "Juan Martín",
+    "placeholder_email": "juan@organizacion.es",
+    "placeholder_org": "Mutua, centro de salud...",
+    "placeholder_message": "Describa su proyecto, necesidades o preguntas...",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success_title": "¡Mensaje enviado!",
+    "success_desc": "Le responderemos a la mayor brevedad posible en la dirección indicada.",
+    "send_another": "Enviar otro mensaje",
+    "error": "Se ha producido un error. Por favor, inténtelo de nuevo.",
+    "privacy": "política de privacidad",
+    "privacy_text": "Sus datos se tratan de conformidad con nuestra"
   }
 }

@@ -47,85 +47,85 @@ export default function ContactPage() {
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full opacity-20 blur-3xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}} />
         <div className="max-w-2xl mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 text-blue-700 text-xs font-bold px-4 py-2 rounded-full mb-6 bg-blue-50 border border-blue-100">
-            Contact
+            {t('contact_page.badge')}
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-            Parlons de<br />
-            <span style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>votre projet</span>
+            {t('contact_page.title')}<br />
+            <span style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>{t('contact_page.highlight')}</span>
           </h1>
-          <p className="text-lg text-gray-500 mb-10">
-            Vous êtes une mutuelle, un établissement de santé ou une collectivité ? Décrivez votre projet et nous vous répondrons dans les plus brefs délais.
-          </p>
+          <p className="text-lg text-gray-500 mb-10">{t('contact_page.desc')}</p>
 
           {status === 'success' ? (
             <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
               <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
                 <span className="text-green-600 text-xl">✓</span>
               </div>
-              <h2 className="font-bold text-green-800 text-xl mb-2">Message envoyé !</h2>
-              <p className="text-green-600">Nous vous répondrons dans les plus brefs délais à l'adresse indiquée.</p>
+              <h2 className="font-bold text-green-800 text-xl mb-2">{t('contact_page.success_title')}</h2>
+              <p className="text-green-600">{t('contact_page.success_desc')}</p>
               <button onClick={() => setStatus('idle')} className="mt-6 text-sm text-blue-600 font-semibold">
-                Envoyer un autre message
+                {t('contact_page.send_another')}
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100 space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Nom complet *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t('contact_page.name')} *</label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={e => setForm({...form, name: e.target.value})}
-                    placeholder="Jean Martin"
+                    placeholder={t('contact_page.placeholder_name')}
                     className="input-field"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Adresse email *</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t('contact_page.email')} *</label>
                   <input
                     type="email"
                     required
                     value={form.email}
                     onChange={e => setForm({...form, email: e.target.value})}
-                    placeholder="jean@organisation.fr"
+                    placeholder={t('contact_page.placeholder_email')}
                     className="input-field"
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Organisation <span className="text-gray-400 font-normal">(facultatif)</span></label>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">{t('contact_page.org')} <span className="text-gray-400 font-normal">{t('contact_page.org_optional')}</span></label>
                 <input
                   type="text"
                   value={form.organization}
                   onChange={e => setForm({...form, organization: e.target.value})}
-                  placeholder="Harmonie Mutuelle, ARS Martinique..."
+                  placeholder={t('contact_page.placeholder_org')}
                   className="input-field"
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">{t('contact_page.message')} *</label>
                 <textarea
                   required
                   rows={5}
                   value={form.message}
                   onChange={e => setForm({...form, message: e.target.value})}
-                  placeholder="Décrivez votre projet, vos besoins ou vos questions..."
+                  placeholder={t('contact_page.placeholder_message')}
                   className="input-field resize-none"
                 />
               </div>
               {status === 'error' && (
-                <p className="text-red-500 text-sm">Une erreur est survenue. Veuillez réessayer.</p>
+                <p className="text-red-500 text-sm">{t('contact_page.error')}</p>
               )}
               <button
                 type="submit"
                 disabled={status === 'loading'}
                 className="w-full text-white font-bold py-4 rounded-2xl text-lg transition-all hover:scale-105 bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {status === 'loading' ? 'Envoi en cours...' : 'Envoyer le message'}
+                {status === 'loading' ? t('contact_page.sending') : t('contact_page.submit')}
               </button>
-              <p className="text-xs text-gray-400 text-center">Vos données sont traitées conformément à notre <button onClick={() => router.push('/privacy')} className="underline">politique de confidentialité</button>.</p>
+              <p className="text-xs text-gray-400 text-center">
+                {t('contact_page.privacy_text')} <button onClick={() => router.push('/privacy')} className="underline">{t('contact_page.privacy')}</button>.
+              </p>
             </form>
           )}
         </div>

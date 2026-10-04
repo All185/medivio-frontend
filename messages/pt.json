@@ -805,5 +805,28 @@
     "cta_title": "Junte-se aos médicos piloto do Medivio",
     "cta_desc": "3 meses gratuitos, acesso completo, sem compromisso. Seja dos primeiros a transformar a sua prática médica.",
     "cta_button": "Aderir ao programa piloto"
+  },
+  "contact_page": {
+    "badge": "Contacto",
+    "title": "Vamos falar sobre",
+    "highlight": "o seu projeto",
+    "desc": "É uma mútua, um estabelecimento de saúde ou uma autarquia? Descreva o seu projeto e responderemos o mais rapidamente possível.",
+    "name": "Nome completo",
+    "email": "Endereço de email",
+    "org": "Organização",
+    "org_optional": "(opcional)",
+    "message": "Mensagem",
+    "placeholder_name": "João Silva",
+    "placeholder_email": "joao@organizacao.pt",
+    "placeholder_org": "Mútua, estabelecimento de saúde...",
+    "placeholder_message": "Descreva o seu projeto, necessidades ou questões...",
+    "submit": "Enviar mensagem",
+    "sending": "A enviar...",
+    "success_title": "Mensagem enviada!",
+    "success_desc": "Responderemos o mais rapidamente possível para o endereço indicado.",
+    "send_another": "Enviar outra mensagem",
+    "error": "Ocorreu um erro. Por favor, tente novamente.",
+    "privacy": "política de privacidade",
+    "privacy_text": "Os seus dados são tratados de acordo com a nossa"
   }
 }
