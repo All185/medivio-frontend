@@ -509,7 +509,8 @@
     "why_triage_desc": "AI evaluates your symptoms and tells you exactly when and how to see a doctor.",
     "why_home_title": "Consult from home",
     "why_home_desc": "No need to travel. Access a doctor by video wherever you are, whenever you need.",
-    "learn_more": "Learn more →"
+    "learn_more": "Learn more →",
+    "contact_cta": "Contact us"
   },
   "triage_page": {
     "badge": "AI Triage",

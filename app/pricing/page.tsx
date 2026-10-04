@@ -106,7 +106,7 @@ export default function PricingPage() {
                 </div>
               ))}
             </div>
-            <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 bg-blue-600">
+            <button onClick={() => router.push('/contact')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 bg-blue-600">
               {t('pricing_page.b2b_cta')}
             </button>
           </div>

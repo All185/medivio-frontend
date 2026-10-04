@@ -595,7 +595,8 @@
     "why_triage_desc": "L'IA évalue vos symptômes et vous dit exactement quand et comment consulter un médecin.",
     "why_home_title": "Consultez depuis chez vous",
     "why_home_desc": "Plus besoin de vous déplacer. Accédez à un médecin en vidéo où que vous soyez, quand vous en avez besoin.",
-    "learn_more": "En savoir plus →"
+    "learn_more": "En savoir plus →",
+    "contact_cta": "Nous contacter"
   },
   "triage_page": {
     "badge": "Triage IA",

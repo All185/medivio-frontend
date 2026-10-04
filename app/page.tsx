@@ -183,9 +183,14 @@ export default function RootPage() {
         <div ref={ctaAnim.ref} className={`max-w-2xl mx-auto text-center animate-on-scroll ${ctaAnim.isVisible ? 'visible' : ''}`}>
           <h2 className="text-3xl font-bold text-white mb-4">{t('landing.doctor_title')}</h2>
           <p className="text-blue-100 text-lg mb-8">{t('landing.doctor_desc')}</p>
-          <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors">
-            {t('landing.doctor_cta')}
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors w-full sm:w-auto">
+              {t('landing.doctor_cta')}
+            </button>
+            <button onClick={() => router.push('/contact')} className="border-2 border-white text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors hover:bg-white hover:text-blue-600 w-full sm:w-auto">
+              {t('landing.contact_cta')}
+            </button>
+          </div>
         </div>
       </section>
 
