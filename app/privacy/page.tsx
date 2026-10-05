@@ -18,7 +18,7 @@ export default function PrivacyPage() {
 
       <div className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Politique de confidentialité</h1>
-        <p className="text-gray-400 text-sm mb-12">Dernière mise à jour : janvier 2026</p>
+        <p className="text-gray-400 text-sm mb-12">Dernière mise à jour : octobre 2026</p>
 
         <div className="space-y-10 text-gray-600 leading-relaxed">
           <section>
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
               <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Droit à la portabilité</li>
               <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Droit d'opposition</li>
             </ul>
-            <p className="mt-3">Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@medivio.fr" className="text-blue-600 hover:underline">contact@medivio.fr</a></p>
+            <p className="mt-3">Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@medivio.care" className="text-blue-600 hover:underline">contact@medivio.care</a></p>
           </section>
 
           <section>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-3">8. Contact DPO</h2>
-            <p>Pour toute question relative à la protection de vos données : <a href="mailto:contact@medivio.fr" className="text-blue-600 hover:underline">contact@medivio.fr</a></p>
+            <p>Pour toute question relative à la protection de vos données : <a href="mailto:contact@medivio.care" className="text-blue-600 hover:underline">contact@medivio.care</a></p>
           </section>
         </div>
       </div>
