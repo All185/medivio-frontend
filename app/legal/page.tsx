@@ -18,7 +18,7 @@ export default function LegalPage() {
 
       <div className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Mentions légales</h1>
-        <p className="text-gray-400 text-sm mb-12">Dernière mise à jour : janvier 2026</p>
+        <p className="text-gray-400 text-sm mb-12">Dernière mise à jour : octobre 2026</p>
 
         <div className="space-y-10 text-gray-600 leading-relaxed">
           <section>
@@ -27,7 +27,8 @@ export default function LegalPage() {
             <div className="bg-gray-50 rounded-xl p-4 mt-3 text-sm space-y-1">
               <p><strong>Raison sociale :</strong> Medivio</p>
               <p><strong>Forme juridique :</strong> En cours de constitution</p>
-              <p><strong>Email :</strong> contact@medivio.fr</p>
+              <p><strong>Adresse :</strong> Cité Alizés Acaccia A3 — 97220 La Trinité, Martinique</p>
+              <p><strong>Email :</strong> contact@medivio.care</p>
               <p><strong>Directeur de publication :</strong> Allan</p>
             </div>
           </section>
@@ -59,7 +60,7 @@ export default function LegalPage() {
 
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-3">Contact</h2>
-            <p>Pour toute question relative aux présentes mentions légales, contactez-nous à : <a href="mailto:contact@medivio.fr" className="text-blue-600 hover:underline">contact@medivio.fr</a></p>
+            <p>Pour toute question relative aux présentes mentions légales, contactez-nous à : <a href="mailto:contact@medivio.care" className="text-blue-600 hover:underline">contact@medivio.care</a></p>
           </section>
         </div>
       </div>
