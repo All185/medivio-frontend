@@ -21,10 +21,21 @@ export default function DoctorDashboard() {
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<any>(null)
+  const [trialDaysLeft, setTrialDaysLeft] = useState<number | null>(null)
 
   useEffect(() => {
     const userData = localStorage.getItem('user')
-    if (userData) setUser(JSON.parse(userData))
+    if (userData) {
+      const u = JSON.parse(userData)
+      setUser(u)
+      if (u.trial_start_date) {
+        const start = new Date(u.trial_start_date)
+        const end = new Date(start)
+        end.setMonth(end.getMonth() + 3)
+        const diff = Math.ceil((end.getTime() - Date.now()) / (1000 * 60 * 60 * 24))
+        setTrialDaysLeft(diff > 0 ? diff : 0)
+      }
+    }
     fetchAppointments()
   }, [])
 
@@ -154,6 +165,22 @@ export default function DoctorDashboard() {
           </div>
         </div>
 
+        {trialDaysLeft !== null && (
+          <div className="card mb-6 flex items-center justify-between gap-4 px-5 py-4">
+            <div className="flex items-center gap-3">
+              <div className={trialDaysLeft <= 30 ? "w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0" : "w-2.5 h-2.5 rounded-full bg-green-500 flex-shrink-0"} />
+              <div>
+                <p className="text-sm font-semibold text-gray-800">
+                  {trialDaysLeft === 0 ? "Période d'essai expirée" : `Période d'essai — ${trialDaysLeft} jour${trialDaysLeft > 1 ? 's' : ''} restant${trialDaysLeft > 1 ? 's' : ''}`}
+                </p>
+                <p className="text-xs text-gray-400 mt-0.5">Accès complet à toutes les fonctionnalités</p>
+              </div>
+            </div>
+            <button onClick={() => router.push('/contact')} className="text-xs font-semibold text-blue-600 hover:underline flex-shrink-0">
+              Nous contacter →
+            </button>
+          </div>
+        )}
         <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
           {[
