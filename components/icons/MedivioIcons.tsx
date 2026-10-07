@@ -156,7 +156,10 @@ export const IconHeart = ({ size = 40 }: { size?: number }) => (
         <stop offset="100%" stopColor="#2B5EF8"/>
       </linearGradient>
     </defs>
+    {/* Cœur */}
     <path d="M24 38 C24 38 6 28 6 16 C6 10 10 6 16 6 C20 6 23 8 24 11 C25 8 28 6 32 6 C38 6 42 10 42 16 C42 28 24 38 24 38Z" stroke="url(#g10)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    {/* Ligne ECG */}
+    <polyline points="10,22 15,22 18,14 21,30 24,18 27,24 30,24 33,22 38,22" stroke="url(#g10)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
