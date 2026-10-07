@@ -149,18 +149,7 @@ export const IconHospital = ({ size = 40 }: { size?: number }) => (
 )
 
 export const IconHeart = ({ size = 40 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 48 48" fill="none">
-    <defs>
-      <linearGradient id="g10" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#00E5C3"/>
-        <stop offset="100%" stopColor="#2B5EF8"/>
-      </linearGradient>
-    </defs>
-    {/* Cœur */}
-    <path d="M24 38 C24 38 6 28 6 16 C6 10 10 6 16 6 C20 6 23 8 24 11 C25 8 28 6 32 6 C38 6 42 10 42 16 C42 28 24 38 24 38Z" stroke="url(#g10)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-    {/* Ligne ECG */}
-    <polyline points="10,22 15,22 18,14 21,30 24,18 27,24 30,24 33,22 38,22" stroke="url(#g10)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+  <img src="/icons/goodheart_remove.png" width={size} height={size} alt="suivi santé" style={{ objectFit: 'contain' }} />
 )
 
 export const IconMailbox = ({ size = 40 }: { size?: number }) => (
