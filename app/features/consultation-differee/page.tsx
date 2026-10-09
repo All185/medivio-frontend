@@ -58,7 +58,7 @@ export default function ConsultationDiffereeFeaturePage() {
               <p className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-widest">{t('async_page.case_label')}</p>
               <p className="text-sm text-gray-700">{t('async_page.case_desc')}</p>
             </div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
               <div className="bg-blue-50 rounded-xl px-3 py-2 flex items-center gap-2">
                 <span className="text-blue-500 text-xs">📄</span>
                 <span className="text-xs text-blue-600 font-medium">Résultats_analyse.pdf</span>
