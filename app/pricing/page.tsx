@@ -17,7 +17,7 @@ export default function PricingPage() {
         </div>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <button onClick={() => router.push('/register')} className="hidden sm:block text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
+          <button onClick={() => router.push('/demande-acces')} className="hidden sm:block text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
             {t('landing.start_free')}
           </button>
         </div>
@@ -36,7 +36,7 @@ export default function PricingPage() {
           <p className="text-lg sm:text-xl text-gray-500 mb-8 leading-relaxed max-w-2xl mx-auto">
             {t('pricing_page.hero_desc')}
           </p>
-          <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105 bg-blue-600">
+          <button onClick={() => router.push('/demande-acces')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105 bg-blue-600">
             {t('pricing_page.cta_pilot')}
           </button>
         </div>
@@ -117,7 +117,7 @@ export default function PricingPage() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4">{t('pricing_page.cta_title')}</h2>
           <p className="text-blue-100 text-lg mb-8">{t('pricing_page.cta_desc')}</p>
-          <button onClick={() => router.push('/register')} className="bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 hover:shadow-xl">
+          <button onClick={() => router.push('/demande-acces')} className="bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-all hover:scale-105 hover:shadow-xl">
             {t('pricing_page.cta_button')}
           </button>
         </div>

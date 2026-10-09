@@ -68,7 +68,7 @@ export default function RootPage() {
             {t('landing.hero_desc')}
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
+            <button onClick={() => router.push('/demande-acces')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
               {t('landing.start_free')}
             </button>
             <button onClick={() => router.push('/login')} className="border-2 border-blue-300 hover:border-blue-500 text-blue-600 font-semibold px-8 py-4 rounded-2xl text-lg transition-all hover:bg-blue-50">
@@ -184,7 +184,7 @@ export default function RootPage() {
           <h2 className="text-3xl font-bold text-white mb-4">{t('landing.doctor_title')}</h2>
           <p className="text-blue-100 text-lg mb-8">{t('landing.doctor_desc')}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button onClick={() => router.push('/register')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors w-full sm:w-auto">
+            <button onClick={() => router.push('/demande-acces')} className="bg-white hover:bg-gray-50 text-blue-600 font-bold px-8 py-4 rounded-2xl text-lg transition-colors w-full sm:w-auto">
               {t('landing.doctor_cta')}
             </button>
             <button onClick={() => router.push('/contact')} className="border-2 border-white text-white font-bold px-8 py-4 rounded-2xl text-lg transition-colors hover:bg-white hover:text-blue-600 w-full sm:w-auto">
