@@ -22,6 +22,12 @@ export default function DoctorDashboard() {
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState<any>(null)
   const [trialDaysLeft, setTrialDaysLeft] = useState<number | null>(null)
+  const [showInviteModal, setShowInviteModal] = useState(false)
+  const [inviteEmail, setInviteEmail] = useState('')
+  const [inviteFirstName, setInviteFirstName] = useState('')
+  const [inviteLastName, setInviteLastName] = useState('')
+  const [inviteStatus, setInviteStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [inviteError, setInviteError] = useState('')
 
   useEffect(() => {
     const userData = localStorage.getItem('user')
@@ -63,6 +69,35 @@ export default function DoctorDashboard() {
     } catch (err) {
       console.error(err)
     }
+  }
+
+  const handleInvitePatient = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setInviteStatus('loading')
+    setInviteError('')
+    try {
+      const token = localStorage.getItem('access_token')
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/patients/invite`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        body: JSON.stringify({ email: inviteEmail, first_name: inviteFirstName, last_name: inviteLastName }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.detail || 'Erreur lors de l\'envoi')
+      setInviteStatus('success')
+    } catch (err: any) {
+      setInviteError(err.message)
+      setInviteStatus('error')
+    }
+  }
+
+  const resetInviteModal = () => {
+    setShowInviteModal(false)
+    setInviteEmail('')
+    setInviteFirstName('')
+    setInviteLastName('')
+    setInviteStatus('idle')
+    setInviteError('')
   }
 
   const statusBadge = (status: string) => {
@@ -263,6 +298,68 @@ export default function DoctorDashboard() {
             </button>
           ))}
         </div>
+
+        {/* Bouton inviter un patient */}
+        <div className="mb-6">
+          <button
+            onClick={() => setShowInviteModal(true)}
+            className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-2xl transition-all hover:scale-[1.02]"
+            style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.2)'}}
+          >
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14"/></svg>
+            Inviter un patient
+          </button>
+        </div>
+
+        {/* Modale invitation */}
+        {showInviteModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md">
+              {inviteStatus === 'success' ? (
+                <div className="text-center">
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                    <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  </div>
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-2">Invitation envoyée !</h3>
+                  <p className="text-gray-500 text-sm mb-6">Le patient recevra un email pour créer son compte.</p>
+                  <button onClick={resetInviteModal} className="w-full text-white font-bold py-3 rounded-2xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>Fermer</button>
+                </div>
+              ) : (
+                <>
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-xl font-extrabold text-gray-900">Inviter un patient</h3>
+                    <button onClick={resetInviteModal} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+                  </div>
+                  <form onSubmit={handleInvitePatient} className="flex flex-col gap-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <label className="text-xs font-semibold text-gray-600 mb-1 block">Prénom *</label>
+                        <input value={inviteFirstName} onChange={e => setInviteFirstName(e.target.value)} required placeholder="Marie"
+                          className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-blue-400" />
+                      </div>
+                      <div>
+                        <label className="text-xs font-semibold text-gray-600 mb-1 block">Nom *</label>
+                        <input value={inviteLastName} onChange={e => setInviteLastName(e.target.value)} required placeholder="Martin"
+                          className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-blue-400" />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-xs font-semibold text-gray-600 mb-1 block">Email du patient *</label>
+                      <input type="email" value={inviteEmail} onChange={e => setInviteEmail(e.target.value)} required placeholder="patient@email.com"
+                        className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-blue-400" />
+                    </div>
+                    {inviteStatus === 'error' && <p className="text-red-500 text-sm text-center">{inviteError}</p>}
+                    <button type="submit" disabled={inviteStatus === 'loading'}
+                      className="w-full text-white font-bold py-3 rounded-2xl disabled:opacity-60 mt-1"
+                      style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
+                      {inviteStatus === 'loading' ? 'Envoi...' : 'Envoyer l\'invitation'}
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
