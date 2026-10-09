@@ -89,7 +89,7 @@ export default function ConsultationDiffereeFeaturePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
             <div>
               <span className="text-2xl sm:text-3xl font-bold uppercase tracking-widest text-blue-600 mb-4 block">{t('async_page.section1_label')}</span>
-              <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-5">{t('async_page.section1_title')}</h2>
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-5">{t('async_page.section1_title')}</h2>
               <div className="space-y-6">
                 {[
                   { num: '01', title: t('async_page.step1_title'), desc: t('async_page.step1_desc') },
@@ -138,7 +138,7 @@ export default function ConsultationDiffereeFeaturePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-2xl sm:text-3xl font-bold uppercase tracking-widest text-blue-600 mb-4 block">{t('async_page.section2_label')}</span>
-            <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">{t('async_page.section2_title')}</h2>
+            <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-4">{t('async_page.section2_title')}</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t('async_page.section2_desc')}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -183,7 +183,7 @@ export default function ConsultationDiffereeFeaturePage() {
             </div>
             <div className="order-1 md:order-2">
               <span className="text-2xl sm:text-3xl font-bold uppercase tracking-widest text-blue-600 mb-4 block">{t('async_page.section3_label')}</span>
-              <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-5">{t('async_page.section3_title')}</h2>
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-5">{t('async_page.section3_title')}</h2>
               <div className="space-y-4">
                 {[
                   t('async_page.benefit1'),
