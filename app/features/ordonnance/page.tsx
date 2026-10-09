@@ -87,8 +87,8 @@ export default function OrdonnanceFeaturePage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">{t('ordonnance_page.section1_label')}</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">{t('ordonnance_page.section1_title')}</h2>
+              <span className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 block">{t('ordonnance_page.section1_label')}</span>
+              <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-5">{t('ordonnance_page.section1_title')}</h2>
               <div className="space-y-6">
                 {[
                   { num: '01', title: t('ordonnance_page.step1_title'), desc: t('ordonnance_page.step1_desc') },
@@ -134,8 +134,8 @@ export default function OrdonnanceFeaturePage() {
       <section className="py-10 sm:py-24 px-4 sm:px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">{t('ordonnance_page.section2_label')}</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">{t('ordonnance_page.section2_title')}</h2>
+            <span className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 block">{t('ordonnance_page.section2_label')}</span>
+            <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">{t('ordonnance_page.section2_title')}</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t('ordonnance_page.section2_desc')}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -160,8 +160,8 @@ export default function OrdonnanceFeaturePage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3 block">{t('ordonnance_page.section3_label')}</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">{t('ordonnance_page.section3_title')}</h2>
+              <span className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 block">{t('ordonnance_page.section3_label')}</span>
+              <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-5">{t('ordonnance_page.section3_title')}</h2>
               <div className="space-y-4">
                 {[
                   t('ordonnance_page.benefit1'),
