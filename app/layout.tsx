@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   publisher: 'Medivio',
   metadataBase: new URL('https://medivio.care'),
   manifest: '/manifest.json',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
