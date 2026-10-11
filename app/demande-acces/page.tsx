@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SPECIALTIES = [
   'Médecine générale', 'Cardiologie', 'Dermatologie', 'Gynécologie',
@@ -65,6 +67,7 @@ export default function DemandeAccesPage() {
           <Image src="/logo.png" alt="Medivio" width={32} height={32} />
           <span className="font-bold text-gray-900 text-lg">Medivio</span>
         </div>
+        <LanguageSwitcher />
       </header>
 
       <div className="pt-28 pb-16 px-6 flex items-start justify-center">
