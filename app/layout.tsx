@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import InstallBanner from '@/components/InstallBanner';
 import ServiceWorkerRegister from '@/components/ServiceWorkerRegister'
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -86,6 +87,7 @@ export default function RootLayout({
       <body className={`${jakartaSans.variable} antialiased`}>
         <LanguageProvider>
           <ServiceWorkerRegister />
+          <InstallBanner />
           {children}
         </LanguageProvider>
       </body>
