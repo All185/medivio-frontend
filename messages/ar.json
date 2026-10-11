@@ -968,5 +968,30 @@
     "cta_desc": "سواء كنت مريضًا أو مهنيًا صحيًا، Medivio صُنع لك.",
     "cta_start": "ابدأ مجانًا",
     "cta_contact": "تواصل معنا"
+  },
+  "demande_acces": {
+    "badge": "وصول مجاني — 3 أشهر",
+    "title": "طلب الوصول",
+    "subtitle": "مخصص للمهنيين الصحيين. سيتم مراجعة طلبك خلال 24 ساعة.",
+    "first_name": "الاسم الأول *",
+    "first_name_placeholder": "محمد",
+    "last_name": "اسم العائلة *",
+    "last_name_placeholder": "أحمد",
+    "email": "البريد المهني *",
+    "email_placeholder": "mohammed.ahmed@clinic.com",
+    "specialty": "التخصص *",
+    "select": "اختر...",
+    "rpps": "رقم RPPS *",
+    "rpps_placeholder": "11 رقم",
+    "cabinet": "العيادة / المؤسسة",
+    "cabinet_placeholder": "المركز الطبي",
+    "sending": "جارٍ الإرسال...",
+    "submit": "إرسال طلبي",
+    "terms": "بإرسال هذا النموذج، فإنك توافق على",
+    "privacy_link": "سياسة الخصوصية",
+    "success_title": "تم إرسال الطلب!",
+    "success_msg": "نحن نراجع ملفك وسنرد عليك بالبريد الإلكتروني خلال 24 ساعة.",
+    "back_home": "العودة إلى الصفحة الرئيسية",
+    "error_generic": "خطأ أثناء الإرسال"
   }
 }

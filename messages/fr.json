@@ -963,5 +963,30 @@
     "cta_desc": "Que vous soyez patient ou professionnel de santé, Medivio est fait pour vous.",
     "cta_start": "Commencer gratuitement",
     "cta_contact": "Nous contacter"
+  },
+  "demande_acces": {
+    "badge": "Accès gratuit — 3 mois",
+    "title": "Demande d'accès",
+    "subtitle": "Réservé aux professionnels de santé. Votre demande sera validée sous 24h.",
+    "first_name": "Prénom *",
+    "first_name_placeholder": "Jean",
+    "last_name": "Nom *",
+    "last_name_placeholder": "Dupont",
+    "email": "Email professionnel *",
+    "email_placeholder": "jean.dupont@cabinet.fr",
+    "specialty": "Spécialité *",
+    "select": "Sélectionner...",
+    "rpps": "Numéro RPPS *",
+    "rpps_placeholder": "11 chiffres",
+    "cabinet": "Cabinet / Établissement",
+    "cabinet_placeholder": "Cabinet médical du Centre",
+    "sending": "Envoi en cours...",
+    "submit": "Envoyer ma demande",
+    "terms": "En soumettant ce formulaire, vous acceptez notre",
+    "privacy_link": "politique de confidentialité",
+    "success_title": "Demande envoyée !",
+    "success_msg": "Nous examinons votre dossier et vous répondrons par email dans les 24h.",
+    "back_home": "Retour à l'accueil",
+    "error_generic": "Erreur lors de l'envoi"
   }
 }

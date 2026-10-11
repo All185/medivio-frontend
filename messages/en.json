@@ -968,5 +968,30 @@
     "cta_desc": "Whether you are a patient or a healthcare professional, Medivio is made for you.",
     "cta_start": "Get started for free",
     "cta_contact": "Contact us"
+  },
+  "demande_acces": {
+    "badge": "Free access — 3 months",
+    "title": "Access Request",
+    "subtitle": "Reserved for healthcare professionals. Your request will be reviewed within 24h.",
+    "first_name": "First name *",
+    "first_name_placeholder": "John",
+    "last_name": "Last name *",
+    "last_name_placeholder": "Smith",
+    "email": "Professional email *",
+    "email_placeholder": "john.smith@clinic.com",
+    "specialty": "Specialty *",
+    "select": "Select...",
+    "rpps": "RPPS Number *",
+    "rpps_placeholder": "11 digits",
+    "cabinet": "Practice / Establishment",
+    "cabinet_placeholder": "Medical Center",
+    "sending": "Sending...",
+    "submit": "Send my request",
+    "terms": "By submitting this form, you agree to our",
+    "privacy_link": "privacy policy",
+    "success_title": "Request sent!",
+    "success_msg": "We are reviewing your application and will reply by email within 24h.",
+    "back_home": "Back to home",
+    "error_generic": "Error while sending"
   }
 }

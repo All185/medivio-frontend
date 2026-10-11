@@ -968,5 +968,30 @@
     "cta_desc": "Tanto si es paciente como profesional de la salud, Medivio está hecho para usted.",
     "cta_start": "Comenzar gratis",
     "cta_contact": "Contáctenos"
+  },
+  "demande_acces": {
+    "badge": "Acceso gratuito — 3 meses",
+    "title": "Solicitud de acceso",
+    "subtitle": "Reservado para profesionales de la salud. Su solicitud será validada en 24h.",
+    "first_name": "Nombre *",
+    "first_name_placeholder": "Juan",
+    "last_name": "Apellido *",
+    "last_name_placeholder": "García",
+    "email": "Email profesional *",
+    "email_placeholder": "juan.garcia@clinica.es",
+    "specialty": "Especialidad *",
+    "select": "Seleccionar...",
+    "rpps": "Número RPPS *",
+    "rpps_placeholder": "11 dígitos",
+    "cabinet": "Consulta / Establecimiento",
+    "cabinet_placeholder": "Centro médico",
+    "sending": "Enviando...",
+    "submit": "Enviar mi solicitud",
+    "terms": "Al enviar este formulario, acepta nuestra",
+    "privacy_link": "política de privacidad",
+    "success_title": "¡Solicitud enviada!",
+    "success_msg": "Estamos revisando su expediente y le responderemos por email en 24h.",
+    "back_home": "Volver al inicio",
+    "error_generic": "Error al enviar"
   }
 }
