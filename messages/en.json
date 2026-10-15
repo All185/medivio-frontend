@@ -28,7 +28,28 @@
     "consultations": "Today's consultations",
     "noConsultations": "No consultations yet.",
     "confirm": "Confirm",
-    "startConsultation": "Start consultation"
+    "startConsultation": "Start consultation",
+    "doctor_prefix": "Doctor",
+    "trial_expired": "Trial period expired",
+    "trial_remaining": "Trial period —",
+    "trial_day_singular": "day remaining",
+    "trial_day_plural": "days remaining",
+    "trial_full_access": "Full access to all features",
+    "contact_us": "Contact us →",
+    "quick_actions": "Quick actions",
+    "doctor_tools": "Doctor tools",
+    "invite_patient": "Invite a patient",
+    "invitation_sent": "Invitation sent!",
+    "invitation_email": "The patient will receive an email to create their account.",
+    "close": "Close",
+    "invite_firstname": "First name *",
+    "invite_lastname": "Last name *",
+    "invite_email": "Patient email *",
+    "invite_sending": "Sending...",
+    "invite_send": "Send invitation",
+    "appointments_count": "appointments",
+    "active_badge": "active",
+    "waiting_badge": "waiting"
   },
   "appointments": {
     "new": "New appointment",
@@ -70,14 +91,22 @@
     "diagnosis": "Diagnosis",
     "prescription": "Prescription",
     "notes": "Notes",
-    "see": "View →"
+    "see": "View →",
+    "subtitle": "Your medical consultation history",
+    "id_label": "Record ID",
+    "patient_label": "Patient",
+    "doctor_label": "Doctor"
   },
   "video": {
     "title": "Consultation",
     "connecting": "Connecting to room...",
     "quit": "← Quit",
     "error": "Error",
-    "backToDashboard": "Back to dashboard"
+    "backToDashboard": "Back to dashboard",
+    "leave": "← Leave",
+    "error_title": "Error",
+    "error_connection": "Error connecting to the video room",
+    "back": "Back to dashboard"
   },
   "status": {
     "pending": "Pending",
@@ -479,7 +508,8 @@
     "go_emergency": "Go to emergency mode",
     "available_specialists": "Available specialists",
     "no_specialists_match": "No specialists available for this specialty.",
-    "new_search": "New search"
+    "new_search": "New search",
+    "years": "yrs"
   },
   "chronic": {
     "title": "Health monitoring",
@@ -1004,5 +1034,21 @@
     "success_msg": "We are reviewing your application and will reply by email within 24h.",
     "back_home": "Back to home",
     "error_generic": "Error while sending"
+  },
+  "prescriptions": {
+    "verify_title": "Prescription Verification",
+    "verify_loading": "Verifying...",
+    "verify_invalid_title": "Invalid Prescription",
+    "verify_not_found": "This prescription was not found or has expired.",
+    "verify_scanned": "Scanned on",
+    "verify_status": "Status:",
+    "verify_expires": "Expires on",
+    "verify_dispensing": "Processing...",
+    "verify_dispense_btn": "Mark as dispensed",
+    "verify_dispensed_success": "Prescription successfully dispensed",
+    "verify_expired_msg": "This prescription has expired",
+    "status_active": "Active",
+    "status_dispensed": "Dispensed",
+    "status_expired": "Expired"
   }
 }

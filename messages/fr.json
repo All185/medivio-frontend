@@ -28,7 +28,28 @@
     "consultations": "Consultations du jour",
     "noConsultations": "Aucune consultation pour l'instant.",
     "confirm": "Confirmer",
-    "startConsultation": "Démarrer la consultation"
+    "startConsultation": "Démarrer la consultation",
+    "doctor_prefix": "Médecin",
+    "trial_expired": "Période d'essai expirée",
+    "trial_remaining": "Période d'essai —",
+    "trial_day_singular": "jour restant",
+    "trial_day_plural": "jours restants",
+    "trial_full_access": "Accès complet à toutes les fonctionnalités",
+    "contact_us": "Nous contacter →",
+    "quick_actions": "Actions rapides",
+    "doctor_tools": "Outils médecin",
+    "invite_patient": "Inviter un patient",
+    "invitation_sent": "Invitation envoyée !",
+    "invitation_email": "Le patient recevra un email pour créer son compte.",
+    "close": "Fermer",
+    "invite_firstname": "Prénom *",
+    "invite_lastname": "Nom *",
+    "invite_email": "Email du patient *",
+    "invite_sending": "Envoi...",
+    "invite_send": "Envoyer l'invitation",
+    "appointments_count": "rendez-vous",
+    "active_badge": "actif",
+    "waiting_badge": "en attente"
   },
   "appointments": {
     "new": "Nouveau rendez-vous",
@@ -70,14 +91,22 @@
     "diagnosis": "Diagnostic",
     "prescription": "Prescription",
     "notes": "Notes",
-    "see": "Voir →"
+    "see": "Voir →",
+    "subtitle": "Historique de vos consultations médicales",
+    "id_label": "ID dossier",
+    "patient_label": "Patient",
+    "doctor_label": "Médecin"
   },
   "video": {
     "title": "Consultation",
     "connecting": "Connexion à la salle...",
     "quit": "← Quitter",
     "error": "Erreur",
-    "backToDashboard": "Retour au tableau de bord"
+    "backToDashboard": "Retour au tableau de bord",
+    "leave": "← Quitter",
+    "error_title": "Erreur",
+    "error_connection": "Erreur de connexion à la salle vidéo",
+    "back": "Retour au tableau de bord"
   },
   "status": {
     "pending": "En attente",
@@ -388,7 +417,8 @@
     "go_emergency": "Aller au mode urgence",
     "available_specialists": "Specialistes disponibles",
     "no_specialists_match": "Aucun spécialiste disponible pour cette spécialité.",
-    "new_search": "Nouvelle recherche"
+    "new_search": "Nouvelle recherche",
+    "years": "ans"
   },
   "billing": {
     "back": "Retour au tableau de bord",
@@ -999,5 +1029,21 @@
     "success_msg": "Nous examinons votre dossier et vous répondrons par email dans les 24h.",
     "back_home": "Retour à l'accueil",
     "error_generic": "Erreur lors de l'envoi"
+  },
+  "prescriptions": {
+    "verify_title": "Vérification ordonnance",
+    "verify_loading": "Vérification en cours...",
+    "verify_invalid_title": "Ordonnance invalide",
+    "verify_not_found": "Cette ordonnance est introuvable ou a expiré.",
+    "verify_scanned": "Scannée le",
+    "verify_status": "Statut :",
+    "verify_expires": "Expire le",
+    "verify_dispensing": "Traitement...",
+    "verify_dispense_btn": "Marquer comme dispensée",
+    "verify_dispensed_success": "Ordonnance dispensée avec succès",
+    "verify_expired_msg": "Cette ordonnance a expiré",
+    "status_active": "Active",
+    "status_dispensed": "Dispensée",
+    "status_expired": "Expirée"
   }
 }

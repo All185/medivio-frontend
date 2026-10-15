@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 interface PrescriptionItem {
   id: string;
@@ -24,6 +26,7 @@ interface Prescription {
 
 export default function VerifyPrescriptionPage() {
   const { token } = useParams();
+  const { t } = useLanguage();
   const [prescription, setPrescription] = useState<Prescription | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -65,9 +68,9 @@ export default function VerifyPrescriptionPage() {
   }
 
   const statusConfig: Record<string, { color: string; label: string; bg: string }> = {
-    active: { color: 'text-green-700', label: 'Active', bg: 'bg-green-50 border-green-200' },
-    dispensed: { color: 'text-blue-700', label: 'Dispensée', bg: 'bg-blue-50 border-blue-200' },
-    expired: { color: 'text-gray-500', label: 'Expiree', bg: 'bg-gray-50 border-gray-200' },
+    active:    { color: 'text-green-700', label: t('prescriptions.status_active'),    bg: 'bg-green-50 border-green-200' },
+    dispensed: { color: 'text-blue-700',  label: t('prescriptions.status_dispensed'), bg: 'bg-blue-50 border-blue-200' },
+    expired:   { color: 'text-gray-500',  label: t('prescriptions.status_expired'),   bg: 'bg-gray-50 border-gray-200' },
   };
 
   return (
@@ -77,32 +80,35 @@ export default function VerifyPrescriptionPage() {
           <Image src="/logo.png" alt="Medivio" width={36} height={36} />
           <span className="font-bold text-gray-900 text-lg hidden sm:block">Medivio</span>
         </div>
-        <span className="text-sm text-gray-500">Verification ordonnance</span>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher />
+          <span className="text-sm text-gray-500">{t('prescriptions.verify_title')}</span>
+        </div>
       </header>
 
       <div className="max-w-2xl mx-auto px-4 py-12">
         {loading ? (
-          <p className="text-gray-400 text-center py-12">Verification en cours...</p>
+          <p className="text-gray-400 text-center py-12">{t('prescriptions.verify_loading')}</p>
         ) : error ? (
           <div className="bg-white rounded-2xl border border-red-200 p-12 text-center">
             <div className="text-5xl mb-4">❌</div>
-            <h2 className="text-xl font-bold text-red-600 mb-2">Ordonnance invalide</h2>
-            <p className="text-gray-500">Cette ordonnance est introuvable ou a expire.</p>
+            <h2 className="text-xl font-bold text-red-600 mb-2">{t('prescriptions.verify_invalid_title')}</h2>
+            <p className="text-gray-500">{t('prescriptions.verify_not_found')}</p>
           </div>
         ) : prescription ? (
           <div className="space-y-6">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900">Verification ordonnance</h1>
-              <p className="text-gray-500 mt-1">Scannee le {new Date(prescription.created_at).toLocaleDateString('fr-FR')}</p>
+              <h1 className="text-3xl font-bold text-gray-900">{t('prescriptions.verify_title')}</h1>
+              <p className="text-gray-500 mt-1">{t('prescriptions.verify_scanned')} {new Date(prescription.created_at).toLocaleDateString('fr-FR')}</p>
             </div>
 
             <div className={`rounded-2xl border-2 p-6 ${statusConfig[prescription.status]?.bg}`}>
               <div className="flex items-center justify-between mb-4">
                 <span className={`text-lg font-bold ${statusConfig[prescription.status]?.color}`}>
-                  Statut : {statusConfig[dispensed ? 'dispensed' : prescription.status]?.label}
+                  {t('prescriptions.verify_status')} {statusConfig[dispensed ? 'dispensed' : prescription.status]?.label}
                 </span>
                 <span className="text-sm text-gray-500">
-                  Expire le {new Date(prescription.expires_at).toLocaleDateString('fr-FR')}
+                  {t('prescriptions.verify_expires')} {new Date(prescription.expires_at).toLocaleDateString('fr-FR')}
                 </span>
               </div>
 
@@ -129,21 +135,21 @@ export default function VerifyPrescriptionPage() {
                 disabled={dispensing}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold py-4 rounded-xl transition-colors text-lg"
               >
-                {dispensing ? 'Traitement...' : 'Marquer comme dispensee'}
+                {dispensing ? t('prescriptions.verify_dispensing') : t('prescriptions.verify_dispense_btn')}
               </button>
             )}
 
             {(dispensed || prescription.status === 'dispensed') && (
               <div className="bg-green-50 border border-green-200 rounded-2xl p-6 text-center">
                 <div className="text-4xl mb-2">✅</div>
-                <p className="font-bold text-green-700">Ordonnance dispensee avec succes</p>
+                <p className="font-bold text-green-700">{t('prescriptions.verify_dispensed_success')}</p>
               </div>
             )}
 
             {prescription.status === 'expired' && (
               <div className="bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
                 <div className="text-4xl mb-2">⚠️</div>
-                <p className="font-bold text-red-700">Cette ordonnance a expire</p>
+                <p className="font-bold text-red-700">{t('prescriptions.verify_expired_msg')}</p>
               </div>
             )}
           </div>

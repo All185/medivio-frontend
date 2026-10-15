@@ -3,10 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import api from '@/lib/api'
+import { useLanguage } from '@/contexts/LanguageContext'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function VideoRoomPage() {
   const router = useRouter()
   const params = useParams()
+  const { t } = useLanguage()
   const containerRef = useRef<HTMLDivElement>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -43,7 +46,7 @@ export default function VideoRoomPage() {
           })
         }
       } catch (err: any) {
-        setError(err.response?.data?.detail || 'Erreur de connexion à la salle vidéo')
+        setError(err.response?.data?.detail || t('video.error_connection'))
       } finally {
         setLoading(false)
       }
@@ -56,33 +59,36 @@ export default function VideoRoomPage() {
     <div className="min-h-screen bg-gray-900 flex flex-col">
       {/* Header */}
       <header className="bg-gray-800 px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-white">Medivio — Consultation</h1>
-        <button
-          onClick={() => router.push('/dashboard')}
-          className="text-sm text-gray-400 hover:text-white transition"
-        >
-          ← Quitter
-        </button>
+        <h1 className="text-xl font-bold text-white">Medivio — {t('video.title')}</h1>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher />
+          <button
+            onClick={() => router.push('/dashboard')}
+            className="text-sm text-gray-400 hover:text-white transition"
+          >
+            {t('video.leave')}
+          </button>
+        </div>
       </header>
 
       {/* Salle vidéo */}
       <main className="flex-1 p-4">
         {loading && (
           <div className="flex items-center justify-center h-full">
-            <p className="text-white text-lg">Connexion à la salle...</p>
+            <p className="text-white text-lg">{t('video.connecting')}</p>
           </div>
         )}
 
         {error && (
           <div className="flex items-center justify-center h-full">
             <div className="bg-red-900 text-red-200 p-6 rounded-2xl text-center">
-              <p className="font-medium mb-2">Erreur</p>
+              <p className="font-medium mb-2">{t('video.error_title')}</p>
               <p className="text-sm">{error}</p>
               <button
                 onClick={() => router.push('/dashboard')}
                 className="mt-4 bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
               >
-                Retour au tableau de bord
+                {t('video.back')}
               </button>
             </div>
           </div>

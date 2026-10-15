@@ -113,9 +113,9 @@ export default function RecordDetailPage() {
 
               <div className="card p-4 bg-gray-50">
                 <p className="text-xs text-gray-400 space-y-1">
-                  <span className="block">ID dossier : {record.id}</span>
-                  <span className="block">Patient : {record.patient_id}</span>
-                  <span className="block">Médecin : {record.doctor_id}</span>
+                  <span className="block">{t('records.id_label')} : {record.id}</span>
+                  <span className="block">{t('records.patient_label')} : {record.patient_id}</span>
+                  <span className="block">{t('records.doctor_label')} : {record.doctor_id}</span>
                 </p>
               </div>
             </div>

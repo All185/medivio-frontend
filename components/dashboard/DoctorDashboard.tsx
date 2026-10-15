@@ -206,30 +206,30 @@ export default function DoctorDashboard() {
               <div className={trialDaysLeft <= 30 ? "w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0" : "w-2.5 h-2.5 rounded-full bg-green-500 flex-shrink-0"} />
               <div>
                 <p className="text-sm font-semibold text-gray-800">
-                  {trialDaysLeft === 0 ? "Période d'essai expirée" : `Période d'essai — ${trialDaysLeft} jour${trialDaysLeft > 1 ? 's' : ''} restant${trialDaysLeft > 1 ? 's' : ''}`}
+                  {trialDaysLeft === 0 ? t('dashboard.trial_expired') : `${t('dashboard.trial_remaining')} ${trialDaysLeft} ${trialDaysLeft > 1 ? t('dashboard.trial_day_plural') : t('dashboard.trial_day_singular')}`}
                 </p>
-                <p className="text-xs text-gray-400 mt-0.5">Accès complet à toutes les fonctionnalités</p>
+                <p className="text-xs text-gray-400 mt-0.5">{t('dashboard.trial_full_access')}</p>
               </div>
             </div>
             <button onClick={() => router.push('/contact')} className="text-xs font-semibold text-blue-600 hover:underline flex-shrink-0">
-              Nous contacter →
+              {t('dashboard.contact_us')}
             </button>
           </div>
         )}
-        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">Actions rapides</p>
+        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3">{t('dashboard.quick_actions')}</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
           {[
             {
               icon: '/icons/alert_full.png',
               title: t('emergency.title'),
-              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} actif` : null,
+              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} ${t('dashboard.active_badge')}` : null,
               badgeColor: 'bg-red-50 text-red-700',
               route: '/emergency/list',
             },
             {
               icon: '/icons/hourglass_full-removebg-preview.png',
               title: t('waiting.button'),
-              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} en attente` : null,
+              badge: appointments.filter(a => a.status === 'pending').length > 0 ? `${appointments.filter(a => a.status === 'pending').length} ${t('dashboard.waiting_badge')}` : null,
               badgeColor: 'bg-amber-50 text-amber-700',
               route: '/waiting/doctor',
             },
@@ -264,7 +264,7 @@ export default function DoctorDashboard() {
           ))}
         </div>
 
-        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">Outils médecin</p>
+        <p className="text-[11px] font-medium uppercase tracking-widest text-gray-400 mb-3 mt-6">{t('dashboard.doctor_tools')}</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
           {[
             { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),            route: '/agenda' },
@@ -307,7 +307,7 @@ export default function DoctorDashboard() {
             style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.2)'}}
           >
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14"/></svg>
-            Inviter un patient
+            {t('dashboard.invite_patient')}
           </button>
         </div>
 
@@ -320,31 +320,31 @@ export default function DoctorDashboard() {
                   <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
                     <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
                   </div>
-                  <h3 className="text-xl font-extrabold text-gray-900 mb-2">Invitation envoyée !</h3>
-                  <p className="text-gray-500 text-sm mb-6">Le patient recevra un email pour créer son compte.</p>
-                  <button onClick={resetInviteModal} className="w-full text-white font-bold py-3 rounded-2xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>Fermer</button>
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-2">{t('dashboard.invitation_sent')}</h3>
+                  <p className="text-gray-500 text-sm mb-6">{t('dashboard.invitation_email')}</p>
+                  <button onClick={resetInviteModal} className="w-full text-white font-bold py-3 rounded-2xl" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>{t('dashboard.close')}</button>
                 </div>
               ) : (
                 <>
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-xl font-extrabold text-gray-900">Inviter un patient</h3>
+                    <h3 className="text-xl font-extrabold text-gray-900">{t('dashboard.invite_patient')}</h3>
                     <button onClick={resetInviteModal} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
                   </div>
                   <form onSubmit={handleInvitePatient} className="flex flex-col gap-4">
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="text-xs font-semibold text-gray-600 mb-1 block">Prénom *</label>
+                        <label className="text-xs font-semibold text-gray-600 mb-1 block">{t('dashboard.invite_firstname')}</label>
                         <input value={inviteFirstName} onChange={e => setInviteFirstName(e.target.value)} required placeholder="Marie"
                           className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-blue-400" />
                       </div>
                       <div>
-                        <label className="text-xs font-semibold text-gray-600 mb-1 block">Nom *</label>
+                        <label className="text-xs font-semibold text-gray-600 mb-1 block">{t('dashboard.invite_lastname')}</label>
                         <input value={inviteLastName} onChange={e => setInviteLastName(e.target.value)} required placeholder="Martin"
                           className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-blue-400" />
                       </div>
                     </div>
                     <div>
-                      <label className="text-xs font-semibold text-gray-600 mb-1 block">Email du patient *</label>
+                      <label className="text-xs font-semibold text-gray-600 mb-1 block">{t('dashboard.invite_email')}</label>
                       <input type="email" value={inviteEmail} onChange={e => setInviteEmail(e.target.value)} required placeholder="patient@email.com"
                         className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-blue-400" />
                     </div>
@@ -352,7 +352,7 @@ export default function DoctorDashboard() {
                     <button type="submit" disabled={inviteStatus === 'loading'}
                       className="w-full text-white font-bold py-3 rounded-2xl disabled:opacity-60 mt-1"
                       style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)'}}>
-                      {inviteStatus === 'loading' ? 'Envoi...' : 'Envoyer l\'invitation'}
+                      {inviteStatus === 'loading' ? t('dashboard.invite_sending') : t('dashboard.invite_send')}
                     </button>
                   </form>
                 </>
@@ -363,7 +363,7 @@ export default function DoctorDashboard() {
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="text-lg font-bold text-gray-900">{t('dashboard.consultations')}</h3>
-          <span className="text-xs text-gray-400">{appointments.length} rendez-vous</span>
+          <span className="text-xs text-gray-400">{appointments.length} {t('dashboard.appointments_count')}</span>
         </div>
 
         {loading ? (

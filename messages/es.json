@@ -28,7 +28,28 @@
     "consultations": "Consultas de hoy",
     "noConsultations": "No hay consultas por el momento.",
     "confirm": "Confirmar",
-    "startConsultation": "Iniciar consulta"
+    "startConsultation": "Iniciar consulta",
+    "doctor_prefix": "Médico",
+    "trial_expired": "Período de prueba expirado",
+    "trial_remaining": "Período de prueba —",
+    "trial_day_singular": "día restante",
+    "trial_day_plural": "días restantes",
+    "trial_full_access": "Acceso completo a todas las funcionalidades",
+    "contact_us": "Contáctenos →",
+    "quick_actions": "Acciones rápidas",
+    "doctor_tools": "Herramientas médico",
+    "invite_patient": "Invitar a un paciente",
+    "invitation_sent": "¡Invitación enviada!",
+    "invitation_email": "El paciente recibirá un correo para crear su cuenta.",
+    "close": "Cerrar",
+    "invite_firstname": "Nombre *",
+    "invite_lastname": "Apellido *",
+    "invite_email": "Email del paciente *",
+    "invite_sending": "Enviando...",
+    "invite_send": "Enviar invitación",
+    "appointments_count": "citas",
+    "active_badge": "activo",
+    "waiting_badge": "en espera"
   },
   "appointments": {
     "new": "Nueva cita",
@@ -70,14 +91,22 @@
     "diagnosis": "Diagnóstico",
     "prescription": "Prescripción",
     "notes": "Notas",
-    "see": "Ver →"
+    "see": "Ver →",
+    "subtitle": "Historial de sus consultas médicas",
+    "id_label": "ID expediente",
+    "patient_label": "Paciente",
+    "doctor_label": "Médico"
   },
   "video": {
     "title": "Consulta",
     "connecting": "Conectando a la sala...",
     "quit": "← Salir",
     "error": "Error",
-    "backToDashboard": "Volver al panel"
+    "backToDashboard": "Volver al panel",
+    "leave": "← Salir",
+    "error_title": "Error",
+    "error_connection": "Error al conectar a la sala de vídeo",
+    "back": "Volver al panel"
   },
   "status": {
     "pending": "Pendiente",
@@ -479,7 +508,8 @@
     "go_emergency": "Ir al modo urgencia",
     "available_specialists": "Especialistas disponibles",
     "no_specialists_match": "No hay especialistas disponibles para esta especialidad.",
-    "new_search": "Nueva busqueda"
+    "new_search": "Nueva busqueda",
+    "years": "años"
   },
   "chronic": {
     "title": "Seguimiento de salud",
@@ -1004,5 +1034,21 @@
     "success_msg": "Estamos revisando su expediente y le responderemos por email en 24h.",
     "back_home": "Volver al inicio",
     "error_generic": "Error al enviar"
+  },
+  "prescriptions": {
+    "verify_title": "Verificación de receta",
+    "verify_loading": "Verificando...",
+    "verify_invalid_title": "Receta inválida",
+    "verify_not_found": "Esta receta no se encontró o ha expirado.",
+    "verify_scanned": "Escaneada el",
+    "verify_status": "Estado:",
+    "verify_expires": "Expira el",
+    "verify_dispensing": "Procesando...",
+    "verify_dispense_btn": "Marcar como dispensada",
+    "verify_dispensed_success": "Receta dispensada con éxito",
+    "verify_expired_msg": "Esta receta ha expirado",
+    "status_active": "Activa",
+    "status_dispensed": "Dispensada",
+    "status_expired": "Expirada"
   }
 }
