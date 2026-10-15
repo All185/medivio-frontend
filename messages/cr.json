@@ -28,7 +28,28 @@
     "consultations": "Konsiltasyon jòdi-a",
     "noConsultations": "Pa ni konsiltasyon an moman-la.",
     "confirm": "Konfimé",
-    "startConsultation": "Koumansé konsiltasyon-la"
+    "startConsultation": "Koumansé konsiltasyon-la",
+    "doctor_prefix": "Doktè",
+    "trial_expired": "Peryòd esè ekspire",
+    "trial_remaining": "Peryòd esè —",
+    "trial_day_singular": "jou restan",
+    "trial_day_plural": "jou restan",
+    "trial_full_access": "Aksè konplè a tout fonksyonalité yo",
+    "contact_us": "Kontakte nou →",
+    "quick_actions": "Aksyon rapid",
+    "doctor_tools": "Zouti doktè",
+    "invite_patient": "Envite on pasyan",
+    "invitation_sent": "Envitasyon voyé !",
+    "invitation_email": "Pasyan an pral resevwa on imèl pou kreye kont li.",
+    "close": "Fèmen",
+    "invite_firstname": "Prénom *",
+    "invite_lastname": "Non *",
+    "invite_email": "Imèl pasyan *",
+    "invite_sending": "Anvoi...",
+    "invite_send": "Voyé envitasyon an",
+    "appointments_count": "ranvou",
+    "active_badge": "aktif",
+    "waiting_badge": "ka tann"
   },
   "appointments": {
     "new": "Nouvo rannévou",
@@ -70,14 +91,22 @@
     "diagnosis": "Dyagnostik",
     "prescription": "Prescripsyon",
     "notes": "Nòt",
-    "see": "Wè →"
+    "see": "Wè →",
+    "subtitle": "Istwa konsiltasyon médical ou",
+    "id_label": "ID dosyé",
+    "patient_label": "Pasyan",
+    "doctor_label": "Doktè"
   },
   "video": {
     "title": "Konsiltasyon",
     "connecting": "Konèksyon an sal-la...",
     "quit": "← Kité",
     "error": "Erè",
-    "backToDashboard": "Tounen an tablo-a"
+    "backToDashboard": "Tounen an tablo-a",
+    "leave": "← Kité",
+    "error_title": "Erè",
+    "error_connection": "Erè koneksyon a lasal vidéo",
+    "back": "Tounen nan tablo bò"
   },
   "status": {
     "pending": "An atant",
@@ -386,7 +415,8 @@
     "go_emergency": "Alé an mòd ijans",
     "available_specialists": "Spésyalis disponib",
     "no_specialists_match": "Pa ni spésyalis disponib pou spésyalité sa-a.",
-    "new_search": "Nouvo rèchèch"
+    "new_search": "Nouvo rèchèch",
+    "years": "an"
   },
   "billing": {
     "back": "Tounen an tablo-a",
@@ -1003,5 +1033,21 @@
     "success_msg": "Nou ka egzaminé dosyé ou épi ké réponnli ou pa email andédan 24è.",
     "back_home": "Tounen an akèy",
     "error_generic": "Erè pandan anvoy-la"
+  },
+  "prescriptions": {
+    "verify_title": "Vérifkasyon òdonans",
+    "verify_loading": "Vérifkasyon an kou...",
+    "verify_invalid_title": "Òdonans pa valab",
+    "verify_not_found": "Òdonans sala pa jwenn oubyen li ekspire.",
+    "verify_scanned": "Skanné",
+    "verify_status": "Estati :",
+    "verify_expires": "Ekspire",
+    "verify_dispensing": "Tretman...",
+    "verify_dispense_btn": "Mak kòm distribiyé",
+    "verify_dispensed_success": "Òdonans distribiyé avèk siksè",
+    "verify_expired_msg": "Òdonans sala ekspire",
+    "status_active": "Aktif",
+    "status_dispensed": "Distribiyé",
+    "status_expired": "Ekspire"
   }
 }

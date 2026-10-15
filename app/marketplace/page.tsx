@@ -123,13 +123,13 @@ export default function MarketplacePage() {
                     {s.sub_specialty && <p className="text-xs text-gray-500 mb-2">{s.sub_specialty}</p>}
                     <div className="flex items-center gap-4 text-sm text-gray-500">
                       {s.city && <span>📍 {s.city}</span>}
-                      {s.years_experience && <span>🎓 {s.years_experience} ans</span>}
+                      {s.years_experience && <span>🎓 {s.years_experience} {t('marketplace.years')}</span>}
                       {s.consultation_price && <span>💶 {s.consultation_price}€</span>}
                     </div>
                     {s.total_reviews > 0 && (
                       <div className="flex items-center gap-2 mt-2">
                         <span className="text-yellow-500 text-sm">{renderStars(s.average_rating)}</span>
-                        <span className="text-xs text-gray-400">({s.total_reviews} avis)</span>
+                        <span className="text-xs text-gray-400">({s.total_reviews} {t('marketplace.reviews')})</span>
                       </div>
                     )}
                   </div>

@@ -28,7 +28,28 @@
     "consultations": "استشارات اليوم",
     "noConsultations": "لا توجد استشارات حالياً.",
     "confirm": "تأكيد",
-    "startConsultation": "بدء الاستشارة"
+    "startConsultation": "بدء الاستشارة",
+    "doctor_prefix": "طبيب",
+    "trial_expired": "انتهت الفترة التجريبية",
+    "trial_remaining": "الفترة التجريبية —",
+    "trial_day_singular": "يوم متبقٍ",
+    "trial_day_plural": "أيام متبقية",
+    "trial_full_access": "وصول كامل إلى جميع الميزات",
+    "contact_us": "اتصل بنا →",
+    "quick_actions": "الإجراءات السريعة",
+    "doctor_tools": "أدوات الطبيب",
+    "invite_patient": "دعوة مريض",
+    "invitation_sent": "تم إرسال الدعوة!",
+    "invitation_email": "سيتلقى المريض بريداً إلكترونياً لإنشاء حسابه.",
+    "close": "إغلاق",
+    "invite_firstname": "الاسم الأول *",
+    "invite_lastname": "اسم العائلة *",
+    "invite_email": "البريد الإلكتروني للمريض *",
+    "invite_sending": "جارٍ الإرسال...",
+    "invite_send": "إرسال الدعوة",
+    "appointments_count": "مواعيد",
+    "active_badge": "نشط",
+    "waiting_badge": "في الانتظار"
   },
   "appointments": {
     "new": "موعد جديد",
@@ -70,14 +91,22 @@
     "diagnosis": "التشخيص",
     "prescription": "الوصفة الطبية",
     "notes": "ملاحظات",
-    "see": "عرض"
+    "see": "عرض",
+    "subtitle": "سجل استشاراتك الطبية",
+    "id_label": "معرف الملف",
+    "patient_label": "المريض",
+    "doctor_label": "الطبيب"
   },
   "video": {
     "title": "الاستشارة",
     "connecting": "جار الاتصال بالغرفة...",
     "quit": "خروج",
     "error": "خطأ",
-    "backToDashboard": "العودة إلى لوحة التحكم"
+    "backToDashboard": "العودة إلى لوحة التحكم",
+    "leave": "← مغادرة",
+    "error_title": "خطأ",
+    "error_connection": "خطأ في الاتصال بغرفة الفيديو",
+    "back": "العودة إلى لوحة التحكم"
   },
   "status": {
     "pending": "في الانتظار",
@@ -479,7 +508,8 @@
     "go_emergency": "الذهاب الى وضع الطوارئ",
     "available_specialists": "المتخصصون المتاحون",
     "no_specialists_match": "لا يوجد متخصصون متاحون لهذا التخصص.",
-    "new_search": "بحث جديد"
+    "new_search": "بحث جديد",
+    "years": "سنوات"
   },
   "chronic": {
     "title": "متابعة الصحة",
@@ -1004,5 +1034,21 @@
     "success_msg": "نحن نراجع ملفك وسنرد عليك بالبريد الإلكتروني خلال 24 ساعة.",
     "back_home": "العودة إلى الصفحة الرئيسية",
     "error_generic": "خطأ أثناء الإرسال"
+  },
+  "prescriptions": {
+    "verify_title": "التحقق من الوصفة",
+    "verify_loading": "جارٍ التحقق...",
+    "verify_invalid_title": "وصفة غير صالحة",
+    "verify_not_found": "لم يتم العثور على هذه الوصفة أو انتهت صلاحيتها.",
+    "verify_scanned": "تم المسح في",
+    "verify_status": "الحالة:",
+    "verify_expires": "تنتهي في",
+    "verify_dispensing": "جارٍ المعالجة...",
+    "verify_dispense_btn": "وضع علامة كموزعة",
+    "verify_dispensed_success": "تم صرف الوصفة بنجاح",
+    "verify_expired_msg": "انتهت صلاحية هذه الوصفة",
+    "status_active": "نشطة",
+    "status_dispensed": "موزعة",
+    "status_expired": "منتهية"
   }
 }
