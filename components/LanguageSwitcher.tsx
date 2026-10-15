@@ -7,8 +7,8 @@ const languages = [
   { code: 'fr' as const, label: 'Français', flag: '🇫🇷' },
   { code: 'en' as const, label: 'English', flag: '🇬🇧' },
   { code: 'es' as const, label: 'Español', flag: '🇪🇸' },
-  { code: 'pt' as const, label: 'Português', flag: '🇧🇷' },
   { code: 'ar' as const, label: 'العربية', flag: '🇸🇦' },
+  { code: 'cr' as const, label: 'Kréyòl', flag: '🇲🇶' },
 ]
 
 export default function LanguageSwitcher() {
