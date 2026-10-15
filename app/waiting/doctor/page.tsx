@@ -79,7 +79,7 @@ export default function DoctorWaitingRoom() {
               onClick={() => router.push('/dashboard')}
               className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
             >
-              Retour au tableau de bord
+              {t('waiting.back')}
             </button>
           </div>
         </div>
@@ -90,27 +90,27 @@ export default function DoctorWaitingRoom() {
           <div>
             <div className="flex items-center gap-3 mb-1">
               <img src="/icons/hourglass_full-removebg-preview.png" alt="" style={{ width: 48, height: 48, objectFit: 'contain' }} />
-              <h2 className="text-2xl font-bold text-gray-900">Salle d'attente</h2>
+              <h2 className="text-2xl font-bold text-gray-900">{t('waiting.doctor_title')}</h2>
             </div>
-            <p className="text-sm text-gray-400 mt-1">Patients en attente de consultation vidéo</p>
+            <p className="text-sm text-gray-400 mt-1">{t('waiting.doctor_subtitle')}</p>
           </div>
           <button
             onClick={fetchWaiting}
             className="text-sm text-gray-500 hover:text-blue-600 transition flex items-center gap-1"
           >
-            🔄 Actualiser
+            {t('waiting.doctor_refresh')}
           </button>
         </div>
 
         {loading ? (
           <div className="card p-8 text-center">
-            <div className="animate-pulse text-gray-400">Chargement...</div>
+            <div className="animate-pulse text-gray-400">{t('waiting.loading')}</div>
           </div>
         ) : entries.length === 0 ? (
           <div className="card p-10 text-center">
             <img src="/icons/mailbox_full-removebg-preview.png" style={{width:64,height:64,objectFit:'contain',margin:'0 auto 16px'}}/>
-            <p className="text-gray-500">Aucun patient en attente pour l'instant.</p>
-            <p className="text-xs text-gray-400 mt-2">Actualisation automatique toutes les 10 secondes</p>
+            <p className="text-gray-500">{t('waiting.doctor_empty')}</p>
+            <p className="text-xs text-gray-400 mt-2">{t('waiting.doctor_auto_refresh')}</p>
           </div>
         ) : (
           <div className="space-y-4">
@@ -123,10 +123,10 @@ export default function DoctorWaitingRoom() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">
-                        Patient #{entry.patient_id.slice(0, 8)}
+                        {t('waiting.doctor_patient')} #{entry.patient_id.slice(0, 8)}
                       </p>
                       <p className="text-xs text-gray-400 mt-0.5">
-                        ⏱ En attente depuis {formatWaitTime(entry.joined_at)}
+                        {t('waiting.doctor_waiting_since')} {formatWaitTime(entry.joined_at)}
                       </p>
                       {entry.symptoms && (
                         <p className="text-sm text-gray-500 mt-1 bg-gray-50 px-3 py-1 rounded-lg">
@@ -135,7 +135,7 @@ export default function DoctorWaitingRoom() {
                       )}
                       {entry.pain_level && (
                         <p className="text-xs text-gray-400 mt-1">
-                          Douleur : {entry.pain_level}/10
+                          {t('waiting.doctor_pain')} : {entry.pain_level}/10
                         </p>
                       )}
                     </div>
@@ -145,7 +145,7 @@ export default function DoctorWaitingRoom() {
                     disabled={accepting === entry.id}
                     className="btn-primary-doctor px-4 py-2 text-sm flex-shrink-0"
                   >
-                    {accepting === entry.id ? '⏳ Connexion...' : '🎥 Accepter'}
+                    {accepting === entry.id ? t('waiting.doctor_connecting') : t('waiting.doctor_accept')}
                   </button>
                 </div>
               </div>

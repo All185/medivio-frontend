@@ -166,7 +166,18 @@
     "preSummary": "Su ficha previa a la consulta",
     "joinVideo": "Unirse a la consulta de video",
     "back": "← Volver al panel",
-    "button": "Sala de espera"
+    "button": "Sala de espera",
+    "doctor_title": "Sala de espera",
+    "doctor_subtitle": "Pacientes esperando consulta por video",
+    "doctor_refresh": "🔄 Actualizar",
+    "loading": "Cargando...",
+    "doctor_empty": "No hay pacientes esperando por el momento.",
+    "doctor_auto_refresh": "Actualización automática cada 10 segundos",
+    "doctor_patient": "Paciente",
+    "doctor_waiting_since": "⏱ En espera desde",
+    "doctor_pain": "Dolor",
+    "doctor_connecting": "⏳ Conectando...",
+    "doctor_accept": "🎥 Aceptar"
   },
   "agenda": {
     "title": "Mi agenda",

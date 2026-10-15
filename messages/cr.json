@@ -166,7 +166,18 @@
     "preSummary": "Fich avan konsiltasyon ou",
     "joinVideo": "Antré an konsiltasyon vidéo-a",
     "back": "← Tounen an tablo-a",
-    "button": "Sal datant"
+    "button": "Sal datant",
+    "doctor_title": "Sal atant",
+    "doctor_subtitle": "Pasyan an atant konsiltasyon vidéo",
+    "doctor_refresh": "🔄 Aktialisé",
+    "loading": "Chajman...",
+    "doctor_empty": "Pa ni pasyan an atant an moman-la.",
+    "doctor_auto_refresh": "Aktialisasyon otonatik chak 10 sègond",
+    "doctor_patient": "Pasyan",
+    "doctor_waiting_since": "⏱ An atant dépi",
+    "doctor_pain": "Doulè",
+    "doctor_connecting": "⏳ Koneksyon...",
+    "doctor_accept": "🎥 Asèpté"
   },
   "agenda": {
     "title": "Ajanda mwen",

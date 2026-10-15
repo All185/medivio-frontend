@@ -166,7 +166,18 @@
     "preSummary": "ملف ما قبل الاستشارة",
     "joinVideo": "الانضمام إلى الاستشارة المرئية",
     "back": "العودة إلى لوحة التحكم",
-    "button": "غرفة الانتظار"
+    "button": "غرفة الانتظار",
+    "doctor_title": "غرفة الانتظار",
+    "doctor_subtitle": "المرضى المنتظرون للاستشارة بالفيديو",
+    "doctor_refresh": "🔄 تحديث",
+    "loading": "جاري التحميل...",
+    "doctor_empty": "لا يوجد مرضى في الانتظار حالياً.",
+    "doctor_auto_refresh": "تحديث تلقائي كل 10 ثوان",
+    "doctor_patient": "مريض",
+    "doctor_waiting_since": "⏱ في الانتظار منذ",
+    "doctor_pain": "الألم",
+    "doctor_connecting": "⏳ جارٍ الاتصال...",
+    "doctor_accept": "🎥 قبول"
   },
   "agenda": {
     "title": "جدولي",

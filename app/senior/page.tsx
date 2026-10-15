@@ -13,7 +13,7 @@ interface Profile {
 export default function SeniorPage() {
   const { t, locale } = useLanguage();
 const langMap: Record<string, string> = {
-  fr: 'fr-FR', en: 'en-US', es: 'es-ES', pt: 'pt-BR', ar: 'ar-SA',
+  fr: 'fr-FR', en: 'en-US', es: 'es-ES', pt: 'pt-BR', cr: 'fr-FR', ar: 'ar-SA',
 };
 const speechLang = langMap[locale] || 'fr-FR';
   const router = useRouter();

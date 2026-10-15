@@ -166,7 +166,18 @@
     "preSummary": "Your pre-consultation form",
     "joinVideo": "Join the video consultation",
     "back": "← Back to dashboard",
-    "button": "Waiting room"
+    "button": "Waiting room",
+    "doctor_title": "Waiting Room",
+    "doctor_subtitle": "Patients waiting for video consultation",
+    "doctor_refresh": "🔄 Refresh",
+    "loading": "Loading...",
+    "doctor_empty": "No patients waiting at the moment.",
+    "doctor_auto_refresh": "Auto-refresh every 10 seconds",
+    "doctor_patient": "Patient",
+    "doctor_waiting_since": "⏱ Waiting since",
+    "doctor_pain": "Pain",
+    "doctor_connecting": "⏳ Connecting...",
+    "doctor_accept": "🎥 Accept"
   },
   "agenda": {
     "title": "My schedule",

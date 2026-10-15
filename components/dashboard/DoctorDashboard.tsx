@@ -121,7 +121,7 @@ export default function DoctorDashboard() {
   }
 
   const localeMap: Record<string, string> = {
-    fr: 'fr-FR', en: 'en-GB', es: 'es-ES', pt: 'pt-PT', ar: 'ar-SA',
+    fr: 'fr-FR', en: 'en-GB', es: 'es-ES', pt: 'pt-PT', cr: 'fr-FR', ar: 'ar-SA',
   }
   const dateLocale = localeMap[locale] || 'fr-FR'
 

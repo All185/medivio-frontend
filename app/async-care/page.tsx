@@ -24,7 +24,7 @@ export default function AsyncCarePage() {
   const [loading, setLoading] = useState(true);
 
   const localeMap: Record<string, string> = {
-    fr: 'fr-FR', en: 'en-US', es: 'es-ES', pt: 'pt-BR', ar: 'ar-SA',
+    fr: 'fr-FR', en: 'en-US', es: 'es-ES', pt: 'pt-BR', cr: 'fr-FR', ar: 'ar-SA',
   };
   const dateLocale = localeMap[locale] || 'fr-FR';
 
