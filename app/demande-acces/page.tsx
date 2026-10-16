@@ -21,12 +21,16 @@ export default function DemandeAccesPage() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
+  const rppsValid = /^\d{11}$/.test(form.rpps.trim());
+  const rppsHasInput = form.rpps.trim().length > 0;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!rppsValid) return;
     setStatus('loading');
     setErrorMsg('');
     try {
@@ -112,8 +116,33 @@ export default function DemandeAccesPage() {
 
             <div>
               <label className="text-xs font-semibold text-gray-600 mb-1 block">{t('demande_acces.rpps')}</label>
-              <input name="rpps" value={form.rpps} onChange={handleChange} required placeholder={t('demande_acces.rpps_placeholder')}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-400 transition" />
+              <div className="relative">
+                <input
+                  name="rpps"
+                  value={form.rpps}
+                  onChange={handleChange}
+                  required
+                  maxLength={11}
+                  inputMode="numeric"
+                  pattern="\d{11}"
+                  placeholder={t('demande_acces.rpps_placeholder')}
+                  className={`w-full border rounded-xl px-4 py-3 pr-10 text-sm focus:outline-none transition ${
+                    rppsHasInput
+                      ? rppsValid
+                        ? 'border-green-400 focus:border-green-500'
+                        : 'border-red-400 focus:border-red-500'
+                      : 'border-gray-200 focus:border-blue-400'
+                  }`}
+                />
+                {rppsHasInput && (
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-base">
+                    {rppsValid ? '✅' : '❌'}
+                  </span>
+                )}
+              </div>
+              {rppsHasInput && !rppsValid && (
+                <p className="text-red-500 text-xs mt-1">Le numéro RPPS doit comporter exactement 11 chiffres</p>
+              )}
             </div>
 
             <div>
@@ -126,7 +155,7 @@ export default function DemandeAccesPage() {
               <p className="text-red-500 text-sm text-center">{errorMsg}</p>
             )}
 
-            <button type="submit" disabled={status === 'loading'}
+            <button type="submit" disabled={status === 'loading' || !rppsValid}
               className="text-white font-bold px-8 py-4 rounded-2xl text-base transition-all hover:scale-105 disabled:opacity-60 mt-2"
               style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.25)'}}>
               {status === 'loading' ? t('demande_acces.sending') : t('demande_acces.submit')}
