@@ -10,6 +10,7 @@ import EmergencyBanner from '@/components/EmergencyBanner'
 interface Appointment {
   id: string
   patient_id: string
+  patient_name: string | null
   scheduled_at: string
   status: string
   notes: string | null
@@ -402,7 +403,9 @@ export default function DoctorDashboard() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-gray-800">
-                      Patient #{apt.patient_id.slice(0, 8)}
+                      {apt.patient_name
+                        ? `Patient ${apt.patient_name}`
+                        : `Patient #${apt.patient_id.slice(0, 8)}`}
                     </p>
                     {apt.notes && (
                       <p className="text-xs text-gray-400 truncate mt-0.5">{apt.notes}</p>
