@@ -9,6 +9,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher'
 interface Appointment {
   id: string
   doctor_id: string
+  doctor_name: string | null
   scheduled_at: string
   status: string
   notes: string | null
@@ -227,7 +228,9 @@ export default function PatientDashboard() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-gray-800">
-                      {t('dashboard.doctor_prefix')} #{apt.doctor_id.slice(0, 8)}
+                      {apt.doctor_name
+                        ? `${t('dashboard.doctor_prefix')} ${apt.doctor_name}`
+                        : `${t('dashboard.doctor_prefix')} #${apt.doctor_id.slice(0, 8)}`}
                     </p>
                     {apt.notes && (
                       <p className="text-xs text-gray-400 truncate mt-0.5">{apt.notes}</p>
