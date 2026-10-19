@@ -5,6 +5,12 @@ import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 interface WaitingEntry {
   id: string
@@ -36,9 +42,29 @@ export default function DoctorWaitingRoom() {
   }
 
   useEffect(() => {
+    // Chargement initial
     fetchWaiting()
-    const interval = setInterval(fetchWaiting, 10000)
-    return () => clearInterval(interval)
+
+    // Supabase Realtime — remplace le setInterval de 10s
+    const channel = supabase
+      .channel('waiting_room_doctor')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'waiting_room',
+        },
+        () => {
+          // Toute modification sur la table → recharge la liste
+          fetchWaiting()
+        }
+      )
+      .subscribe()
+
+    return () => {
+      channel.unsubscribe()
+    }
   }, [])
 
   const handleAccept = async (entry: WaitingEntry) => {

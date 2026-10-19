@@ -5,6 +5,12 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import api from '@/lib/api'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
 
 function WaitingRoomContent() {
   const router = useRouter()
@@ -41,22 +47,32 @@ function WaitingRoomContent() {
     }
   }, [step])
 
-  // Vérifie si le médecin a accepté
+  // Supabase Realtime — remplace le polling
   useEffect(() => {
     if (step !== 'waiting' || !entryId) return
-    const interval = setInterval(async () => {
-      try {
-        const res = await api.get('/waiting/my-status')
-        const entry = res.data
-        if (entry?.status === 'in_consultation') {
-          clearInterval(interval)
-          router.push(`/video/${appointmentId}`)
+
+    const channel = supabase
+      .channel(`waiting_room_${entryId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'UPDATE',
+          schema: 'public',
+          table: 'waiting_room',
+          filter: `id=eq.${entryId}`,
+        },
+        (payload) => {
+          if (payload.new?.status === 'in_consultation') {
+            channel.unsubscribe()
+            router.push(`/video/${appointmentId}`)
+          }
         }
-      } catch (err) {
-        console.error(err)
-      }
-    }, 5000)
-    return () => clearInterval(interval)
+      )
+      .subscribe()
+
+    return () => {
+      channel.unsubscribe()
+    }
   }, [step, entryId, appointmentId])
 
   const formatTime = (seconds: number) => {
@@ -109,10 +125,7 @@ function WaitingRoomContent() {
           </div>
           <div className="flex items-center gap-4">
             <LanguageSwitcher />
-            <button
-              onClick={handleLeave}
-              className="text-sm text-gray-500 hover:text-blue-600 transition font-medium"
-            >
+            <button onClick={handleLeave} className="text-sm text-gray-500 hover:text-blue-600 transition font-medium">
               Retour au tableau de bord
             </button>
           </div>
@@ -146,59 +159,23 @@ function WaitingRoomContent() {
               <h3 className="font-bold text-gray-900 mb-4">📋 {t('waiting.form')}</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    {t('waiting.symptoms')}
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={form.current_symptoms}
-                    onChange={(e) => setForm({ ...form, current_symptoms: e.target.value })}
-                    className="input-field"
-                    placeholder={t('waiting.symptomsPlaceholder')}
-                  />
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t('waiting.symptoms')}</label>
+                  <textarea rows={3} value={form.current_symptoms} onChange={(e) => setForm({ ...form, current_symptoms: e.target.value })} className="input-field" placeholder={t('waiting.symptomsPlaceholder')} />
                 </div>
-
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      🌡️ {t('waiting.temperature')}
-                    </label>
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={form.temperature}
-                      onChange={(e) => setForm({ ...form, temperature: e.target.value })}
-                      className="input-field"
-                      placeholder="37.0"
-                    />
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">🌡️ {t('waiting.temperature')}</label>
+                    <input type="number" step="0.1" value={form.temperature} onChange={(e) => setForm({ ...form, temperature: e.target.value })} className="input-field" placeholder="37.0" />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      💓 {t('waiting.bloodPressure')}
-                    </label>
-                    <input
-                      type="text"
-                      value={form.blood_pressure}
-                      onChange={(e) => setForm({ ...form, blood_pressure: e.target.value })}
-                      className="input-field"
-                      placeholder="120/80"
-                    />
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">💓 {t('waiting.bloodPressure')}</label>
+                    <input type="text" value={form.blood_pressure} onChange={(e) => setForm({ ...form, blood_pressure: e.target.value })} className="input-field" placeholder="120/80" />
                   </div>
                 </div>
-
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    📝 {t('waiting.notes')}
-                  </label>
-                  <textarea
-                    rows={2}
-                    value={form.notes}
-                    onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                    className="input-field"
-                    placeholder={t('waiting.notesPlaceholder')}
-                  />
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">📝 {t('waiting.notes')}</label>
+                  <textarea rows={2} value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} className="input-field" placeholder={t('waiting.notesPlaceholder')} />
                 </div>
-
                 <button type="submit" disabled={loading} className="btn-primary w-full py-3 text-base">
                   {loading ? '⏳ Connexion...' : `✅ ${t('waiting.ready')}`}
                 </button>
@@ -208,45 +185,24 @@ function WaitingRoomContent() {
         ) : (
           <div className="animate-fade-in text-center">
             <div className="card p-8 mb-6">
-              <img
-                src="/logo.png"
-                alt="Medivio"
-                style={{ width: 80, height: 80, objectFit: 'contain', margin: '0 auto 16px' }}
-              />
+              <img src="/logo.png" alt="Medivio" style={{ width: 80, height: 80, objectFit: 'contain', margin: '0 auto 16px' }} />
               <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('waiting.doctorComing')}</h2>
               <p className="text-gray-500 text-sm mb-6">{t('waiting.stayOnPage')}</p>
-
               <div className="bg-blue-50 rounded-2xl p-6 mb-6">
                 <p className="text-sm text-blue-500 mb-1">{t('waiting.waitTime')}</p>
                 <p className="text-4xl font-bold text-blue-600">{formatTime(waitTime)}</p>
               </div>
-
               {form.current_symptoms && (
                 <div className="card p-4 text-left mb-4 bg-gray-50">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">📋 {t('waiting.preSummary')}</p>
-                  {form.current_symptoms && (
-                    <p className="text-sm text-gray-600">🩺 {form.current_symptoms}</p>
-                  )}
-                  {form.temperature && (
-                    <p className="text-sm text-gray-600 mt-1">🌡️ {form.temperature}°C</p>
-                  )}
-                  {form.blood_pressure && (
-                    <p className="text-sm text-gray-600 mt-1">💓 {form.blood_pressure}</p>
-                  )}
-                  {form.notes && (
-                    <p className="text-sm text-gray-600 mt-1">📝 {form.notes}</p>
-                  )}
+                  <p className="text-sm font-semibold text-gray-700 mb-2">�� {t('waiting.preSummary')}</p>
+                  {form.current_symptoms && <p className="text-sm text-gray-600">🩺 {form.current_symptoms}</p>}
+                  {form.temperature && <p className="text-sm text-gray-600 mt-1">🌡️ {form.temperature}°C</p>}
+                  {form.blood_pressure && <p className="text-sm text-gray-600 mt-1">💓 {form.blood_pressure}</p>}
+                  {form.notes && <p className="text-sm text-gray-600 mt-1">📝 {form.notes}</p>}
                 </div>
               )}
-
-              <p className="text-xs text-gray-400 mb-4">
-                🔄 Le médecin vous rejoindra automatiquement...
-              </p>
-
-              <button
-                onClick={handleExplicitLeave}
-                className="w-full mt-3 border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition"
-              >
+              <p className="text-xs text-gray-400 mb-4">🔄 Le médecin vous rejoindra automatiquement...</p>
+              <button onClick={handleExplicitLeave} className="w-full mt-3 border border-gray-300 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition">
                 {t('waiting.back')}
               </button>
             </div>
