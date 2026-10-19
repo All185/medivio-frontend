@@ -92,7 +92,7 @@ export default function CguPage() {
 
             <h3 className="font-semibold text-gray-800 mb-2">Durées de conservation</h3>
             <ul className="mt-1 mb-3 space-y-1 text-sm">
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Données de santé (comptes rendus, résumés, ordonnances) : <strong>20 ans</strong> à compter de la dernière consultation, par alignement sur l'article R.1112-7 du Code de la santé publique et conformément aux recommandations du Conseil national de l'Ordre des médecins</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Données de santé (comptes rendus, résumés, ordonnances) : <strong>20 ans</strong> à compter de la dernière consultation, par alignement sur l'article R.1112-7 du Code de la santé publique</li>
               <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Données d'identité et de compte : durée de vie du compte, puis 3 ans après la dernière activité</li>
               <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Données de facturation : 10 ans à compter de l'émission (obligation comptable légale)</li>
               <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> Journaux techniques : 12 mois</li>
@@ -112,19 +112,19 @@ export default function CguPage() {
             <p className="text-sm mb-3">Medivio est actuellement hébergé sur des infrastructures non certifiées HDS (Hébergeur de Données de Santé). Une migration vers un hébergeur certifié HDS est prévue avant tout déploiement institutionnel.</p>
 
             <h3 className="font-semibold text-gray-800 mb-2">Vos droits</h3>
-            <p className="text-sm mb-2">Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données :</p>
+            <p className="text-sm mb-2">Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants :</p>
             <ul className="mt-1 mb-3 space-y-1 text-sm">
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit d'accès</strong> (art. 15 RGPD) : obtenir une copie de l'ensemble de vos données personnelles et de santé, y compris les comptes rendus de consultation conformément à l'article L.1111-7 du Code de la santé publique</li>
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit de rectification</strong> (art. 16 RGPD) : corriger vos données inexactes, sans altérer la traçabilité des éléments médicaux</li>
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit à l'effacement</strong> (art. 17 RGPD) : demander la suppression de vos données, sous réserve des durées de conservation légales applicables aux données de santé</li>
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit à la portabilité</strong> (art. 20 RGPD) : recevoir vos données dans un format structuré, couramment utilisé et lisible par machine</li>
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit d'opposition</strong> (art. 21 RGPD) : vous opposer au traitement de vos données, sauf obligation légale</li>
-              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit de retirer votre consentement</strong> à tout moment, sans que cela ne remette en cause la licéité des traitements effectués avant le retrait</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit d'accès</strong> (art. 15 RGPD) : obtenir une copie de vos données, y compris les comptes rendus de consultation (art. L.1111-7 CSP)</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit de rectification</strong> (art. 16 RGPD) : corriger vos données inexactes</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit à l'effacement</strong> (art. 17 RGPD) : sous réserve des durées légales de conservation</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit à la portabilité</strong> (art. 20 RGPD) : recevoir vos données dans un format structuré et lisible</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Droit d'opposition</strong> (art. 21 RGPD) : sauf obligation légale</li>
+              <li className="flex items-start gap-2"><span className="text-blue-500 mt-1">•</span> <strong>Retrait du consentement</strong> à tout moment, sans remettre en cause la licéité des traitements antérieurs</li>
             </ul>
-            <p className="text-sm mb-3">Pour exercer ces droits, adressez votre demande à <a href="mailto:contact@medivio.care" className="text-blue-600 hover:underline">contact@medivio.care</a>. Vous disposez également du droit d'introduire une réclamation auprès de la <strong>CNIL</strong> — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.cnil.fr</a>.</p>
+            <p className="text-sm mb-3">Demandes à adresser à : <a href="mailto:contact@medivio.care" className="text-blue-600 hover:underline">contact@medivio.care</a>. Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.cnil.fr</a>.</p>
 
             <h3 className="font-semibold text-gray-800 mb-2">Sécurité</h3>
-            <p className="text-sm">Medivio met en œuvre des mesures techniques et organisationnelles adaptées pour protéger vos données : chiffrement des communications (HTTPS/TLS), authentification sécurisée via Supabase, contrôle d'accès par rôle, journalisation des accès. En cas de violation de données susceptible d'engendrer un risque pour vos droits et libertés, Medivio s'engage à notifier la CNIL dans les 72 heures et les personnes concernées dans les meilleurs délais.</p>
+            <p className="text-sm">Medivio met en œuvre des mesures de sécurité adaptées : chiffrement HTTPS/TLS, authentification via Supabase, contrôle d'accès par rôle, journalisation des accès. En cas de violation de données, Medivio notifie la CNIL dans les 72 heures et les personnes concernées dans les meilleurs délais.</p>
           </section>
 
           <section>
