@@ -2,15 +2,16 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react'
 
-type Locale = 'fr' | 'en' | 'es' | 'ar' | 'cr'
+type Locale = 'fr' | 'en' | 'ar' | 'cr' | 'gcr' | 'gyc'
 
 import fr from '../messages/fr.json'
 import en from '../messages/en.json'
-import es from '../messages/es.json'
 import ar from '../messages/ar.json'
 import cr from '../messages/cr.json'
+import gcr from '../messages/gcr.json'
+import gyc from '../messages/gyc.json'
 
-const translations: Record<Locale, any> = { fr, en, es, ar, cr }
+const translations: Record<Locale, any> = { fr, en, ar, cr, gcr, gyc }
 
 interface LanguageContextType {
   locale: Locale
@@ -27,7 +28,7 @@ const LanguageContext = createContext<LanguageContextType>({
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('fr')
 
-  const validLocales: Locale[] = ['fr', 'en', 'es', 'ar', 'cr']
+  const validLocales: Locale[] = ['fr', 'en', 'ar', 'cr', 'gcr', 'gyc']
 
   useEffect(() => {
     const saved = localStorage.getItem('medivio_locale') as Locale

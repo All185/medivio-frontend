@@ -6,9 +6,10 @@ import { useLanguage } from '@/contexts/LanguageContext'
 const languages = [
   { code: 'fr' as const, label: 'Français', flag: '🇫🇷' },
   { code: 'en' as const, label: 'English', flag: '🇬🇧' },
-  { code: 'es' as const, label: 'Español', flag: '🇪🇸' },
   { code: 'ar' as const, label: 'العربية', flag: '🇸🇦' },
-  { code: 'cr' as const, label: 'Kréyòl', flag: '🇲🇶' },
+  { code: 'cr' as const, label: 'Kréyòl Matinik', flag: '🇲🇶' },
+  { code: 'gcr' as const, label: 'Kréyòl Gwadloup', flag: '🇬🇵' },
+  { code: 'gyc' as const, label: 'Kréyòl Gwiyàn', flag: '🇬🇫' },
 ]
 
 export default function LanguageSwitcher() {
@@ -40,7 +41,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-44 bg-white border border-gray-100 rounded-2xl shadow-lg z-50 overflow-hidden animate-fade-in">
+        <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-100 rounded-2xl shadow-lg z-50 overflow-hidden animate-fade-in">
           {languages.map((lang) => (
             <button
               key={lang.code}
