@@ -24,7 +24,7 @@ export default function RootPage() {
 
   const STATS = [
     { value: '15+', label: t('landing.stats_modules') },
-    { value: '5', label: t('landing.stats_languages') },
+    { value: '6', label: t('landing.stats_languages') },
     { value: '24/7', label: t('landing.stats_availability') },
     { value: '100%', label: t('landing.stats_secure') },
   ];
