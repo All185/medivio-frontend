@@ -37,6 +37,10 @@ export default function TriageFeaturePage() {
           <p className="text-lg sm:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
             {t('triage_page.hero_desc')}
           </p>
+          <div className="mt-4 mb-6 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800 flex gap-2 max-w-xl mx-auto text-left">
+            <span className="mt-0.5">⚠️</span>
+            <span><strong>{t('triage.disclaimerTitle')}</strong> {t('triage.disclaimer')}</span>
+          </div>
           <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105 bg-blue-600">
             {t('triage_page.cta_primary')}
           </button>
@@ -88,7 +92,10 @@ export default function TriageFeaturePage() {
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-sm flex-shrink-0 bg-blue-600">
                       {step.num}
                     </div>
-                 
+                    <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800 flex gap-2">
+            <span className="mt-0.5">⚠️</span>
+            <span><strong>{t('triage.disclaimerTitle')}</strong> {t('triage.disclaimer')}</span>
+          </div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
