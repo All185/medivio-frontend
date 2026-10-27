@@ -90,7 +90,7 @@ export default function TriagePage() {
           <p className="text-gray-500 text-sm mt-1">{t('triage.subtitle')}</p>
           <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800 flex gap-2">
             <span className="mt-0.5">⚠️</span>
-            <span><strong>Avis médical :</strong> Cette analyse IA est fournie à titre indicatif uniquement. Elle ne remplace pas un diagnostic médical professionnel. En cas d'urgence, appelez le <strong>15 (SAMU)</strong>.</span>
+            <span><strong>{t('triage.disclaimerTitle')}</strong> {t('triage.disclaimer')}</span>
           </div>
         </div>
 
