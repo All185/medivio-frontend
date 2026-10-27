@@ -88,6 +88,7 @@ export default function TriageFeaturePage() {
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white text-sm flex-shrink-0 bg-blue-600">
                       {step.num}
                     </div>
+                 
                     <div>
                       <h3 className="font-bold text-gray-900 mb-1">{step.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
