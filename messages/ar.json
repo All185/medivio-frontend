@@ -81,7 +81,9 @@
     "recommendations": "التوصيات",
     "urgencyLow": "إلحاح منخفض",
     "urgencyMedium": "إلحاح متوسط",
-    "urgencyHigh": "إلحاح عالٍ"
+    "urgencyHigh": "إلحاح عالٍ",
+    "disclaimer": "هذا التحليل بالذكاء الاصطناعي للإرشاد فقط. لا يُغني عن تشخيص طبي متخصص. في حالة الطوارئ، اتصل بـ 15 (SAMU).",
+    "disclaimerTitle": "تنبيه طبي:"
   },
   "records": {
     "title": "السجلات الطبية",

@@ -81,7 +81,9 @@
     "recommendations": "Recommandations",
     "urgencyLow": "Urgence faible",
     "urgencyMedium": "Urgence modérée",
-    "urgencyHigh": "Urgence élevée"
+    "urgencyHigh": "Urgence élevée",
+    "disclaimer": "Cette analyse IA est fournie à titre indicatif uniquement. Elle ne remplace pas un diagnostic médical professionnel. En cas d'urgence, appelez le 15 (SAMU).",
+    "disclaimerTitle": "Avis médical :"
   },
   "records": {
     "title": "Dossiers médicaux",

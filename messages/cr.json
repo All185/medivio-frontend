@@ -81,7 +81,9 @@
     "recommendations": "Rekomandasyon",
     "urgencyLow": "Ijans fèb",
     "urgencyMedium": "Ijans modéré",
-    "urgencyHigh": "Ijans élevé"
+    "urgencyHigh": "Ijans élevé",
+    "disclaimer": "Analiz IA-la ka ba enfomasyon sèlman. I pa ranplasé konsiltasyon épi yon médsen. An ka dijans, rélé 15 (SAMU).",
+    "disclaimerTitle": "Avètisman médical :"
   },
   "records": {
     "title": "Dosyé médical mwen",
