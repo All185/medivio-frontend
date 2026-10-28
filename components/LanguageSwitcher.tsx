@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 const languages = [
   { code: 'fr' as const, label: 'Français', flag: '🇫🇷' },
   { code: 'en' as const, label: 'English', flag: '🇬🇧' },
+  { code: 'es' as const, label: 'Español', flag: '🇪🇸' },
   { code: 'ar' as const, label: 'العربية', flag: '🇸🇦' },
   { code: 'cr' as const, label: 'Kréyòl Matinik', flag: '🇲🇶' },
   { code: 'gcr' as const, label: 'Kréyòl Gwadloup', flag: '🇬🇵' },
