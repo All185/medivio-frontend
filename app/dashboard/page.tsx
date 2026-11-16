@@ -4,23 +4,19 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import PatientDashboard from '@/components/dashboard/PatientDashboard'
 import DoctorDashboard from '@/components/dashboard/DoctorDashboard'
+import { isAuthenticated, getUser } from '@/lib/auth'
 
 export default function DashboardPage() {
   const router = useRouter()
   const [role, setRole] = useState<string | null>(null)
 
   useEffect(() => {
-    const token = localStorage.getItem('access_token')
-    if (!token) {
+    if (!isAuthenticated()) {
       router.push('/login')
       return
     }
-
-    const userData = localStorage.getItem('user')
-    if (userData) {
-      const user = JSON.parse(userData)
-      setRole(user.role)
-    }
+    const user = getUser()
+    if (user) setRole(user.role)
   }, [])
 
   if (!role) return (

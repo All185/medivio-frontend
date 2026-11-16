@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { getUser, getToken, logout } from '@/lib/auth'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import EmergencyBanner from '@/components/EmergencyBanner'
@@ -31,12 +32,11 @@ export default function DoctorDashboard() {
   const [inviteError, setInviteError] = useState('')
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
-    if (userData) {
-      const u = JSON.parse(userData)
+    const u = getUser()
+    if (u) {
       setUser(u)
-      if (u.trial_start_date) {
-        const start = new Date(u.trial_start_date)
+      if ((u as any).trial_start_date) {
+        const start = new Date((u as any).trial_start_date)
         const end = new Date(start)
         end.setMonth(end.getMonth() + 3)
         const diff = Math.ceil((end.getTime() - Date.now()) / (1000 * 60 * 60 * 24))
@@ -57,9 +57,8 @@ export default function DoctorDashboard() {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem('access_token')
-    localStorage.removeItem('user')
+  const handleLogout = async () => {
+    await logout()
     router.push('/login')
   }
 
@@ -77,10 +76,11 @@ export default function DoctorDashboard() {
     setInviteStatus('loading')
     setInviteError('')
     try {
-      const token = localStorage.getItem('access_token')
+      const token = getToken()
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/patients/invite`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         body: JSON.stringify({ email: inviteEmail, first_name: inviteFirstName, last_name: inviteLastName }),
       })
       const data = await res.json()

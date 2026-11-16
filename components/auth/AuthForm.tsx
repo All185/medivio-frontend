@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { storeAuth } from '@/lib/auth'
 import { useLanguage } from '@/contexts/LanguageContext'
 import MedivioLogo from '@/components/MedivioLogo'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
@@ -33,15 +34,13 @@ export default function AuthForm({ mode }: AuthFormProps) {
     try {
       if (mode === 'register') {
         const res = await api.post('/auth/register', form)
-        localStorage.setItem('access_token', res.data.token.access_token)
-        localStorage.setItem('user', JSON.stringify(res.data.user))
+        storeAuth(res.data.token.access_token, res.data.user)
       } else {
         const res = await api.post('/auth/login', {
           email: form.email,
           password: form.password,
         })
-        localStorage.setItem('access_token', res.data.token.access_token)
-        localStorage.setItem('user', JSON.stringify(res.data.user))
+        storeAuth(res.data.token.access_token, res.data.user)
       }
       router.push('/dashboard')
     } catch (err: any) {

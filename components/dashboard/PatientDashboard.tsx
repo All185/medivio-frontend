@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
+import { getUser, logout } from '@/lib/auth'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
@@ -23,8 +24,7 @@ export default function PatientDashboard() {
   const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
-    if (userData) setUser(JSON.parse(userData))
+    setUser(getUser())
     fetchAppointments()
   }, [])
 
@@ -39,9 +39,8 @@ export default function PatientDashboard() {
     }
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem('access_token')
-    localStorage.removeItem('user')
+  const handleLogout = async () => {
+    await logout()
     router.push('/login')
   }
 
