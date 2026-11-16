@@ -45,6 +45,17 @@ export default function RootPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* CTA sticky mobile — visible après le fold */}
+      <div className="fixed bottom-4 left-4 right-4 z-40 sm:hidden">
+        <button
+          onClick={() => router.push('/demande-acces')}
+          className="w-full text-white font-bold py-4 rounded-2xl text-base shadow-2xl"
+          style={{ background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.4)' }}
+        >
+          {t('landing.start_free')}
+        </button>
+      </div>
+
       <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Medivio" width={36} height={36} />
@@ -101,9 +112,9 @@ export default function RootPage() {
               <button key={`${locale}-${i}`} onClick={() => router.push(f.route)} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm text-center w-full cursor-pointer">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
-                    <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
+                    <img src={f.icon} alt={f.title} style={{width: 56, height: 56, objectFit: 'contain'}} />
                   ) : (
-                    <span className="text-4xl">{f.icon}</span>
+                    <span className="text-4xl" aria-hidden="true">{f.icon}</span>
                   )}
                 </div>
                 <h3 className="font-bold text-gray-900 text-center">{f.title}</h3>
@@ -117,9 +128,9 @@ export default function RootPage() {
               <button key={`${locale}-bottom-${i}`} onClick={() => router.push(f.route)} className="bg-white rounded-2xl border border-gray-200 p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm text-center w-full cursor-pointer">
                 <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                   {f.icon.startsWith('/') ? (
-                    <img src={f.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
+                    <img src={f.icon} alt={f.title} style={{width: 56, height: 56, objectFit: 'contain'}} />
                   ) : (
-                    <span className="text-4xl">{f.icon}</span>
+                    <span className="text-4xl" aria-hidden="true">{f.icon}</span>
                   )}
                 </div>
                 <h3 className="font-bold text-gray-900 text-center">{f.title}</h3>
@@ -145,9 +156,9 @@ export default function RootPage() {
                 <div key={`doc-${locale}-${i}`} className="bg-gradient-to-b from-blue-50 to-white rounded-2xl border border-blue-100 p-6 text-center">
                   <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                  {item.icon.startsWith('/') ? (
-                      <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
+                      <img src={item.icon} alt={item.title} style={{width: 56, height: 56, objectFit: 'contain'}} />
                     ) : (
-                      <span className="text-4xl">{item.icon}</span>
+                      <span className="text-4xl" aria-hidden="true">{item.icon}</span>
                     )}
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
@@ -165,9 +176,9 @@ export default function RootPage() {
                 <div key={`pat-${locale}-${i}`} className="bg-gradient-to-b from-green-50 to-white rounded-2xl border border-green-100 p-6 text-center">
                   <div className="mb-4 flex items-center justify-center" style={{height: 64}}>
                     {item.icon.startsWith('/') ? (
-                      <img src={item.icon} alt="" style={{width: 56, height: 56, objectFit: 'contain'}} />
+                      <img src={item.icon} alt={item.title} style={{width: 56, height: 56, objectFit: 'contain'}} />
                     ) : (
-                      <span className="text-4xl">{item.icon}</span>
+                      <span className="text-4xl" aria-hidden="true">{item.icon}</span>
                     )}
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>

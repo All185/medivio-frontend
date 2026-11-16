@@ -4,6 +4,7 @@ import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 import InstallBanner from '@/components/InstallBanner';
 import ServiceWorkerRegister from '@/components/ServiceWorkerRegister'
+import CookieBanner from '@/components/CookieBanner'
 
 const jakartaSans = Plus_Jakarta_Sans({
   variable: '--font-jakarta',
@@ -88,6 +89,7 @@ export default function RootLayout({
         <LanguageProvider>
           <ServiceWorkerRegister />
           <InstallBanner />
+          <CookieBanner />
           {children}
         </LanguageProvider>
       </body>

@@ -955,6 +955,9 @@
     "success_desc": "Nous vous répondons sous 48h à l'adresse indiquée.",
     "send_another": "Envoyer un autre message",
     "error": "Une erreur est survenue. Veuillez réessayer.",
+    "error_name": "Veuillez indiquer votre nom.",
+    "error_email": "Adresse email invalide.",
+    "error_message": "Le message ne peut pas être vide.",
     "privacy": "politique de confidentialité",
     "privacy_text": "Vos données sont traitées conformément à notre"
   },

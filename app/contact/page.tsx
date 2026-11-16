@@ -9,7 +9,16 @@ export default function ContactPage() {
   const router = useRouter();
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: '', email: '', organization: '', message: '' });
+  const [touched, setTouched] = useState({ name: false, email: false, message: false });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const errors = {
+    name: touched.name && form.name.trim() === '' ? t('contact_page.error_name') : '',
+    email: touched.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? t('contact_page.error_email') : '',
+    message: touched.message && form.message.trim() === '' ? t('contact_page.error_message') : '',
+  };
+
+  const markTouched = (field: keyof typeof touched) => setTouched(p => ({ ...p, [field]: true }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,9 +85,11 @@ export default function ContactPage() {
                     required
                     value={form.name}
                     onChange={e => setForm({...form, name: e.target.value})}
+                    onBlur={() => markTouched('name')}
                     placeholder={t('contact_page.placeholder_name')}
-                    className="input-field"
+                    className={`input-field ${errors.name ? 'border-red-400 focus:border-red-500' : ''}`}
                   />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">{t('contact_page.email')} *</label>
@@ -87,9 +98,11 @@ export default function ContactPage() {
                     required
                     value={form.email}
                     onChange={e => setForm({...form, email: e.target.value})}
+                    onBlur={() => markTouched('email')}
                     placeholder={t('contact_page.placeholder_email')}
-                    className="input-field"
+                    className={`input-field ${errors.email ? 'border-red-400 focus:border-red-500' : ''}`}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
               </div>
               <div>
@@ -109,9 +122,11 @@ export default function ContactPage() {
                   rows={5}
                   value={form.message}
                   onChange={e => setForm({...form, message: e.target.value})}
+                  onBlur={() => markTouched('message')}
                   placeholder={t('contact_page.placeholder_message')}
-                  className="input-field resize-none"
+                  className={`input-field resize-none ${errors.message ? 'border-red-400 focus:border-red-500' : ''}`}
                 />
+                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
               </div>
               {status === 'error' && (
                 <p className="text-red-500 text-sm">{t('contact_page.error')}</p>
