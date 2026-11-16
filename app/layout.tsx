@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     description: 'Téléconsultation vidéo, ordonnances numériques, triage IA et suivi chronique. La télémédecine moderne, accessible à tous.',
     images: [
       {
-        url: '/pwa-icon.png',
-        width: 512,
-        height: 512,
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
         alt: 'Medivio — Télémédecine augmentée par l\'IA',
       },
     ],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Medivio — Télémédecine augmentée par l\'IA',
     description: 'Téléconsultation vidéo, ordonnances numériques, triage IA et suivi chronique.',
-    images: ['/pwa-icon.png'],
+    images: ['/og-image.png'],
   },
   appleWebApp: {
     capable: true,
