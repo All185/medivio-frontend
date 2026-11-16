@@ -102,14 +102,13 @@ export default function AuthForm({ mode }: AuthFormProps) {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     {t('auth.role')}
                   </label>
-                  <select
-                    value={form.role}
-                    onChange={(e) => setForm({ ...form, role: e.target.value })}
-                    className="input-field"
-                  >
-                    <option value="patient">{t('auth.patient')}</option>
-                    <option value="doctor">{t('auth.doctor')}</option>
-                  </select>
+                  {/* Rôle fixé à "patient" — l'accès médecin passe uniquement par /demande-acces */}
+                  <input
+                    type="text"
+                    value={t('auth.patient')}
+                    readOnly
+                    className="input-field bg-gray-50 cursor-not-allowed text-gray-500"
+                  />
                 </div>
               </>
             )}

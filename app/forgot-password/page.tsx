@@ -25,7 +25,7 @@ export default function ForgotPasswordPage() {
     )
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: 'https://medivio-frontend.vercel.app/reset-password',
+      redirectTo: `${process.env.NEXT_PUBLIC_APP_URL ?? 'https://medivio.care'}/reset-password`,
     })
 
     if (error) {
