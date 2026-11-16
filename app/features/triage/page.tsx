@@ -37,6 +37,10 @@ export default function TriageFeaturePage() {
           <p className="text-lg sm:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto">
             {t('triage_page.hero_desc')}
           </p>
+          <div className="mt-4 mb-6 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-xs text-amber-800 flex gap-2 max-w-xl mx-auto text-left">
+            <span className="mt-0.5">⚠️</span>
+            <span><strong>{t('triage.disclaimerTitle')}</strong> {t('triage.disclaimer')}</span>
+          </div>
           <button onClick={() => router.push('/register')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105 bg-blue-600">
             {t('triage_page.cta_primary')}
           </button>
