@@ -58,10 +58,9 @@ export default function VerifyPrescriptionPage() {
   async function handleDispense() {
     setDispensing(true);
     try {
-      const authToken = typeof window !== 'undefined' ? localStorage.getItem('access_token') : null;
       const res = await fetch(`/api/prescriptions/dispense/${token}`, {
         method: 'PATCH',
-        headers: authToken ? { Authorization: `Bearer ${authToken}` } : {},
+        credentials: 'include',
       });
       if (res.ok) setDispensed(true);
     } finally {
