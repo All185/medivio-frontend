@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
-import { getUser, getToken, logout } from '@/lib/auth'
+import { getUser, logout } from '@/lib/auth'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import EmergencyBanner from '@/components/EmergencyBanner'
@@ -76,11 +76,10 @@ export default function DoctorDashboard() {
     setInviteStatus('loading')
     setInviteError('')
     try {
-      const token = getToken()
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/patients/invite`, {
         method: 'POST',
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: inviteEmail, first_name: inviteFirstName, last_name: inviteLastName }),
       })
       const data = await res.json()
