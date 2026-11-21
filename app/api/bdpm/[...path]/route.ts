@@ -2,12 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const BDPM_BASE = 'https://medicaments-api.giygas.dev'
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ path: string[] }> }
-) {
-  const { path } = await params
-  const pathname = path.join('/')
+export async function GET(request: NextRequest) {
+  // Extrait le chemin après /api/bdpm/ sans dépendre de params
+  const pathname = request.nextUrl.pathname.replace(/^\/api\/bdpm\/?/, '')
   const search = request.nextUrl.search
 
   const url = `${BDPM_BASE}/${pathname}${search}`
@@ -15,7 +12,7 @@ export async function GET(
   try {
     const res = await fetch(url, {
       headers: { Accept: 'application/json' },
-      next: { revalidate: 300 }, // cache 5 min côté serveur
+      next: { revalidate: 300 },
     })
 
     if (!res.ok) {
@@ -27,9 +24,14 @@ export async function GET(
 
     const data = await res.json()
     return NextResponse.json(data, {
-      headers: { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=60' },
+      headers: {
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=60',
+      },
     })
-  } catch {
-    return NextResponse.json({ error: 'BDPM unreachable' }, { status: 502 })
+  } catch (err) {
+    return NextResponse.json(
+      { error: 'BDPM unreachable', detail: String(err) },
+      { status: 502 }
+    )
   }
 }
