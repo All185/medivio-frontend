@@ -38,6 +38,7 @@ export default function MedicamentSearch({
   const [results, setResults] = useState<Medicament[]>([])
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
+  const [tooManyResults, setTooManyResults] = useState(false)
   const [selected, setSelected] = useState<Medicament | null>(null)
   const [activeIdx, setActiveIdx] = useState(-1)
   const [showRCP, setShowRCP] = useState(false)
@@ -66,12 +67,21 @@ export default function MedicamentSearch({
 
     const controller = new AbortController()
     setLoading(true)
+    setTooManyResults(false)
 
     fetch(`/api/bdpm/v1/medicaments?search=${encodeURIComponent(debouncedQuery)}&pageSize=8`, {
       signal: controller.signal,
     })
       .then(r => r.json())
       .then(data => {
+        // Trop de résultats (>250 dans la BDPM) : afficher un message
+        if (data?.tooManyResults) {
+          setTooManyResults(true)
+          setResults([])
+          setOpen(true)
+          setActiveIdx(-1)
+          return
+        }
         // L'API renvoie { data: [...] } ou directement un tableau
         const list: Medicament[] = Array.isArray(data) ? data : (data?.data ?? data?.medicaments ?? [])
         setResults(list)
@@ -143,8 +153,16 @@ export default function MedicamentSearch({
         ) : null}
       </div>
 
+      {/* Trop de résultats */}
+      {open && tooManyResults && (
+        <div className="absolute z-50 mt-1 w-full bg-white border border-amber-200 rounded-xl shadow-xl px-4 py-3">
+          <p className="text-sm text-amber-700 font-medium">Trop de résultats — affinez la recherche</p>
+          <p className="text-xs text-gray-400 mt-0.5">Ex : &quot;paracetamol 500mg&quot;, &quot;doliprane&quot;, &quot;amoxicilline 1g&quot;</p>
+        </div>
+      )}
+
       {/* Dropdown résultats */}
-      {open && results.length > 0 && (
+      {open && !tooManyResults && results.length > 0 && (
         <ul className="absolute z-50 mt-1 w-full bg-white border border-gray-200 rounded-xl shadow-xl max-h-72 overflow-y-auto">
           {results.map((med, idx) => (
             <li

@@ -3,10 +3,8 @@ import { NextRequest, NextResponse } from 'next/server'
 const BDPM_BASE = 'https://medicaments-api.giygas.dev'
 
 export async function GET(request: NextRequest) {
-  // Extrait le chemin après /api/bdpm/ sans dépendre de params
   const pathname = request.nextUrl.pathname.replace(/^\/api\/bdpm\/?/, '')
   const search = request.nextUrl.search
-
   const url = `${BDPM_BASE}/${pathname}${search}`
 
   try {
@@ -14,6 +12,15 @@ export async function GET(request: NextRequest) {
       headers: { Accept: 'application/json' },
       next: { revalidate: 300 },
     })
+
+    // L'API BDPM retourne 400 quand la requête dépasse 250 résultats
+    // (ex : "paracetamol" seul). On renvoie un tableau vide avec un indicateur.
+    if (res.status === 400) {
+      return NextResponse.json(
+        { data: [], tooManyResults: true },
+        { status: 200 }
+      )
+    }
 
     if (!res.ok) {
       return NextResponse.json(
