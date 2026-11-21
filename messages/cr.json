@@ -1051,5 +1051,16 @@
     "status_active": "Aktif",
     "status_dispensed": "Distribiyé",
     "status_expired": "Ekspire"
+  },
+  "get_started": {
+    "title": "Byenveni sou Medivio",
+    "subtitle": "Ou sé yon pasyan oubyen yon pwofesyonèl lasanté ?",
+    "patient_title": "Mwen sé yon pasyan",
+    "patient_desc": "Kréyé kont-ou gratis pou pran randevou, fè konsiltasyon vidéo é jwenn espas santé-ou.",
+    "patient_cta": "Kréyé kont-mwen",
+    "doctor_title": "Mwen sé yon doktè / établisman",
+    "doctor_desc": "Jwenn aksé a Medivio Pro : ajanda, télékonsiltasyon, dosyé pasyan é òdonnans nimerik.",
+    "doctor_cta": "Fè yon demann aksé",
+    "has_account": "Ou déjà ni yon kont ?"
   }
 }

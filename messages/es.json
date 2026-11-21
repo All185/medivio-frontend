@@ -1047,5 +1047,16 @@
     "status_active": "Activa",
     "status_dispensed": "Dispensada",
     "status_expired": "Expirada"
+  },
+  "get_started": {
+    "title": "Bienvenido a Medivio",
+    "subtitle": "¿Eres paciente o profesional de salud?",
+    "patient_title": "Soy paciente",
+    "patient_desc": "Crea tu cuenta gratuita para pedir citas, consultar por video y acceder a tu espacio de salud.",
+    "patient_cta": "Crear mi cuenta",
+    "doctor_title": "Soy médico / centro de salud",
+    "doctor_desc": "Accede a Medivio Pro: agenda, teleconsulta, historial del paciente y recetas digitales.",
+    "doctor_cta": "Solicitar acceso",
+    "has_account": "¿Ya tienes cuenta?"
   }
 }

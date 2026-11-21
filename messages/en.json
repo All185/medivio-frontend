@@ -1052,5 +1052,16 @@
     "status_active": "Active",
     "status_dispensed": "Dispensed",
     "status_expired": "Expired"
+  },
+  "get_started": {
+    "title": "Welcome to Medivio",
+    "subtitle": "Are you a patient or a healthcare professional?",
+    "patient_title": "I am a patient",
+    "patient_desc": "Create your free account to book appointments, video consult, and access your health space.",
+    "patient_cta": "Create my account",
+    "doctor_title": "I am a doctor / clinic",
+    "doctor_desc": "Access Medivio Pro: scheduling, teleconsultation, patient records and digital prescriptions.",
+    "doctor_cta": "Request access",
+    "has_account": "Already have an account?"
   }
 }

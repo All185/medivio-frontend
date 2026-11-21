@@ -48,7 +48,7 @@ export default function RootPage() {
       {/* CTA sticky mobile — visible après le fold */}
       <div className="fixed bottom-4 left-4 right-4 z-40 sm:hidden">
         <button
-          onClick={() => router.push('/demande-acces')}
+          onClick={() => router.push('/get-started')}
           className="w-full text-white font-bold py-4 rounded-2xl text-base shadow-2xl"
           style={{ background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.4)' }}
         >
@@ -79,7 +79,7 @@ export default function RootPage() {
             {t('landing.hero_desc')}
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            <button onClick={() => router.push('/demande-acces')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
+            <button onClick={() => router.push('/get-started')} className="text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all shadow-lg hover:scale-105" style={{background: 'linear-gradient(135deg, #009E88, #2B5EF8)', boxShadow: '0 8px 32px rgba(43,94,248,0.3)'}}>
               {t('landing.start_free')}
             </button>
             <button onClick={() => router.push('/login')} className="border-2 border-blue-300 hover:border-blue-500 text-blue-600 font-semibold px-8 py-4 rounded-2xl text-lg transition-all hover:bg-blue-50">

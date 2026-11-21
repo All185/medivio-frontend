@@ -17,7 +17,7 @@ export default function PricingPage() {
         </div>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <button onClick={() => router.push('/demande-acces')} className="hidden sm:block text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
+          <button onClick={() => router.push('/get-started')} className="hidden sm:block text-sm text-white font-semibold px-4 py-2 rounded-xl bg-blue-600">
             {t('landing.start_free')}
           </button>
         </div>

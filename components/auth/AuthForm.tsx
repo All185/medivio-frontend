@@ -179,7 +179,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
             <p className="text-center text-sm text-gray-500">
               {mode === 'login' ? (
                 <>{t('auth.noAccount')}{' '}
-                  <a href="/demande-acces" className="text-blue-600 hover:text-blue-700 font-semibold">{t('auth.registerButton')}</a>
+                  <a href="/get-started" className="text-blue-600 hover:text-blue-700 font-semibold">{t('auth.registerButton')}</a>
                 </>
               ) : (
                 <>{t('auth.hasAccount')}{' '}
