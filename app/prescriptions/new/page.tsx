@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import PatientSearch from '@/components/PatientSearch';
+import PatientSearch from '@/components/PatientSearch'
+import MedicamentSearch, { type Medicament } from '@/components/MedicamentSearch';
 
 interface PrescriptionItem {
   medication: string;
@@ -13,6 +14,7 @@ interface PrescriptionItem {
   frequency: string;
   duration: string;
   instructions: string;
+  codeCis?: string;
 }
 
 export default function NewPrescriptionPage() {
@@ -112,11 +114,15 @@ export default function NewPrescriptionPage() {
                       </button>
                     )}
                   </div>
-                  <input
-                    className="w-full border border-gray-300 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder={t('prescription.medication_name')}
+                  <MedicamentSearch
                     value={item.medication}
-                    onChange={e => updateItem(index, 'medication', e.target.value)}
+                    placeholder={t('prescription.medication_name')}
+                    onChange={(name, med?: Medicament) => {
+                      const updated = [...items]
+                      updated[index].medication = name
+                      if (med) updated[index].codeCis = med.codeCis
+                      setItems(updated)
+                    }}
                   />
                   <div className="grid grid-cols-3 gap-3">
                     <input

@@ -269,6 +269,7 @@ export default function DoctorDashboard() {
           {[
             { icon: '/icons/calendar_full-removebg-preview.png', title: t('agenda.button'),            route: '/agenda' },
             { icon: '/icons/clipboard_full.jpg',                 title: t('prescription.doctor_title'), route: '/prescriptions/doctor' },
+            { icon: '/icons/medocs_full-removebg-preview.png',   title: 'Médicaments',                 route: '/medicaments' },
             { icon: '/icons/receipt_full-removebg-preview.png',  title: t('billing.doctor_title'),     route: '/billing/doctor' },
             { icon: '/icons/stats_full.png',                     title: t('analytics.title'),          route: '/analytics' },
           ].map((item, i) => (

@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
       { source: '/api/chronic/:path*',      destination: `${BACKEND_URL}/chronic/:path*` },
       { source: '/api/async-care/:path*',   destination: `${BACKEND_URL}/async-care/:path*` },
       { source: '/api/auth/:path*',         destination: `${BACKEND_URL}/api/v1/auth/:path*` },
+      { source: '/api/bdpm/:path*',         destination: 'https://medicaments-api.giygas.dev/:path*' },
     ]
   },
 }
